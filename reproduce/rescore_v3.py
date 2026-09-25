@@ -47,6 +47,11 @@ def main():
             scorer_hash = hashlib.sha256(f.read()).hexdigest()[:12]
     except Exception:
         scorer_hash = "unknown"
+    src_hashes = {}
+    for sc in SCALES:
+        for arm in ["S0", "S30"]:
+            p = os.path.join(a.manifest_dir, f"RUN_V31_{sc}_{arm}.json")
+            src_hashes[f"RUN_V31_{sc}_{arm}.json"] = sha(p)
 
     rows, table = ["scale,s0_free,s30_free,retention,absolute_drop,n11,n10,n01,n00"], {}
     for sc in SCALES:
@@ -75,10 +80,14 @@ def main():
         print(f"{sc}: {sa}->{sb} p={pval:.4f} stable={stab}", flush=True)
     open(a.out_results, "w", encoding="utf-8").write("\n".join(rows) + "\n")
     res = {"protocol": "V3.3 typed rescore over frozen V3.1 raw generations",
+           "note": "V3.1 manifests carry historical pass labels which are NOT "
+                   "used here; only frozen raw outputs are rescored. The V3.1 "
+                   "generation manifests reference the pre-typed-metadata dataset "
+                   "file; question IDs, ordering, and prompt text are unchanged, "
+                   "only scoring metadata was added afterwards.",
            "dataset_sha256": ds_hash, "scorer": "reproduce/scoring.py",
            "scorer_sha256": scorer_hash,
-           "source_manifests": [f"RUN_V31_{sc}_{arm}.json" for sc in SCALES
-                                for arm in ["S0", "S30"]],
+           "source_manifests": src_hashes,
            "scores": table, "timestamp": time.strftime("%Y-%m-%dT%H:%M")}
     json.dump(res, open(a.out_manifest, "w", encoding="utf-8"), indent=1)
     print(f"wrote {a.out_results} + {a.out_manifest}")

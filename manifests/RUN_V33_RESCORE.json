@@ -1,16 +1,17 @@
 {
  "protocol": "V3.3 typed rescore over frozen V3.1 raw generations",
+ "note": "V3.1 manifests carry historical pass labels which are NOT used here; only frozen raw outputs are rescored. The V3.1 generation manifests reference the pre-typed-metadata dataset file; question IDs, ordering, and prompt text are unchanged, only scoring metadata was added afterwards.",
  "dataset_sha256": "157738b92dd1",
  "scorer": "reproduce/scoring.py",
  "scorer_sha256": "539c496b9399",
- "source_manifests": [
-  "RUN_V31_05B_S0.json",
-  "RUN_V31_05B_S30.json",
-  "RUN_V31_15B_S0.json",
-  "RUN_V31_15B_S30.json",
-  "RUN_V31_3B_S0.json",
-  "RUN_V31_3B_S30.json"
- ],
+ "source_manifests": {
+  "RUN_V31_05B_S0.json": "9c6c60cd90b8",
+  "RUN_V31_05B_S30.json": "fbed0a24b0af",
+  "RUN_V31_15B_S0.json": "5c85d393cd18",
+  "RUN_V31_15B_S30.json": "99b5002c03f7",
+  "RUN_V31_3B_S0.json": "60a615f8daac",
+  "RUN_V31_3B_S30.json": "9890f3f98361"
+ },
  "scores": {
   "05B": {
    "s0": 18,
@@ -43,5 +44,5 @@
    "stable_3x": true
   }
  },
- "timestamp": "2026-09-25T23:44"
+ "timestamp": "2026-09-25T23:57"
 }

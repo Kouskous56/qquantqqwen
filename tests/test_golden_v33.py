@@ -1,4 +1,6 @@
-"""Golden regression: rescore must reproduce canonical V3.3 numbers exactly."""
+"""Golden regression: rescore must reproduce canonical V3.3 numbers exactly.
+Uses temp outputs so pytest never mutates tracked artifacts.
+"""
 import json
 import subprocess
 import sys
@@ -12,19 +14,22 @@ EXPECTED = {
 }
 
 
-def test_golden_v33():
+def test_golden_v33(tmp_path):
+    out_csv = str(tmp_path / "v3.csv")
+    out_js = str(tmp_path / "RUN_V33.json")
     r = subprocess.run(
         [sys.executable, os.path.join(ROOT, "reproduce", "rescore_v3.py"),
          "--manifest-dir", os.path.join(ROOT, "manifests"),
          "--questions", os.path.join(ROOT, "data", "v2", "questions.json"),
-         "--out-results", os.path.join(ROOT, "results", "v3_cross_scale.csv"),
-         "--out-manifest", os.path.join(ROOT, "manifests", "RUN_V33_RESCORE.json")],
+         "--out-results", out_csv,
+         "--out-manifest", out_js],
         capture_output=True, text=True)
     assert r.returncode == 0, r.stderr[-500:]
     got = {}
-    for ln in open(os.path.join(ROOT, "results", "v3_cross_scale.csv"),
-                   encoding="utf-8").read().strip().split("\n")[1:]:
+    for ln in open(out_csv, encoding="utf-8").read().strip().split("\n")[1:]:
         p = ln.split(",")
         got[p[0]] = {"s0": int(p[1]), "s30": int(p[2]), "n11": int(p[5]),
                      "n10": int(p[6]), "n01": int(p[7]), "n00": int(p[8])}
     assert got == EXPECTED, f"drift: {got}"
+    m = json.load(open(out_js, encoding="utf-8"))
+    assert m["scores"]["05B"]["s0"] == 18
