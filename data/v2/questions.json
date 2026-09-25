@@ -382,7 +382,7 @@
    "(4,6)"
   ],
   "answer": "B",
-  "answer_type": "unordered_numeric_set",
+  "answer_type": "ordered_numeric_tuple",
   "accepted": [
    "(2,3)",
    "2,3",
