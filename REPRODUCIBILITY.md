@@ -46,7 +46,8 @@ Every decisive run stores versions, dataset hashes and run IDs — see `manifest
 Legacy development scripts live in `legacy/`; canonical entry points are `reproduce/`.
 
 ## V3 unified cross-scale (canonical current)
-bash
+```bash
 python reproduce/eval_v3.py --model MODELROOT/<dense-or-pruned> --questions data/v2/questions.json --out results/v3.json
+```
 Expected free x3 reps: 0.5B 17/17/17 -> 12/12/12; 1.5B 39x3 -> 33x3; 3B 40x3 -> 39x3.
 Manifests: RUN_V31_*_S0/S30. Retention: 71%, 85%, 97.5%.
