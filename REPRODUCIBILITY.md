@@ -11,16 +11,20 @@ python reproduce/eval_ppl.py --model $MODELROOT/Qwen2.5-0.5B-FP16 \
 Expected: `05B-s0 ≈ 15.11`, `05B-s30 ≈ 16.31`, `15B-s0 ≈ 9.93`,
 `15B-s30 ≈ 10.58`, `3B-s0 ≈ 8.76`, `3B-s30 ≈ 9.31` (see `results/standardized_ppl.csv`).
 
-## V2 behavioral eval - quantization agreement (legacy GGUF block)
-\\ash
+## V2 behavioral eval - quantization agreement (legacy GGUF block, historical)
+```bash
 python reproduce/eval_v2.py --model model-q4.gguf --questions data/v2/questions.json --use-template --out results/v2_3b.json
-\Expected (3B self-Q4): perm about 149/200, free about 37/50.
+```
+Expected (3B self-Q4, historical): perm about 149/200, free about 37/50.
 
-## V3 unified cross-scale pruning (canonical HF block)
-\\ash
-python reproduce/eval_v3.py --model \/<dense-or-pruned> --questions data/v2/questions.json --out results/v3.json
-\Expected free: 0.5B 15->10 (67%), 1.5B 38->31 (82%), 3B 38->37 (97%).
-Manifests: RUN_V3_05B_S0/S30, RUN_V3_15B_S0/S30, RUN_V3_3B_S0/S30. Do not mix GGUF-block and HF-block numbers.
+## V3.3 unified cross-scale pruning (canonical current)
+Generate once per arm (3 reps), then rescore frozen raws (no GPU needed):
+```bash
+python reproduce/eval_v3b.py --model $MODELROOT/<dense-or-pruned> --questions data/v2/questions.json --out results/v3.json --tag <arm>
+python reproduce/rescore_v3.py --manifest-dir manifests --questions data/v2/questions.json --out-results results/v3_cross_scale.csv --out-manifest manifests/RUN_V33_RESCORE.json
+```
+Expected: 0.5B 18->11 (61%), 1.5B 40->33 (82.5%), 3B 42->40 (95%).
+Manifests: RUN_V31_* (frozen raws) + RUN_V33_RESCORE.json. Do not mix GGUF-block and HF-block numbers.
 
 ## GSM8K held-out (Claim: recovery is domain-specific)
 ```bash
@@ -44,16 +48,3 @@ Expected: merged sparsity → 0.00, masked stays 0.30.
 ## Manifests
 Every decisive run stores versions, dataset hashes and run IDs — see `manifests/`.
 Legacy development scripts live in `legacy/`; canonical entry points are `reproduce/`.
-
-## V3 unified cross-scale (canonical current)
-```bash
-python reproduce/eval_v3.py --model MODELROOT/<dense-or-pruned> --questions data/v2/questions.json --out results/v3.json
-```
-Expected free x3 reps (V3.3 typed scorer): 0.5B 18x3 -> 11x3; 1.5B 40x3 -> 33x3; 3B 42x3 -> 40x3. Retention: 61%, 82.5%, 95%.
-Manifests: RUN_V31_*_S0/S30. Retention: 71%, 85%, 97.5%.
-
-## V3.2 typed rescore (canonical current)
-V3.1 raw generations are frozen; rescoring applies typed answer semantics
-(numeric-exact final number, unordered sets, symbolic whole-answer equality).
-See scripts/rescore_v32.py (local dev) and results/v3_cross_scale.csv:
-0.5B 17->11 (65%), 1.5B 33->28 (85%), 3B 37->35 (95%).

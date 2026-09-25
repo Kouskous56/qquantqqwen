@@ -1,0 +1,47 @@
+{
+ "protocol": "V3.3 typed rescore over frozen V3.1 raw generations",
+ "dataset_sha256": "157738b92dd1",
+ "scorer": "reproduce/scoring.py",
+ "scorer_sha256": "539c496b9399",
+ "source_manifests": [
+  "RUN_V31_05B_S0.json",
+  "RUN_V31_05B_S30.json",
+  "RUN_V31_15B_S0.json",
+  "RUN_V31_15B_S30.json",
+  "RUN_V31_3B_S0.json",
+  "RUN_V31_3B_S30.json"
+ ],
+ "scores": {
+  "05B": {
+   "s0": 18,
+   "s30": 11,
+   "n11": 8,
+   "n10": 10,
+   "n01": 3,
+   "n00": 29,
+   "mcnemar_p": 0.0923,
+   "stable_3x": true
+  },
+  "15B": {
+   "s0": 40,
+   "s30": 33,
+   "n11": 33,
+   "n10": 7,
+   "n01": 0,
+   "n00": 10,
+   "mcnemar_p": 0.0156,
+   "stable_3x": true
+  },
+  "3B": {
+   "s0": 42,
+   "s30": 40,
+   "n11": 39,
+   "n10": 3,
+   "n01": 1,
+   "n00": 7,
+   "mcnemar_p": 0.625,
+   "stable_3x": true
+  }
+ },
+ "timestamp": "2026-09-25T23:44"
+}

@@ -1,7 +1,8 @@
 # Quantization, Sparsity, and Behavioral Robustness of Qwen LLMs under Edge Hardware Constraints
 
 This repository accompanies the technical report of the same name
-(`paper/paper_v1.pdf`). The central finding is that **similar perplexity
+(manuscript temporarily omitted while the reproducibility package is finalized;
+the arXiv version will be linked at release). The central finding is that **similar perplexity
 degradation under pruning can correspond to substantially different behavioral
 degradation across Qwen2.5 model scales**.
 
@@ -11,8 +12,7 @@ degradation across Qwen2.5 model scales**.
 | 1.5B | +6.5% | 82.5% (V3.3 typed: 33/40) |
 | 3B | +6.3% | 95% (V3.3 typed: 40/42) |
 
-*The &gt;100% value is from a finite 50-item suite and is not interpreted as an
-improvement from pruning.
+*V3.3 canonical: typed rescore over frozen V3.1 raw generations; McNemar exact in manifests/RUN_V33_RESCORE.json.*
 
 ## Repository map
 
