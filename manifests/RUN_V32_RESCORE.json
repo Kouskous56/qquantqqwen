@@ -10,5 +10,14 @@
   "05B": "11/18 retention 61%, mcnemar_exact 0.146",
   "15B": "28/33 retention 85%, mcnemar_exact 0.070",
   "3B": "35/37 retention 95%, mcnemar_exact 0.375"
+ },
+ "v3_3_final": {
+  "protocol": "v3.3-typed-rescore over frozen V3.1 raws",
+  "mcnemar_exact": {
+   "05B": 0.092,
+   "15B": 0.016,
+   "3B": 0.625
+  },
+  "note": "Only 1.5B pairwise significant at .05; trend evidence is monotonic retention + absolute drops 7,7,2."
  }
 }

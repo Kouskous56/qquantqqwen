@@ -49,7 +49,7 @@ Legacy development scripts live in `legacy/`; canonical entry points are `reprod
 ```bash
 python reproduce/eval_v3.py --model MODELROOT/<dense-or-pruned> --questions data/v2/questions.json --out results/v3.json
 ```
-Expected free x3 reps: 0.5B 17/17/17 -> 12/12/12; 1.5B 39x3 -> 33x3; 3B 40x3 -> 39x3.
+Expected free x3 reps (V3.3 typed scorer): 0.5B 18x3 -> 11x3; 1.5B 40x3 -> 33x3; 3B 42x3 -> 40x3. Retention: 61%, 82.5%, 95%.
 Manifests: RUN_V31_*_S0/S30. Retention: 71%, 85%, 97.5%.
 
 ## V3.2 typed rescore (canonical current)
