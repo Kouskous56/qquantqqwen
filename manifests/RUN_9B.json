@@ -1,0 +1,46 @@
+{
+ "run_id": "9B-20260923-2108",
+ "params": {
+  "n_ctx": 1024,
+  "max_tokens": 30,
+  "temperature": 0.0
+ },
+ "results": {
+  "dense-F16": {
+   "free_reps": [
+    18,
+    18,
+    18
+   ],
+   "perm": 64,
+   "b_rate": 0.29
+  },
+  "dense-Q4": {
+   "free_reps": [
+    16,
+    16,
+    16
+   ],
+   "perm": 61,
+   "b_rate": 0.045
+  },
+  "s20-F16": {
+   "free_reps": [
+    18,
+    18,
+    18
+   ],
+   "perm": 66,
+   "b_rate": 0.295
+  },
+  "s20-Q4": {
+   "free_reps": [
+    17,
+    17,
+    17
+   ],
+   "perm": 58,
+   "b_rate": 0.25
+  }
+ }
+}

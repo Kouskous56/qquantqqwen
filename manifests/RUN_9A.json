@@ -1,0 +1,31 @@
+{
+ "run_id": "9A-20260923-2102",
+ "params": {
+  "n_ctx": 1024,
+  "max_tokens": 30,
+  "temperature": 0.0
+ },
+ "dataset_hash": "d97f9ec0b669",
+ "versions": {
+  "torch": "2.9.0+cu129",
+  "transformers": "5.17.0",
+  "python": "3.11.9"
+ },
+ "models": {
+  "F16": "D:/qwen/models/Qwen2.5-0.5B/my-qwen05-f16.gguf",
+  "Q4": "D:/qwen/models/Qwen2.5-0.5B/my-qwen05-q4_k_m.gguf"
+ },
+ "note": "chat-template via create_chat_completion, greedy",
+ "rep_scores": {
+  "F16": [
+   18,
+   18,
+   18
+  ],
+  "Q4": [
+   16,
+   16,
+   16
+  ]
+ }
+}

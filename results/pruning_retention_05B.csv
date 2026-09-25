@@ -1,0 +1,5 @@
+variant,free_rep1,free_rep2,free_rep3,perm_200
+dense-F16,18,18,18,64
+dense-Q4,16,16,16,61
+s20-F16,18,18,18,66
+s20-Q4,17,17,17,58

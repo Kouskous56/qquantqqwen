@@ -1,0 +1,50 @@
+{
+ "config": "512/256 token-weighted no-template fp16",
+ "results": {
+  "05B-s0": {
+   "ppl": 15.11,
+   "tokens": 12800,
+   "runtime_s": 7.2
+  },
+  "05B-s30": {
+   "ppl": 16.31,
+   "tokens": 12800,
+   "runtime_s": 4.5
+  },
+  "15B-s0": {
+   "ppl": 9.93,
+   "tokens": 12800,
+   "runtime_s": 9.7
+  },
+  "15B-s30": {
+   "ppl": 10.58,
+   "tokens": 12800,
+   "runtime_s": 9.7
+  },
+  "3B-s0": {
+   "ppl": 8.76,
+   "tokens": 12800,
+   "runtime_s": 216.8
+  },
+  "3B-s30": {
+   "ppl": 9.31,
+   "tokens": 12800,
+   "runtime_s": 335.2
+  },
+  "3B-s40": {
+   "ppl": 10.5,
+   "tokens": 12800,
+   "runtime_s": 361.0
+  },
+  "3B-s50": {
+   "ppl": 12.98,
+   "tokens": 12800,
+   "runtime_s": 427.9
+  },
+  "3B-sgpt24": {
+   "ppl": 15.23,
+   "tokens": 12800,
+   "runtime_s": 246.2
+  }
+ }
+}
