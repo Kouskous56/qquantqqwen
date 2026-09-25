@@ -9,7 +9,10 @@
    "15",
    "16"
   ],
-  "answer": "C"
+  "answer": "C",
+  "accepted": [
+   "15"
+  ]
  },
  {
   "id": "b02",
@@ -21,7 +24,10 @@
    "72",
    "76"
   ],
-  "answer": "C"
+  "answer": "C",
+  "accepted": [
+   "72"
+  ]
  },
  {
   "id": "b03",
@@ -33,7 +39,10 @@
    "55",
    "65"
   ],
-  "answer": "C"
+  "answer": "C",
+  "accepted": [
+   "55"
+  ]
  },
  {
   "id": "b04",
@@ -45,7 +54,10 @@
    "81",
    "89"
   ],
-  "answer": "C"
+  "answer": "C",
+  "accepted": [
+   "81"
+  ]
  },
  {
   "id": "b05",
@@ -57,7 +69,10 @@
    "25",
    "30"
   ],
-  "answer": "C"
+  "answer": "C",
+  "accepted": [
+   "25"
+  ]
  },
  {
   "id": "b06",
@@ -69,7 +84,10 @@
    "7",
    "14"
   ],
-  "answer": "B"
+  "answer": "B",
+  "accepted": [
+   "25"
+  ]
  },
  {
   "id": "b07",
@@ -81,7 +99,10 @@
    "12",
    "14"
   ],
-  "answer": "C"
+  "answer": "C",
+  "accepted": [
+   "12"
+  ]
  },
  {
   "id": "b08",
@@ -93,7 +114,10 @@
    "9",
    "12"
   ],
-  "answer": "B"
+  "answer": "B",
+  "accepted": [
+   "8"
+  ]
  },
  {
   "id": "b09",
@@ -105,7 +129,10 @@
    "30",
    "35"
   ],
-  "answer": "C"
+  "answer": "C",
+  "accepted": [
+   "30"
+  ]
  },
  {
   "id": "b10",
@@ -117,7 +144,10 @@
    "32",
    "36"
   ],
-  "answer": "D"
+  "answer": "D",
+  "accepted": [
+   "36"
+  ]
  },
  {
   "id": "b11",
@@ -129,7 +159,10 @@
    "56",
    "66"
   ],
-  "answer": "A"
+  "answer": "A",
+  "accepted": [
+   "46"
+  ]
  },
  {
   "id": "b12",
@@ -141,7 +174,10 @@
    "11",
    "13"
   ],
-  "answer": "C"
+  "answer": "C",
+  "accepted": [
+   "11"
+  ]
  },
  {
   "id": "b13",
@@ -153,7 +189,10 @@
    "9",
    "12"
   ],
-  "answer": "B"
+  "answer": "B",
+  "accepted": [
+   "6"
+  ]
  },
  {
   "id": "b14",
@@ -165,7 +204,10 @@
    "120",
    "150"
   ],
-  "answer": "C"
+  "answer": "C",
+  "accepted": [
+   "120"
+  ]
  },
  {
   "id": "b15",
@@ -177,11 +219,14 @@
    "0.75",
    "0.8"
   ],
-  "answer": "C"
+  "answer": "C",
+  "accepted": [
+   "0.75"
+  ]
  },
  {
   "id": "h16",
-  "band": "highschool",
+  "band": "high_school",
   "question": "Solve 2x + 6 = 14. x = ?",
   "choices": [
    "2",
@@ -189,11 +234,14 @@
    "4",
    "5"
   ],
-  "answer": "C"
+  "answer": "C",
+  "accepted": [
+   "4"
+  ]
  },
  {
   "id": "h17",
-  "band": "highschool",
+  "band": "high_school",
   "question": "Roots of x^2 - 5x + 6 = 0?",
   "choices": [
    "1,6",
@@ -201,11 +249,17 @@
    "-2,-3",
    "0,5"
   ],
-  "answer": "B"
+  "answer": "B",
+  "accepted": [
+   "2,3",
+   "2, 3",
+   "(2,3)",
+   "2 and 3"
+  ]
  },
  {
   "id": "h18",
-  "band": "highschool",
+  "band": "high_school",
   "question": "Slope of y = 3x + 2?",
   "choices": [
    "2",
@@ -213,11 +267,14 @@
    "5",
    "6"
   ],
-  "answer": "B"
+  "answer": "B",
+  "accepted": [
+   "3"
+  ]
  },
  {
   "id": "h19",
-  "band": "highschool",
+  "band": "high_school",
   "question": "sin(30 degrees) = ?",
   "choices": [
    "0",
@@ -225,11 +282,15 @@
    "sqrt(2)/2",
    "1"
   ],
-  "answer": "B"
+  "answer": "B",
+  "accepted": [
+   "1/2",
+   "0.5"
+  ]
  },
  {
   "id": "h20",
-  "band": "highschool",
+  "band": "high_school",
   "question": "log10(1000) = ?",
   "choices": [
    "2",
@@ -237,11 +298,14 @@
    "4",
    "10"
   ],
-  "answer": "B"
+  "answer": "B",
+  "accepted": [
+   "3"
+  ]
  },
  {
   "id": "h21",
-  "band": "highschool",
+  "band": "high_school",
   "question": "C(5,2) = number of 2-subsets of 5 items?",
   "choices": [
    "5",
@@ -249,11 +313,14 @@
    "15",
    "20"
   ],
-  "answer": "B"
+  "answer": "B",
+  "accepted": [
+   "10"
+  ]
  },
  {
   "id": "h22",
-  "band": "highschool",
+  "band": "high_school",
   "question": "Sum 1+2+...+10 = ?",
   "choices": [
    "45",
@@ -261,11 +328,14 @@
    "55",
    "60"
   ],
-  "answer": "C"
+  "answer": "C",
+  "accepted": [
+   "55"
+  ]
  },
  {
   "id": "h23",
-  "band": "highschool",
+  "band": "high_school",
   "question": "Area of circle radius 2?",
   "choices": [
    "2pi",
@@ -273,11 +343,17 @@
    "8pi",
    "16pi"
   ],
-  "answer": "B"
+  "answer": "B",
+  "accepted": [
+   "4pi",
+   "4pi",
+   "4*pi",
+   "4 pi"
+  ]
  },
  {
   "id": "h24",
-  "band": "highschool",
+  "band": "high_school",
   "question": "Midpoint of (0,0) and (4,6)?",
   "choices": [
    "(2,2)",
@@ -285,11 +361,16 @@
    "(3,2)",
    "(4,6)"
   ],
-  "answer": "B"
+  "answer": "B",
+  "accepted": [
+   "(2,3)",
+   "2,3",
+   "2, 3"
+  ]
  },
  {
   "id": "h25",
-  "band": "highschool",
+  "band": "high_school",
   "question": "2^10 = ?",
   "choices": [
    "512",
@@ -297,11 +378,14 @@
    "1024",
    "2048"
   ],
-  "answer": "C"
+  "answer": "C",
+  "accepted": [
+   "1024"
+  ]
  },
  {
   "id": "h26",
-  "band": "highschool",
+  "band": "high_school",
   "question": "Discriminant of x^2 + 2x + 1?",
   "choices": [
    "-4",
@@ -309,11 +393,14 @@
    "1",
    "4"
   ],
-  "answer": "B"
+  "answer": "B",
+  "accepted": [
+   "0"
+  ]
  },
  {
   "id": "h27",
-  "band": "highschool",
+  "band": "high_school",
   "question": "Derivative of x^3?",
   "choices": [
    "3x",
@@ -321,11 +408,16 @@
    "x^2",
    "6x"
   ],
-  "answer": "B"
+  "answer": "B",
+  "accepted": [
+   "3x^2",
+   "3x^2",
+   "3*x^2"
+  ]
  },
  {
   "id": "h28",
-  "band": "highschool",
+  "band": "high_school",
   "question": "i^2 where i is imaginary unit?",
   "choices": [
    "1",
@@ -333,11 +425,14 @@
    "0",
    "i"
   ],
-  "answer": "B"
+  "answer": "B",
+  "accepted": [
+   "-1"
+  ]
  },
  {
   "id": "h29",
-  "band": "highschool",
+  "band": "high_school",
   "question": "Next in 3, 6, 12, ...?",
   "choices": [
    "18",
@@ -345,11 +440,14 @@
    "24",
    "36"
   ],
-  "answer": "C"
+  "answer": "C",
+  "accepted": [
+   "24"
+  ]
  },
  {
   "id": "h30",
-  "band": "highschool",
+  "band": "high_school",
   "question": "Probability of two heads in two fair coin flips?",
   "choices": [
    "1/2",
@@ -357,11 +455,15 @@
    "1/4",
    "1/8"
   ],
-  "answer": "C"
+  "answer": "C",
+  "accepted": [
+   "1/4",
+   "0.25"
+  ]
  },
  {
   "id": "o31",
-  "band": "olympiad",
+  "band": "contest_style",
   "question": "Last digit of 7^100?",
   "choices": [
    "1",
@@ -369,11 +471,14 @@
    "7",
    "9"
   ],
-  "answer": "A"
+  "answer": "A",
+  "accepted": [
+   "1"
+  ]
  },
  {
   "id": "o32",
-  "band": "olympiad",
+  "band": "contest_style",
   "question": "Remainder of 2^10 divided by 7?",
   "choices": [
    "1",
@@ -381,11 +486,14 @@
    "3",
    "4"
   ],
-  "answer": "B"
+  "answer": "B",
+  "accepted": [
+   "2"
+  ]
  },
  {
   "id": "o33",
-  "band": "olympiad",
+  "band": "contest_style",
   "question": "Smallest n such that n! ends with 00?",
   "choices": [
    "5",
@@ -393,11 +501,14 @@
    "10",
    "12"
   ],
-  "answer": "C"
+  "answer": "C",
+  "accepted": [
+   "10"
+  ]
  },
  {
   "id": "o34",
-  "band": "olympiad",
+  "band": "contest_style",
   "question": "a+b=10 and ab=21. |a-b| = ?",
   "choices": [
    "2",
@@ -405,11 +516,14 @@
    "5",
    "8"
   ],
-  "answer": "B"
+  "answer": "B",
+  "accepted": [
+   "4"
+  ]
  },
  {
   "id": "o35",
-  "band": "olympiad",
+  "band": "contest_style",
   "question": "Diagonals of a hexagon?",
   "choices": [
    "6",
@@ -417,11 +531,14 @@
    "12",
    "15"
   ],
-  "answer": "B"
+  "answer": "B",
+  "accepted": [
+   "9"
+  ]
  },
  {
   "id": "o36",
-  "band": "olympiad",
+  "band": "contest_style",
   "question": "1+3+5+...+99 = ?",
   "choices": [
    "1000",
@@ -429,11 +546,14 @@
    "2500",
    "10000"
   ],
-  "answer": "C"
+  "answer": "C",
+  "accepted": [
+   "2500"
+  ]
  },
  {
   "id": "o37",
-  "band": "olympiad",
+  "band": "contest_style",
   "question": "Trailing zeros of 20! = ?",
   "choices": [
    "3",
@@ -441,11 +561,14 @@
    "5",
    "6"
   ],
-  "answer": "B"
+  "answer": "B",
+  "accepted": [
+   "4"
+  ]
  },
  {
   "id": "o38",
-  "band": "olympiad",
+  "band": "contest_style",
   "question": "If n^2 ends in digit 6, ones digit of n is 4 or 6. Which is listed?",
   "choices": [
    "2",
@@ -453,11 +576,14 @@
    "5",
    "8"
   ],
-  "answer": "B"
+  "answer": "B",
+  "accepted": [
+   "4"
+  ]
  },
  {
   "id": "o39",
-  "band": "olympiad",
+  "band": "contest_style",
   "question": "Sum of interior angles of a pentagon?",
   "choices": [
    "360",
@@ -465,11 +591,14 @@
    "540",
    "720"
   ],
-  "answer": "C"
+  "answer": "C",
+  "accepted": [
+   "540"
+  ]
  },
  {
   "id": "o40",
-  "band": "olympiad",
+  "band": "contest_style",
   "question": "Smallest prime greater than 50?",
   "choices": [
    "51",
@@ -477,11 +606,14 @@
    "55",
    "59"
   ],
-  "answer": "B"
+  "answer": "B",
+  "accepted": [
+   "53"
+  ]
  },
  {
   "id": "a41",
-  "band": "higher",
+  "band": "intro_university",
   "question": "Limit of sin(x)/x as x->0?",
   "choices": [
    "0",
@@ -489,11 +621,14 @@
    "1",
    "infinity"
   ],
-  "answer": "C"
+  "answer": "C",
+  "accepted": [
+   "1"
+  ]
  },
  {
   "id": "a42",
-  "band": "higher",
+  "band": "intro_university",
   "question": "Integral from 0 to 1 of x dx?",
   "choices": [
    "0",
@@ -501,11 +636,15 @@
    "1/2",
    "1"
   ],
-  "answer": "C"
+  "answer": "C",
+  "accepted": [
+   "1/2",
+   "0.5"
+  ]
  },
  {
   "id": "a43",
-  "band": "higher",
+  "band": "intro_university",
   "question": "Determinant of [[1,2],[3,4]]?",
   "choices": [
    "-2",
@@ -513,11 +652,14 @@
    "-1",
    "10"
   ],
-  "answer": "A"
+  "answer": "A",
+  "accepted": [
+   "-2"
+  ]
  },
  {
   "id": "a44",
-  "band": "higher",
+  "band": "intro_university",
   "question": "Eigenvalues of 2x2 identity matrix?",
   "choices": [
    "0,0",
@@ -525,11 +667,16 @@
    "1,-1",
    "2,2"
   ],
-  "answer": "B"
+  "answer": "B",
+  "accepted": [
+   "1,1",
+   "1, 1",
+   "(1,1)"
+  ]
  },
  {
   "id": "a45",
-  "band": "higher",
+  "band": "intro_university",
   "question": "Derivative of e^x?",
   "choices": [
    "e^x",
@@ -537,11 +684,16 @@
    "1",
    "0"
   ],
-  "answer": "A"
+  "answer": "A",
+  "accepted": [
+   "e^x",
+   "e**x",
+   "exp(x)"
+  ]
  },
  {
   "id": "a46",
-  "band": "higher",
+  "band": "intro_university",
   "question": "A,B independent, P(A)=0.5 P(B)=0.4. P(A and B)?",
   "choices": [
    "0.1",
@@ -549,11 +701,14 @@
    "0.45",
    "0.9"
   ],
-  "answer": "B"
+  "answer": "B",
+  "accepted": [
+   "0.2"
+  ]
  },
  {
   "id": "a47",
-  "band": "higher",
+  "band": "intro_university",
   "question": "Rank of 2x2 zero matrix?",
   "choices": [
    "0",
@@ -561,11 +716,14 @@
    "2",
    "undefined"
   ],
-  "answer": "A"
+  "answer": "A",
+  "accepted": [
+   "0"
+  ]
  },
  {
   "id": "a48",
-  "band": "higher",
+  "band": "intro_university",
   "question": "Integral of e^x dx?",
   "choices": [
    "e^x + C",
@@ -573,11 +731,16 @@
    "ln(x)",
    "1/x"
   ],
-  "answer": "A"
+  "answer": "A",
+  "accepted": [
+   "e^x + c",
+   "e^x+c",
+   "e^x"
+  ]
  },
  {
   "id": "a49",
-  "band": "higher",
+  "band": "intro_university",
   "question": "Solution of dy/dx = y with y(0)=1?",
   "choices": [
    "x",
@@ -585,11 +748,16 @@
    "ln(x)",
    "1+x"
   ],
-  "answer": "B"
+  "answer": "B",
+  "accepted": [
+   "e^x",
+   "e**x",
+   "exp(x)"
+  ]
  },
  {
   "id": "a50",
-  "band": "higher",
+  "band": "intro_university",
   "question": "A square matrix with determinant 0 is called?",
   "choices": [
    "symmetric",
@@ -597,6 +765,9 @@
    "singular",
    "orthogonal"
   ],
-  "answer": "C"
+  "answer": "C",
+  "accepted": [
+   "singular"
+  ]
  }
 ]

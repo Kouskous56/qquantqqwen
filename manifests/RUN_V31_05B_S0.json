@@ -1,0 +1,777 @@
+{
+ "run_id": "V31-s0-05B-20260925-2231",
+ "model": "D:/qwen/models/Qwen2.5-0.5B-FP16",
+ "protocol": "v3.1-final-answer-accepted-alias",
+ "script_sha256": "689631b78649",
+ "dataset": "D:\\qwen_release\\data\\v2\\questions.json",
+ "dataset_sha256": "af39a5e3a944",
+ "torch": "2.9.0+cu129",
+ "transformers": "5.17.0",
+ "cuda": "12.9",
+ "gpu": "NVIDIA GeForce RTX 4050 Laptop GPU",
+ "max_new_tokens": 30,
+ "do_sample": false,
+ "rep_scores": [
+  17,
+  17,
+  17
+ ],
+ "rep_items": [
+  [
+   {
+    "id": "b01",
+    "pass": true,
+    "out": "15<|im_end|>"
+   },
+   {
+    "id": "b02",
+    "pass": true,
+    "out": "72<|im_end|>"
+   },
+   {
+    "id": "b03",
+    "pass": true,
+    "out": "55<|im_end|>"
+   },
+   {
+    "id": "b04",
+    "pass": true,
+    "out": "81<|im_end|>"
+   },
+   {
+    "id": "b05",
+    "pass": true,
+    "out": "25<|im_end|>"
+   },
+   {
+    "id": "b06",
+    "pass": true,
+    "out": "25<|im_end|>"
+   },
+   {
+    "id": "b07",
+    "pass": true,
+    "out": "12<|im_end|>"
+   },
+   {
+    "id": "b08",
+    "pass": true,
+    "out": "8<|im_end|>"
+   },
+   {
+    "id": "b09",
+    "pass": true,
+    "out": "30<|im_end|>"
+   },
+   {
+    "id": "b10",
+    "pass": false,
+    "out": "24<|im_end|>"
+   },
+   {
+    "id": "b11",
+    "pass": false,
+    "out": "54<|im_end|>"
+   },
+   {
+    "id": "b12",
+    "pass": true,
+    "out": "11<|im_end|>"
+   },
+   {
+    "id": "b13",
+    "pass": false,
+    "out": "3<|im_end|>"
+   },
+   {
+    "id": "b14",
+    "pass": true,
+    "out": "120<|im_end|>"
+   },
+   {
+    "id": "b15",
+    "pass": false,
+    "out": "1.75<|im_end|>"
+   },
+   {
+    "id": "h16",
+    "pass": false,
+    "out": "3<|im_end|>"
+   },
+   {
+    "id": "h17",
+    "pass": false,
+    "out": "1<|im_end|>"
+   },
+   {
+    "id": "h18",
+    "pass": false,
+    "out": "0.5<|im_end|>"
+   },
+   {
+    "id": "h19",
+    "pass": true,
+    "out": "0.5<|im_end|>"
+   },
+   {
+    "id": "h20",
+    "pass": false,
+    "out": "2<|im_end|>"
+   },
+   {
+    "id": "h21",
+    "pass": false,
+    "out": "6<|im_end|>"
+   },
+   {
+    "id": "h22",
+    "pass": true,
+    "out": "55<|im_end|>"
+   },
+   {
+    "id": "h23",
+    "pass": false,
+    "out": "$4\\pi$<|im_end|>"
+   },
+   {
+    "id": "h24",
+    "pass": false,
+    "out": "2.5<|im_end|>"
+   },
+   {
+    "id": "h25",
+    "pass": true,
+    "out": "1024<|im_end|>"
+   },
+   {
+    "id": "h26",
+    "pass": false,
+    "out": "1<|im_end|>"
+   },
+   {
+    "id": "h27",
+    "pass": false,
+    "out": "12<|im_end|>"
+   },
+   {
+    "id": "h28",
+    "pass": false,
+    "out": "1<|im_end|>"
+   },
+   {
+    "id": "h29",
+    "pass": false,
+    "out": "18<|im_end|>"
+   },
+   {
+    "id": "h30",
+    "pass": false,
+    "out": "0.5<|im_end|>"
+   },
+   {
+    "id": "o31",
+    "pass": false,
+    "out": "7<|im_end|>"
+   },
+   {
+    "id": "o32",
+    "pass": false,
+    "out": "342<|im_end|>"
+   },
+   {
+    "id": "o33",
+    "pass": false,
+    "out": "6<|im_end|>"
+   },
+   {
+    "id": "o34",
+    "pass": false,
+    "out": "5<|im_end|>"
+   },
+   {
+    "id": "o35",
+    "pass": false,
+    "out": "6<|im_end|>"
+   },
+   {
+    "id": "o36",
+    "pass": false,
+    "out": "400<|im_end|>"
+   },
+   {
+    "id": "o37",
+    "pass": false,
+    "out": "8640320<|im_end|>"
+   },
+   {
+    "id": "o38",
+    "pass": false,
+    "out": "10<|im_end|>"
+   },
+   {
+    "id": "o39",
+    "pass": false,
+    "out": "360<|im_end|>"
+   },
+   {
+    "id": "o40",
+    "pass": false,
+    "out": "29<|im_end|>"
+   },
+   {
+    "id": "a41",
+    "pass": true,
+    "out": "1<|im_end|>"
+   },
+   {
+    "id": "a42",
+    "pass": true,
+    "out": "0.5<|im_end|>"
+   },
+   {
+    "id": "a43",
+    "pass": false,
+    "out": "6<|im_end|>"
+   },
+   {
+    "id": "a44",
+    "pass": false,
+    "out": "1<|im_end|>"
+   },
+   {
+    "id": "a45",
+    "pass": false,
+    "out": "1<|im_end|>"
+   },
+   {
+    "id": "a46",
+    "pass": true,
+    "out": "0.2<|im_end|>"
+   },
+   {
+    "id": "a47",
+    "pass": false,
+    "out": "1<|im_end|>"
+   },
+   {
+    "id": "a48",
+    "pass": false,
+    "out": "π/e + C<|im_end|>"
+   },
+   {
+    "id": "a49",
+    "pass": false,
+    "out": "The solution to the differential equation \\( \\frac{dy}{dx} = y \\) with the initial condition \\( y(0) = 1"
+   },
+   {
+    "id": "a50",
+    "pass": false,
+    "out": "zero determinant<|im_end|>"
+   }
+  ],
+  [
+   {
+    "id": "b01",
+    "pass": true,
+    "out": "15<|im_end|>"
+   },
+   {
+    "id": "b02",
+    "pass": true,
+    "out": "72<|im_end|>"
+   },
+   {
+    "id": "b03",
+    "pass": true,
+    "out": "55<|im_end|>"
+   },
+   {
+    "id": "b04",
+    "pass": true,
+    "out": "81<|im_end|>"
+   },
+   {
+    "id": "b05",
+    "pass": true,
+    "out": "25<|im_end|>"
+   },
+   {
+    "id": "b06",
+    "pass": true,
+    "out": "25<|im_end|>"
+   },
+   {
+    "id": "b07",
+    "pass": true,
+    "out": "12<|im_end|>"
+   },
+   {
+    "id": "b08",
+    "pass": true,
+    "out": "8<|im_end|>"
+   },
+   {
+    "id": "b09",
+    "pass": true,
+    "out": "30<|im_end|>"
+   },
+   {
+    "id": "b10",
+    "pass": false,
+    "out": "24<|im_end|>"
+   },
+   {
+    "id": "b11",
+    "pass": false,
+    "out": "54<|im_end|>"
+   },
+   {
+    "id": "b12",
+    "pass": true,
+    "out": "11<|im_end|>"
+   },
+   {
+    "id": "b13",
+    "pass": false,
+    "out": "3<|im_end|>"
+   },
+   {
+    "id": "b14",
+    "pass": true,
+    "out": "120<|im_end|>"
+   },
+   {
+    "id": "b15",
+    "pass": false,
+    "out": "1.75<|im_end|>"
+   },
+   {
+    "id": "h16",
+    "pass": false,
+    "out": "3<|im_end|>"
+   },
+   {
+    "id": "h17",
+    "pass": false,
+    "out": "1<|im_end|>"
+   },
+   {
+    "id": "h18",
+    "pass": false,
+    "out": "0.5<|im_end|>"
+   },
+   {
+    "id": "h19",
+    "pass": true,
+    "out": "0.5<|im_end|>"
+   },
+   {
+    "id": "h20",
+    "pass": false,
+    "out": "2<|im_end|>"
+   },
+   {
+    "id": "h21",
+    "pass": false,
+    "out": "6<|im_end|>"
+   },
+   {
+    "id": "h22",
+    "pass": true,
+    "out": "55<|im_end|>"
+   },
+   {
+    "id": "h23",
+    "pass": false,
+    "out": "$4\\pi$<|im_end|>"
+   },
+   {
+    "id": "h24",
+    "pass": false,
+    "out": "2.5<|im_end|>"
+   },
+   {
+    "id": "h25",
+    "pass": true,
+    "out": "1024<|im_end|>"
+   },
+   {
+    "id": "h26",
+    "pass": false,
+    "out": "1<|im_end|>"
+   },
+   {
+    "id": "h27",
+    "pass": false,
+    "out": "12<|im_end|>"
+   },
+   {
+    "id": "h28",
+    "pass": false,
+    "out": "1<|im_end|>"
+   },
+   {
+    "id": "h29",
+    "pass": false,
+    "out": "18<|im_end|>"
+   },
+   {
+    "id": "h30",
+    "pass": false,
+    "out": "0.5<|im_end|>"
+   },
+   {
+    "id": "o31",
+    "pass": false,
+    "out": "7<|im_end|>"
+   },
+   {
+    "id": "o32",
+    "pass": false,
+    "out": "342<|im_end|>"
+   },
+   {
+    "id": "o33",
+    "pass": false,
+    "out": "6<|im_end|>"
+   },
+   {
+    "id": "o34",
+    "pass": false,
+    "out": "5<|im_end|>"
+   },
+   {
+    "id": "o35",
+    "pass": false,
+    "out": "6<|im_end|>"
+   },
+   {
+    "id": "o36",
+    "pass": false,
+    "out": "400<|im_end|>"
+   },
+   {
+    "id": "o37",
+    "pass": false,
+    "out": "8640320<|im_end|>"
+   },
+   {
+    "id": "o38",
+    "pass": false,
+    "out": "10<|im_end|>"
+   },
+   {
+    "id": "o39",
+    "pass": false,
+    "out": "360<|im_end|>"
+   },
+   {
+    "id": "o40",
+    "pass": false,
+    "out": "29<|im_end|>"
+   },
+   {
+    "id": "a41",
+    "pass": true,
+    "out": "1<|im_end|>"
+   },
+   {
+    "id": "a42",
+    "pass": true,
+    "out": "0.5<|im_end|>"
+   },
+   {
+    "id": "a43",
+    "pass": false,
+    "out": "6<|im_end|>"
+   },
+   {
+    "id": "a44",
+    "pass": false,
+    "out": "1<|im_end|>"
+   },
+   {
+    "id": "a45",
+    "pass": false,
+    "out": "1<|im_end|>"
+   },
+   {
+    "id": "a46",
+    "pass": true,
+    "out": "0.2<|im_end|>"
+   },
+   {
+    "id": "a47",
+    "pass": false,
+    "out": "1<|im_end|>"
+   },
+   {
+    "id": "a48",
+    "pass": false,
+    "out": "π/e + C<|im_end|>"
+   },
+   {
+    "id": "a49",
+    "pass": false,
+    "out": "The solution to the differential equation \\( \\frac{dy}{dx} = y \\) with the initial condition \\( y(0) = 1"
+   },
+   {
+    "id": "a50",
+    "pass": false,
+    "out": "zero determinant<|im_end|>"
+   }
+  ],
+  [
+   {
+    "id": "b01",
+    "pass": true,
+    "out": "15<|im_end|>"
+   },
+   {
+    "id": "b02",
+    "pass": true,
+    "out": "72<|im_end|>"
+   },
+   {
+    "id": "b03",
+    "pass": true,
+    "out": "55<|im_end|>"
+   },
+   {
+    "id": "b04",
+    "pass": true,
+    "out": "81<|im_end|>"
+   },
+   {
+    "id": "b05",
+    "pass": true,
+    "out": "25<|im_end|>"
+   },
+   {
+    "id": "b06",
+    "pass": true,
+    "out": "25<|im_end|>"
+   },
+   {
+    "id": "b07",
+    "pass": true,
+    "out": "12<|im_end|>"
+   },
+   {
+    "id": "b08",
+    "pass": true,
+    "out": "8<|im_end|>"
+   },
+   {
+    "id": "b09",
+    "pass": true,
+    "out": "30<|im_end|>"
+   },
+   {
+    "id": "b10",
+    "pass": false,
+    "out": "24<|im_end|>"
+   },
+   {
+    "id": "b11",
+    "pass": false,
+    "out": "54<|im_end|>"
+   },
+   {
+    "id": "b12",
+    "pass": true,
+    "out": "11<|im_end|>"
+   },
+   {
+    "id": "b13",
+    "pass": false,
+    "out": "3<|im_end|>"
+   },
+   {
+    "id": "b14",
+    "pass": true,
+    "out": "120<|im_end|>"
+   },
+   {
+    "id": "b15",
+    "pass": false,
+    "out": "1.75<|im_end|>"
+   },
+   {
+    "id": "h16",
+    "pass": false,
+    "out": "3<|im_end|>"
+   },
+   {
+    "id": "h17",
+    "pass": false,
+    "out": "1<|im_end|>"
+   },
+   {
+    "id": "h18",
+    "pass": false,
+    "out": "0.5<|im_end|>"
+   },
+   {
+    "id": "h19",
+    "pass": true,
+    "out": "0.5<|im_end|>"
+   },
+   {
+    "id": "h20",
+    "pass": false,
+    "out": "2<|im_end|>"
+   },
+   {
+    "id": "h21",
+    "pass": false,
+    "out": "6<|im_end|>"
+   },
+   {
+    "id": "h22",
+    "pass": true,
+    "out": "55<|im_end|>"
+   },
+   {
+    "id": "h23",
+    "pass": false,
+    "out": "$4\\pi$<|im_end|>"
+   },
+   {
+    "id": "h24",
+    "pass": false,
+    "out": "2.5<|im_end|>"
+   },
+   {
+    "id": "h25",
+    "pass": true,
+    "out": "1024<|im_end|>"
+   },
+   {
+    "id": "h26",
+    "pass": false,
+    "out": "1<|im_end|>"
+   },
+   {
+    "id": "h27",
+    "pass": false,
+    "out": "12<|im_end|>"
+   },
+   {
+    "id": "h28",
+    "pass": false,
+    "out": "1<|im_end|>"
+   },
+   {
+    "id": "h29",
+    "pass": false,
+    "out": "18<|im_end|>"
+   },
+   {
+    "id": "h30",
+    "pass": false,
+    "out": "0.5<|im_end|>"
+   },
+   {
+    "id": "o31",
+    "pass": false,
+    "out": "7<|im_end|>"
+   },
+   {
+    "id": "o32",
+    "pass": false,
+    "out": "342<|im_end|>"
+   },
+   {
+    "id": "o33",
+    "pass": false,
+    "out": "6<|im_end|>"
+   },
+   {
+    "id": "o34",
+    "pass": false,
+    "out": "5<|im_end|>"
+   },
+   {
+    "id": "o35",
+    "pass": false,
+    "out": "6<|im_end|>"
+   },
+   {
+    "id": "o36",
+    "pass": false,
+    "out": "400<|im_end|>"
+   },
+   {
+    "id": "o37",
+    "pass": false,
+    "out": "8640320<|im_end|>"
+   },
+   {
+    "id": "o38",
+    "pass": false,
+    "out": "10<|im_end|>"
+   },
+   {
+    "id": "o39",
+    "pass": false,
+    "out": "360<|im_end|>"
+   },
+   {
+    "id": "o40",
+    "pass": false,
+    "out": "29<|im_end|>"
+   },
+   {
+    "id": "a41",
+    "pass": true,
+    "out": "1<|im_end|>"
+   },
+   {
+    "id": "a42",
+    "pass": true,
+    "out": "0.5<|im_end|>"
+   },
+   {
+    "id": "a43",
+    "pass": false,
+    "out": "6<|im_end|>"
+   },
+   {
+    "id": "a44",
+    "pass": false,
+    "out": "1<|im_end|>"
+   },
+   {
+    "id": "a45",
+    "pass": false,
+    "out": "1<|im_end|>"
+   },
+   {
+    "id": "a46",
+    "pass": true,
+    "out": "0.2<|im_end|>"
+   },
+   {
+    "id": "a47",
+    "pass": false,
+    "out": "1<|im_end|>"
+   },
+   {
+    "id": "a48",
+    "pass": false,
+    "out": "π/e + C<|im_end|>"
+   },
+   {
+    "id": "a49",
+    "pass": false,
+    "out": "The solution to the differential equation \\( \\frac{dy}{dx} = y \\) with the initial condition \\( y(0) = 1"
+   },
+   {
+    "id": "a50",
+    "pass": false,
+    "out": "zero determinant<|im_end|>"
+   }
+  ]
+ ]
+}

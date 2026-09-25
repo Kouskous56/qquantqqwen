@@ -1,0 +1,777 @@
+{
+ "run_id": "V31-s30-05B-20260925-2232",
+ "model": "D:/qwen/models/Qwen2.5-0.5B-pruned-s30",
+ "protocol": "v3.1-final-answer-accepted-alias",
+ "script_sha256": "689631b78649",
+ "dataset": "D:\\qwen_release\\data\\v2\\questions.json",
+ "dataset_sha256": "af39a5e3a944",
+ "torch": "2.9.0+cu129",
+ "transformers": "5.17.0",
+ "cuda": "12.9",
+ "gpu": "NVIDIA GeForce RTX 4050 Laptop GPU",
+ "max_new_tokens": 30,
+ "do_sample": false,
+ "rep_scores": [
+  12,
+  12,
+  12
+ ],
+ "rep_items": [
+  [
+   {
+    "id": "b01",
+    "pass": true,
+    "out": "15<|im_end|>"
+   },
+   {
+    "id": "b02",
+    "pass": false,
+    "out": "18<|im_end|>"
+   },
+   {
+    "id": "b03",
+    "pass": true,
+    "out": "55<|im_end|>"
+   },
+   {
+    "id": "b04",
+    "pass": true,
+    "out": "81<|im_end|>"
+   },
+   {
+    "id": "b05",
+    "pass": false,
+    "out": "10<|im_end|>"
+   },
+   {
+    "id": "b06",
+    "pass": true,
+    "out": "25<|im_end|>"
+   },
+   {
+    "id": "b07",
+    "pass": false,
+    "out": "7<|im_end|>"
+   },
+   {
+    "id": "b08",
+    "pass": false,
+    "out": "4<|im_end|>"
+   },
+   {
+    "id": "b09",
+    "pass": true,
+    "out": "30<|im_end|>"
+   },
+   {
+    "id": "b10",
+    "pass": false,
+    "out": "27<|im_end|>"
+   },
+   {
+    "id": "b11",
+    "pass": false,
+    "out": "24<|im_end|>"
+   },
+   {
+    "id": "b12",
+    "pass": true,
+    "out": "11<|im_end|>"
+   },
+   {
+    "id": "b13",
+    "pass": false,
+    "out": "3<|im_end|>"
+   },
+   {
+    "id": "b14",
+    "pass": false,
+    "out": "10080<|im_end|>"
+   },
+   {
+    "id": "b15",
+    "pass": false,
+    "out": "1.75<|im_end|>"
+   },
+   {
+    "id": "h16",
+    "pass": false,
+    "out": "3<|im_end|>"
+   },
+   {
+    "id": "h17",
+    "pass": false,
+    "out": "3<|im_end|>"
+   },
+   {
+    "id": "h18",
+    "pass": false,
+    "out": "1<|im_end|>"
+   },
+   {
+    "id": "h19",
+    "pass": true,
+    "out": "0.5<|im_end|>"
+   },
+   {
+    "id": "h20",
+    "pass": true,
+    "out": "3<|im_end|>"
+   },
+   {
+    "id": "h21",
+    "pass": false,
+    "out": "4<|im_end|>"
+   },
+   {
+    "id": "h22",
+    "pass": false,
+    "out": "15<|im_end|>"
+   },
+   {
+    "id": "h23",
+    "pass": false,
+    "out": "31.415<|im_end|>"
+   },
+   {
+    "id": "h24",
+    "pass": false,
+    "out": "2.5<|im_end|>"
+   },
+   {
+    "id": "h25",
+    "pass": false,
+    "out": "4<|im_end|>"
+   },
+   {
+    "id": "h26",
+    "pass": false,
+    "out": "3<|im_end|>"
+   },
+   {
+    "id": "h27",
+    "pass": false,
+    "out": "4<|im_end|>"
+   },
+   {
+    "id": "h28",
+    "pass": true,
+    "out": "-1<|im_end|>"
+   },
+   {
+    "id": "h29",
+    "pass": false,
+    "out": "18<|im_end|>"
+   },
+   {
+    "id": "h30",
+    "pass": false,
+    "out": "0.5<|im_end|>"
+   },
+   {
+    "id": "o31",
+    "pass": false,
+    "out": "7<|im_end|>"
+   },
+   {
+    "id": "o32",
+    "pass": false,
+    "out": "3<|im_end|>"
+   },
+   {
+    "id": "o33",
+    "pass": false,
+    "out": "5<|im_end|>"
+   },
+   {
+    "id": "o34",
+    "pass": false,
+    "out": "3<|im_end|>"
+   },
+   {
+    "id": "o35",
+    "pass": false,
+    "out": "6<|im_end|>"
+   },
+   {
+    "id": "o36",
+    "pass": false,
+    "out": "400<|im_end|>"
+   },
+   {
+    "id": "o37",
+    "pass": false,
+    "out": "10080<|im_end|>"
+   },
+   {
+    "id": "o38",
+    "pass": true,
+    "out": "4<|im_end|>"
+   },
+   {
+    "id": "o39",
+    "pass": false,
+    "out": "180<|im_end|>"
+   },
+   {
+    "id": "o40",
+    "pass": false,
+    "out": "101<|im_end|>"
+   },
+   {
+    "id": "a41",
+    "pass": true,
+    "out": "1<|im_end|>"
+   },
+   {
+    "id": "a42",
+    "pass": false,
+    "out": "π/2<|im_end|>"
+   },
+   {
+    "id": "a43",
+    "pass": false,
+    "out": "6<|im_end|>"
+   },
+   {
+    "id": "a44",
+    "pass": false,
+    "out": "2<|im_end|>"
+   },
+   {
+    "id": "a45",
+    "pass": false,
+    "out": "2<|im_end|>"
+   },
+   {
+    "id": "a46",
+    "pass": false,
+    "out": "0.9<|im_end|>"
+   },
+   {
+    "id": "a47",
+    "pass": false,
+    "out": "3<|im_end|>"
+   },
+   {
+    "id": "a48",
+    "pass": true,
+    "out": "ln(e^x) + C<|im_end|>"
+   },
+   {
+    "id": "a49",
+    "pass": false,
+    "out": "dy/dx = 1 + y(y-1)<|im_end|>"
+   },
+   {
+    "id": "a50",
+    "pass": false,
+    "out": "zero<|im_end|>"
+   }
+  ],
+  [
+   {
+    "id": "b01",
+    "pass": true,
+    "out": "15<|im_end|>"
+   },
+   {
+    "id": "b02",
+    "pass": false,
+    "out": "18<|im_end|>"
+   },
+   {
+    "id": "b03",
+    "pass": true,
+    "out": "55<|im_end|>"
+   },
+   {
+    "id": "b04",
+    "pass": true,
+    "out": "81<|im_end|>"
+   },
+   {
+    "id": "b05",
+    "pass": false,
+    "out": "10<|im_end|>"
+   },
+   {
+    "id": "b06",
+    "pass": true,
+    "out": "25<|im_end|>"
+   },
+   {
+    "id": "b07",
+    "pass": false,
+    "out": "7<|im_end|>"
+   },
+   {
+    "id": "b08",
+    "pass": false,
+    "out": "4<|im_end|>"
+   },
+   {
+    "id": "b09",
+    "pass": true,
+    "out": "30<|im_end|>"
+   },
+   {
+    "id": "b10",
+    "pass": false,
+    "out": "27<|im_end|>"
+   },
+   {
+    "id": "b11",
+    "pass": false,
+    "out": "24<|im_end|>"
+   },
+   {
+    "id": "b12",
+    "pass": true,
+    "out": "11<|im_end|>"
+   },
+   {
+    "id": "b13",
+    "pass": false,
+    "out": "3<|im_end|>"
+   },
+   {
+    "id": "b14",
+    "pass": false,
+    "out": "10080<|im_end|>"
+   },
+   {
+    "id": "b15",
+    "pass": false,
+    "out": "1.75<|im_end|>"
+   },
+   {
+    "id": "h16",
+    "pass": false,
+    "out": "3<|im_end|>"
+   },
+   {
+    "id": "h17",
+    "pass": false,
+    "out": "3<|im_end|>"
+   },
+   {
+    "id": "h18",
+    "pass": false,
+    "out": "1<|im_end|>"
+   },
+   {
+    "id": "h19",
+    "pass": true,
+    "out": "0.5<|im_end|>"
+   },
+   {
+    "id": "h20",
+    "pass": true,
+    "out": "3<|im_end|>"
+   },
+   {
+    "id": "h21",
+    "pass": false,
+    "out": "4<|im_end|>"
+   },
+   {
+    "id": "h22",
+    "pass": false,
+    "out": "15<|im_end|>"
+   },
+   {
+    "id": "h23",
+    "pass": false,
+    "out": "31.415<|im_end|>"
+   },
+   {
+    "id": "h24",
+    "pass": false,
+    "out": "2.5<|im_end|>"
+   },
+   {
+    "id": "h25",
+    "pass": false,
+    "out": "4<|im_end|>"
+   },
+   {
+    "id": "h26",
+    "pass": false,
+    "out": "3<|im_end|>"
+   },
+   {
+    "id": "h27",
+    "pass": false,
+    "out": "4<|im_end|>"
+   },
+   {
+    "id": "h28",
+    "pass": true,
+    "out": "-1<|im_end|>"
+   },
+   {
+    "id": "h29",
+    "pass": false,
+    "out": "18<|im_end|>"
+   },
+   {
+    "id": "h30",
+    "pass": false,
+    "out": "0.5<|im_end|>"
+   },
+   {
+    "id": "o31",
+    "pass": false,
+    "out": "7<|im_end|>"
+   },
+   {
+    "id": "o32",
+    "pass": false,
+    "out": "3<|im_end|>"
+   },
+   {
+    "id": "o33",
+    "pass": false,
+    "out": "5<|im_end|>"
+   },
+   {
+    "id": "o34",
+    "pass": false,
+    "out": "3<|im_end|>"
+   },
+   {
+    "id": "o35",
+    "pass": false,
+    "out": "6<|im_end|>"
+   },
+   {
+    "id": "o36",
+    "pass": false,
+    "out": "400<|im_end|>"
+   },
+   {
+    "id": "o37",
+    "pass": false,
+    "out": "10080<|im_end|>"
+   },
+   {
+    "id": "o38",
+    "pass": true,
+    "out": "4<|im_end|>"
+   },
+   {
+    "id": "o39",
+    "pass": false,
+    "out": "180<|im_end|>"
+   },
+   {
+    "id": "o40",
+    "pass": false,
+    "out": "101<|im_end|>"
+   },
+   {
+    "id": "a41",
+    "pass": true,
+    "out": "1<|im_end|>"
+   },
+   {
+    "id": "a42",
+    "pass": false,
+    "out": "π/2<|im_end|>"
+   },
+   {
+    "id": "a43",
+    "pass": false,
+    "out": "6<|im_end|>"
+   },
+   {
+    "id": "a44",
+    "pass": false,
+    "out": "2<|im_end|>"
+   },
+   {
+    "id": "a45",
+    "pass": false,
+    "out": "2<|im_end|>"
+   },
+   {
+    "id": "a46",
+    "pass": false,
+    "out": "0.9<|im_end|>"
+   },
+   {
+    "id": "a47",
+    "pass": false,
+    "out": "3<|im_end|>"
+   },
+   {
+    "id": "a48",
+    "pass": true,
+    "out": "ln(e^x) + C<|im_end|>"
+   },
+   {
+    "id": "a49",
+    "pass": false,
+    "out": "dy/dx = 1 + y(y-1)<|im_end|>"
+   },
+   {
+    "id": "a50",
+    "pass": false,
+    "out": "zero<|im_end|>"
+   }
+  ],
+  [
+   {
+    "id": "b01",
+    "pass": true,
+    "out": "15<|im_end|>"
+   },
+   {
+    "id": "b02",
+    "pass": false,
+    "out": "18<|im_end|>"
+   },
+   {
+    "id": "b03",
+    "pass": true,
+    "out": "55<|im_end|>"
+   },
+   {
+    "id": "b04",
+    "pass": true,
+    "out": "81<|im_end|>"
+   },
+   {
+    "id": "b05",
+    "pass": false,
+    "out": "10<|im_end|>"
+   },
+   {
+    "id": "b06",
+    "pass": true,
+    "out": "25<|im_end|>"
+   },
+   {
+    "id": "b07",
+    "pass": false,
+    "out": "7<|im_end|>"
+   },
+   {
+    "id": "b08",
+    "pass": false,
+    "out": "4<|im_end|>"
+   },
+   {
+    "id": "b09",
+    "pass": true,
+    "out": "30<|im_end|>"
+   },
+   {
+    "id": "b10",
+    "pass": false,
+    "out": "27<|im_end|>"
+   },
+   {
+    "id": "b11",
+    "pass": false,
+    "out": "24<|im_end|>"
+   },
+   {
+    "id": "b12",
+    "pass": true,
+    "out": "11<|im_end|>"
+   },
+   {
+    "id": "b13",
+    "pass": false,
+    "out": "3<|im_end|>"
+   },
+   {
+    "id": "b14",
+    "pass": false,
+    "out": "10080<|im_end|>"
+   },
+   {
+    "id": "b15",
+    "pass": false,
+    "out": "1.75<|im_end|>"
+   },
+   {
+    "id": "h16",
+    "pass": false,
+    "out": "3<|im_end|>"
+   },
+   {
+    "id": "h17",
+    "pass": false,
+    "out": "3<|im_end|>"
+   },
+   {
+    "id": "h18",
+    "pass": false,
+    "out": "1<|im_end|>"
+   },
+   {
+    "id": "h19",
+    "pass": true,
+    "out": "0.5<|im_end|>"
+   },
+   {
+    "id": "h20",
+    "pass": true,
+    "out": "3<|im_end|>"
+   },
+   {
+    "id": "h21",
+    "pass": false,
+    "out": "4<|im_end|>"
+   },
+   {
+    "id": "h22",
+    "pass": false,
+    "out": "15<|im_end|>"
+   },
+   {
+    "id": "h23",
+    "pass": false,
+    "out": "31.415<|im_end|>"
+   },
+   {
+    "id": "h24",
+    "pass": false,
+    "out": "2.5<|im_end|>"
+   },
+   {
+    "id": "h25",
+    "pass": false,
+    "out": "4<|im_end|>"
+   },
+   {
+    "id": "h26",
+    "pass": false,
+    "out": "3<|im_end|>"
+   },
+   {
+    "id": "h27",
+    "pass": false,
+    "out": "4<|im_end|>"
+   },
+   {
+    "id": "h28",
+    "pass": true,
+    "out": "-1<|im_end|>"
+   },
+   {
+    "id": "h29",
+    "pass": false,
+    "out": "18<|im_end|>"
+   },
+   {
+    "id": "h30",
+    "pass": false,
+    "out": "0.5<|im_end|>"
+   },
+   {
+    "id": "o31",
+    "pass": false,
+    "out": "7<|im_end|>"
+   },
+   {
+    "id": "o32",
+    "pass": false,
+    "out": "3<|im_end|>"
+   },
+   {
+    "id": "o33",
+    "pass": false,
+    "out": "5<|im_end|>"
+   },
+   {
+    "id": "o34",
+    "pass": false,
+    "out": "3<|im_end|>"
+   },
+   {
+    "id": "o35",
+    "pass": false,
+    "out": "6<|im_end|>"
+   },
+   {
+    "id": "o36",
+    "pass": false,
+    "out": "400<|im_end|>"
+   },
+   {
+    "id": "o37",
+    "pass": false,
+    "out": "10080<|im_end|>"
+   },
+   {
+    "id": "o38",
+    "pass": true,
+    "out": "4<|im_end|>"
+   },
+   {
+    "id": "o39",
+    "pass": false,
+    "out": "180<|im_end|>"
+   },
+   {
+    "id": "o40",
+    "pass": false,
+    "out": "101<|im_end|>"
+   },
+   {
+    "id": "a41",
+    "pass": true,
+    "out": "1<|im_end|>"
+   },
+   {
+    "id": "a42",
+    "pass": false,
+    "out": "π/2<|im_end|>"
+   },
+   {
+    "id": "a43",
+    "pass": false,
+    "out": "6<|im_end|>"
+   },
+   {
+    "id": "a44",
+    "pass": false,
+    "out": "2<|im_end|>"
+   },
+   {
+    "id": "a45",
+    "pass": false,
+    "out": "2<|im_end|>"
+   },
+   {
+    "id": "a46",
+    "pass": false,
+    "out": "0.9<|im_end|>"
+   },
+   {
+    "id": "a47",
+    "pass": false,
+    "out": "3<|im_end|>"
+   },
+   {
+    "id": "a48",
+    "pass": true,
+    "out": "ln(e^x) + C<|im_end|>"
+   },
+   {
+    "id": "a49",
+    "pass": false,
+    "out": "dy/dx = 1 + y(y-1)<|im_end|>"
+   },
+   {
+    "id": "a50",
+    "pass": false,
+    "out": "zero<|im_end|>"
+   }
+  ]
+ ]
+}
