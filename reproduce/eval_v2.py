@@ -27,8 +27,9 @@ def main():
     ap.add_argument("--out", required=True)
     ap.add_argument("--n-ctx", type=int, default=1024)
     ap.add_argument("--max-tokens", type=int, default=30)
-    ap.add_argument("--use-template", action="store_true",
-                    help="wrap prompts with the model chat template")
+    ap.add_argument("--use-template", action=argparse.BooleanOptionalAction,
+                    default=True,
+                    help="wrap prompts with the model chat template (raw mode is legacy)")
     a = ap.parse_args()
 
     Qs = json.load(open(a.questions, encoding="utf-8"))
@@ -41,7 +42,7 @@ def main():
                 max_tokens=mx, temperature=0.0)["choices"][0]["message"]["content"]
         return llm(body, max_tokens=mx, temperature=0.0)["choices"][0]["text"]
 
-    letters, perq, free = [], {}, 0
+    letters, perq, free, raws = [], {}, 0, {}
     for q in Qs:
         opts, cidx = q["choices"], "ABCD".index(q["answer"])
         for r in range(4):
@@ -50,20 +51,26 @@ def main():
             p = (f"Question: {q['question']}\nA) {order[0]}\nB) {order[1]}\n"
                  f"C) {order[2]}\nD) {order[3]}\n"
                  "Answer with only the letter A, B, C or D:")
-            got = letter(ask(p, 5))
+            t = ask(p, 5)
+            got = letter(t)
             letters.append(got)
-            perq.setdefault(q["id"], {})[r] = (got == exp)
+            perq.setdefault(q["id"], {})[r] = {"got": got, "exp": exp,
+                                               "out": t[:200]}
         fp = f"{q['question']} Answer with only the value, no explanation:"
         expv = norm(opts[cidx])
-        free += (bool(expv) and expv in norm(ask(fp, a.max_tokens)))
+        tf = ask(fp, a.max_tokens)
+        free += (bool(expv) and expv in norm(tf))
+        raws[q["id"]] = {"free_out": tf[:200]}
     c = Counter(letters)
-    perm = sum(1 for cid in perq for r in range(4) if perq[cid][r])
-    cons = sum(1 for cid in perq if all(perq[cid][r] for r in range(4)))
+    ok = lambda cid, r: perq[cid][r]["got"] == perq[cid][r]["exp"]
+    perm = sum(1 for cid in perq for r in range(4) if ok(cid, r))
+    cons = sum(1 for cid in perq if all(ok(cid, r) for r in range(4)))
     res = {"model": a.model, "use_template": a.use_template,
            "perm": perm, "perm_total": len(letters),
            "b_rate": round(c["B"] / len(letters), 3),
            "consistent_4of4": cons, "free": free,
            "free_total": len(Qs), "dist": dict(c),
+           "per_question": perq, "free_raw": raws,
            "timestamp": time.strftime("%Y-%m-%dT%H:%M")}
     json.dump(res, open(a.out, "w"), indent=1)
     print(f"perm {perm}/{len(letters)} cons {cons} free {free}/{len(Qs)} B-rate {res['b_rate']}")

@@ -1,4 +1,5 @@
-torch
+torch --index-url https://download.pytorch.org/whl/cu129
+numpy
 transformers>=4.55
 accelerate>=1.0
 datasets>=3.0

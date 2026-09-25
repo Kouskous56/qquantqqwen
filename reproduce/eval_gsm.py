@@ -53,7 +53,7 @@ def main():
             exp = me.group(1).replace(",", "") if me else ""
             got = extract(t)
             ok += (got == exp)
-            raws.append({"exp": exp, "got": got})
+            raws.append({"exp": exp, "got": got, "out": t[:300]})
     res = {"model": a.model, "n": a.n, "correct": ok,
            "timestamp": time.strftime("%Y-%m-%dT%H:%M")}
     json.dump({"summary": res, "items": raws}, open(a.out, "w"), indent=1)

@@ -1,7 +1,7 @@
 """Canonical masked recovery: LoRA fine-tune on a pruned model, then reapply mask.
 Usage:
   python reproduce/recover_masked.py --src <pruned-hf-dir> --data gsm8k|wikitext
-         --out-merged <dir> --out-masked <dir> [--rank 8] [--steps N]
+         --out-merged <dir> --out-masked <dir> [--rank 8] [--samples N] [--lr LR]
 """
 import argparse
 

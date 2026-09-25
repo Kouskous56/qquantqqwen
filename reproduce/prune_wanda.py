@@ -47,6 +47,9 @@ def main():
     ds = load_dataset(a.calib, "wikitext-2-raw-v1", split="train")
     texts = [t for t in ds["text"][:a.nsamples * 3]
              if len(t.strip()) > 100][:a.nsamples]
+    assert len(texts) >= a.nsamples, (
+        f"only {len(texts)} calibration texts; "
+        "3B-s40/s50 historical runs used --nsamples 8 --seqlen 128 under VRAM pressure")
     cal = [tok(t, return_tensors="pt", truncation=True,
                max_length=a.seqlen).input_ids.cuda() for t in texts]
 

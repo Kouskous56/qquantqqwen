@@ -1,0 +1,7 @@
+{
+ "model": "D:/qwen/models/Qwen2.5-0.5B-FP16",
+ "harness": "transformers generate, chat template, greedy, max 30",
+ "free": 17,
+ "total": 50,
+ "timestamp": "2026-09-25T18:37"
+}
