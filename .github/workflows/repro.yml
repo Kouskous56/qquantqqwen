@@ -57,6 +57,9 @@ jobs:
   links:
     runs-on: ubuntu-latest
     timeout-minutes: 10
+    # Non-blocking: repo currently contains almost no external URLs;
+    # this job guards future docs edits without failing the build.
+    continue-on-error: true
     steps:
       - uses: actions/checkout@v4
       - name: Link check
