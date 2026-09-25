@@ -4,7 +4,6 @@ title: "Quantization, Sparsity, and Behavioral Robustness of Qwen LLMs under Edg
 authors:
   - family-names: "Nguyen"
     given-names: "Dang Khoa"
-date-released: 2026-09-25
 repository-code: "https://github.com/Kouskous56/qquantqqwen"
 license: MIT
 keywords:

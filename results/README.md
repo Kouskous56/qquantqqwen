@@ -9,3 +9,5 @@
 - `pruning_retention_05B.csv`: frozen V2 free×3 + perm for dense/s20 variants.
 - `legacy/scale_retention_historical.csv`: 1.5B + 3B matrix (PPL, free, perm, GSM).
 Raw per-sample logs stay with the authors; manifests in `manifests/`.
+- \3_cross_scale.csv\: CANONICAL cross-scale result (V3.2 typed rescore).
+- \ehavior_scale.csv\, \pruning_retention_05B.csv\: historical V2/GGUF blocks.

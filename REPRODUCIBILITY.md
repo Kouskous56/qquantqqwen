@@ -51,3 +51,9 @@ python reproduce/eval_v3.py --model MODELROOT/<dense-or-pruned> --questions data
 ```
 Expected free x3 reps: 0.5B 17/17/17 -> 12/12/12; 1.5B 39x3 -> 33x3; 3B 40x3 -> 39x3.
 Manifests: RUN_V31_*_S0/S30. Retention: 71%, 85%, 97.5%.
+
+## V3.2 typed rescore (canonical current)
+V3.1 raw generations are frozen; rescoring applies typed answer semantics
+(numeric-exact final number, unordered sets, symbolic whole-answer equality).
+See scripts/rescore_v32.py (local dev) and results/v3_cross_scale.csv:
+0.5B 17->11 (65%), 1.5B 33->28 (85%), 3B 37->35 (95%).
