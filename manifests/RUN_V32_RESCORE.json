@@ -5,5 +5,10 @@
   "15B": 0.125,
   "3B": 0.625
  },
- "note": "No pairwise comparison significant at .05; trend evidence is monotonic retention + absolute drops 6,5,2."
+ "note": "None pairwise significant at .05; evidence is monotonic retention + absolute drops 7,5,2.",
+ "v3_2_final": {
+  "05B": "11/18 retention 61%, mcnemar_exact 0.146",
+  "15B": "28/33 retention 85%, mcnemar_exact 0.070",
+  "3B": "35/37 retention 95%, mcnemar_exact 0.375"
+ }
 }
