@@ -1,0 +1,40 @@
+# Large files, models, and build artifacts are intentionally excluded.
+models/
+tools/
+build/
+dist/
+.cache/
+__pycache__/
+*.pyc
+
+# Model weights and adapters (use Hugging Face; see README)
+*.gguf
+*.safetensors
+*.bin
+*.pt
+*.pth
+*.ckpt
+
+# Executables and compiled objects
+*.exe
+*.dll
+*.lib
+*.obj
+
+# LaTeX intermediates (keep sources + frozen PDFs only)
+*.aux
+*.log
+*.out
+*.toc
+*.synctex.gz
+*.xdv
+*.fls
+*.fdb_latexmk
+
+# Experiment scratch
+wandb/
+runs/
+tmp/
+temp/
+raw/
+raw_samples/
