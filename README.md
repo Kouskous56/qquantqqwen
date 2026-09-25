@@ -1,5 +1,7 @@
 # Quantization, Sparsity, and Behavioral Robustness of Qwen LLMs under Edge Hardware Constraints
 
+![repro](https://github.com/Kouskous56/qquantqqwen/actions/workflows/repro.yml/badge.svg)
+
 This repository accompanies the technical report of the same name
 (manuscript temporarily omitted while the reproducibility package is finalized;
 the arXiv version will be linked at release). The central finding is that **similar perplexity
