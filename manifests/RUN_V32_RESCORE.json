@@ -1,0 +1,9 @@
+{
+ "protocol": "v3.2-typed-rescore over frozen V3.1 raws",
+ "mcnemar_exact": {
+  "05B": 0.146,
+  "15B": 0.125,
+  "3B": 0.625
+ },
+ "note": "No pairwise comparison significant at .05; trend evidence is monotonic retention + absolute drops 6,5,2."
+}
