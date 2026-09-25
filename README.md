@@ -22,7 +22,7 @@ improvement from pruning.
 - `results/` — aggregate CSVs behind the paper tables
 - `notes/` — phase reports (full experimental narrative)
 - `third_party_adapters/` — our Qwen2 port of upstream SparseGPT (see README there)
-- `paper/` — LaTeX source + frozen v1 PDF
+- `paper/` — frozen v1 PDF (LaTeX sources retained by the authors; build requires MiKTeX/XeLaTeX)
 
 ## Reproduction
 See `REPRODUCIBILITY.md` for the claim → script → manifest → output map.

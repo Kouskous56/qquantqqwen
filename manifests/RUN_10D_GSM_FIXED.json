@@ -1,0 +1,1 @@
+{"eval":"1.5B GSM-heldout/50, fixed extractor (boxed -> #### -> final-number)","extractor":"boxed -> #### -> final-number","manifest":"RUN_10D_GSM_FIXED","reason":"original RUN_10D_15B.json GSM used an extractor supporting only #### markers; 1.5B emits boxed answers, causing false 3/4/3","results":{"s0":35,"s20":32,"s30":29},"supersedes_metric":"RUN_10D_15B.json:gsm"}

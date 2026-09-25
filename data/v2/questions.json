@@ -1,0 +1,602 @@
+[
+ {
+  "id": "b01",
+  "band": "basic",
+  "question": "7 + 8 = ?",
+  "choices": [
+   "13",
+   "14",
+   "15",
+   "16"
+  ],
+  "answer": "C"
+ },
+ {
+  "id": "b02",
+  "band": "basic",
+  "question": "12 x 6 = ?",
+  "choices": [
+   "66",
+   "70",
+   "72",
+   "76"
+  ],
+  "answer": "C"
+ },
+ {
+  "id": "b03",
+  "band": "basic",
+  "question": "100 - 45 = ?",
+  "choices": [
+   "45",
+   "50",
+   "55",
+   "65"
+  ],
+  "answer": "C"
+ },
+ {
+  "id": "b04",
+  "band": "basic",
+  "question": "9 x 9 = ?",
+  "choices": [
+   "72",
+   "79",
+   "81",
+   "89"
+  ],
+  "answer": "C"
+ },
+ {
+  "id": "b05",
+  "band": "basic",
+  "question": "Half of 50 is?",
+  "choices": [
+   "20",
+   "22",
+   "25",
+   "30"
+  ],
+  "answer": "C"
+ },
+ {
+  "id": "b06",
+  "band": "basic",
+  "question": "3 squared plus 4 squared = ?",
+  "choices": [
+   "12",
+   "25",
+   "7",
+   "14"
+  ],
+  "answer": "B"
+ },
+ {
+  "id": "b07",
+  "band": "basic",
+  "question": "144 / 12 = ?",
+  "choices": [
+   "10",
+   "11",
+   "12",
+   "14"
+  ],
+  "answer": "C"
+ },
+ {
+  "id": "b08",
+  "band": "basic",
+  "question": "2 to the power 3 = ?",
+  "choices": [
+   "6",
+   "8",
+   "9",
+   "12"
+  ],
+  "answer": "B"
+ },
+ {
+  "id": "b09",
+  "band": "basic",
+  "question": "15 percent of 200 = ?",
+  "choices": [
+   "15",
+   "25",
+   "30",
+   "35"
+  ],
+  "answer": "C"
+ },
+ {
+  "id": "b10",
+  "band": "basic",
+  "question": "Perimeter of a square with side 9?",
+  "choices": [
+   "18",
+   "27",
+   "32",
+   "36"
+  ],
+  "answer": "D"
+ },
+ {
+  "id": "b11",
+  "band": "basic",
+  "question": "7 x 8 - 10 = ?",
+  "choices": [
+   "46",
+   "48",
+   "56",
+   "66"
+  ],
+  "answer": "A"
+ },
+ {
+  "id": "b12",
+  "band": "basic",
+  "question": "Next prime after 7?",
+  "choices": [
+   "9",
+   "10",
+   "11",
+   "13"
+  ],
+  "answer": "C"
+ },
+ {
+  "id": "b13",
+  "band": "basic",
+  "question": "GCD of 12 and 18?",
+  "choices": [
+   "3",
+   "6",
+   "9",
+   "12"
+  ],
+  "answer": "B"
+ },
+ {
+  "id": "b14",
+  "band": "basic",
+  "question": "5 factorial (5!) = ?",
+  "choices": [
+   "60",
+   "100",
+   "120",
+   "150"
+  ],
+  "answer": "C"
+ },
+ {
+  "id": "b15",
+  "band": "basic",
+  "question": "0.5 + 0.25 = ?",
+  "choices": [
+   "0.6",
+   "0.7",
+   "0.75",
+   "0.8"
+  ],
+  "answer": "C"
+ },
+ {
+  "id": "h16",
+  "band": "highschool",
+  "question": "Solve 2x + 6 = 14. x = ?",
+  "choices": [
+   "2",
+   "3",
+   "4",
+   "5"
+  ],
+  "answer": "C"
+ },
+ {
+  "id": "h17",
+  "band": "highschool",
+  "question": "Roots of x^2 - 5x + 6 = 0?",
+  "choices": [
+   "1,6",
+   "2,3",
+   "-2,-3",
+   "0,5"
+  ],
+  "answer": "B"
+ },
+ {
+  "id": "h18",
+  "band": "highschool",
+  "question": "Slope of y = 3x + 2?",
+  "choices": [
+   "2",
+   "3",
+   "5",
+   "6"
+  ],
+  "answer": "B"
+ },
+ {
+  "id": "h19",
+  "band": "highschool",
+  "question": "sin(30 degrees) = ?",
+  "choices": [
+   "0",
+   "1/2",
+   "sqrt(2)/2",
+   "1"
+  ],
+  "answer": "B"
+ },
+ {
+  "id": "h20",
+  "band": "highschool",
+  "question": "log10(1000) = ?",
+  "choices": [
+   "2",
+   "3",
+   "4",
+   "10"
+  ],
+  "answer": "B"
+ },
+ {
+  "id": "h21",
+  "band": "highschool",
+  "question": "C(5,2) = number of 2-subsets of 5 items?",
+  "choices": [
+   "5",
+   "10",
+   "15",
+   "20"
+  ],
+  "answer": "B"
+ },
+ {
+  "id": "h22",
+  "band": "highschool",
+  "question": "Sum 1+2+...+10 = ?",
+  "choices": [
+   "45",
+   "50",
+   "55",
+   "60"
+  ],
+  "answer": "C"
+ },
+ {
+  "id": "h23",
+  "band": "highschool",
+  "question": "Area of circle radius 2?",
+  "choices": [
+   "2pi",
+   "4pi",
+   "8pi",
+   "16pi"
+  ],
+  "answer": "B"
+ },
+ {
+  "id": "h24",
+  "band": "highschool",
+  "question": "Midpoint of (0,0) and (4,6)?",
+  "choices": [
+   "(2,2)",
+   "(2,3)",
+   "(3,2)",
+   "(4,6)"
+  ],
+  "answer": "B"
+ },
+ {
+  "id": "h25",
+  "band": "highschool",
+  "question": "2^10 = ?",
+  "choices": [
+   "512",
+   "1000",
+   "1024",
+   "2048"
+  ],
+  "answer": "C"
+ },
+ {
+  "id": "h26",
+  "band": "highschool",
+  "question": "Discriminant of x^2 + 2x + 1?",
+  "choices": [
+   "-4",
+   "0",
+   "1",
+   "4"
+  ],
+  "answer": "B"
+ },
+ {
+  "id": "h27",
+  "band": "highschool",
+  "question": "Derivative of x^3?",
+  "choices": [
+   "3x",
+   "3x^2",
+   "x^2",
+   "6x"
+  ],
+  "answer": "B"
+ },
+ {
+  "id": "h28",
+  "band": "highschool",
+  "question": "i^2 where i is imaginary unit?",
+  "choices": [
+   "1",
+   "-1",
+   "0",
+   "i"
+  ],
+  "answer": "B"
+ },
+ {
+  "id": "h29",
+  "band": "highschool",
+  "question": "Next in 3, 6, 12, ...?",
+  "choices": [
+   "18",
+   "20",
+   "24",
+   "36"
+  ],
+  "answer": "C"
+ },
+ {
+  "id": "h30",
+  "band": "highschool",
+  "question": "Probability of two heads in two fair coin flips?",
+  "choices": [
+   "1/2",
+   "1/3",
+   "1/4",
+   "1/8"
+  ],
+  "answer": "C"
+ },
+ {
+  "id": "o31",
+  "band": "olympiad",
+  "question": "Last digit of 7^100?",
+  "choices": [
+   "1",
+   "3",
+   "7",
+   "9"
+  ],
+  "answer": "A"
+ },
+ {
+  "id": "o32",
+  "band": "olympiad",
+  "question": "Remainder of 2^10 divided by 7?",
+  "choices": [
+   "1",
+   "2",
+   "3",
+   "4"
+  ],
+  "answer": "B"
+ },
+ {
+  "id": "o33",
+  "band": "olympiad",
+  "question": "Smallest n such that n! ends with 00?",
+  "choices": [
+   "5",
+   "8",
+   "10",
+   "12"
+  ],
+  "answer": "C"
+ },
+ {
+  "id": "o34",
+  "band": "olympiad",
+  "question": "a+b=10 and ab=21. |a-b| = ?",
+  "choices": [
+   "2",
+   "4",
+   "5",
+   "8"
+  ],
+  "answer": "B"
+ },
+ {
+  "id": "o35",
+  "band": "olympiad",
+  "question": "Diagonals of a hexagon?",
+  "choices": [
+   "6",
+   "9",
+   "12",
+   "15"
+  ],
+  "answer": "B"
+ },
+ {
+  "id": "o36",
+  "band": "olympiad",
+  "question": "1+3+5+...+99 = ?",
+  "choices": [
+   "1000",
+   "2025",
+   "2500",
+   "10000"
+  ],
+  "answer": "C"
+ },
+ {
+  "id": "o37",
+  "band": "olympiad",
+  "question": "Trailing zeros of 20! = ?",
+  "choices": [
+   "3",
+   "4",
+   "5",
+   "6"
+  ],
+  "answer": "B"
+ },
+ {
+  "id": "o38",
+  "band": "olympiad",
+  "question": "If n^2 ends in digit 6, ones digit of n is 4 or 6. Which is listed?",
+  "choices": [
+   "2",
+   "4",
+   "5",
+   "8"
+  ],
+  "answer": "B"
+ },
+ {
+  "id": "o39",
+  "band": "olympiad",
+  "question": "Sum of interior angles of a pentagon?",
+  "choices": [
+   "360",
+   "450",
+   "540",
+   "720"
+  ],
+  "answer": "C"
+ },
+ {
+  "id": "o40",
+  "band": "olympiad",
+  "question": "Smallest prime greater than 50?",
+  "choices": [
+   "51",
+   "53",
+   "55",
+   "59"
+  ],
+  "answer": "B"
+ },
+ {
+  "id": "a41",
+  "band": "higher",
+  "question": "Limit of sin(x)/x as x->0?",
+  "choices": [
+   "0",
+   "1/2",
+   "1",
+   "infinity"
+  ],
+  "answer": "C"
+ },
+ {
+  "id": "a42",
+  "band": "higher",
+  "question": "Integral from 0 to 1 of x dx?",
+  "choices": [
+   "0",
+   "1/4",
+   "1/2",
+   "1"
+  ],
+  "answer": "C"
+ },
+ {
+  "id": "a43",
+  "band": "higher",
+  "question": "Determinant of [[1,2],[3,4]]?",
+  "choices": [
+   "-2",
+   "2",
+   "-1",
+   "10"
+  ],
+  "answer": "A"
+ },
+ {
+  "id": "a44",
+  "band": "higher",
+  "question": "Eigenvalues of 2x2 identity matrix?",
+  "choices": [
+   "0,0",
+   "1,1",
+   "1,-1",
+   "2,2"
+  ],
+  "answer": "B"
+ },
+ {
+  "id": "a45",
+  "band": "higher",
+  "question": "Derivative of e^x?",
+  "choices": [
+   "e^x",
+   "x*e^(x-1)",
+   "1",
+   "0"
+  ],
+  "answer": "A"
+ },
+ {
+  "id": "a46",
+  "band": "higher",
+  "question": "A,B independent, P(A)=0.5 P(B)=0.4. P(A and B)?",
+  "choices": [
+   "0.1",
+   "0.2",
+   "0.45",
+   "0.9"
+  ],
+  "answer": "B"
+ },
+ {
+  "id": "a47",
+  "band": "higher",
+  "question": "Rank of 2x2 zero matrix?",
+  "choices": [
+   "0",
+   "1",
+   "2",
+   "undefined"
+  ],
+  "answer": "A"
+ },
+ {
+  "id": "a48",
+  "band": "higher",
+  "question": "Integral of e^x dx?",
+  "choices": [
+   "e^x + C",
+   "x*e^x",
+   "ln(x)",
+   "1/x"
+  ],
+  "answer": "A"
+ },
+ {
+  "id": "a49",
+  "band": "higher",
+  "question": "Solution of dy/dx = y with y(0)=1?",
+  "choices": [
+   "x",
+   "e^x",
+   "ln(x)",
+   "1+x"
+  ],
+  "answer": "B"
+ },
+ {
+  "id": "a50",
+  "band": "higher",
+  "question": "A square matrix with determinant 0 is called?",
+  "choices": [
+   "symmetric",
+   "invertible",
+   "singular",
+   "orthogonal"
+  ],
+  "answer": "C"
+ }
+]
