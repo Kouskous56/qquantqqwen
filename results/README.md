@@ -9,5 +9,5 @@
 - `standardized_ppl.csv`: 512/256 token-weighted WikiText PPL (RUN_PPL_STD).
   Corpus: reproduce with `reproduce/prepare_wikitext.py` (sha 36d48636c19e).
 - `pruning_retention_05B.csv`: frozen V2 free×3 + perm for dense/s20 variants.
-- `scale_retention.csv`: 1.5B + 3B matrix (PPL, free, perm, GSM).
+- `legacy/scale_retention_historical.csv`: 1.5B + 3B matrix (PPL, free, perm, GSM).
 Raw per-sample logs stay with the authors; manifests in `manifests/`.

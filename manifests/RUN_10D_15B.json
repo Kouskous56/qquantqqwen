@@ -58,5 +58,9 @@
    },
    "cons4": 14
   }
+ },
+ "superseded_fields": {
+  "ppl": "RUN_PPL_STD.json (9.93/10.58)",
+  "gsm": "RUN_10D_GSM_FIXED.json (35/32/29)"
  }
 }

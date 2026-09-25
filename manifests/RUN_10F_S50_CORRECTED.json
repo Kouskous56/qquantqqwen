@@ -1,0 +1,18 @@
+{
+ "s50": {
+  "ppl_standardized": 12.98,
+  "free": 19,
+  "perm": 94,
+  "gsm": 15,
+  "b_rate": 0.195,
+  "cons4": 7,
+  "rot": {
+   "0": 22,
+   "1": 18,
+   "2": 25,
+   "3": 29
+  }
+ },
+ "behavior_source": "original RUN_10F_S50 (key mislabeled s40; embedded PPL 10.50 copied from s40)",
+ "correction": "top-level key relabeled; PPL replaced with standardized RUN_PPL_STD value"
+}

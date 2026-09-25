@@ -11,20 +11,16 @@ python reproduce/eval_ppl.py --model $MODELROOT/Qwen2.5-0.5B-FP16 \
 Expected: `05B-s0 ≈ 15.11`, `05B-s30 ≈ 16.31`, `15B-s0 ≈ 9.93`,
 `15B-s30 ≈ 10.58`, `3B-s0 ≈ 8.76`, `3B-s30 ≈ 9.31` (see `results/standardized_ppl.csv`).
 
-## V2 behavioral eval — quantization agreement (legacy GGUF block)
-```bash
-python reproduce/eval_v2.py --model model-q4.gguf \
-  --questions data/v2/questions.json --use-template --out results/v2_3b.json
-```
-Expected (3B self-Q4): `perm ≈ 149/200`, `free ≈ 37/50`.
+## V2 behavioral eval - quantization agreement (legacy GGUF block)
+\\ash
+python reproduce/eval_v2.py --model model-q4.gguf --questions data/v2/questions.json --use-template --out results/v2_3b.json
+\Expected (3B self-Q4): perm about 149/200, free about 37/50.
 
-## V2 behavioral eval — cross-scale pruning (HF transformers block)
-```bash
-python reproduce/eval_v2.py --model <pruned-or-dense-HF-dir> ...
-```
-Same script, same 50 questions; do not mix GGUF-block and HF-block numbers.
-Expected retention: 0.5B 9/17 (53%), 1.5B 29/38 (76%), 3B 30/24.
-Manifests: `manifests/RUN_05B_S30_FREE.json`, `RUN_9B.json`, `RUN_10D_15B.json`.
+## V3 unified cross-scale pruning (canonical HF block)
+\\ash
+python reproduce/eval_v3.py --model \/<dense-or-pruned> --questions data/v2/questions.json --out results/v3.json
+\Expected free: 0.5B 15->10 (67%), 1.5B 38->31 (82%), 3B 38->37 (97%).
+Manifests: RUN_V3_05B_S0/S30, RUN_V3_15B_S0/S30, RUN_V3_3B_S0/S30. Do not mix GGUF-block and HF-block numbers.
 
 ## GSM8K held-out (Claim: recovery is domain-specific)
 ```bash

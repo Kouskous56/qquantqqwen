@@ -1,0 +1,309 @@
+{
+ "model": "D:/qwen/models/Qwen2.5-1.5B-FP16",
+ "protocol": "v3-final-answer",
+ "free": 38,
+ "total": 50,
+ "items": [
+  {
+   "id": "b01",
+   "exp": "15",
+   "pass": true,
+   "out": "15<|im_end|>"
+  },
+  {
+   "id": "b02",
+   "exp": "72",
+   "pass": true,
+   "out": "72<|im_end|>"
+  },
+  {
+   "id": "b03",
+   "exp": "55",
+   "pass": true,
+   "out": "55<|im_end|>"
+  },
+  {
+   "id": "b04",
+   "exp": "81",
+   "pass": true,
+   "out": "81<|im_end|>"
+  },
+  {
+   "id": "b05",
+   "exp": "25",
+   "pass": true,
+   "out": "25<|im_end|>"
+  },
+  {
+   "id": "b06",
+   "exp": "25",
+   "pass": true,
+   "out": "25<|im_end|>"
+  },
+  {
+   "id": "b07",
+   "exp": "12",
+   "pass": true,
+   "out": "12<|im_end|>"
+  },
+  {
+   "id": "b08",
+   "exp": "8",
+   "pass": true,
+   "out": "8<|im_end|>"
+  },
+  {
+   "id": "b09",
+   "exp": "30",
+   "pass": true,
+   "out": "30<|im_end|>"
+  },
+  {
+   "id": "b10",
+   "exp": "36",
+   "pass": true,
+   "out": "36<|im_end|>"
+  },
+  {
+   "id": "b11",
+   "exp": "46",
+   "pass": false,
+   "out": "58<|im_end|>"
+  },
+  {
+   "id": "b12",
+   "exp": "11",
+   "pass": true,
+   "out": "11<|im_end|>"
+  },
+  {
+   "id": "b13",
+   "exp": "6",
+   "pass": true,
+   "out": "6<|im_end|>"
+  },
+  {
+   "id": "b14",
+   "exp": "120",
+   "pass": true,
+   "out": "120<|im_end|>"
+  },
+  {
+   "id": "b15",
+   "exp": "0.75",
+   "pass": true,
+   "out": "0.75<|im_end|>"
+  },
+  {
+   "id": "h16",
+   "exp": "4",
+   "pass": false,
+   "out": "7<|im_end|>"
+  },
+  {
+   "id": "h17",
+   "exp": "2,3",
+   "pass": false,
+   "out": "3, 2<|im_end|>"
+  },
+  {
+   "id": "h18",
+   "exp": "3",
+   "pass": true,
+   "out": "3<|im_end|>"
+  },
+  {
+   "id": "h19",
+   "exp": "1/2",
+   "pass": true,
+   "out": "1/2<|im_end|>"
+  },
+  {
+   "id": "h20",
+   "exp": "3",
+   "pass": false,
+   "out": "4<|im_end|>"
+  },
+  {
+   "id": "h21",
+   "exp": "10",
+   "pass": true,
+   "out": "10<|im_end|>"
+  },
+  {
+   "id": "h22",
+   "exp": "55",
+   "pass": true,
+   "out": "55<|im_end|>"
+  },
+  {
+   "id": "h23",
+   "exp": "4pi",
+   "pass": false,
+   "out": "12.56<|im_end|>"
+  },
+  {
+   "id": "h24",
+   "exp": "(2,3)",
+   "pass": false,
+   "out": "2.0<|im_end|>"
+  },
+  {
+   "id": "h25",
+   "exp": "1024",
+   "pass": true,
+   "out": "1024<|im_end|>"
+  },
+  {
+   "id": "h26",
+   "exp": "0",
+   "pass": true,
+   "out": "0<|im_end|>"
+  },
+  {
+   "id": "h27",
+   "exp": "3x^2",
+   "pass": true,
+   "out": "3x^2<|im_end|>"
+  },
+  {
+   "id": "h28",
+   "exp": "-1",
+   "pass": true,
+   "out": "-1<|im_end|>"
+  },
+  {
+   "id": "h29",
+   "exp": "24",
+   "pass": true,
+   "out": "24<|im_end|>"
+  },
+  {
+   "id": "h30",
+   "exp": "1/4",
+   "pass": false,
+   "out": "0.25<|im_end|>"
+  },
+  {
+   "id": "o31",
+   "exp": "1",
+   "pass": false,
+   "out": "3<|im_end|>"
+  },
+  {
+   "id": "o32",
+   "exp": "2",
+   "pass": false,
+   "out": "3<|im_end|>"
+  },
+  {
+   "id": "o33",
+   "exp": "10",
+   "pass": true,
+   "out": "10<|im_end|>"
+  },
+  {
+   "id": "o34",
+   "exp": "4",
+   "pass": false,
+   "out": "7<|im_end|>"
+  },
+  {
+   "id": "o35",
+   "exp": "9",
+   "pass": true,
+   "out": "9<|im_end|>"
+  },
+  {
+   "id": "o36",
+   "exp": "2500",
+   "pass": true,
+   "out": "2500<|im_end|>"
+  },
+  {
+   "id": "o37",
+   "exp": "4",
+   "pass": false,
+   "out": "14<|im_end|>"
+  },
+  {
+   "id": "o38",
+   "exp": "4",
+   "pass": true,
+   "out": "4<|im_end|>"
+  },
+  {
+   "id": "o39",
+   "exp": "540",
+   "pass": true,
+   "out": "540<|im_end|>"
+  },
+  {
+   "id": "o40",
+   "exp": "53",
+   "pass": true,
+   "out": "53<|im_end|>"
+  },
+  {
+   "id": "a41",
+   "exp": "1",
+   "pass": true,
+   "out": "1<|im_end|>"
+  },
+  {
+   "id": "a42",
+   "exp": "1/2",
+   "pass": true,
+   "out": "1/2<|im_end|>"
+  },
+  {
+   "id": "a43",
+   "exp": "-2",
+   "pass": true,
+   "out": "-2<|im_end|>"
+  },
+  {
+   "id": "a44",
+   "exp": "1,1",
+   "pass": false,
+   "out": "1<|im_end|>"
+  },
+  {
+   "id": "a45",
+   "exp": "e^x",
+   "pass": true,
+   "out": "e^x<|im_end|>"
+  },
+  {
+   "id": "a46",
+   "exp": "0.2",
+   "pass": true,
+   "out": "0.2<|im_end|>"
+  },
+  {
+   "id": "a47",
+   "exp": "0",
+   "pass": true,
+   "out": "0<|im_end|>"
+  },
+  {
+   "id": "a48",
+   "exp": "e^x + C",
+   "pass": true,
+   "out": "e^x + C<|im_end|>"
+  },
+  {
+   "id": "a49",
+   "exp": "e^x",
+   "pass": true,
+   "out": "e^x<|im_end|>"
+  },
+  {
+   "id": "a50",
+   "exp": "singular",
+   "pass": true,
+   "out": "singular<|im_end|>"
+  }
+ ],
+ "timestamp": "2026-09-25T20:43"
+}

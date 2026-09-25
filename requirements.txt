@@ -8,7 +8,6 @@ huggingface_hub
 tokenizers
 safetensors
 sentencepiece
-numpy<2.0
 tqdm
 psutil
 # optional: lm_eval[hf] (external benchmarks), pynvml (power), nltk (ifeval scoring)
