@@ -24,9 +24,19 @@ def main():
     ap.add_argument("--rank", type=int, default=8)
     ap.add_argument("--samples", type=int, default=300)
     ap.add_argument("--lr", type=float, default=2e-4)
+    ap.add_argument("--seed", type=int, default=None,
+                    help="random seed; historical runs set none, so exact-score "
+                         "reproduction is not guaranteed for those")
     a = ap.parse_args()
 
     tok = AutoTokenizer.from_pretrained(a.src)
+    if a.seed is not None:
+        import random
+        import numpy as np
+        random.seed(a.seed)
+        np.random.seed(a.seed)
+        torch.manual_seed(a.seed)
+        torch.cuda.manual_seed_all(a.seed)
     model = AutoModelForCausalLM.from_pretrained(a.src, dtype=torch.float16).cuda()
     masks = {}
     for n, m in model.named_modules():

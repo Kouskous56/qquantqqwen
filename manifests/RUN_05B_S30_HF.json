@@ -1,0 +1,1171 @@
+{
+ "model": "D:/qwen/models/Qwen2.5-0.5B-pruned-s30",
+ "backend": "hf-transformers-greedy-chat-template",
+ "perm": 65,
+ "perm_total": 200,
+ "b_rate": 0.44,
+ "consistent_4of4": 1,
+ "free": 7,
+ "free_total": 50,
+ "dist": {
+  "A": 83,
+  "B": 88,
+  "C": 4,
+  "D": 25
+ },
+ "per_question": {
+  "b01": {
+   "0": {
+    "got": "A",
+    "exp": "C",
+    "out": "A<|im_end|>"
+   },
+   "1": {
+    "got": "B",
+    "exp": "B",
+    "out": "B<|im_end|>"
+   },
+   "2": {
+    "got": "A",
+    "exp": "A",
+    "out": "A<|im_end|>"
+   },
+   "3": {
+    "got": "A",
+    "exp": "D",
+    "out": "A<|im_end|>"
+   }
+  },
+  "b02": {
+   "0": {
+    "got": "A",
+    "exp": "C",
+    "out": "A<|im_end|>"
+   },
+   "1": {
+    "got": "B",
+    "exp": "B",
+    "out": "B<|im_end|>"
+   },
+   "2": {
+    "got": "A",
+    "exp": "A",
+    "out": "A<|im_end|>"
+   },
+   "3": {
+    "got": "B",
+    "exp": "D",
+    "out": "B<|im_end|>"
+   }
+  },
+  "b03": {
+   "0": {
+    "got": "A",
+    "exp": "C",
+    "out": "A<|im_end|>"
+   },
+   "1": {
+    "got": "A",
+    "exp": "B",
+    "out": "A<|im_end|>"
+   },
+   "2": {
+    "got": "A",
+    "exp": "A",
+    "out": "A<|im_end|>"
+   },
+   "3": {
+    "got": "A",
+    "exp": "D",
+    "out": "A<|im_end|>"
+   }
+  },
+  "b04": {
+   "0": {
+    "got": "A",
+    "exp": "C",
+    "out": "A<|im_end|>"
+   },
+   "1": {
+    "got": "B",
+    "exp": "B",
+    "out": "B<|im_end|>"
+   },
+   "2": {
+    "got": "A",
+    "exp": "A",
+    "out": "A<|im_end|>"
+   },
+   "3": {
+    "got": "A",
+    "exp": "D",
+    "out": "A<|im_end|>"
+   }
+  },
+  "b05": {
+   "0": {
+    "got": "A",
+    "exp": "C",
+    "out": "A<|im_end|>"
+   },
+   "1": {
+    "got": "A",
+    "exp": "B",
+    "out": "A<|im_end|>"
+   },
+   "2": {
+    "got": "A",
+    "exp": "A",
+    "out": "A<|im_end|>"
+   },
+   "3": {
+    "got": "A",
+    "exp": "D",
+    "out": "A<|im_end|>"
+   }
+  },
+  "b06": {
+   "0": {
+    "got": "B",
+    "exp": "B",
+    "out": "B<|im_end|>"
+   },
+   "1": {
+    "got": "B",
+    "exp": "A",
+    "out": "B<|im_end|>"
+   },
+   "2": {
+    "got": "C",
+    "exp": "D",
+    "out": "C<|im_end|>"
+   },
+   "3": {
+    "got": "B",
+    "exp": "C",
+    "out": "B<|im_end|>"
+   }
+  },
+  "b07": {
+   "0": {
+    "got": "B",
+    "exp": "C",
+    "out": "B<|im_end|>"
+   },
+   "1": {
+    "got": "B",
+    "exp": "B",
+    "out": "B<|im_end|>"
+   },
+   "2": {
+    "got": "A",
+    "exp": "A",
+    "out": "A<|im_end|>"
+   },
+   "3": {
+    "got": "A",
+    "exp": "D",
+    "out": "A<|im_end|>"
+   }
+  },
+  "b08": {
+   "0": {
+    "got": "A",
+    "exp": "B",
+    "out": "A<|im_end|>"
+   },
+   "1": {
+    "got": "A",
+    "exp": "A",
+    "out": "A<|im_end|>"
+   },
+   "2": {
+    "got": "A",
+    "exp": "D",
+    "out": "A<|im_end|>"
+   },
+   "3": {
+    "got": "B",
+    "exp": "C",
+    "out": "B<|im_end|>"
+   }
+  },
+  "b09": {
+   "0": {
+    "got": "A",
+    "exp": "C",
+    "out": "A<|im_end|>"
+   },
+   "1": {
+    "got": "B",
+    "exp": "B",
+    "out": "B<|im_end|>"
+   },
+   "2": {
+    "got": "B",
+    "exp": "A",
+    "out": "B<|im_end|>"
+   },
+   "3": {
+    "got": "B",
+    "exp": "D",
+    "out": "B<|im_end|>"
+   }
+  },
+  "b10": {
+   "0": {
+    "got": "B",
+    "exp": "D",
+    "out": "B<|im_end|>"
+   },
+   "1": {
+    "got": "B",
+    "exp": "C",
+    "out": "B<|im_end|>"
+   },
+   "2": {
+    "got": "B",
+    "exp": "B",
+    "out": "B<|im_end|>"
+   },
+   "3": {
+    "got": "B",
+    "exp": "A",
+    "out": "B<|im_end|>"
+   }
+  },
+  "b11": {
+   "0": {
+    "got": "B",
+    "exp": "A",
+    "out": "B<|im_end|>"
+   },
+   "1": {
+    "got": "B",
+    "exp": "D",
+    "out": "B<|im_end|>"
+   },
+   "2": {
+    "got": "B",
+    "exp": "C",
+    "out": "B<|im_end|>"
+   },
+   "3": {
+    "got": "B",
+    "exp": "B",
+    "out": "B<|im_end|>"
+   }
+  },
+  "b12": {
+   "0": {
+    "got": "C",
+    "exp": "C",
+    "out": "C<|im_end|>"
+   },
+   "1": {
+    "got": "B",
+    "exp": "B",
+    "out": "B<|im_end|>"
+   },
+   "2": {
+    "got": "B",
+    "exp": "A",
+    "out": "B<|im_end|>"
+   },
+   "3": {
+    "got": "D",
+    "exp": "D",
+    "out": "D<|im_end|>"
+   }
+  },
+  "b13": {
+   "0": {
+    "got": "B",
+    "exp": "B",
+    "out": "B<|im_end|>"
+   },
+   "1": {
+    "got": "A",
+    "exp": "A",
+    "out": "A<|im_end|>"
+   },
+   "2": {
+    "got": "B",
+    "exp": "D",
+    "out": "B<|im_end|>"
+   },
+   "3": {
+    "got": "B",
+    "exp": "C",
+    "out": "B<|im_end|>"
+   }
+  },
+  "b14": {
+   "0": {
+    "got": "D",
+    "exp": "C",
+    "out": "D<|im_end|>"
+   },
+   "1": {
+    "got": "D",
+    "exp": "B",
+    "out": "D<|im_end|>"
+   },
+   "2": {
+    "got": "D",
+    "exp": "A",
+    "out": "D<|im_end|>"
+   },
+   "3": {
+    "got": "D",
+    "exp": "D",
+    "out": "D<|im_end|>"
+   }
+  },
+  "b15": {
+   "0": {
+    "got": "B",
+    "exp": "C",
+    "out": "B<|im_end|>"
+   },
+   "1": {
+    "got": "B",
+    "exp": "B",
+    "out": "B<|im_end|>"
+   },
+   "2": {
+    "got": "B",
+    "exp": "A",
+    "out": "B<|im_end|>"
+   },
+   "3": {
+    "got": "A",
+    "exp": "D",
+    "out": "A<|im_end|>"
+   }
+  },
+  "h16": {
+   "0": {
+    "got": "A",
+    "exp": "C",
+    "out": "A<|im_end|>"
+   },
+   "1": {
+    "got": "B",
+    "exp": "B",
+    "out": "B<|im_end|>"
+   },
+   "2": {
+    "got": "A",
+    "exp": "A",
+    "out": "A<|im_end|>"
+   },
+   "3": {
+    "got": "A",
+    "exp": "D",
+    "out": "A<|im_end|>"
+   }
+  },
+  "h17": {
+   "0": {
+    "got": "B",
+    "exp": "B",
+    "out": "B<|im_end|>"
+   },
+   "1": {
+    "got": "B",
+    "exp": "A",
+    "out": "B<|im_end|>"
+   },
+   "2": {
+    "got": "B",
+    "exp": "D",
+    "out": "B<|im_end|>"
+   },
+   "3": {
+    "got": "A",
+    "exp": "C",
+    "out": "A<|im_end|>"
+   }
+  },
+  "h18": {
+   "0": {
+    "got": "A",
+    "exp": "B",
+    "out": "A<|im_end|>"
+   },
+   "1": {
+    "got": "A",
+    "exp": "A",
+    "out": "A<|im_end|>"
+   },
+   "2": {
+    "got": "A",
+    "exp": "D",
+    "out": "A<|im_end|>"
+   },
+   "3": {
+    "got": "A",
+    "exp": "C",
+    "out": "A<|im_end|>"
+   }
+  },
+  "h19": {
+   "0": {
+    "got": "A",
+    "exp": "B",
+    "out": "A<|im_end|>"
+   },
+   "1": {
+    "got": "B",
+    "exp": "A",
+    "out": "B<|im_end|>"
+   },
+   "2": {
+    "got": "A",
+    "exp": "D",
+    "out": "A<|im_end|>"
+   },
+   "3": {
+    "got": "A",
+    "exp": "C",
+    "out": "A<|im_end|>"
+   }
+  },
+  "h20": {
+   "0": {
+    "got": "D",
+    "exp": "B",
+    "out": "D<|im_end|>"
+   },
+   "1": {
+    "got": "B",
+    "exp": "A",
+    "out": "B<|im_end|>"
+   },
+   "2": {
+    "got": "B",
+    "exp": "D",
+    "out": "B<|im_end|>"
+   },
+   "3": {
+    "got": "D",
+    "exp": "C",
+    "out": "D<|im_end|>"
+   }
+  },
+  "h21": {
+   "0": {
+    "got": "B",
+    "exp": "B",
+    "out": "B<|im_end|>"
+   },
+   "1": {
+    "got": "B",
+    "exp": "A",
+    "out": "B<|im_end|>"
+   },
+   "2": {
+    "got": "B",
+    "exp": "D",
+    "out": "B<|im_end|>"
+   },
+   "3": {
+    "got": "B",
+    "exp": "C",
+    "out": "B<|im_end|>"
+   }
+  },
+  "h22": {
+   "0": {
+    "got": "B",
+    "exp": "C",
+    "out": "B<|im_end|>"
+   },
+   "1": {
+    "got": "B",
+    "exp": "B",
+    "out": "B<|im_end|>"
+   },
+   "2": {
+    "got": "A",
+    "exp": "A",
+    "out": "A<|im_end|>"
+   },
+   "3": {
+    "got": "A",
+    "exp": "D",
+    "out": "A<|im_end|>"
+   }
+  },
+  "h23": {
+   "0": {
+    "got": "A",
+    "exp": "B",
+    "out": "A<|im_end|>"
+   },
+   "1": {
+    "got": "A",
+    "exp": "A",
+    "out": "A<|im_end|>"
+   },
+   "2": {
+    "got": "A",
+    "exp": "D",
+    "out": "A<|im_end|>"
+   },
+   "3": {
+    "got": "B",
+    "exp": "C",
+    "out": "B<|im_end|>"
+   }
+  },
+  "h24": {
+   "0": {
+    "got": "B",
+    "exp": "B",
+    "out": "B<|im_end|>"
+   },
+   "1": {
+    "got": "B",
+    "exp": "A",
+    "out": "B<|im_end|>"
+   },
+   "2": {
+    "got": "B",
+    "exp": "D",
+    "out": "B<|im_end|>"
+   },
+   "3": {
+    "got": "B",
+    "exp": "C",
+    "out": "B<|im_end|>"
+   }
+  },
+  "h25": {
+   "0": {
+    "got": "C",
+    "exp": "C",
+    "out": "C<|im_end|>"
+   },
+   "1": {
+    "got": "B",
+    "exp": "B",
+    "out": "B<|im_end|>"
+   },
+   "2": {
+    "got": "A",
+    "exp": "A",
+    "out": "A<|im_end|>"
+   },
+   "3": {
+    "got": "B",
+    "exp": "D",
+    "out": "B<|im_end|>"
+   }
+  },
+  "h26": {
+   "0": {
+    "got": "A",
+    "exp": "B",
+    "out": "A<|im_end|>"
+   },
+   "1": {
+    "got": "B",
+    "exp": "A",
+    "out": "B<|im_end|>"
+   },
+   "2": {
+    "got": "D",
+    "exp": "D",
+    "out": "D<|im_end|>"
+   },
+   "3": {
+    "got": "A",
+    "exp": "C",
+    "out": "A<|im_end|>"
+   }
+  },
+  "h27": {
+   "0": {
+    "got": "B",
+    "exp": "B",
+    "out": "B<|im_end|>"
+   },
+   "1": {
+    "got": "B",
+    "exp": "A",
+    "out": "B<|im_end|>"
+   },
+   "2": {
+    "got": "A",
+    "exp": "D",
+    "out": "A<|im_end|>"
+   },
+   "3": {
+    "got": "B",
+    "exp": "C",
+    "out": "B<|im_end|>"
+   }
+  },
+  "h28": {
+   "0": {
+    "got": "B",
+    "exp": "B",
+    "out": "B<|im_end|>"
+   },
+   "1": {
+    "got": "B",
+    "exp": "A",
+    "out": "B<|im_end|>"
+   },
+   "2": {
+    "got": "B",
+    "exp": "D",
+    "out": "B<|im_end|>"
+   },
+   "3": {
+    "got": "A",
+    "exp": "C",
+    "out": "A<|im_end|>"
+   }
+  },
+  "h29": {
+   "0": {
+    "got": "B",
+    "exp": "C",
+    "out": "B<|im_end|>"
+   },
+   "1": {
+    "got": "B",
+    "exp": "B",
+    "out": "B<|im_end|>"
+   },
+   "2": {
+    "got": "B",
+    "exp": "A",
+    "out": "B<|im_end|>"
+   },
+   "3": {
+    "got": "B",
+    "exp": "D",
+    "out": "B<|im_end|>"
+   }
+  },
+  "h30": {
+   "0": {
+    "got": "A",
+    "exp": "C",
+    "out": "A<|im_end|>"
+   },
+   "1": {
+    "got": "A",
+    "exp": "B",
+    "out": "A<|im_end|>"
+   },
+   "2": {
+    "got": "A",
+    "exp": "A",
+    "out": "A<|im_end|>"
+   },
+   "3": {
+    "got": "B",
+    "exp": "D",
+    "out": "B<|im_end|>"
+   }
+  },
+  "o31": {
+   "0": {
+    "got": "D",
+    "exp": "A",
+    "out": "D<|im_end|>"
+   },
+   "1": {
+    "got": "D",
+    "exp": "D",
+    "out": "D<|im_end|>"
+   },
+   "2": {
+    "got": "A",
+    "exp": "C",
+    "out": "A<|im_end|>"
+   },
+   "3": {
+    "got": "D",
+    "exp": "B",
+    "out": "D<|im_end|>"
+   }
+  },
+  "o32": {
+   "0": {
+    "got": "D",
+    "exp": "B",
+    "out": "D<|im_end|>"
+   },
+   "1": {
+    "got": "D",
+    "exp": "A",
+    "out": "D<|im_end|>"
+   },
+   "2": {
+    "got": "D",
+    "exp": "D",
+    "out": "D<|im_end|>"
+   },
+   "3": {
+    "got": "B",
+    "exp": "C",
+    "out": "B<|im_end|>"
+   }
+  },
+  "o33": {
+   "0": {
+    "got": "A",
+    "exp": "C",
+    "out": "A<|im_end|>"
+   },
+   "1": {
+    "got": "A",
+    "exp": "B",
+    "out": "A<|im_end|>"
+   },
+   "2": {
+    "got": "A",
+    "exp": "A",
+    "out": "A<|im_end|>"
+   },
+   "3": {
+    "got": "A",
+    "exp": "D",
+    "out": "A<|im_end|>"
+   }
+  },
+  "o34": {
+   "0": {
+    "got": "B",
+    "exp": "B",
+    "out": "B<|im_end|>"
+   },
+   "1": {
+    "got": "B",
+    "exp": "A",
+    "out": "B<|im_end|>"
+   },
+   "2": {
+    "got": "B",
+    "exp": "D",
+    "out": "B<|im_end|>"
+   },
+   "3": {
+    "got": "B",
+    "exp": "C",
+    "out": "B<|im_end|>"
+   }
+  },
+  "o35": {
+   "0": {
+    "got": "B",
+    "exp": "B",
+    "out": "B<|im_end|>"
+   },
+   "1": {
+    "got": "D",
+    "exp": "A",
+    "out": "D<|im_end|>"
+   },
+   "2": {
+    "got": "B",
+    "exp": "D",
+    "out": "B<|im_end|>"
+   },
+   "3": {
+    "got": "B",
+    "exp": "C",
+    "out": "B<|im_end|>"
+   }
+  },
+  "o36": {
+   "0": {
+    "got": "B",
+    "exp": "C",
+    "out": "B<|im_end|>"
+   },
+   "1": {
+    "got": "B",
+    "exp": "B",
+    "out": "B<|im_end|>"
+   },
+   "2": {
+    "got": "B",
+    "exp": "A",
+    "out": "B<|im_end|>"
+   },
+   "3": {
+    "got": "B",
+    "exp": "D",
+    "out": "B<|im_end|>"
+   }
+  },
+  "o37": {
+   "0": {
+    "got": "D",
+    "exp": "B",
+    "out": "D<|im_end|>"
+   },
+   "1": {
+    "got": "D",
+    "exp": "A",
+    "out": "D<|im_end|>"
+   },
+   "2": {
+    "got": "D",
+    "exp": "D",
+    "out": "D<|im_end|>"
+   },
+   "3": {
+    "got": "D",
+    "exp": "C",
+    "out": "D<|im_end|>"
+   }
+  },
+  "o38": {
+   "0": {
+    "got": "B",
+    "exp": "B",
+    "out": "B<|im_end|>"
+   },
+   "1": {
+    "got": "B",
+    "exp": "A",
+    "out": "B<|im_end|>"
+   },
+   "2": {
+    "got": "B",
+    "exp": "D",
+    "out": "B<|im_end|>"
+   },
+   "3": {
+    "got": "B",
+    "exp": "C",
+    "out": "B<|im_end|>"
+   }
+  },
+  "o39": {
+   "0": {
+    "got": "B",
+    "exp": "C",
+    "out": "B<|im_end|>"
+   },
+   "1": {
+    "got": "B",
+    "exp": "B",
+    "out": "B<|im_end|>"
+   },
+   "2": {
+    "got": "B",
+    "exp": "A",
+    "out": "B<|im_end|>"
+   },
+   "3": {
+    "got": "B",
+    "exp": "D",
+    "out": "B<|im_end|>"
+   }
+  },
+  "o40": {
+   "0": {
+    "got": "B",
+    "exp": "B",
+    "out": "B<|im_end|>"
+   },
+   "1": {
+    "got": "A",
+    "exp": "A",
+    "out": "A<|im_end|>"
+   },
+   "2": {
+    "got": "D",
+    "exp": "D",
+    "out": "D<|im_end|>"
+   },
+   "3": {
+    "got": "A",
+    "exp": "C",
+    "out": "A<|im_end|>"
+   }
+  },
+  "a41": {
+   "0": {
+    "got": "A",
+    "exp": "C",
+    "out": "A<|im_end|>"
+   },
+   "1": {
+    "got": "A",
+    "exp": "B",
+    "out": "A<|im_end|>"
+   },
+   "2": {
+    "got": "A",
+    "exp": "A",
+    "out": "A<|im_end|>"
+   },
+   "3": {
+    "got": "D",
+    "exp": "D",
+    "out": "D<|im_end|>"
+   }
+  },
+  "a42": {
+   "0": {
+    "got": "D",
+    "exp": "C",
+    "out": "D<|im_end|>"
+   },
+   "1": {
+    "got": "A",
+    "exp": "B",
+    "out": "A<|im_end|>"
+   },
+   "2": {
+    "got": "A",
+    "exp": "A",
+    "out": "A<|im_end|>"
+   },
+   "3": {
+    "got": "D",
+    "exp": "D",
+    "out": "D<|im_end|>"
+   }
+  },
+  "a43": {
+   "0": {
+    "got": "B",
+    "exp": "A",
+    "out": "B<|im_end|>"
+   },
+   "1": {
+    "got": "A",
+    "exp": "D",
+    "out": "A<|im_end|>"
+   },
+   "2": {
+    "got": "D",
+    "exp": "C",
+    "out": "D<|im_end|>"
+   },
+   "3": {
+    "got": "A",
+    "exp": "B",
+    "out": "A<|im_end|>"
+   }
+  },
+  "a44": {
+   "0": {
+    "got": "A",
+    "exp": "B",
+    "out": "A<|im_end|>"
+   },
+   "1": {
+    "got": "A",
+    "exp": "A",
+    "out": "A<|im_end|>"
+   },
+   "2": {
+    "got": "A",
+    "exp": "D",
+    "out": "A<|im_end|>"
+   },
+   "3": {
+    "got": "A",
+    "exp": "C",
+    "out": "A<|im_end|>"
+   }
+  },
+  "a45": {
+   "0": {
+    "got": "A",
+    "exp": "A",
+    "out": "A<|im_end|>"
+   },
+   "1": {
+    "got": "A",
+    "exp": "D",
+    "out": "A<|im_end|>"
+   },
+   "2": {
+    "got": "A",
+    "exp": "C",
+    "out": "A<|im_end|>"
+   },
+   "3": {
+    "got": "A",
+    "exp": "B",
+    "out": "A<|im_end|>"
+   }
+  },
+  "a46": {
+   "0": {
+    "got": "B",
+    "exp": "B",
+    "out": "B<|im_end|>"
+   },
+   "1": {
+    "got": "B",
+    "exp": "A",
+    "out": "B<|im_end|>"
+   },
+   "2": {
+    "got": "B",
+    "exp": "D",
+    "out": "B<|im_end|>"
+   },
+   "3": {
+    "got": "B",
+    "exp": "C",
+    "out": "B<|im_end|>"
+   }
+  },
+  "a47": {
+   "0": {
+    "got": "A",
+    "exp": "A",
+    "out": "A<|im_end|>"
+   },
+   "1": {
+    "got": "A",
+    "exp": "D",
+    "out": "A<|im_end|>"
+   },
+   "2": {
+    "got": "A",
+    "exp": "C",
+    "out": "A<|im_end|>"
+   },
+   "3": {
+    "got": "A",
+    "exp": "B",
+    "out": "A<|im_end|>"
+   }
+  },
+  "a48": {
+   "0": {
+    "got": "A",
+    "exp": "A",
+    "out": "A<|im_end|>"
+   },
+   "1": {
+    "got": "A",
+    "exp": "D",
+    "out": "A<|im_end|>"
+   },
+   "2": {
+    "got": "A",
+    "exp": "C",
+    "out": "A<|im_end|>"
+   },
+   "3": {
+    "got": "A",
+    "exp": "B",
+    "out": "A<|im_end|>"
+   }
+  },
+  "a49": {
+   "0": {
+    "got": "A",
+    "exp": "B",
+    "out": "A<|im_end|>"
+   },
+   "1": {
+    "got": "A",
+    "exp": "A",
+    "out": "A<|im_end|>"
+   },
+   "2": {
+    "got": "A",
+    "exp": "D",
+    "out": "A<|im_end|>"
+   },
+   "3": {
+    "got": "A",
+    "exp": "C",
+    "out": "A<|im_end|>"
+   }
+  },
+  "a50": {
+   "0": {
+    "got": "C",
+    "exp": "C",
+    "out": "C<|im_end|>"
+   },
+   "1": {
+    "got": "B",
+    "exp": "B",
+    "out": "B<|im_end|>"
+   },
+   "2": {
+    "got": "A",
+    "exp": "A",
+    "out": "A<|im_end|>"
+   },
+   "3": {
+    "got": "D",
+    "exp": "D",
+    "out": "D<|im_end|>"
+   }
+  }
+ },
+ "free_raw": {
+  "b01": "15<|im_end|>",
+  "b02": "18<|im_end|>",
+  "b03": "55<|im_end|>",
+  "b04": "81<|im_end|>",
+  "b05": "10<|im_end|>",
+  "b06": "9<|im_end|>",
+  "b07": "14.4<|im_end|>",
+  "b08": "4<|im_end|>",
+  "b09": "70<|im_end|>",
+  "b10": "27<|im_end|>",
+  "b11": "15<|im_end|>",
+  "b12": "7 + 2 = 9<|im_end|>",
+  "b13": "3<|im_end|>",
+  "b14": "25<|im_end|>",
+  "b15": "1.75<|im_end|>",
+  "h16": "3<|im_end|>",
+  "h17": "2<|im_end|>",
+  "h18": "2<|im_end|>",
+  "h19": "0.5<|im_end|>",
+  "h20": "4<|im_end|>",
+  "h21": "6<|im_end|>",
+  "h22": "15<|im_end|>",
+  "h23": "31.41592653589793<|im_end|>",
+  "h24": "2.5<|im_end|>",
+  "h25": "1024<|im_end|>",
+  "h26": "0.5<|im_end|>",
+  "h27": "4<|im_end|>",
+  "h28": "-1<|im_end|>",
+  "h29": "18<|im_end|>",
+  "h30": "0.5<|im_end|>",
+  "o31": "7<|im_end|>",
+  "o32": "3<|im_end|>",
+  "o33": "5<|im_end|>",
+  "o34": "5<|im_end|>",
+  "o35": "6<|im_end|>",
+  "o36": "4950<|im_end|>",
+  "o37": "6<|im_end|>",
+  "o38": "6<|im_end|>",
+  "o39": "180<|im_end|>",
+  "o40": "50 + 1 = 51<|im_end|>",
+  "a41": "1<|im_end|>",
+  "a42": "π/2<|im_end|>",
+  "a43": "5<|im_end|>",
+  "a44": "2<|im_end|>",
+  "a45": "1<|im_end|>",
+  "a46": "0.9<|im_end|>",
+  "a47": "1<|im_end|>",
+  "a48": "ln(e^x + 1) + C<|im_end|>",
+  "a49": "ln(y) + 1<|im_end|>",
+  "a50": "Determinantless square matrices<|im_end|>"
+ },
+ "timestamp": "2026-09-25T19:12"
+}

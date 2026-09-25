@@ -7,7 +7,7 @@ degradation across Qwen2.5 model scales**.
 
 | Scale | ΔPPL@s30 | Free retention |
 |---|---|---|
-| 0.5B | +7.9% | 50% |
+| 0.5B | +7.9% | 44% (7/16, same-script pair) |
 | 1.5B | +6.5% | 76% |
 | 3B | +6.3% | 125%* |
 
@@ -15,14 +15,14 @@ degradation across Qwen2.5 model scales**.
 improvement from pruning.
 
 ## Repository map
-- `bench/` — evaluation harnesses (V2 permutation + free-response, GSM8K, PPL, IFEval runners)
-- `scripts/` — Wanda pruning port for Qwen2, LoRA recovery, conversion helpers
-- `data/v2/` — the 50-question diagnostic suite we authored (CC BY 4.0)
-- `manifests/` — run manifests (versions, dataset hashes, run IDs)
-- `results/` — aggregate CSVs behind the paper tables
-- `notes/` — phase reports (full experimental narrative)
-- `third_party_adapters/` — our Qwen2 port of upstream SparseGPT (see README there)
-- `paper/` — frozen v1 PDF (LaTeX sources retained by the authors; build requires MiKTeX/XeLaTeX)
+- eproduce/\ — canonical runnable entry points (PPL, V2-GGUF, V2-HF, GSM, Wanda, masked recovery, corpus builder)
+- \manifests/\ — frozen provenance (versions, hashes, run IDs)
+- esults/\ — canonical aggregate outputs (+ \legacy_v2/\ historical runs)
+- \data/v2/\ — authored diagnostic dataset (questions + key; CC BY 4.0)
+- \legacy/\ — historical development scripts/results (not authoritative)
+- otes/\ — contemporaneous notes; superseded interpretations possible (see otes/README.md\)
+- \ench/\, \scripts/\ — retained auxiliary/historical utilities
+- \	hird_party_adapters/\, \paper/\ — SparseGPT Qwen port notes; frozen v1 PDF
 
 ## Reproduction
 See `REPRODUCIBILITY.md` for the claim → script → manifest → output map.

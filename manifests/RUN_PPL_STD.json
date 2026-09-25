@@ -46,5 +46,12 @@
    "tokens": 12800,
    "runtime_s": 246.2
   }
+ },
+ "corpus": {
+  "dataset": "Salesforce/wikitext",
+  "config": "wikitext-2-raw-v1",
+  "split": "test",
+  "rule": "first 200 rows, drop empty",
+  "sha256": "36d48636c19e3073747ea7d7c4c641f3ba71ad44a02828fb35783ac91209915a"
  }
 }
