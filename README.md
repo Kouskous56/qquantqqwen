@@ -15,15 +15,10 @@ degradation across Qwen2.5 model scales**.
 improvement from pruning.
 
 ## Repository map
-- eproduce/\ — canonical runnable entry points (PPL, V2-GGUF, V2-HF, GSM, Wanda, masked recovery, corpus builder)
-- \manifests/\ — frozen provenance (versions, hashes, run IDs)
-- esults/\ — canonical aggregate outputs (+ \legacy_v2/\ historical runs)
-- \data/v2/\ — authored diagnostic dataset (questions + key; CC BY 4.0)
-- \legacy/\ — historical development scripts/results (not authoritative)
-- otes/\ — contemporaneous notes; superseded interpretations possible (see otes/README.md\)
-- \ench/\, \scripts/\ — retained auxiliary/historical utilities
-- \	hird_party_adapters/\, \paper/\ — SparseGPT Qwen port notes; frozen v1 PDF
 
+REPRODUCE = reproduce/, MANIFESTS = manifests/, RESULTS = results/, DATA = data/v2/, LEGACY = legacy/, NOTES = notes/, BENCH = bench/, ADAPTERS = third_party_adapters/, PAPER = paper/
+
+reproduce holds canonical runnable entry points; manifests holds frozen provenance; results holds canonical aggregates; data/v2 holds the authored dataset (CC BY 4.0); legacy holds history; notes holds lab notes (see notes README).
 ## Reproduction
 See `REPRODUCIBILITY.md` for the claim → script → manifest → output map.
 Model weights are NOT included (72 GB, Qwen license). Download Qwen2.5-0.5B/1.5B/3B-Instruct
