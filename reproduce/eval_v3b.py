@@ -30,28 +30,44 @@ def final_number(text):
     return norm(mg[-1]) if mg else None
 
 
-def is_numeric(s):
+def latex_canon(s):
+    s = norm(s)
+    s = s.replace("\\pi", "pi").replace("π", "pi")
+    for w in ("$", "\\(", "\\)", "\\[", "\\]",
+              "<|im_end|>", "<|im_start|>"):
+        s = s.replace(w, "")
+    return s
+
+
+def to_number(s):
+    s = norm(s)
     try:
-        float(s)
-        return True
+        return float(s)
     except Exception:
-        return False
+        pass
+    m = re.match(r"^(-?\d+(?:\.\d+)?)/(-?\d+(?:\.\d+)?)$", s)
+    if m and float(m.group(2)) != 0:
+        return float(m.group(1)) / float(m.group(2))
+    return None
 
 
-def match(accepted, out):
-    nout = norm(out)
-    for a in accepted:
-        na = norm(a)
-        if not na:
-            continue
-        if is_numeric(na):
-            got = final_number(out)
-            if got is not None and is_numeric(got) and \
-                    abs(float(got) - float(na)) < 1e-9:
-                return True
-        elif re.search(r"(?<![\w.])" + re.escape(na) + r"(?![\w.])", nout):
-            return True
-    return False
+def match(q, out):
+    t = q.get("answer_type", "numeric_scalar")
+    if t == "numeric_scalar":
+        got = final_number(out)
+        if got is None:
+            return False
+        return any((lambda v: v is not None and abs(v - g) < 1e-9)(
+            to_number(a)) for a in q["accepted"]
+            if (g := to_number(got)) is not None)
+    if t == "unordered_numeric_set":
+        nout = latex_canon(out)
+        return any(latex_canon(a) in nout for a in q["accepted"])
+    if t == "symbolic_exact":
+        nout = latex_canon(out).rstrip(".")
+        return any(nout == latex_canon(a) or nout.endswith(latex_canon(a))
+                   for a in q["accepted"])
+    raise ValueError(t)
 
 
 def main():
@@ -87,7 +103,7 @@ def main():
                                  eos_token_id=tok.eos_token_id,
                                  pad_token_id=tok.eos_token_id)
                 t = tok.decode(out[0][ids.input_ids.shape[1]:])
-                good = match(q["accepted"], t)
+                good = match(q, t)
                 ok += good
                 items.append({"id": q["id"], "pass": good, "out": t[:300]})
             rep_scores.append(ok)

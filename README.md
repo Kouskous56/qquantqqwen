@@ -7,7 +7,7 @@ degradation across Qwen2.5 model scales**.
 
 | Scale | ΔPPL@s30 | Free retention |
 |---|---|---|
-| 0.5B | +7.9% | 65% (V3.2 typed: 11/17) |
+| 0.5B | +7.9% | 61% (V3.2 typed: 11/18) |
 | 1.5B | +6.5% | 85% (V3.2 typed: 28/33) |
 | 3B | +6.3% | 95% (V3.2 typed: 35/37) |
 
