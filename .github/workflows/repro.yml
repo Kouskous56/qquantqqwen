@@ -1,0 +1,66 @@
+name: repro
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  golden:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+          cache-dependency-path: requirements-dev.txt
+      - run: pip install -r requirements-dev.txt
+      - run: pytest tests/ -q
+        env:
+          PYTHONDONTWRITEBYTECODE: "1"
+      - name: Committed aggregates match recomputation
+        run: |
+          python reproduce/rescore_v3.py --manifest-dir manifests \
+            --questions data/v2/questions.json \
+            --out-results /tmp/v3_recomputed.csv \
+            --out-manifest /tmp/v33_recomputed.json
+          diff /tmp/v3_recomputed.csv results/v3_cross_scale.csv
+      - uses: actions/upload-artifact@v4
+        if: failure()
+        with:
+          name: recomputed-results
+          path: /tmp/v3_recomputed.csv
+
+  schema:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+      - run: pip install check-jsonschema
+      - name: Validate canonical V3 manifests (strict)
+        run: check-jsonschema --schemafile schemas/manifest.schema.json manifests/RUN_V31_*.json manifests/RUN_V33_RESCORE.json
+      - name: Legacy manifests must stay valid JSON
+        run: python -c "import json,glob; [json.load(open(f)) for f in glob.glob('manifests/*.json')]; print('all JSON valid')"
+
+  links:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - name: Link check
+        uses: lycheeverse/lychee-action@v2
+        with:
+          fail: true
+          args: --no-progress --verbose --exclude '^https://arxiv\.org' './**/*.md'

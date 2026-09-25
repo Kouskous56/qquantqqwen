@@ -1,0 +1,15 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Run manifest",
+  "type": "object",
+  "required": ["protocol"],
+  "properties": {
+    "run_id": {"type": "string"},
+    "model": {"type": "string"},
+    "protocol": {"type": "string"},
+    "dataset_sha256": {"type": "string"},
+    "scorer_sha256": {"type": "string"},
+    "timestamp": {"type": "string"}
+  },
+  "additionalProperties": true
+}
