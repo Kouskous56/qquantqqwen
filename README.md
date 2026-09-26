@@ -2,9 +2,8 @@
 
 ![repro](https://github.com/Kouskous56/qquantqqwen/actions/workflows/repro.yml/badge.svg)
 
-This repository accompanies the technical report of the same name
-(manuscript temporarily omitted while the reproducibility package is finalized;
-the arXiv version will be linked at release). The central finding is that **similar perplexity
+This repository accompanies the frozen V1 technical report of the same name
+(paper/paper1042.pdf; arXiv record to be linked after submission). The central finding is that **similar perplexity
 degradation under pruning can correspond to substantially different behavioral
 degradation across Qwen2.5 model scales**.
 
@@ -18,7 +17,7 @@ degradation across Qwen2.5 model scales**.
 
 ## Repository map
 
-REPRODUCE = reproduce/, MANIFESTS = manifests/, RESULTS = results/, DATA = data/v2/, LEGACY = legacy/, NOTES = notes/, BENCH = bench/, ADAPTERS = third_party_adapters/
+REPRODUCE = reproduce/, MANIFESTS = manifests/, RESULTS = results/, DATA = data/v2/, LEGACY = legacy/, NOTES = notes/, BENCH = bench/, ADAPTERS = third_party_adapters/, PAPER = paper/
 
 reproduce holds canonical runnable entry points; manifests holds frozen provenance; results holds canonical aggregates; data/v2 holds the authored dataset (CC BY 4.0); legacy holds history; notes holds lab notes (see notes README).
 ## Reproduction

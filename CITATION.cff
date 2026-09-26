@@ -5,6 +5,8 @@ authors:
   - family-names: "Nguyen"
     given-names: "Dang Khoa"
 repository-code: "https://github.com/Kouskous56/qquantqqwen"
+version: "1.0.0"
+date-released: "2026-09-26"
 license: MIT
 keywords:
   - llm-compression

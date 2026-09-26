@@ -49,10 +49,10 @@ jobs:
           python-version: "3.11"
           cache: pip
       - run: pip install check-jsonschema
-      - name: Validate canonical V3 manifests (strict)
+      - name: Validate canonical V3 manifests
         run: check-jsonschema --schemafile schemas/manifest.schema.json manifests/RUN_V31_*.json manifests/RUN_V33_RESCORE.json
       - name: Legacy manifests must stay valid JSON
-        run: python -c "import json,glob; [json.load(open(f)) for f in glob.glob('manifests/*.json')]; print('all JSON valid')"
+        run: python -c "import json,glob; [json.load(open(f)) for f in glob.glob('manifests/**/*.json', recursive=True)]; print('all JSON valid')"
 
   links:
     runs-on: ubuntu-latest
