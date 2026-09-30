@@ -32,6 +32,23 @@ LIM_SCRIPT = ("Script goc da bien mat khoi dia (script_sha256=689631b78649 khong
               "khop file nao). Manifest giu nguyen ket qua cu, khong kha nang "
               "sinh lai.")
 
+# Script da bi sua SAU khi sinh ra so lieu. Manifest phai giu hash luc chay
+# (nguon cua so lieu), khong phai hash hien tai -- neu doi hash thi se noi
+# sai rang ban da sua da sinh ra cac diem nay.
+POST_RUN_FIXES = {
+    "bench/qwen3/gsm_sweep.py": {
+        # Lay tu git cat-file 6d86908 -- ban da sinh ra so lieu. Khong do
+        # tu file hien tai, vI file da bi sua.
+        "hash_at_run": "457690e0a96bfe27ec2c9a9ee4602d28c6f345af7971021ae64d37089f91f107",
+        "reason": ("Ten file manifest khong kem offset (OUT khong co _{a.offset}, "
+                   "con CK thi co), nen block offset=200 de file manifest cua "
+                   "block offset=0. DU LIEU KHONG MAT: checkpoint giu 200 cau moi "
+                   "block, va merge_gsm_blocks.py gop lai duoc, kiem tra trung i. "
+                   "Chi 1 manifest bi de; duoc ghi lai tu checkpoint."),
+        "affects_data": False,
+    },
+}
+
 
 def sha(p: Path) -> str:
     h = hashlib.sha256()
@@ -110,11 +127,31 @@ def pick_scorer(name, d, kind):
     """Chon script sinh nhan 'pass', chi khi bang chung du manh."""
     if kind == "mmlu":
         return "mmlu_ollama"
-    if kind == "gsm":
+    if kind in ("gsm", "harness"):
+        # harness_probe.py xuat ban RUN_HARNESS_*; gsm_sweep.py xuat ban con lai
         return "gsm_harness" if name.startswith("RUN_HARNESS_") else "gsm_ollama"
-    if kind == "harness":
-        return "gsm_harness"
     return None  # typed: script rescore V3.3, kiem chuc chua xac nhan
+
+
+def scorer_from_run_id(d):
+    """Uu tien bang chung do chinh script ghi vao manifest.
+
+    Chi gsm_sweep.py ghi ca `tag`, `offset` va `precision`. harness_probe.py
+    khong ghi. Ten file va hinh dang details chi la suy luan, va suy luan
+    do sai: mot manifest GSM ghi boi gsm_sweep.py co details dang 'harness'
+    (chi {i,pass}) nen se bi gan nham sang harness_probe.py.
+    """
+    if isinstance(d.get("tag"), str) and isinstance(d.get("offset"), int) \
+            and d.get("precision"):
+        return "gsm_ollama"
+    return None
+
+
+def post_run_fix_for(tag, sc):
+    """Ban script da sua sau khi chay chi ap dung cho manifest do script do sinh."""
+    if sc != "gsm_ollama":
+        return None
+    return POST_RUN_FIXES.get("bench/qwen3/gsm_sweep.py")
 
 
 OLLAMA = Path("C:/Users/ACER/AppData/Local/Programs/Ollama/ollama.exe")
@@ -183,7 +220,7 @@ def main():
         det = d["details"]
         kind = detail_schema(det)
         ch = content_hash(det, kind)
-        sc = pick_scorer(p.name, d, kind)
+        sc = scorer_from_run_id(d) or pick_scorer(p.name, d, kind)
 
         gname, gpath, gsha, gsrc = resolve_gguf(d, disk_idx)
         pr = dict(d.get("provenance") or {})
@@ -218,8 +255,17 @@ def main():
             "status": None,
         }
         if sc and Path(shav).exists():
-            scorer_block["sha256"] = sha_cached(Path(shav), cache)
+            cur = sha_cached(Path(shav), cache)
+            fix = post_run_fix_for(d.get("tag"), sc)
+            if fix and fix.get("hash_at_run") is None:
+                # lan patch dau: giu hash cua ban da sinh ra so lieu nay
+                fix["hash_at_run"] = cur
+            scorer_block["sha256"] = fix["hash_at_run"] if fix else cur
             scorer_block["status"] = "verified-on-disk"
+            if fix and fix["hash_at_run"] != cur:
+                scorer_block["current_sha256"] = cur
+                scorer_block["modified_after_run"] = True
+                scorer_block["modification"] = fix["reason"]
         elif sc:
             scorer_block["status"] = "script-khong-ton-tai"
         else:
@@ -249,9 +295,13 @@ def main():
             "scorer": scorer_block["script"],
             "scorer_sha256": scorer_block["sha256"],
             "scorer_status": scorer_block["status"],
+            "current_sha256": scorer_block.get("current_sha256"),
+            "modified_after_run": scorer_block.get("modified_after_run"),
+            "modification": scorer_block.get("modification"),
             "timestamp": mtime.isoformat().replace("+00:00", "Z"),
             "timestamp_source": "file-mtime-cua-manifest, KHONG phai gio chay thoi",
             "provenance": pr,
+            "dataset_source": d.get("dataset_source"),
             "regenerable": False,
             "limitation": LIM_GPU,
             "scores": {k: v for k, v in d.items()

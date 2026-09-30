@@ -128,8 +128,14 @@ def test_honesty_fields(name):
 
 
 def test_scorer_hashes_match_repo_scripts():
-    """Hash scorer phai tro den file thuc su co trong repo nay."""
-    import os
+    """Hash scorer phai khop mot trong cac ban da ghi nho.
+
+    `scorer_sha256` la hash luc chay -- day la nguon cua so lieu.
+    `current_sha256` la hash ban dang nam tren dia hien nay. Hai cai
+    khac nhau nghia la script da bi sua sau khi sinh ra so lieu, va
+    manifest phai noi ro ly do. Test nay KHONG chap nhan hash nao
+    chua duoc ghi nho.
+    """
     for p in FILES:
         d = _load(p)
         if d["scorer_status"] != "verified-on-disk":
@@ -137,8 +143,27 @@ def test_scorer_hashes_match_repo_scripts():
         fp = ROOT / d["scorer"]
         assert fp.exists(), "%s: scorer %s khong co trong repo" % (p.name, d["scorer"])
         h = hashlib.sha256(fp.read_bytes()).hexdigest()
-        assert h == d["scorer_sha256"], (
-            "%s: scorer_sha256 lech voi %s tren dia" % (p.name, d["scorer"]))
+        known = {d["scorer_sha256"]}
+        if d.get("current_sha256"):
+            known.add(d["current_sha256"])
+        assert h in known, (
+            "%s: %s tren dia khop hash nao cung khong. known=%s actual=%s" % (
+                p.name, d["scorer"], sorted(k[:12] for k in known), h[:12]))
+
+
+def test_modified_scorers_are_declared():
+    """Script bi sua sau khi chay phai khai bao, kem ly do."""
+    n = 0
+    for p in FILES:
+        d = _load(p)
+        if d.get("current_sha256"):
+            n += 1
+            assert d.get("modified_after_run") is True, p.name
+            assert len(d.get("modification", "")) > 30, (
+                "%s: sua script ma khong ghi ly do" % p.name)
+            assert d["scorer_sha256"] != d["current_sha256"], p.name
+    # gsm_sweep.py da bi sua; it nhat manifest do phai phan biet duoc
+    assert n > 0, "ky vong co it nhat 1 scorer bi sua sau khi chay"
 
 
 def test_gguf_hash_matches_manifest_original():
@@ -175,3 +200,56 @@ def test_gguf_present_at_least_20():
     n = sum(1 for p in FILES
             if _load(p)["provenance"].get("gguf_sha256"))
     assert n >= 20, "chi %d/%d manifest co hash GGUF" % (n, len(FILES))
+
+
+def test_dataset_source_covers_index_range():
+    """Hash nguon goc phai dung so item va dai do trong details."""
+    for p in FILES:
+        d = _load(p)
+        ds = d.get("dataset_source")
+        if not ds:
+            continue
+        idx = [r["i"] for r in d["details"]]
+        assert ds["n_indices"] == len(idx), p.name
+        assert ds["index_range"] == [min(idx), max(idx)], p.name
+        for k in ("sha256_full", "sha256_answer"):
+            assert HEX64.match(ds[k]), "%s: %s" % (p.name, k)
+
+
+def test_two_400_item_runs_share_one_dataset_hash():
+    """Hai run 400 cau doc lap phai dung CUNG mot noi dung dataset.
+
+    Day la kiem cheo manh: no doc lap voi tung run -- giu du ca chay thi
+    doi item, ca chay sau doi item.
+    """
+    full = {}
+    for p in FILES:
+        d = _load(p)
+        ds = d.get("dataset_source")
+        if ds and ds.get("n_indices") == 400:
+            full.setdefault(ds["sha256_full"], []).append(p.name)
+    big = {h: v for h, v in full.items() if len(v) >= 2}
+    assert big, ("khong co cap hai manifest 400 cau nao cung dataset hash. "
+                 "full=%s" % {h[:12]: v for h, v in full.items()})
+    for h, v in big.items():
+        print("  400-item group %s: %s" % (h[:12], ", ".join(v)))
+
+
+def test_weak_hash_is_declared_where_it_is_weak():
+    """Schema 'harness' chi hash duoc chi so -- phai noi ro la yeu.
+
+    Khong bat buoc phai co dataset_source (nhieu run da xong khong kip
+    gan), nhung neu thieu thi phai co scope mo ta hanh chu khong nham rang
+    hash chung minh duoc noi dung cau.
+    """
+    weak = []
+    for p in FILES:
+        d = _load(p)
+        if d["detail_schema"] != "harness":
+            continue
+        if not d.get("dataset_source"):
+            weak.append(p.name)
+            scope = d["dataset_sha256_scope"]
+            assert "KHONG" in scope.upper(), (
+                "%s: schema harness, hash yeu, ma scope khong canh bao" % p.name)
+    print("  harness yeu (chua gan hash nguon goc): %d" % len(weak))

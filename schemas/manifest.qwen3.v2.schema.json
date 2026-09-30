@@ -49,7 +49,25 @@
       "type": ["string", "null"],
       "description": "duong dan tuong doi trong repo nay, hoac null neu khong xac dinh duoc."
     },
-    "scorer_sha256": {"type": ["string", "null"], "pattern": "^[0-9a-f]{64}$"},
+    "scorer_sha256": {
+      "type": ["string", "null"],
+      "pattern": "^[0-9a-f]{64}$",
+      "description": "Hash cua script LUC CHAY -- nguon cua so lieu. Khong doi khi script bi sua sau do; ban moi ghi o current_sha256."
+    },
+    "current_sha256": {
+      "type": ["string", "null"],
+      "pattern": "^[0-9a-f]{64}$",
+      "description": "Hash cua ban script dang nam tren dia. Khac scorer_sha256 nghia la da sua sau khi sinh so lieu."
+    },
+    "modified_after_run": {
+      "type": ["boolean", "null"],
+      "description": "true nghia la script bi sua sau khi sinh ra so lieu; phai kem modification."
+    },
+    "modification": {
+      "type": ["string", "null"],
+      "minLength": 30,
+      "description": "Ly do sua, va cho biet du lieu co bi anh huong khong."
+    },
     "scorer_status": {
       "enum": ["verified-on-disk", "script-khong-ton-tai", "khong-xac-dinh-duoc"]
     },
@@ -57,6 +75,25 @@
     "timestamp_source": {
       "type": "string",
       "description": "timestamp lay tu mtime file manifest, KHONG phai gio chay that."
+    },
+    "dataset_source": {
+      "type": ["object", "null"],
+      "description": "Hash noi dung dataset tai dung tu NGUON GOC (HF dataset), khong tu `details`. Khi co, hash chung minh duoc ca chi so lan noi dung cau; khi null, chi `dataset_sha256` yeu hon van dung.",
+      "properties": {
+        "dataset": {"type": "string"},
+        "config": {"type": "string"},
+        "split": {"type": "string"},
+        "n_indices": {"type": "integer"},
+        "index_range": {
+          "type": ["array", "null"],
+          "items": {"type": "integer"},
+          "minItems": 2,
+          "maxItems": 2
+        },
+        "sha256_full": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+        "sha256_answer": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+        "scope": {"type": "string"}
+      }
     },
     "provenance": {
       "type": "object",
