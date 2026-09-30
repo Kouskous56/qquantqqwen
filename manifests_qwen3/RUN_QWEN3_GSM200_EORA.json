@@ -9,6 +9,9 @@
  "scorer": "bench/qwen3/gsm_sweep.py",
  "scorer_sha256": "457690e0a96bfe27ec2c9a9ee4602d28c6f345af7971021ae64d37089f91f107",
  "scorer_status": "verified-on-disk",
+ "current_sha256": "7e5ec003777b9a2ffb598b49bb0d3f0eb35b4575e17b5dacf72ed9480ca1953a",
+ "modified_after_run": true,
+ "modification": "Ten file manifest khong kem offset (OUT khong co _{a.offset}, con CK thi co), nen block offset=200 de file manifest cua block offset=0. DU LIEU KHONG MAT: checkpoint giu 200 cau moi block, va merge_gsm_blocks.py gop lai duoc, kiem tra trung i. Chi 1 manifest bi de; duoc ghi lai tu checkpoint.",
  "timestamp": "2026-09-29T16:33:00.752100Z",
  "timestamp_source": "file-mtime-cua-manifest, KHONG phai gio chay thoi",
  "provenance": {
@@ -17,6 +20,7 @@
   "gguf_bytes": 2497279136,
   "gguf_resolved_via": "ollama-modelfile-FROM-blob"
  },
+ "dataset_source": null,
  "regenerable": false,
  "limitation": "Diem khong tai lap duoc: can GGUF 2.5GB + Ollama + ~20-140 phut GPU. CI chi verify tinh toan, khong tao lai diem.",
  "scores": {

@@ -9,7 +9,10 @@
  "scorer": "bench/qwen3/gsm_sweep.py",
  "scorer_sha256": "457690e0a96bfe27ec2c9a9ee4602d28c6f345af7971021ae64d37089f91f107",
  "scorer_status": "verified-on-disk",
- "timestamp": "2026-09-29T19:20:30.471357Z",
+ "current_sha256": "7e5ec003777b9a2ffb598b49bb0d3f0eb35b4575e17b5dacf72ed9480ca1953a",
+ "modified_after_run": true,
+ "modification": "Ten file manifest khong kem offset (OUT khong co _{a.offset}, con CK thi co), nen block offset=200 de file manifest cua block offset=0. DU LIEU KHONG MAT: checkpoint giu 200 cau moi block, va merge_gsm_blocks.py gop lai duoc, kiem tra trung i. Chi 1 manifest bi de; duoc ghi lai tu checkpoint.",
+ "timestamp": "2026-09-30T06:07:30.813160Z",
  "timestamp_source": "file-mtime-cua-manifest, KHONG phai gio chay thoi",
  "provenance": {
   "gguf": "r2-DENSE-Q4KMi.gguf",
@@ -19,6 +22,19 @@
   "llama_cpp": "llama.cpp (build 2026-09-30)",
   "gguf_resolved_via": "manifest.provenance.gguf",
   "gguf_sha256_matches_original": true
+ },
+ "dataset_source": {
+  "dataset": "openai/gsm8k",
+  "config": "main",
+  "split": "test",
+  "n_indices": 400,
+  "index_range": [
+   0,
+   399
+  ],
+  "sha256_full": "c962afcd4033fcb81b546527380912588a1b4cb31ceca0eb2ba5f304d4365e33",
+  "sha256_answer": "3260aa13c3f073da70d42cf1cc30c88685d53414ebc91f65c5824dc240dd6b74",
+  "scope": "sha256 tren (i, question, answer) tai dung truc tiep tu dataset goc. Khong phu thuoc ban ghi cua run, nen dung duoc khi doi chi so; doi noi dung cau thi doi hash."
  },
  "regenerable": false,
  "limitation": "Diem khong tai lap duoc: can GGUF 2.5GB + Ollama + ~20-140 phut GPU. CI chi verify tinh toan, khong tao lai diem.",

@@ -9,13 +9,29 @@
  "scorer": "bench/qwen3/harness_probe.py",
  "scorer_sha256": "9cbd74fc9b1beaec5f9e97299ef1783562be524d7336662654a3241ee9c6fdb9",
  "scorer_status": "verified-on-disk",
- "timestamp": "2026-09-30T03:02:04.659522Z",
+ "current_sha256": null,
+ "modified_after_run": null,
+ "modification": null,
+ "timestamp": "2026-09-30T06:07:30.789158Z",
  "timestamp_source": "file-mtime-cua-manifest, KHONG phai gio chay thoi",
  "provenance": {
   "gguf": "harness-dense-f16.gguf",
   "gguf_sha256": "d5c56fbe26e205ae86e171215813dada88f81913f5d1548b1b3b44d0b5b2f50e",
   "gguf_bytes": 8051283520,
   "gguf_resolved_via": "ollama-modelfile-FROM-blob"
+ },
+ "dataset_source": {
+  "dataset": "openai/gsm8k",
+  "config": "main",
+  "split": "test",
+  "n_indices": 200,
+  "index_range": [
+   0,
+   199
+  ],
+  "sha256_full": "4f181fa235db70a9557ddcea097e1f98deb3c5bdcf54f70538574987f2322a57",
+  "sha256_answer": "dd91b1271e1d60a2f5a80bee7fb33309a2863cd2fd1bd1402912ed18b95826cf",
+  "scope": "sha256 tren (i, question, answer) tai dung truc tiep tu dataset goc. Khong phu thuoc ban ghi cua run, nen dung duoc khi doi chi so; doi noi dung cau thi doi hash."
  },
  "regenerable": false,
  "limitation": "Diem khong tai lap duoc: can GGUF 2.5GB + Ollama + ~20-140 phut GPU. CI chi verify tinh toan, khong tao lai diem.",

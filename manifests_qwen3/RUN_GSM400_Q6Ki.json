@@ -1,9 +1,9 @@
 {
- "run_id": "73bce1277e42f451",
+ "run_id": "32ddf4c26a59343f",
  "model": "qwen3-sweep-q6k",
  "model_path_kind": "registry-name",
- "protocol": "khong-ghi",
- "dataset_sha256": "521bf6f0228ee0e392aef6c1d86e6aaa68caf3ffc319bab3efe6e92216f145cf",
+ "protocol": "ollama-greedy-CoT-####-npredict256",
+ "dataset_sha256": "a04be62e0444ffc7c11c8e2863ed60e245e7c1eb7f5c36e2822a37dbdec5b19b",
  "detail_schema": "harness",
  "dataset_sha256_scope": "CHI SHA256 CUA (i) -- manifest khong luu dap an mong doi, nen hash chi pin duoc TAP CAU, KHONG pin duoc noi dung cau. Khong du de chung minh dataset khong doi.",
  "scorer": "bench/qwen3/gsm_sweep.py",
@@ -12,7 +12,7 @@
  "current_sha256": "7e5ec003777b9a2ffb598b49bb0d3f0eb35b4575e17b5dacf72ed9480ca1953a",
  "modified_after_run": true,
  "modification": "Ten file manifest khong kem offset (OUT khong co _{a.offset}, con CK thi co), nen block offset=200 de file manifest cua block offset=0. DU LIEU KHONG MAT: checkpoint giu 200 cau moi block, va merge_gsm_blocks.py gop lai duoc, kiem tra trung i. Chi 1 manifest bi de; duoc ghi lai tu checkpoint.",
- "timestamp": "2026-09-30T05:50:36.085391Z",
+ "timestamp": "2026-09-30T06:07:30.780157Z",
  "timestamp_source": "file-mtime-cua-manifest, KHONG phai gio chay thoi",
  "provenance": {
   "gguf": "sweep-Q6_K.gguf",
@@ -20,18 +20,832 @@
   "gguf_bytes": 3306259776,
   "gguf_resolved_via": "ollama-modelfile-FROM-blob"
  },
- "dataset_source": null,
+ "dataset_source": {
+  "dataset": "openai/gsm8k",
+  "config": "main",
+  "split": "test",
+  "n_indices": 400,
+  "index_range": [
+   0,
+   399
+  ],
+  "sha256_full": "c962afcd4033fcb81b546527380912588a1b4cb31ceca0eb2ba5f304d4365e33",
+  "sha256_answer": "3260aa13c3f073da70d42cf1cc30c88685d53414ebc91f65c5824dc240dd6b74",
+  "scope": "sha256 tren (i, question, answer) tai dung truc tiep tu dataset goc. Khong phu thuoc ban ghi cua run, nen dung duoc khi doi chi so; doi noi dung cau thi doi hash."
+ },
  "regenerable": false,
  "limitation": "Diem khong tai lap duoc: can GGUF 2.5GB + Ollama + ~20-140 phut GPU. CI chi verify tinh toan, khong tao lai diem.",
  "scores": {
-  "n": 200,
-  "gsm": 130,
-  "acc": 0.65,
-  "offset": 200,
-  "elapsed_s": 852,
+  "offset": 0,
+  "n": 400,
+  "gsm": 260,
+  "gsm400": 260,
+  "blockA": 130,
+  "blockB": 130,
+  "assembled_by": "scripts/merge_gsm_blocks.py",
   "precision": "Q6_K"
  },
  "details": [
+  {
+   "i": 0,
+   "pass": true
+  },
+  {
+   "i": 1,
+   "pass": true
+  },
+  {
+   "i": 2,
+   "pass": false
+  },
+  {
+   "i": 3,
+   "pass": true
+  },
+  {
+   "i": 4,
+   "pass": true
+  },
+  {
+   "i": 5,
+   "pass": false
+  },
+  {
+   "i": 6,
+   "pass": true
+  },
+  {
+   "i": 7,
+   "pass": false
+  },
+  {
+   "i": 8,
+   "pass": false
+  },
+  {
+   "i": 9,
+   "pass": true
+  },
+  {
+   "i": 10,
+   "pass": true
+  },
+  {
+   "i": 11,
+   "pass": true
+  },
+  {
+   "i": 12,
+   "pass": false
+  },
+  {
+   "i": 13,
+   "pass": false
+  },
+  {
+   "i": 14,
+   "pass": false
+  },
+  {
+   "i": 15,
+   "pass": false
+  },
+  {
+   "i": 16,
+   "pass": true
+  },
+  {
+   "i": 17,
+   "pass": true
+  },
+  {
+   "i": 18,
+   "pass": true
+  },
+  {
+   "i": 19,
+   "pass": false
+  },
+  {
+   "i": 20,
+   "pass": true
+  },
+  {
+   "i": 21,
+   "pass": true
+  },
+  {
+   "i": 22,
+   "pass": true
+  },
+  {
+   "i": 23,
+   "pass": true
+  },
+  {
+   "i": 24,
+   "pass": true
+  },
+  {
+   "i": 25,
+   "pass": true
+  },
+  {
+   "i": 26,
+   "pass": false
+  },
+  {
+   "i": 27,
+   "pass": true
+  },
+  {
+   "i": 28,
+   "pass": true
+  },
+  {
+   "i": 29,
+   "pass": true
+  },
+  {
+   "i": 30,
+   "pass": true
+  },
+  {
+   "i": 31,
+   "pass": false
+  },
+  {
+   "i": 32,
+   "pass": true
+  },
+  {
+   "i": 33,
+   "pass": true
+  },
+  {
+   "i": 34,
+   "pass": true
+  },
+  {
+   "i": 35,
+   "pass": true
+  },
+  {
+   "i": 36,
+   "pass": true
+  },
+  {
+   "i": 37,
+   "pass": false
+  },
+  {
+   "i": 38,
+   "pass": true
+  },
+  {
+   "i": 39,
+   "pass": true
+  },
+  {
+   "i": 40,
+   "pass": true
+  },
+  {
+   "i": 41,
+   "pass": true
+  },
+  {
+   "i": 42,
+   "pass": true
+  },
+  {
+   "i": 43,
+   "pass": true
+  },
+  {
+   "i": 44,
+   "pass": true
+  },
+  {
+   "i": 45,
+   "pass": false
+  },
+  {
+   "i": 46,
+   "pass": false
+  },
+  {
+   "i": 47,
+   "pass": false
+  },
+  {
+   "i": 48,
+   "pass": true
+  },
+  {
+   "i": 49,
+   "pass": true
+  },
+  {
+   "i": 50,
+   "pass": true
+  },
+  {
+   "i": 51,
+   "pass": true
+  },
+  {
+   "i": 52,
+   "pass": true
+  },
+  {
+   "i": 53,
+   "pass": false
+  },
+  {
+   "i": 54,
+   "pass": false
+  },
+  {
+   "i": 55,
+   "pass": true
+  },
+  {
+   "i": 56,
+   "pass": true
+  },
+  {
+   "i": 57,
+   "pass": true
+  },
+  {
+   "i": 58,
+   "pass": false
+  },
+  {
+   "i": 59,
+   "pass": true
+  },
+  {
+   "i": 60,
+   "pass": false
+  },
+  {
+   "i": 61,
+   "pass": true
+  },
+  {
+   "i": 62,
+   "pass": false
+  },
+  {
+   "i": 63,
+   "pass": true
+  },
+  {
+   "i": 64,
+   "pass": true
+  },
+  {
+   "i": 65,
+   "pass": true
+  },
+  {
+   "i": 66,
+   "pass": true
+  },
+  {
+   "i": 67,
+   "pass": true
+  },
+  {
+   "i": 68,
+   "pass": true
+  },
+  {
+   "i": 69,
+   "pass": true
+  },
+  {
+   "i": 70,
+   "pass": true
+  },
+  {
+   "i": 71,
+   "pass": true
+  },
+  {
+   "i": 72,
+   "pass": true
+  },
+  {
+   "i": 73,
+   "pass": true
+  },
+  {
+   "i": 74,
+   "pass": false
+  },
+  {
+   "i": 75,
+   "pass": false
+  },
+  {
+   "i": 76,
+   "pass": false
+  },
+  {
+   "i": 77,
+   "pass": true
+  },
+  {
+   "i": 78,
+   "pass": false
+  },
+  {
+   "i": 79,
+   "pass": true
+  },
+  {
+   "i": 80,
+   "pass": true
+  },
+  {
+   "i": 81,
+   "pass": true
+  },
+  {
+   "i": 82,
+   "pass": true
+  },
+  {
+   "i": 83,
+   "pass": true
+  },
+  {
+   "i": 84,
+   "pass": true
+  },
+  {
+   "i": 85,
+   "pass": true
+  },
+  {
+   "i": 86,
+   "pass": false
+  },
+  {
+   "i": 87,
+   "pass": false
+  },
+  {
+   "i": 88,
+   "pass": true
+  },
+  {
+   "i": 89,
+   "pass": false
+  },
+  {
+   "i": 90,
+   "pass": true
+  },
+  {
+   "i": 91,
+   "pass": true
+  },
+  {
+   "i": 92,
+   "pass": true
+  },
+  {
+   "i": 93,
+   "pass": false
+  },
+  {
+   "i": 94,
+   "pass": true
+  },
+  {
+   "i": 95,
+   "pass": true
+  },
+  {
+   "i": 96,
+   "pass": true
+  },
+  {
+   "i": 97,
+   "pass": false
+  },
+  {
+   "i": 98,
+   "pass": true
+  },
+  {
+   "i": 99,
+   "pass": true
+  },
+  {
+   "i": 100,
+   "pass": false
+  },
+  {
+   "i": 101,
+   "pass": true
+  },
+  {
+   "i": 102,
+   "pass": false
+  },
+  {
+   "i": 103,
+   "pass": true
+  },
+  {
+   "i": 104,
+   "pass": true
+  },
+  {
+   "i": 105,
+   "pass": true
+  },
+  {
+   "i": 106,
+   "pass": false
+  },
+  {
+   "i": 107,
+   "pass": false
+  },
+  {
+   "i": 108,
+   "pass": false
+  },
+  {
+   "i": 109,
+   "pass": true
+  },
+  {
+   "i": 110,
+   "pass": false
+  },
+  {
+   "i": 111,
+   "pass": false
+  },
+  {
+   "i": 112,
+   "pass": true
+  },
+  {
+   "i": 113,
+   "pass": true
+  },
+  {
+   "i": 114,
+   "pass": true
+  },
+  {
+   "i": 115,
+   "pass": false
+  },
+  {
+   "i": 116,
+   "pass": false
+  },
+  {
+   "i": 117,
+   "pass": true
+  },
+  {
+   "i": 118,
+   "pass": true
+  },
+  {
+   "i": 119,
+   "pass": false
+  },
+  {
+   "i": 120,
+   "pass": true
+  },
+  {
+   "i": 121,
+   "pass": true
+  },
+  {
+   "i": 122,
+   "pass": false
+  },
+  {
+   "i": 123,
+   "pass": true
+  },
+  {
+   "i": 124,
+   "pass": true
+  },
+  {
+   "i": 125,
+   "pass": true
+  },
+  {
+   "i": 126,
+   "pass": true
+  },
+  {
+   "i": 127,
+   "pass": true
+  },
+  {
+   "i": 128,
+   "pass": false
+  },
+  {
+   "i": 129,
+   "pass": false
+  },
+  {
+   "i": 130,
+   "pass": true
+  },
+  {
+   "i": 131,
+   "pass": true
+  },
+  {
+   "i": 132,
+   "pass": true
+  },
+  {
+   "i": 133,
+   "pass": true
+  },
+  {
+   "i": 134,
+   "pass": true
+  },
+  {
+   "i": 135,
+   "pass": true
+  },
+  {
+   "i": 136,
+   "pass": true
+  },
+  {
+   "i": 137,
+   "pass": false
+  },
+  {
+   "i": 138,
+   "pass": false
+  },
+  {
+   "i": 139,
+   "pass": true
+  },
+  {
+   "i": 140,
+   "pass": true
+  },
+  {
+   "i": 141,
+   "pass": false
+  },
+  {
+   "i": 142,
+   "pass": true
+  },
+  {
+   "i": 143,
+   "pass": false
+  },
+  {
+   "i": 144,
+   "pass": true
+  },
+  {
+   "i": 145,
+   "pass": true
+  },
+  {
+   "i": 146,
+   "pass": true
+  },
+  {
+   "i": 147,
+   "pass": false
+  },
+  {
+   "i": 148,
+   "pass": true
+  },
+  {
+   "i": 149,
+   "pass": true
+  },
+  {
+   "i": 150,
+   "pass": false
+  },
+  {
+   "i": 151,
+   "pass": false
+  },
+  {
+   "i": 152,
+   "pass": true
+  },
+  {
+   "i": 153,
+   "pass": false
+  },
+  {
+   "i": 154,
+   "pass": false
+  },
+  {
+   "i": 155,
+   "pass": false
+  },
+  {
+   "i": 156,
+   "pass": true
+  },
+  {
+   "i": 157,
+   "pass": false
+  },
+  {
+   "i": 158,
+   "pass": true
+  },
+  {
+   "i": 159,
+   "pass": false
+  },
+  {
+   "i": 160,
+   "pass": true
+  },
+  {
+   "i": 161,
+   "pass": false
+  },
+  {
+   "i": 162,
+   "pass": false
+  },
+  {
+   "i": 163,
+   "pass": true
+  },
+  {
+   "i": 164,
+   "pass": true
+  },
+  {
+   "i": 165,
+   "pass": true
+  },
+  {
+   "i": 166,
+   "pass": true
+  },
+  {
+   "i": 167,
+   "pass": false
+  },
+  {
+   "i": 168,
+   "pass": true
+  },
+  {
+   "i": 169,
+   "pass": true
+  },
+  {
+   "i": 170,
+   "pass": true
+  },
+  {
+   "i": 171,
+   "pass": true
+  },
+  {
+   "i": 172,
+   "pass": false
+  },
+  {
+   "i": 173,
+   "pass": true
+  },
+  {
+   "i": 174,
+   "pass": true
+  },
+  {
+   "i": 175,
+   "pass": false
+  },
+  {
+   "i": 176,
+   "pass": true
+  },
+  {
+   "i": 177,
+   "pass": false
+  },
+  {
+   "i": 178,
+   "pass": true
+  },
+  {
+   "i": 179,
+   "pass": true
+  },
+  {
+   "i": 180,
+   "pass": true
+  },
+  {
+   "i": 181,
+   "pass": true
+  },
+  {
+   "i": 182,
+   "pass": false
+  },
+  {
+   "i": 183,
+   "pass": false
+  },
+  {
+   "i": 184,
+   "pass": false
+  },
+  {
+   "i": 185,
+   "pass": true
+  },
+  {
+   "i": 186,
+   "pass": false
+  },
+  {
+   "i": 187,
+   "pass": false
+  },
+  {
+   "i": 188,
+   "pass": true
+  },
+  {
+   "i": 189,
+   "pass": false
+  },
+  {
+   "i": 190,
+   "pass": true
+  },
+  {
+   "i": 191,
+   "pass": true
+  },
+  {
+   "i": 192,
+   "pass": true
+  },
+  {
+   "i": 193,
+   "pass": false
+  },
+  {
+   "i": 194,
+   "pass": true
+  },
+  {
+   "i": 195,
+   "pass": false
+  },
+  {
+   "i": 196,
+   "pass": true
+  },
+  {
+   "i": 197,
+   "pass": false
+  },
+  {
+   "i": 198,
+   "pass": false
+  },
+  {
+   "i": 199,
+   "pass": true
+  },
   {
    "i": 200,
    "pass": true
@@ -832,5 +1646,6 @@
    "i": 399,
    "pass": true
   }
- ]
+ ],
+ "note": "Ghep tu 2 checkpoint block; khong tron voi FP16 block. Nhan pass goc nguyen tu gsm_sweep.py, ham nay chi noi hai danh sach."
 }

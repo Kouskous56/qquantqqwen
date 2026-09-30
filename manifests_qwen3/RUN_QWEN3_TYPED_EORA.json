@@ -9,12 +9,16 @@
  "scorer": null,
  "scorer_sha256": null,
  "scorer_status": "khong-xac-dinh-duoc",
+ "current_sha256": null,
+ "modified_after_run": null,
+ "modification": null,
  "timestamp": "2026-09-29T14:54:25.936508Z",
  "timestamp_source": "file-mtime-cua-manifest, KHONG phai gio chay thoi",
  "provenance": {
   "gguf_available": false,
   "gguf_note": "Khong xac dinh duoc artifact: manifest khong tro ten file, va ten model Ollama khong con."
  },
+ "dataset_source": null,
  "regenerable": false,
  "limitation": "Diem khong tai lap duoc: can GGUF 2.5GB + Ollama + ~20-140 phut GPU. CI chi verify tinh toan, khong tao lai diem.",
  "scores": {

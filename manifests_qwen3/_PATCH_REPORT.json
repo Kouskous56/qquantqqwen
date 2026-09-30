@@ -1,16 +1,26 @@
 {
- "conform": 37,
- "total": 37,
+ "conform": 38,
+ "total": 38,
  "rows": [
   {
-   "name": "RUN_GSMSWEEP_Q6Ki.json",
-   "run_id": "d1fb7f2d41df288b",
+   "name": "RUN_GSM400_Q6Ki.json",
+   "run_id": "32ddf4c26a59343f",
    "scorer_status": "verified-on-disk",
    "gguf": "sweep-Q6_K.gguf",
    "gguf_verified": true,
    "gguf_via": "ollama-modelfile-FROM-blob",
    "gguf_matches_original": null,
-   "dataset_sha256": "2dfd2b44819d"
+   "dataset_sha256": "a04be62e0444"
+  },
+  {
+   "name": "RUN_GSMSWEEP_Q6Ki.json",
+   "run_id": "73bce1277e42f451",
+   "scorer_status": "verified-on-disk",
+   "gguf": "sweep-Q6_K.gguf",
+   "gguf_verified": true,
+   "gguf_via": "ollama-modelfile-FROM-blob",
+   "gguf_matches_original": null,
+   "dataset_sha256": "521bf6f0228e"
   },
   {
    "name": "RUN_HARNESS_F16_PROBE.json",

@@ -9,6 +9,9 @@
  "scorer": "bench/qwen3/mmlu_any.py",
  "scorer_sha256": "2db326463998922c6a29a692d60805fd10640b987e0ab0b84c8aba3051c1e833",
  "scorer_status": "verified-on-disk",
+ "current_sha256": null,
+ "modified_after_run": null,
+ "modification": null,
  "timestamp": "2026-09-29T15:24:11.821315Z",
  "timestamp_source": "file-mtime-cua-manifest, KHONG phai gio chay thoi",
  "provenance": {
@@ -17,6 +20,7 @@
   "gguf_bytes": 2497279040,
   "gguf_resolved_via": "ollama-modelfile-FROM-blob"
  },
+ "dataset_source": null,
  "regenerable": false,
  "limitation": "Diem khong tai lap duoc: can GGUF 2.5GB + Ollama + ~20-140 phut GPU. CI chi verify tinh toan, khong tao lai diem.",
  "scores": {
