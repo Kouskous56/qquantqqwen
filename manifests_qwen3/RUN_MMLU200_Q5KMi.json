@@ -1,0 +1,1633 @@
+{
+ "run_id": "c5b356de5e88dba3",
+ "model": "qwen3-sweep-q5km",
+ "model_path_kind": "registry-name",
+ "protocol": "ollama-greedy-MC-one-letter-npredict32",
+ "dataset_sha256": "0e56b39d521540299434f9570f0d4bad7c8f340f84e501b7c00056a71b3cfbcf",
+ "detail_schema": "mmlu",
+ "dataset_sha256_scope": "sha256 cua (i, mon, gold) da cham thuc su.",
+ "scorer": "bench/qwen3/mmlu_any.py",
+ "scorer_sha256": "2db326463998922c6a29a692d60805fd10640b987e0ab0b84c8aba3051c1e833",
+ "scorer_status": "verified-on-disk",
+ "timestamp": "2026-09-30T05:20:53.378675Z",
+ "timestamp_source": "file-mtime-cua-manifest, KHONG phai gio chay thoi",
+ "provenance": {
+  "gguf": "sweep-Q5_K_M.gguf",
+  "gguf_sha256": "eda1d41d8b9f508d6e089ec0373baed9fcc4ae673dc98be73a6456a2b04bee68",
+  "gguf_bytes": 2889512256,
+  "gguf_resolved_via": "ollama-modelfile-FROM-blob"
+ },
+ "regenerable": false,
+ "limitation": "Diem khong tai lap duoc: can GGUF 2.5GB + Ollama + ~20-140 phut GPU. CI chi verify tinh toan, khong tao lai diem.",
+ "scores": {
+  "n": 200,
+  "mmlu": 149,
+  "acc": 0.745,
+  "n_subjects": 57,
+  "unparsed": 0,
+  "elapsed_s": 30,
+  "precision": "Q5_K_M"
+ },
+ "details": [
+  {
+   "i": 0,
+   "subj": "abstract_algebra",
+   "pass": false,
+   "pick": 2,
+   "gold": 0,
+   "unparsed": false
+  },
+  {
+   "i": 100,
+   "subj": "anatomy",
+   "pass": false,
+   "pick": 3,
+   "gold": 1,
+   "unparsed": false
+  },
+  {
+   "i": 235,
+   "subj": "astronomy",
+   "pass": true,
+   "pick": 2,
+   "gold": 2,
+   "unparsed": false
+  },
+  {
+   "i": 387,
+   "subj": "business_ethics",
+   "pass": true,
+   "pick": 3,
+   "gold": 3,
+   "unparsed": false
+  },
+  {
+   "i": 487,
+   "subj": "clinical_knowledge",
+   "pass": true,
+   "pick": 0,
+   "gold": 0,
+   "unparsed": false
+  },
+  {
+   "i": 752,
+   "subj": "college_biology",
+   "pass": false,
+   "pick": 3,
+   "gold": 1,
+   "unparsed": false
+  },
+  {
+   "i": 896,
+   "subj": "college_chemistry",
+   "pass": true,
+   "pick": 2,
+   "gold": 2,
+   "unparsed": false
+  },
+  {
+   "i": 996,
+   "subj": "college_computer_science",
+   "pass": true,
+   "pick": 3,
+   "gold": 3,
+   "unparsed": false
+  },
+  {
+   "i": 1096,
+   "subj": "college_mathematics",
+   "pass": true,
+   "pick": 0,
+   "gold": 0,
+   "unparsed": false
+  },
+  {
+   "i": 1196,
+   "subj": "college_medicine",
+   "pass": true,
+   "pick": 1,
+   "gold": 1,
+   "unparsed": false
+  },
+  {
+   "i": 1369,
+   "subj": "college_physics",
+   "pass": false,
+   "pick": 0,
+   "gold": 2,
+   "unparsed": false
+  },
+  {
+   "i": 1471,
+   "subj": "computer_security",
+   "pass": true,
+   "pick": 3,
+   "gold": 3,
+   "unparsed": false
+  },
+  {
+   "i": 1571,
+   "subj": "conceptual_physics",
+   "pass": true,
+   "pick": 0,
+   "gold": 0,
+   "unparsed": false
+  },
+  {
+   "i": 1806,
+   "subj": "econometrics",
+   "pass": true,
+   "pick": 1,
+   "gold": 1,
+   "unparsed": false
+  },
+  {
+   "i": 1920,
+   "subj": "electrical_engineering",
+   "pass": false,
+   "pick": 3,
+   "gold": 2,
+   "unparsed": false
+  },
+  {
+   "i": 2065,
+   "subj": "elementary_mathematics",
+   "pass": false,
+   "pick": 1,
+   "gold": 3,
+   "unparsed": false
+  },
+  {
+   "i": 2443,
+   "subj": "formal_logic",
+   "pass": true,
+   "pick": 0,
+   "gold": 0,
+   "unparsed": false
+  },
+  {
+   "i": 2569,
+   "subj": "global_facts",
+   "pass": true,
+   "pick": 1,
+   "gold": 1,
+   "unparsed": false
+  },
+  {
+   "i": 2669,
+   "subj": "high_school_biology",
+   "pass": true,
+   "pick": 2,
+   "gold": 2,
+   "unparsed": false
+  },
+  {
+   "i": 2979,
+   "subj": "high_school_chemistry",
+   "pass": true,
+   "pick": 3,
+   "gold": 3,
+   "unparsed": false
+  },
+  {
+   "i": 3182,
+   "subj": "high_school_computer_science",
+   "pass": true,
+   "pick": 0,
+   "gold": 0,
+   "unparsed": false
+  },
+  {
+   "i": 3282,
+   "subj": "high_school_european_history",
+   "pass": true,
+   "pick": 1,
+   "gold": 1,
+   "unparsed": false
+  },
+  {
+   "i": 3447,
+   "subj": "high_school_geography",
+   "pass": true,
+   "pick": 2,
+   "gold": 2,
+   "unparsed": false
+  },
+  {
+   "i": 3645,
+   "subj": "high_school_government_and_politics",
+   "pass": true,
+   "pick": 3,
+   "gold": 3,
+   "unparsed": false
+  },
+  {
+   "i": 3838,
+   "subj": "high_school_macroeconomics",
+   "pass": true,
+   "pick": 0,
+   "gold": 0,
+   "unparsed": false
+  },
+  {
+   "i": 4228,
+   "subj": "high_school_mathematics",
+   "pass": false,
+   "pick": 2,
+   "gold": 1,
+   "unparsed": false
+  },
+  {
+   "i": 4498,
+   "subj": "high_school_microeconomics",
+   "pass": false,
+   "pick": 0,
+   "gold": 2,
+   "unparsed": false
+  },
+  {
+   "i": 4736,
+   "subj": "high_school_physics",
+   "pass": false,
+   "pick": 1,
+   "gold": 3,
+   "unparsed": false
+  },
+  {
+   "i": 4887,
+   "subj": "high_school_psychology",
+   "pass": true,
+   "pick": 0,
+   "gold": 0,
+   "unparsed": false
+  },
+  {
+   "i": 5432,
+   "subj": "high_school_statistics",
+   "pass": true,
+   "pick": 1,
+   "gold": 1,
+   "unparsed": false
+  },
+  {
+   "i": 5648,
+   "subj": "high_school_us_history",
+   "pass": true,
+   "pick": 2,
+   "gold": 2,
+   "unparsed": false
+  },
+  {
+   "i": 5852,
+   "subj": "high_school_world_history",
+   "pass": true,
+   "pick": 3,
+   "gold": 3,
+   "unparsed": false
+  },
+  {
+   "i": 6089,
+   "subj": "human_aging",
+   "pass": true,
+   "pick": 0,
+   "gold": 0,
+   "unparsed": false
+  },
+  {
+   "i": 6312,
+   "subj": "human_sexuality",
+   "pass": true,
+   "pick": 1,
+   "gold": 1,
+   "unparsed": false
+  },
+  {
+   "i": 6443,
+   "subj": "international_law",
+   "pass": true,
+   "pick": 2,
+   "gold": 2,
+   "unparsed": false
+  },
+  {
+   "i": 6564,
+   "subj": "jurisprudence",
+   "pass": false,
+   "pick": 0,
+   "gold": 3,
+   "unparsed": false
+  },
+  {
+   "i": 6672,
+   "subj": "logical_fallacies",
+   "pass": true,
+   "pick": 0,
+   "gold": 0,
+   "unparsed": false
+  },
+  {
+   "i": 6835,
+   "subj": "machine_learning",
+   "pass": false,
+   "pick": 2,
+   "gold": 1,
+   "unparsed": false
+  },
+  {
+   "i": 6947,
+   "subj": "management",
+   "pass": true,
+   "pick": 2,
+   "gold": 2,
+   "unparsed": false
+  },
+  {
+   "i": 7050,
+   "subj": "marketing",
+   "pass": true,
+   "pick": 3,
+   "gold": 3,
+   "unparsed": false
+  },
+  {
+   "i": 7284,
+   "subj": "medical_genetics",
+   "pass": true,
+   "pick": 0,
+   "gold": 0,
+   "unparsed": false
+  },
+  {
+   "i": 7384,
+   "subj": "miscellaneous",
+   "pass": true,
+   "pick": 1,
+   "gold": 1,
+   "unparsed": false
+  },
+  {
+   "i": 8167,
+   "subj": "moral_disputes",
+   "pass": true,
+   "pick": 2,
+   "gold": 2,
+   "unparsed": false
+  },
+  {
+   "i": 8513,
+   "subj": "moral_scenarios",
+   "pass": false,
+   "pick": 1,
+   "gold": 3,
+   "unparsed": false
+  },
+  {
+   "i": 9408,
+   "subj": "nutrition",
+   "pass": true,
+   "pick": 0,
+   "gold": 0,
+   "unparsed": false
+  },
+  {
+   "i": 9714,
+   "subj": "philosophy",
+   "pass": true,
+   "pick": 1,
+   "gold": 1,
+   "unparsed": false
+  },
+  {
+   "i": 10025,
+   "subj": "prehistory",
+   "pass": false,
+   "pick": 1,
+   "gold": 2,
+   "unparsed": false
+  },
+  {
+   "i": 10349,
+   "subj": "professional_accounting",
+   "pass": true,
+   "pick": 3,
+   "gold": 3,
+   "unparsed": false
+  },
+  {
+   "i": 10631,
+   "subj": "professional_law",
+   "pass": true,
+   "pick": 0,
+   "gold": 0,
+   "unparsed": false
+  },
+  {
+   "i": 12165,
+   "subj": "professional_medicine",
+   "pass": true,
+   "pick": 1,
+   "gold": 1,
+   "unparsed": false
+  },
+  {
+   "i": 12437,
+   "subj": "professional_psychology",
+   "pass": true,
+   "pick": 2,
+   "gold": 2,
+   "unparsed": false
+  },
+  {
+   "i": 13049,
+   "subj": "public_relations",
+   "pass": true,
+   "pick": 3,
+   "gold": 3,
+   "unparsed": false
+  },
+  {
+   "i": 13159,
+   "subj": "security_studies",
+   "pass": true,
+   "pick": 0,
+   "gold": 0,
+   "unparsed": false
+  },
+  {
+   "i": 13404,
+   "subj": "sociology",
+   "pass": true,
+   "pick": 1,
+   "gold": 1,
+   "unparsed": false
+  },
+  {
+   "i": 13605,
+   "subj": "us_foreign_policy",
+   "pass": true,
+   "pick": 2,
+   "gold": 2,
+   "unparsed": false
+  },
+  {
+   "i": 13705,
+   "subj": "virology",
+   "pass": false,
+   "pick": 1,
+   "gold": 3,
+   "unparsed": false
+  },
+  {
+   "i": 13871,
+   "subj": "world_religions",
+   "pass": true,
+   "pick": 0,
+   "gold": 0,
+   "unparsed": false
+  },
+  {
+   "i": 1,
+   "subj": "abstract_algebra",
+   "pass": false,
+   "pick": 2,
+   "gold": 1,
+   "unparsed": false
+  },
+  {
+   "i": 101,
+   "subj": "anatomy",
+   "pass": true,
+   "pick": 2,
+   "gold": 2,
+   "unparsed": false
+  },
+  {
+   "i": 236,
+   "subj": "astronomy",
+   "pass": true,
+   "pick": 3,
+   "gold": 3,
+   "unparsed": false
+  },
+  {
+   "i": 388,
+   "subj": "business_ethics",
+   "pass": true,
+   "pick": 0,
+   "gold": 0,
+   "unparsed": false
+  },
+  {
+   "i": 488,
+   "subj": "clinical_knowledge",
+   "pass": true,
+   "pick": 1,
+   "gold": 1,
+   "unparsed": false
+  },
+  {
+   "i": 753,
+   "subj": "college_biology",
+   "pass": true,
+   "pick": 2,
+   "gold": 2,
+   "unparsed": false
+  },
+  {
+   "i": 897,
+   "subj": "college_chemistry",
+   "pass": true,
+   "pick": 3,
+   "gold": 3,
+   "unparsed": false
+  },
+  {
+   "i": 997,
+   "subj": "college_computer_science",
+   "pass": false,
+   "pick": 1,
+   "gold": 0,
+   "unparsed": false
+  },
+  {
+   "i": 1097,
+   "subj": "college_mathematics",
+   "pass": true,
+   "pick": 1,
+   "gold": 1,
+   "unparsed": false
+  },
+  {
+   "i": 1197,
+   "subj": "college_medicine",
+   "pass": true,
+   "pick": 2,
+   "gold": 2,
+   "unparsed": false
+  },
+  {
+   "i": 1370,
+   "subj": "college_physics",
+   "pass": false,
+   "pick": 1,
+   "gold": 3,
+   "unparsed": false
+  },
+  {
+   "i": 1472,
+   "subj": "computer_security",
+   "pass": false,
+   "pick": 2,
+   "gold": 0,
+   "unparsed": false
+  },
+  {
+   "i": 1572,
+   "subj": "conceptual_physics",
+   "pass": true,
+   "pick": 1,
+   "gold": 1,
+   "unparsed": false
+  },
+  {
+   "i": 1807,
+   "subj": "econometrics",
+   "pass": true,
+   "pick": 2,
+   "gold": 2,
+   "unparsed": false
+  },
+  {
+   "i": 1921,
+   "subj": "electrical_engineering",
+   "pass": true,
+   "pick": 3,
+   "gold": 3,
+   "unparsed": false
+  },
+  {
+   "i": 2066,
+   "subj": "elementary_mathematics",
+   "pass": true,
+   "pick": 0,
+   "gold": 0,
+   "unparsed": false
+  },
+  {
+   "i": 2444,
+   "subj": "formal_logic",
+   "pass": false,
+   "pick": 0,
+   "gold": 1,
+   "unparsed": false
+  },
+  {
+   "i": 2570,
+   "subj": "global_facts",
+   "pass": true,
+   "pick": 2,
+   "gold": 2,
+   "unparsed": false
+  },
+  {
+   "i": 2670,
+   "subj": "high_school_biology",
+   "pass": true,
+   "pick": 3,
+   "gold": 3,
+   "unparsed": false
+  },
+  {
+   "i": 2980,
+   "subj": "high_school_chemistry",
+   "pass": false,
+   "pick": 2,
+   "gold": 0,
+   "unparsed": false
+  },
+  {
+   "i": 3183,
+   "subj": "high_school_computer_science",
+   "pass": true,
+   "pick": 1,
+   "gold": 1,
+   "unparsed": false
+  },
+  {
+   "i": 3283,
+   "subj": "high_school_european_history",
+   "pass": true,
+   "pick": 2,
+   "gold": 2,
+   "unparsed": false
+  },
+  {
+   "i": 3448,
+   "subj": "high_school_geography",
+   "pass": true,
+   "pick": 3,
+   "gold": 3,
+   "unparsed": false
+  },
+  {
+   "i": 3646,
+   "subj": "high_school_government_and_politics",
+   "pass": true,
+   "pick": 0,
+   "gold": 0,
+   "unparsed": false
+  },
+  {
+   "i": 3839,
+   "subj": "high_school_macroeconomics",
+   "pass": false,
+   "pick": 3,
+   "gold": 1,
+   "unparsed": false
+  },
+  {
+   "i": 4229,
+   "subj": "high_school_mathematics",
+   "pass": true,
+   "pick": 2,
+   "gold": 2,
+   "unparsed": false
+  },
+  {
+   "i": 4499,
+   "subj": "high_school_microeconomics",
+   "pass": false,
+   "pick": 2,
+   "gold": 3,
+   "unparsed": false
+  },
+  {
+   "i": 4737,
+   "subj": "high_school_physics",
+   "pass": true,
+   "pick": 0,
+   "gold": 0,
+   "unparsed": false
+  },
+  {
+   "i": 4888,
+   "subj": "high_school_psychology",
+   "pass": true,
+   "pick": 1,
+   "gold": 1,
+   "unparsed": false
+  },
+  {
+   "i": 5433,
+   "subj": "high_school_statistics",
+   "pass": true,
+   "pick": 2,
+   "gold": 2,
+   "unparsed": false
+  },
+  {
+   "i": 5649,
+   "subj": "high_school_us_history",
+   "pass": true,
+   "pick": 3,
+   "gold": 3,
+   "unparsed": false
+  },
+  {
+   "i": 5853,
+   "subj": "high_school_world_history",
+   "pass": true,
+   "pick": 0,
+   "gold": 0,
+   "unparsed": false
+  },
+  {
+   "i": 6090,
+   "subj": "human_aging",
+   "pass": true,
+   "pick": 1,
+   "gold": 1,
+   "unparsed": false
+  },
+  {
+   "i": 6313,
+   "subj": "human_sexuality",
+   "pass": true,
+   "pick": 2,
+   "gold": 2,
+   "unparsed": false
+  },
+  {
+   "i": 6444,
+   "subj": "international_law",
+   "pass": true,
+   "pick": 3,
+   "gold": 3,
+   "unparsed": false
+  },
+  {
+   "i": 6565,
+   "subj": "jurisprudence",
+   "pass": true,
+   "pick": 0,
+   "gold": 0,
+   "unparsed": false
+  },
+  {
+   "i": 6673,
+   "subj": "logical_fallacies",
+   "pass": true,
+   "pick": 1,
+   "gold": 1,
+   "unparsed": false
+  },
+  {
+   "i": 6836,
+   "subj": "machine_learning",
+   "pass": true,
+   "pick": 2,
+   "gold": 2,
+   "unparsed": false
+  },
+  {
+   "i": 6948,
+   "subj": "management",
+   "pass": true,
+   "pick": 3,
+   "gold": 3,
+   "unparsed": false
+  },
+  {
+   "i": 7051,
+   "subj": "marketing",
+   "pass": false,
+   "pick": 3,
+   "gold": 0,
+   "unparsed": false
+  },
+  {
+   "i": 7285,
+   "subj": "medical_genetics",
+   "pass": true,
+   "pick": 1,
+   "gold": 1,
+   "unparsed": false
+  },
+  {
+   "i": 7385,
+   "subj": "miscellaneous",
+   "pass": false,
+   "pick": 3,
+   "gold": 2,
+   "unparsed": false
+  },
+  {
+   "i": 8168,
+   "subj": "moral_disputes",
+   "pass": false,
+   "pick": 1,
+   "gold": 3,
+   "unparsed": false
+  },
+  {
+   "i": 8514,
+   "subj": "moral_scenarios",
+   "pass": false,
+   "pick": 2,
+   "gold": 0,
+   "unparsed": false
+  },
+  {
+   "i": 9409,
+   "subj": "nutrition",
+   "pass": true,
+   "pick": 1,
+   "gold": 1,
+   "unparsed": false
+  },
+  {
+   "i": 9715,
+   "subj": "philosophy",
+   "pass": true,
+   "pick": 2,
+   "gold": 2,
+   "unparsed": false
+  },
+  {
+   "i": 10026,
+   "subj": "prehistory",
+   "pass": true,
+   "pick": 3,
+   "gold": 3,
+   "unparsed": false
+  },
+  {
+   "i": 10350,
+   "subj": "professional_accounting",
+   "pass": false,
+   "pick": 2,
+   "gold": 0,
+   "unparsed": false
+  },
+  {
+   "i": 10632,
+   "subj": "professional_law",
+   "pass": false,
+   "pick": 2,
+   "gold": 1,
+   "unparsed": false
+  },
+  {
+   "i": 12166,
+   "subj": "professional_medicine",
+   "pass": true,
+   "pick": 2,
+   "gold": 2,
+   "unparsed": false
+  },
+  {
+   "i": 12438,
+   "subj": "professional_psychology",
+   "pass": true,
+   "pick": 3,
+   "gold": 3,
+   "unparsed": false
+  },
+  {
+   "i": 13050,
+   "subj": "public_relations",
+   "pass": true,
+   "pick": 0,
+   "gold": 0,
+   "unparsed": false
+  },
+  {
+   "i": 13160,
+   "subj": "security_studies",
+   "pass": false,
+   "pick": 3,
+   "gold": 1,
+   "unparsed": false
+  },
+  {
+   "i": 13405,
+   "subj": "sociology",
+   "pass": true,
+   "pick": 2,
+   "gold": 2,
+   "unparsed": false
+  },
+  {
+   "i": 13606,
+   "subj": "us_foreign_policy",
+   "pass": true,
+   "pick": 3,
+   "gold": 3,
+   "unparsed": false
+  },
+  {
+   "i": 13706,
+   "subj": "virology",
+   "pass": true,
+   "pick": 0,
+   "gold": 0,
+   "unparsed": false
+  },
+  {
+   "i": 13872,
+   "subj": "world_religions",
+   "pass": false,
+   "pick": 0,
+   "gold": 1,
+   "unparsed": false
+  },
+  {
+   "i": 2,
+   "subj": "abstract_algebra",
+   "pass": false,
+   "pick": 3,
+   "gold": 2,
+   "unparsed": false
+  },
+  {
+   "i": 102,
+   "subj": "anatomy",
+   "pass": true,
+   "pick": 3,
+   "gold": 3,
+   "unparsed": false
+  },
+  {
+   "i": 237,
+   "subj": "astronomy",
+   "pass": true,
+   "pick": 0,
+   "gold": 0,
+   "unparsed": false
+  },
+  {
+   "i": 389,
+   "subj": "business_ethics",
+   "pass": true,
+   "pick": 1,
+   "gold": 1,
+   "unparsed": false
+  },
+  {
+   "i": 489,
+   "subj": "clinical_knowledge",
+   "pass": true,
+   "pick": 2,
+   "gold": 2,
+   "unparsed": false
+  },
+  {
+   "i": 754,
+   "subj": "college_biology",
+   "pass": true,
+   "pick": 3,
+   "gold": 3,
+   "unparsed": false
+  },
+  {
+   "i": 898,
+   "subj": "college_chemistry",
+   "pass": false,
+   "pick": 3,
+   "gold": 0,
+   "unparsed": false
+  },
+  {
+   "i": 998,
+   "subj": "college_computer_science",
+   "pass": true,
+   "pick": 1,
+   "gold": 1,
+   "unparsed": false
+  },
+  {
+   "i": 1098,
+   "subj": "college_mathematics",
+   "pass": false,
+   "pick": 0,
+   "gold": 2,
+   "unparsed": false
+  },
+  {
+   "i": 1198,
+   "subj": "college_medicine",
+   "pass": true,
+   "pick": 3,
+   "gold": 3,
+   "unparsed": false
+  },
+  {
+   "i": 1371,
+   "subj": "college_physics",
+   "pass": true,
+   "pick": 0,
+   "gold": 0,
+   "unparsed": false
+  },
+  {
+   "i": 1473,
+   "subj": "computer_security",
+   "pass": true,
+   "pick": 1,
+   "gold": 1,
+   "unparsed": false
+  },
+  {
+   "i": 1573,
+   "subj": "conceptual_physics",
+   "pass": true,
+   "pick": 2,
+   "gold": 2,
+   "unparsed": false
+  },
+  {
+   "i": 1808,
+   "subj": "econometrics",
+   "pass": true,
+   "pick": 3,
+   "gold": 3,
+   "unparsed": false
+  },
+  {
+   "i": 1922,
+   "subj": "electrical_engineering",
+   "pass": true,
+   "pick": 0,
+   "gold": 0,
+   "unparsed": false
+  },
+  {
+   "i": 2067,
+   "subj": "elementary_mathematics",
+   "pass": true,
+   "pick": 1,
+   "gold": 1,
+   "unparsed": false
+  },
+  {
+   "i": 2445,
+   "subj": "formal_logic",
+   "pass": true,
+   "pick": 2,
+   "gold": 2,
+   "unparsed": false
+  },
+  {
+   "i": 2571,
+   "subj": "global_facts",
+   "pass": true,
+   "pick": 3,
+   "gold": 3,
+   "unparsed": false
+  },
+  {
+   "i": 2671,
+   "subj": "high_school_biology",
+   "pass": true,
+   "pick": 0,
+   "gold": 0,
+   "unparsed": false
+  },
+  {
+   "i": 2981,
+   "subj": "high_school_chemistry",
+   "pass": true,
+   "pick": 1,
+   "gold": 1,
+   "unparsed": false
+  },
+  {
+   "i": 3184,
+   "subj": "high_school_computer_science",
+   "pass": true,
+   "pick": 2,
+   "gold": 2,
+   "unparsed": false
+  },
+  {
+   "i": 3284,
+   "subj": "high_school_european_history",
+   "pass": true,
+   "pick": 3,
+   "gold": 3,
+   "unparsed": false
+  },
+  {
+   "i": 3449,
+   "subj": "high_school_geography",
+   "pass": true,
+   "pick": 0,
+   "gold": 0,
+   "unparsed": false
+  },
+  {
+   "i": 3647,
+   "subj": "high_school_government_and_politics",
+   "pass": true,
+   "pick": 1,
+   "gold": 1,
+   "unparsed": false
+  },
+  {
+   "i": 3840,
+   "subj": "high_school_macroeconomics",
+   "pass": true,
+   "pick": 2,
+   "gold": 2,
+   "unparsed": false
+  },
+  {
+   "i": 4230,
+   "subj": "high_school_mathematics",
+   "pass": true,
+   "pick": 3,
+   "gold": 3,
+   "unparsed": false
+  },
+  {
+   "i": 4500,
+   "subj": "high_school_microeconomics",
+   "pass": true,
+   "pick": 0,
+   "gold": 0,
+   "unparsed": false
+  },
+  {
+   "i": 4738,
+   "subj": "high_school_physics",
+   "pass": true,
+   "pick": 1,
+   "gold": 1,
+   "unparsed": false
+  },
+  {
+   "i": 4889,
+   "subj": "high_school_psychology",
+   "pass": true,
+   "pick": 2,
+   "gold": 2,
+   "unparsed": false
+  },
+  {
+   "i": 5434,
+   "subj": "high_school_statistics",
+   "pass": true,
+   "pick": 3,
+   "gold": 3,
+   "unparsed": false
+  },
+  {
+   "i": 5650,
+   "subj": "high_school_us_history",
+   "pass": true,
+   "pick": 0,
+   "gold": 0,
+   "unparsed": false
+  },
+  {
+   "i": 5854,
+   "subj": "high_school_world_history",
+   "pass": true,
+   "pick": 1,
+   "gold": 1,
+   "unparsed": false
+  },
+  {
+   "i": 6091,
+   "subj": "human_aging",
+   "pass": false,
+   "pick": 1,
+   "gold": 2,
+   "unparsed": false
+  },
+  {
+   "i": 6314,
+   "subj": "human_sexuality",
+   "pass": true,
+   "pick": 3,
+   "gold": 3,
+   "unparsed": false
+  },
+  {
+   "i": 6445,
+   "subj": "international_law",
+   "pass": true,
+   "pick": 0,
+   "gold": 0,
+   "unparsed": false
+  },
+  {
+   "i": 6566,
+   "subj": "jurisprudence",
+   "pass": true,
+   "pick": 1,
+   "gold": 1,
+   "unparsed": false
+  },
+  {
+   "i": 6674,
+   "subj": "logical_fallacies",
+   "pass": true,
+   "pick": 2,
+   "gold": 2,
+   "unparsed": false
+  },
+  {
+   "i": 6837,
+   "subj": "machine_learning",
+   "pass": true,
+   "pick": 3,
+   "gold": 3,
+   "unparsed": false
+  },
+  {
+   "i": 6949,
+   "subj": "management",
+   "pass": true,
+   "pick": 0,
+   "gold": 0,
+   "unparsed": false
+  },
+  {
+   "i": 7052,
+   "subj": "marketing",
+   "pass": true,
+   "pick": 1,
+   "gold": 1,
+   "unparsed": false
+  },
+  {
+   "i": 7286,
+   "subj": "medical_genetics",
+   "pass": false,
+   "pick": 0,
+   "gold": 2,
+   "unparsed": false
+  },
+  {
+   "i": 7386,
+   "subj": "miscellaneous",
+   "pass": true,
+   "pick": 3,
+   "gold": 3,
+   "unparsed": false
+  },
+  {
+   "i": 8169,
+   "subj": "moral_disputes",
+   "pass": true,
+   "pick": 0,
+   "gold": 0,
+   "unparsed": false
+  },
+  {
+   "i": 8515,
+   "subj": "moral_scenarios",
+   "pass": false,
+   "pick": 2,
+   "gold": 1,
+   "unparsed": false
+  },
+  {
+   "i": 9410,
+   "subj": "nutrition",
+   "pass": false,
+   "pick": 3,
+   "gold": 2,
+   "unparsed": false
+  },
+  {
+   "i": 9716,
+   "subj": "philosophy",
+   "pass": true,
+   "pick": 3,
+   "gold": 3,
+   "unparsed": false
+  },
+  {
+   "i": 10027,
+   "subj": "prehistory",
+   "pass": true,
+   "pick": 0,
+   "gold": 0,
+   "unparsed": false
+  },
+  {
+   "i": 10351,
+   "subj": "professional_accounting",
+   "pass": true,
+   "pick": 1,
+   "gold": 1,
+   "unparsed": false
+  },
+  {
+   "i": 10633,
+   "subj": "professional_law",
+   "pass": true,
+   "pick": 2,
+   "gold": 2,
+   "unparsed": false
+  },
+  {
+   "i": 12167,
+   "subj": "professional_medicine",
+   "pass": true,
+   "pick": 3,
+   "gold": 3,
+   "unparsed": false
+  },
+  {
+   "i": 12439,
+   "subj": "professional_psychology",
+   "pass": true,
+   "pick": 0,
+   "gold": 0,
+   "unparsed": false
+  },
+  {
+   "i": 13051,
+   "subj": "public_relations",
+   "pass": true,
+   "pick": 1,
+   "gold": 1,
+   "unparsed": false
+  },
+  {
+   "i": 13161,
+   "subj": "security_studies",
+   "pass": true,
+   "pick": 2,
+   "gold": 2,
+   "unparsed": false
+  },
+  {
+   "i": 13406,
+   "subj": "sociology",
+   "pass": false,
+   "pick": 1,
+   "gold": 3,
+   "unparsed": false
+  },
+  {
+   "i": 13607,
+   "subj": "us_foreign_policy",
+   "pass": true,
+   "pick": 0,
+   "gold": 0,
+   "unparsed": false
+  },
+  {
+   "i": 13707,
+   "subj": "virology",
+   "pass": false,
+   "pick": 0,
+   "gold": 1,
+   "unparsed": false
+  },
+  {
+   "i": 13873,
+   "subj": "world_religions",
+   "pass": true,
+   "pick": 2,
+   "gold": 2,
+   "unparsed": false
+  },
+  {
+   "i": 3,
+   "subj": "abstract_algebra",
+   "pass": false,
+   "pick": 2,
+   "gold": 3,
+   "unparsed": false
+  },
+  {
+   "i": 103,
+   "subj": "anatomy",
+   "pass": false,
+   "pick": 3,
+   "gold": 0,
+   "unparsed": false
+  },
+  {
+   "i": 238,
+   "subj": "astronomy",
+   "pass": true,
+   "pick": 1,
+   "gold": 1,
+   "unparsed": false
+  },
+  {
+   "i": 390,
+   "subj": "business_ethics",
+   "pass": true,
+   "pick": 2,
+   "gold": 2,
+   "unparsed": false
+  },
+  {
+   "i": 490,
+   "subj": "clinical_knowledge",
+   "pass": true,
+   "pick": 3,
+   "gold": 3,
+   "unparsed": false
+  },
+  {
+   "i": 755,
+   "subj": "college_biology",
+   "pass": true,
+   "pick": 0,
+   "gold": 0,
+   "unparsed": false
+  },
+  {
+   "i": 899,
+   "subj": "college_chemistry",
+   "pass": false,
+   "pick": 0,
+   "gold": 1,
+   "unparsed": false
+  },
+  {
+   "i": 999,
+   "subj": "college_computer_science",
+   "pass": true,
+   "pick": 2,
+   "gold": 2,
+   "unparsed": false
+  },
+  {
+   "i": 1099,
+   "subj": "college_mathematics",
+   "pass": false,
+   "pick": 2,
+   "gold": 3,
+   "unparsed": false
+  },
+  {
+   "i": 1199,
+   "subj": "college_medicine",
+   "pass": false,
+   "pick": 2,
+   "gold": 0,
+   "unparsed": false
+  },
+  {
+   "i": 1372,
+   "subj": "college_physics",
+   "pass": true,
+   "pick": 1,
+   "gold": 1,
+   "unparsed": false
+  },
+  {
+   "i": 1474,
+   "subj": "computer_security",
+   "pass": true,
+   "pick": 2,
+   "gold": 2,
+   "unparsed": false
+  },
+  {
+   "i": 1574,
+   "subj": "conceptual_physics",
+   "pass": false,
+   "pick": 1,
+   "gold": 3,
+   "unparsed": false
+  },
+  {
+   "i": 1809,
+   "subj": "econometrics",
+   "pass": true,
+   "pick": 0,
+   "gold": 0,
+   "unparsed": false
+  },
+  {
+   "i": 1923,
+   "subj": "electrical_engineering",
+   "pass": false,
+   "pick": 3,
+   "gold": 1,
+   "unparsed": false
+  },
+  {
+   "i": 2068,
+   "subj": "elementary_mathematics",
+   "pass": true,
+   "pick": 2,
+   "gold": 2,
+   "unparsed": false
+  },
+  {
+   "i": 2446,
+   "subj": "formal_logic",
+   "pass": false,
+   "pick": 1,
+   "gold": 3,
+   "unparsed": false
+  },
+  {
+   "i": 2572,
+   "subj": "global_facts",
+   "pass": true,
+   "pick": 0,
+   "gold": 0,
+   "unparsed": false
+  },
+  {
+   "i": 2672,
+   "subj": "high_school_biology",
+   "pass": true,
+   "pick": 1,
+   "gold": 1,
+   "unparsed": false
+  },
+  {
+   "i": 2982,
+   "subj": "high_school_chemistry",
+   "pass": true,
+   "pick": 2,
+   "gold": 2,
+   "unparsed": false
+  },
+  {
+   "i": 3185,
+   "subj": "high_school_computer_science",
+   "pass": true,
+   "pick": 3,
+   "gold": 3,
+   "unparsed": false
+  },
+  {
+   "i": 3285,
+   "subj": "high_school_european_history",
+   "pass": false,
+   "pick": 3,
+   "gold": 0,
+   "unparsed": false
+  },
+  {
+   "i": 3450,
+   "subj": "high_school_geography",
+   "pass": false,
+   "pick": 3,
+   "gold": 1,
+   "unparsed": false
+  },
+  {
+   "i": 3648,
+   "subj": "high_school_government_and_politics",
+   "pass": true,
+   "pick": 2,
+   "gold": 2,
+   "unparsed": false
+  },
+  {
+   "i": 3841,
+   "subj": "high_school_macroeconomics",
+   "pass": true,
+   "pick": 3,
+   "gold": 3,
+   "unparsed": false
+  },
+  {
+   "i": 4231,
+   "subj": "high_school_mathematics",
+   "pass": false,
+   "pick": 1,
+   "gold": 0,
+   "unparsed": false
+  },
+  {
+   "i": 4501,
+   "subj": "high_school_microeconomics",
+   "pass": true,
+   "pick": 1,
+   "gold": 1,
+   "unparsed": false
+  },
+  {
+   "i": 4739,
+   "subj": "high_school_physics",
+   "pass": false,
+   "pick": 1,
+   "gold": 2,
+   "unparsed": false
+  },
+  {
+   "i": 4890,
+   "subj": "high_school_psychology",
+   "pass": true,
+   "pick": 3,
+   "gold": 3,
+   "unparsed": false
+  }
+ ]
+}

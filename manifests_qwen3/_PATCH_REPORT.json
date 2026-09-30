@@ -1,0 +1,376 @@
+{
+ "conform": 37,
+ "total": 37,
+ "rows": [
+  {
+   "name": "RUN_GSMSWEEP_Q6Ki.json",
+   "run_id": "d1fb7f2d41df288b",
+   "scorer_status": "verified-on-disk",
+   "gguf": "sweep-Q6_K.gguf",
+   "gguf_verified": true,
+   "gguf_via": "ollama-modelfile-FROM-blob",
+   "gguf_matches_original": null,
+   "dataset_sha256": "2dfd2b44819d"
+  },
+  {
+   "name": "RUN_HARNESS_F16_PROBE.json",
+   "run_id": "c5055abdca5216e5",
+   "scorer_status": "verified-on-disk",
+   "gguf": "harness-dense-f16.gguf",
+   "gguf_verified": true,
+   "gguf_via": "ollama-modelfile-FROM-blob",
+   "gguf_matches_original": null,
+   "dataset_sha256": "69381e4c19f6"
+  },
+  {
+   "name": "RUN_HARNESS_F16A_0.json",
+   "run_id": "d441990f100df8a2",
+   "scorer_status": "verified-on-disk",
+   "gguf": "harness-dense-f16.gguf",
+   "gguf_verified": true,
+   "gguf_via": "ollama-modelfile-FROM-blob",
+   "gguf_matches_original": null,
+   "dataset_sha256": "2dfd2b44819d"
+  },
+  {
+   "name": "RUN_HARNESS_F16B_200.json",
+   "run_id": "793aa120b57e6e91",
+   "scorer_status": "verified-on-disk",
+   "gguf": "harness-dense-f16.gguf",
+   "gguf_verified": true,
+   "gguf_via": "ollama-modelfile-FROM-blob",
+   "gguf_matches_original": null,
+   "dataset_sha256": "521bf6f0228e"
+  },
+  {
+   "name": "RUN_MMLU200_F16.json",
+   "run_id": "0257ee53393a0e17",
+   "scorer_status": "verified-on-disk",
+   "gguf": "harness-dense-f16.gguf",
+   "gguf_verified": true,
+   "gguf_via": "ollama-modelfile-FROM-blob",
+   "gguf_matches_original": null,
+   "dataset_sha256": "0e56b39d5215"
+  },
+  {
+   "name": "RUN_MMLU200_Q5KMi.json",
+   "run_id": "c5b356de5e88dba3",
+   "scorer_status": "verified-on-disk",
+   "gguf": "sweep-Q5_K_M.gguf",
+   "gguf_verified": true,
+   "gguf_via": "ollama-modelfile-FROM-blob",
+   "gguf_matches_original": null,
+   "dataset_sha256": "0e56b39d5215"
+  },
+  {
+   "name": "RUN_MMLU200_Q6Ki.json",
+   "run_id": "1f1089c7579e9722",
+   "scorer_status": "verified-on-disk",
+   "gguf": "sweep-Q6_K.gguf",
+   "gguf_verified": true,
+   "gguf_via": "ollama-modelfile-FROM-blob",
+   "gguf_matches_original": null,
+   "dataset_sha256": "0e56b39d5215"
+  },
+  {
+   "name": "RUN_QWEN3_GSM.json",
+   "run_id": "4fbe40081361cd81",
+   "scorer_status": "verified-on-disk",
+   "gguf": null,
+   "gguf_verified": false,
+   "gguf_via": null,
+   "gguf_matches_original": null,
+   "dataset_sha256": "69381e4c19f6"
+  },
+  {
+   "name": "RUN_QWEN3_GSM200_DENSE.json",
+   "run_id": "1b11334cf3cebee8",
+   "scorer_status": "verified-on-disk",
+   "gguf": "DENSE-Q4KM.gguf",
+   "gguf_verified": true,
+   "gguf_via": "ollama-modelfile-FROM-blob",
+   "gguf_matches_original": null,
+   "dataset_sha256": "dd91b1271e1d"
+  },
+  {
+   "name": "RUN_QWEN3_GSM200_EORA.json",
+   "run_id": "b1ffbd8f6b846f6a",
+   "scorer_status": "verified-on-disk",
+   "gguf": "Qwen3-4B-s20-c4-eora128-Q4KM.gguf",
+   "gguf_verified": true,
+   "gguf_via": "ollama-modelfile-FROM-blob",
+   "gguf_matches_original": null,
+   "dataset_sha256": "dd91b1271e1d"
+  },
+  {
+   "name": "RUN_QWEN3_GSM200_S20C4.json",
+   "run_id": "4c4fe20d844c19da",
+   "scorer_status": "verified-on-disk",
+   "gguf": "Qwen3-4B-s20-c4-Q4KM.gguf",
+   "gguf_verified": true,
+   "gguf_via": "ollama-modelfile-FROM-blob",
+   "gguf_matches_original": null,
+   "dataset_sha256": "dd91b1271e1d"
+  },
+  {
+   "name": "RUN_QWEN3_GSM200_S20MIX.json",
+   "run_id": "87d3e5abbd4c0758",
+   "scorer_status": "verified-on-disk",
+   "gguf": "S20MIX-Q4KM.gguf",
+   "gguf_verified": true,
+   "gguf_via": "ollama-modelfile-FROM-blob",
+   "gguf_matches_original": null,
+   "dataset_sha256": "dd91b1271e1d"
+  },
+  {
+   "name": "RUN_QWEN3_GSM200_S30MIX.json",
+   "run_id": "328e8f757e46c97c",
+   "scorer_status": "verified-on-disk",
+   "gguf": "S30MIX-Q4KM.gguf",
+   "gguf_verified": true,
+   "gguf_via": "ollama-modelfile-FROM-blob",
+   "gguf_matches_original": null,
+   "dataset_sha256": "dd91b1271e1d"
+  },
+  {
+   "name": "RUN_QWEN3_GSM200B_DENSE.json",
+   "run_id": "dde2f4c6d7651845",
+   "scorer_status": "verified-on-disk",
+   "gguf": "DENSE-Q4KM.gguf",
+   "gguf_verified": true,
+   "gguf_via": "ollama-modelfile-FROM-blob",
+   "gguf_matches_original": null,
+   "dataset_sha256": "3182ab056d51"
+  },
+  {
+   "name": "RUN_QWEN3_GSM200B_S20C4.json",
+   "run_id": "8d403a90eae176b5",
+   "scorer_status": "verified-on-disk",
+   "gguf": "Qwen3-4B-s20-c4-Q4KM.gguf",
+   "gguf_verified": true,
+   "gguf_via": "ollama-modelfile-FROM-blob",
+   "gguf_matches_original": null,
+   "dataset_sha256": "3182ab056d51"
+  },
+  {
+   "name": "RUN_QWEN3_MMLU200_DENSE.json",
+   "run_id": "814a4ad61f623c3e",
+   "scorer_status": "verified-on-disk",
+   "gguf": "DENSE-Q4KM.gguf",
+   "gguf_verified": true,
+   "gguf_via": "ollama-modelfile-FROM-blob",
+   "gguf_matches_original": null,
+   "dataset_sha256": "0e56b39d5215"
+  },
+  {
+   "name": "RUN_QWEN3_MMLU200_EORA.json",
+   "run_id": "028461a61cf61b5e",
+   "scorer_status": "verified-on-disk",
+   "gguf": "Qwen3-4B-s20-c4-eora128-Q4KM.gguf",
+   "gguf_verified": true,
+   "gguf_via": "ollama-modelfile-FROM-blob",
+   "gguf_matches_original": null,
+   "dataset_sha256": "0e56b39d5215"
+  },
+  {
+   "name": "RUN_QWEN3_MMLU200_S20C4.json",
+   "run_id": "8f4f9ae290f500b8",
+   "scorer_status": "verified-on-disk",
+   "gguf": "Qwen3-4B-s20-c4-Q4KM.gguf",
+   "gguf_verified": true,
+   "gguf_via": "ollama-modelfile-FROM-blob",
+   "gguf_matches_original": null,
+   "dataset_sha256": "0e56b39d5215"
+  },
+  {
+   "name": "RUN_QWEN3_MMLU200_S20C4_SMOKE.json",
+   "run_id": "18cef1c55a2bde8e",
+   "scorer_status": "verified-on-disk",
+   "gguf": "Qwen3-4B-s20-c4-Q4KM.gguf",
+   "gguf_verified": true,
+   "gguf_via": "ollama-modelfile-FROM-blob",
+   "gguf_matches_original": null,
+   "dataset_sha256": "779d86f42eae"
+  },
+  {
+   "name": "RUN_QWEN3_MMLU200_S20MIX.json",
+   "run_id": "7a6b046705dfb651",
+   "scorer_status": "verified-on-disk",
+   "gguf": "S20MIX-Q4KM.gguf",
+   "gguf_verified": true,
+   "gguf_via": "ollama-modelfile-FROM-blob",
+   "gguf_matches_original": null,
+   "dataset_sha256": "0e56b39d5215"
+  },
+  {
+   "name": "RUN_QWEN3_MMLU200_S30MIX.json",
+   "run_id": "21b483ea4d2ed36a",
+   "scorer_status": "verified-on-disk",
+   "gguf": "S30MIX-Q4KM.gguf",
+   "gguf_verified": true,
+   "gguf_via": "ollama-modelfile-FROM-blob",
+   "gguf_matches_original": null,
+   "dataset_sha256": "0e56b39d5215"
+  },
+  {
+   "name": "RUN_QWEN3_R2_GSM400_DENSE.json",
+   "run_id": "da3303087833631b",
+   "scorer_status": "verified-on-disk",
+   "gguf": "r2-DENSE-Q4KMi.gguf",
+   "gguf_verified": true,
+   "gguf_via": "manifest.provenance.gguf",
+   "gguf_matches_original": true,
+   "dataset_sha256": "3260aa13c3f0"
+  },
+  {
+   "name": "RUN_QWEN3_R2_GSM400_EORA.json",
+   "run_id": "90836b1dbe6f0861",
+   "scorer_status": "verified-on-disk",
+   "gguf": "r2-EORA-Q4KMi.gguf",
+   "gguf_verified": true,
+   "gguf_via": "manifest.provenance.gguf",
+   "gguf_matches_original": true,
+   "dataset_sha256": "3260aa13c3f0"
+  },
+  {
+   "name": "RUN_QWEN3_R2_GSM400_S20C4.json",
+   "run_id": "3f147cc8c0c0364e",
+   "scorer_status": "verified-on-disk",
+   "gguf": "r2-S20C4-Q4KMi.gguf",
+   "gguf_verified": true,
+   "gguf_via": "manifest.provenance.gguf",
+   "gguf_matches_original": true,
+   "dataset_sha256": "3260aa13c3f0"
+  },
+  {
+   "name": "RUN_QWEN3_R2_GSM400_S20MIX.json",
+   "run_id": "ee8c941b8b2bc33c",
+   "scorer_status": "verified-on-disk",
+   "gguf": "r2-S20MIX-Q4KMi.gguf",
+   "gguf_verified": true,
+   "gguf_via": "manifest.provenance.gguf",
+   "gguf_matches_original": true,
+   "dataset_sha256": "3260aa13c3f0"
+  },
+  {
+   "name": "RUN_QWEN3_R2_GSM400_S30MIX.json",
+   "run_id": "50b1ec383a99c6eb",
+   "scorer_status": "verified-on-disk",
+   "gguf": "r2-S30MIX-Q4KMi.gguf",
+   "gguf_verified": true,
+   "gguf_via": "manifest.provenance.gguf",
+   "gguf_matches_original": true,
+   "dataset_sha256": "3260aa13c3f0"
+  },
+  {
+   "name": "RUN_QWEN3_R2_MMLU200_DENSE.json",
+   "run_id": "164b8f58e6834666",
+   "scorer_status": "verified-on-disk",
+   "gguf": "r2-DENSE-Q4KMi.gguf",
+   "gguf_verified": true,
+   "gguf_via": "manifest.provenance.gguf",
+   "gguf_matches_original": true,
+   "dataset_sha256": "0e56b39d5215"
+  },
+  {
+   "name": "RUN_QWEN3_R2_MMLU200_EORA.json",
+   "run_id": "2bb733714c83da60",
+   "scorer_status": "verified-on-disk",
+   "gguf": "r2-EORA-Q4KMi.gguf",
+   "gguf_verified": true,
+   "gguf_via": "manifest.provenance.gguf",
+   "gguf_matches_original": true,
+   "dataset_sha256": "0e56b39d5215"
+  },
+  {
+   "name": "RUN_QWEN3_R2_MMLU200_S20C4.json",
+   "run_id": "ee6043d6449282cd",
+   "scorer_status": "verified-on-disk",
+   "gguf": "r2-S20C4-Q4KMi.gguf",
+   "gguf_verified": true,
+   "gguf_via": "manifest.provenance.gguf",
+   "gguf_matches_original": true,
+   "dataset_sha256": "0e56b39d5215"
+  },
+  {
+   "name": "RUN_QWEN3_R2_MMLU200_S20MIX.json",
+   "run_id": "8b8d9e292e592a15",
+   "scorer_status": "verified-on-disk",
+   "gguf": "r2-S20MIX-Q4KMi.gguf",
+   "gguf_verified": true,
+   "gguf_via": "manifest.provenance.gguf",
+   "gguf_matches_original": true,
+   "dataset_sha256": "0e56b39d5215"
+  },
+  {
+   "name": "RUN_QWEN3_R2_MMLU200_S30MIX.json",
+   "run_id": "507b55b32e360912",
+   "scorer_status": "verified-on-disk",
+   "gguf": "r2-S30MIX-Q4KMi.gguf",
+   "gguf_verified": true,
+   "gguf_via": "manifest.provenance.gguf",
+   "gguf_matches_original": true,
+   "dataset_sha256": "0e56b39d5215"
+  },
+  {
+   "name": "RUN_QWEN3_TYPED_DENSE2.json",
+   "run_id": "4a6be1ecf633c0fb",
+   "scorer_status": "khong-xac-dinh-duoc",
+   "gguf": null,
+   "gguf_verified": false,
+   "gguf_via": null,
+   "gguf_matches_original": null,
+   "dataset_sha256": "df8cef5633ea"
+  },
+  {
+   "name": "RUN_QWEN3_TYPED_EORA.json",
+   "run_id": "78976aac5ec5d8dc",
+   "scorer_status": "khong-xac-dinh-duoc",
+   "gguf": null,
+   "gguf_verified": false,
+   "gguf_via": null,
+   "gguf_matches_original": null,
+   "dataset_sha256": "8c6f76d9f5fb"
+  },
+  {
+   "name": "RUN_QWEN3_TYPED_S20C4.json",
+   "run_id": "1e8ddc33e80cabc4",
+   "scorer_status": "khong-xac-dinh-duoc",
+   "gguf": null,
+   "gguf_verified": false,
+   "gguf_via": null,
+   "gguf_matches_original": null,
+   "dataset_sha256": "585ec6a137e8"
+  },
+  {
+   "name": "RUN_QWEN3_TYPED_S20MIXED.json",
+   "run_id": "03b2cce1034f7594",
+   "scorer_status": "khong-xac-dinh-duoc",
+   "gguf": null,
+   "gguf_verified": false,
+   "gguf_via": null,
+   "gguf_matches_original": null,
+   "dataset_sha256": "585ec6a137e8"
+  },
+  {
+   "name": "RUN_QWEN3_TYPED_S30C4.json",
+   "run_id": "fa254b4a58e01c8c",
+   "scorer_status": "khong-xac-dinh-duoc",
+   "gguf": null,
+   "gguf_verified": false,
+   "gguf_via": null,
+   "gguf_matches_original": null,
+   "dataset_sha256": "c36ed28a428b"
+  },
+  {
+   "name": "RUN_QWEN3_TYPED_S30MIXED.json",
+   "run_id": "23d0a0a61bd1ba4e",
+   "scorer_status": "khong-xac-dinh-duoc",
+   "gguf": null,
+   "gguf_verified": false,
+   "gguf_via": null,
+   "gguf_matches_original": null,
+   "dataset_sha256": "6f5a253aa069"
+  }
+ ]
+}

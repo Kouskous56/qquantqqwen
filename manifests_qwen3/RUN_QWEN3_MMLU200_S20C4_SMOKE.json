@@ -1,0 +1,129 @@
+{
+ "run_id": "18cef1c55a2bde8e",
+ "model": "qwen3-s20c4",
+ "model_path_kind": "registry-name",
+ "protocol": "ollama-greedy-MC-letter-npredict24",
+ "dataset_sha256": "779d86f42eae566f3e68bb4cfb4890cce953b519bf5d954721fb8ce6ccbea748",
+ "detail_schema": "mmlu",
+ "dataset_sha256_scope": "sha256 cua (i, mon, gold) da cham thuc su.",
+ "scorer": "bench/qwen3/mmlu_any.py",
+ "scorer_sha256": "2db326463998922c6a29a692d60805fd10640b987e0ab0b84c8aba3051c1e833",
+ "scorer_status": "verified-on-disk",
+ "timestamp": "2026-09-29T15:20:17.737899Z",
+ "timestamp_source": "file-mtime-cua-manifest, KHONG phai gio chay thoi",
+ "provenance": {
+  "gguf": "Qwen3-4B-s20-c4-Q4KM.gguf",
+  "gguf_sha256": "7ca80ef169b0fbeb85e0c9aa756dc5978b12cfb18a671d8d224d6cdfaba1c67c",
+  "gguf_bytes": 2497279136,
+  "gguf_resolved_via": "ollama-modelfile-FROM-blob"
+ },
+ "regenerable": false,
+ "limitation": "Diem khong tai lap duoc: can GGUF 2.5GB + Ollama + ~20-140 phut GPU. CI chi verify tinh toan, khong tao lai diem.",
+ "scores": {
+  "n": 12,
+  "mmlu": 7,
+  "acc": 0.5833,
+  "n_subjects": 57,
+  "per_subject": 0.21,
+  "elapsed_s": 0
+ },
+ "details": [
+  {
+   "i": 0,
+   "subj": "abstract_algebra",
+   "pass": false,
+   "pick": -1,
+   "gold": 2,
+   "out": "We are asked to find the degree of"
+  },
+  {
+   "i": 100,
+   "subj": "anatomy",
+   "pass": false,
+   "pick": 0,
+   "gold": 2,
+   "out": "The correct answer is:\n\n**A."
+  },
+  {
+   "i": 235,
+   "subj": "astronomy",
+   "pass": true,
+   "pick": 3,
+   "gold": 3,
+   "out": "D. This type occurs in binary systems"
+  },
+  {
+   "i": 387,
+   "subj": "business_ethics",
+   "pass": false,
+   "pick": 0,
+   "gold": 3,
+   "out": "A. Cryptocurrencies, Expensive"
+  },
+  {
+   "i": 487,
+   "subj": "clinical_knowledge",
+   "pass": true,
+   "pick": 0,
+   "gold": 0,
+   "out": "A. 18 gauge."
+  },
+  {
+   "i": 752,
+   "subj": "college_biology",
+   "pass": true,
+   "pick": 1,
+   "gold": 1,
+   "out": "The correct answer is: **B."
+  },
+  {
+   "i": 896,
+   "subj": "college_chemistry",
+   "pass": true,
+   "pick": 0,
+   "gold": 0,
+   "out": "A. r = k"
+  },
+  {
+   "i": 996,
+   "subj": "college_computer_science",
+   "pass": true,
+   "pick": 2,
+   "gold": 2,
+   "out": "C. the matrix, if stored directly"
+  },
+  {
+   "i": 1096,
+   "subj": "college_mathematics",
+   "pass": false,
+   "pick": -1,
+   "gold": 0,
+   "out": "We are given the equation:\n\n$$"
+  },
+  {
+   "i": 1196,
+   "subj": "college_medicine",
+   "pass": true,
+   "pick": 1,
+   "gold": 1,
+   "out": "B. Psychoanalytic"
+  },
+  {
+   "i": 1369,
+   "subj": "college_physics",
+   "pass": false,
+   "pick": -1,
+   "gold": 2,
+   "out": "The quantum efficiency of a photon detector is"
+  },
+  {
+   "i": 1471,
+   "subj": "computer_security",
+   "pass": true,
+   "pick": 3,
+   "gold": 3,
+   "out": "D. Whitebox"
+  }
+ ],
+ "note": "GGUF/Q4 artifact; do not mix voi FP16 numbers"
+}

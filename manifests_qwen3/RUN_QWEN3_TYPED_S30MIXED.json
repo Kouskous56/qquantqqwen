@@ -1,0 +1,327 @@
+{
+ "run_id": "23d0a0a61bd1ba4e",
+ "model": "Qwen3-4B-pruned-s30-mixed",
+ "model_path_kind": "local-directory",
+ "protocol": "typed-v33-single-pass",
+ "dataset_sha256": "6f5a253aa0695d294b523a72cf6384c36ee265c9c0d0c2959c0c5384a99e5add",
+ "detail_schema": "typed",
+ "dataset_sha256_scope": "sha256 cua (id, type, raw) -- rescore tren the he co dong, khong co chi so i.",
+ "scorer": null,
+ "scorer_sha256": null,
+ "scorer_status": "khong-xac-dinh-duoc",
+ "timestamp": "2026-09-29T14:38:21.371024Z",
+ "timestamp_source": "file-mtime-cua-manifest, KHONG phai gio chay thoi",
+ "provenance": {
+  "gguf_available": false,
+  "gguf_note": "Khong xac dinh duoc artifact: manifest khong tro ten file, va ten model Ollama khong con."
+ },
+ "regenerable": false,
+ "limitation": "Diem khong tai lap duoc: can GGUF 2.5GB + Ollama + ~20-140 phut GPU. CI chi verify tinh toan, khong tao lai diem.",
+ "scores": {
+  "typed_suite": 41,
+  "n": 50,
+  "elapsed_s": 127
+ },
+ "details": [
+  {
+   "id": "b01",
+   "type": "numeric_scalar",
+   "pass": true,
+   "raw": "15<|im_end|>"
+  },
+  {
+   "id": "b02",
+   "type": "numeric_scalar",
+   "pass": true,
+   "raw": "72<|im_end|>"
+  },
+  {
+   "id": "b03",
+   "type": "numeric_scalar",
+   "pass": true,
+   "raw": "55<|im_end|>"
+  },
+  {
+   "id": "b04",
+   "type": "numeric_scalar",
+   "pass": true,
+   "raw": "81<|im_end|>"
+  },
+  {
+   "id": "b05",
+   "type": "numeric_scalar",
+   "pass": true,
+   "raw": "25<|im_end|>"
+  },
+  {
+   "id": "b06",
+   "type": "numeric_scalar",
+   "pass": true,
+   "raw": "25<|im_end|>"
+  },
+  {
+   "id": "b07",
+   "type": "numeric_scalar",
+   "pass": true,
+   "raw": "12<|im_end|>"
+  },
+  {
+   "id": "b08",
+   "type": "numeric_scalar",
+   "pass": true,
+   "raw": "8<|im_end|>"
+  },
+  {
+   "id": "b09",
+   "type": "numeric_scalar",
+   "pass": true,
+   "raw": "30<|im_end|>"
+  },
+  {
+   "id": "b10",
+   "type": "numeric_scalar",
+   "pass": true,
+   "raw": "36<|im_end|>"
+  },
+  {
+   "id": "b11",
+   "type": "numeric_scalar",
+   "pass": false,
+   "raw": "54<|im_end|>"
+  },
+  {
+   "id": "b12",
+   "type": "numeric_scalar",
+   "pass": true,
+   "raw": "11<|im_end|>"
+  },
+  {
+   "id": "b13",
+   "type": "numeric_scalar",
+   "pass": true,
+   "raw": "6<|im_end|>"
+  },
+  {
+   "id": "b14",
+   "type": "numeric_scalar",
+   "pass": true,
+   "raw": "120<|im_end|>"
+  },
+  {
+   "id": "b15",
+   "type": "numeric_scalar",
+   "pass": true,
+   "raw": "0.75<|im_end|>"
+  },
+  {
+   "id": "h16",
+   "type": "numeric_scalar",
+   "pass": true,
+   "raw": "x = 4<|im_end|>"
+  },
+  {
+   "id": "h17",
+   "type": "unordered_numeric_set",
+   "pass": true,
+   "raw": "2, 3<|im_end|>"
+  },
+  {
+   "id": "h18",
+   "type": "numeric_scalar",
+   "pass": true,
+   "raw": "3<|im_end|>"
+  },
+  {
+   "id": "h19",
+   "type": "numeric_scalar",
+   "pass": true,
+   "raw": "0.5<|im_end|>"
+  },
+  {
+   "id": "h20",
+   "type": "numeric_scalar",
+   "pass": true,
+   "raw": "3<|im_end|>"
+  },
+  {
+   "id": "h21",
+   "type": "numeric_scalar",
+   "pass": true,
+   "raw": "10<|im_end|>"
+  },
+  {
+   "id": "h22",
+   "type": "numeric_scalar",
+   "pass": true,
+   "raw": "55<|im_end|>"
+  },
+  {
+   "id": "h23",
+   "type": "symbolic_exact",
+   "pass": false,
+   "raw": "12.56637<|im_end|>"
+  },
+  {
+   "id": "h24",
+   "type": "ordered_numeric_tuple",
+   "pass": true,
+   "raw": "(2,3)<|im_end|>"
+  },
+  {
+   "id": "h25",
+   "type": "numeric_scalar",
+   "pass": true,
+   "raw": "1024<|im_end|>"
+  },
+  {
+   "id": "h26",
+   "type": "numeric_scalar",
+   "pass": true,
+   "raw": "0<|im_end|>"
+  },
+  {
+   "id": "h27",
+   "type": "symbolic_exact",
+   "pass": true,
+   "raw": "3x^2<|im_end|>"
+  },
+  {
+   "id": "h28",
+   "type": "numeric_scalar",
+   "pass": true,
+   "raw": "-1<|im_end|>"
+  },
+  {
+   "id": "h29",
+   "type": "numeric_scalar",
+   "pass": true,
+   "raw": "24<|im_end|>"
+  },
+  {
+   "id": "h30",
+   "type": "numeric_scalar",
+   "pass": true,
+   "raw": "0.25<|im_end|>"
+  },
+  {
+   "id": "o31",
+   "type": "numeric_scalar",
+   "pass": false,
+   "raw": "7<|im_end|>"
+  },
+  {
+   "id": "o32",
+   "type": "numeric_scalar",
+   "pass": false,
+   "raw": "4<|im_end|>"
+  },
+  {
+   "id": "o33",
+   "type": "numeric_scalar",
+   "pass": false,
+   "raw": "25<|im_end|>"
+  },
+  {
+   "id": "o34",
+   "type": "numeric_scalar",
+   "pass": true,
+   "raw": "4<|im_end|>"
+  },
+  {
+   "id": "o35",
+   "type": "numeric_scalar",
+   "pass": true,
+   "raw": "9<|im_end|>"
+  },
+  {
+   "id": "o36",
+   "type": "numeric_scalar",
+   "pass": true,
+   "raw": "2500<|im_end|>"
+  },
+  {
+   "id": "o37",
+   "type": "numeric_scalar",
+   "pass": false,
+   "raw": "18<|im_end|>"
+  },
+  {
+   "id": "o38",
+   "type": "numeric_scalar",
+   "pass": false,
+   "raw": "6<|im_end|>"
+  },
+  {
+   "id": "o39",
+   "type": "numeric_scalar",
+   "pass": true,
+   "raw": "540<|im_end|>"
+  },
+  {
+   "id": "o40",
+   "type": "numeric_scalar",
+   "pass": true,
+   "raw": "53<|im_end|>"
+  },
+  {
+   "id": "a41",
+   "type": "numeric_scalar",
+   "pass": true,
+   "raw": "1<|im_end|>"
+  },
+  {
+   "id": "a42",
+   "type": "numeric_scalar",
+   "pass": true,
+   "raw": "1/2<|im_end|>"
+  },
+  {
+   "id": "a43",
+   "type": "numeric_scalar",
+   "pass": true,
+   "raw": "-2<|im_end|>"
+  },
+  {
+   "id": "a44",
+   "type": "unordered_numeric_set",
+   "pass": true,
+   "raw": "1, 1<|im_end|>"
+  },
+  {
+   "id": "a45",
+   "type": "symbolic_exact",
+   "pass": false,
+   "raw": "1<|im_end|>"
+  },
+  {
+   "id": "a46",
+   "type": "numeric_scalar",
+   "pass": true,
+   "raw": "0.2<|im_end|>"
+  },
+  {
+   "id": "a47",
+   "type": "numeric_scalar",
+   "pass": true,
+   "raw": "0<|im_end|>"
+  },
+  {
+   "id": "a48",
+   "type": "symbolic_exact",
+   "pass": true,
+   "raw": "e^x + C<|im_end|>"
+  },
+  {
+   "id": "a49",
+   "type": "symbolic_exact",
+   "pass": false,
+   "raw": "1<|im_end|>"
+  },
+  {
+   "id": "a50",
+   "type": "symbolic_exact",
+   "pass": true,
+   "raw": "singular<|im_end|>"
+  }
+ ]
+}

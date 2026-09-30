@@ -1,0 +1,1432 @@
+{
+ "run_id": "b1ffbd8f6b846f6a",
+ "model": "qwen3-eora",
+ "model_path_kind": "registry-name",
+ "protocol": "ollama-greedy-CoT-####-num_predict256",
+ "dataset_sha256": "dd91b1271e1d60a2f5a80bee7fb33309a2863cd2fd1bd1402912ed18b95826cf",
+ "detail_schema": "gsm",
+ "dataset_sha256_scope": "sha256 cua (i, dap-an-mong-doi) da cham thuc su.",
+ "scorer": "bench/qwen3/gsm_sweep.py",
+ "scorer_sha256": "457690e0a96bfe27ec2c9a9ee4602d28c6f345af7971021ae64d37089f91f107",
+ "scorer_status": "verified-on-disk",
+ "timestamp": "2026-09-29T16:33:00.752100Z",
+ "timestamp_source": "file-mtime-cua-manifest, KHONG phai gio chay thoi",
+ "provenance": {
+  "gguf": "Qwen3-4B-s20-c4-eora128-Q4KM.gguf",
+  "gguf_sha256": "0e860e13d26d95dac8435ad7479a6de3e18e073657f039d3836c24ce4a83d2ab",
+  "gguf_bytes": 2497279136,
+  "gguf_resolved_via": "ollama-modelfile-FROM-blob"
+ },
+ "regenerable": false,
+ "limitation": "Diem khong tai lap duoc: can GGUF 2.5GB + Ollama + ~20-140 phut GPU. CI chi verify tinh toan, khong tao lai diem.",
+ "scores": {
+  "n": 200,
+  "gsm": 127,
+  "gsm200": 127,
+  "offset": 0,
+  "elapsed_s": 671
+ },
+ "details": [
+  {
+   "i": 0,
+   "pass": true,
+   "got": "18",
+   "exp": "18",
+   "chars": 599
+  },
+  {
+   "i": 1,
+   "pass": true,
+   "got": "3",
+   "exp": "3",
+   "chars": 330
+  },
+  {
+   "i": 2,
+   "pass": false,
+   "got": "3",
+   "exp": "70000",
+   "chars": 706
+  },
+  {
+   "i": 3,
+   "pass": true,
+   "got": "540",
+   "exp": "540",
+   "chars": 391
+  },
+  {
+   "i": 4,
+   "pass": true,
+   "got": "20",
+   "exp": "20",
+   "chars": 697
+  },
+  {
+   "i": 5,
+   "pass": false,
+   "got": "16",
+   "exp": "64",
+   "chars": 789
+  },
+  {
+   "i": 6,
+   "pass": true,
+   "got": "260",
+   "exp": "260",
+   "chars": 470
+  },
+  {
+   "i": 7,
+   "pass": false,
+   "got": "200",
+   "exp": "160",
+   "chars": 876
+  },
+  {
+   "i": 8,
+   "pass": false,
+   "got": "30",
+   "exp": "45",
+   "chars": 847
+  },
+  {
+   "i": 9,
+   "pass": true,
+   "got": "460",
+   "exp": "460",
+   "chars": 522
+  },
+  {
+   "i": 10,
+   "pass": true,
+   "got": "366",
+   "exp": "366",
+   "chars": 753
+  },
+  {
+   "i": 11,
+   "pass": true,
+   "got": "694",
+   "exp": "694",
+   "chars": 597
+  },
+  {
+   "i": 12,
+   "pass": false,
+   "got": "7.50",
+   "exp": "13",
+   "chars": 763
+  },
+  {
+   "i": 13,
+   "pass": false,
+   "got": "2",
+   "exp": "18",
+   "chars": 842
+  },
+  {
+   "i": 14,
+   "pass": false,
+   "got": "4",
+   "exp": "60",
+   "chars": 862
+  },
+  {
+   "i": 15,
+   "pass": false,
+   "got": "1.2",
+   "exp": "125",
+   "chars": 839
+  },
+  {
+   "i": 16,
+   "pass": true,
+   "got": "230",
+   "exp": "230",
+   "chars": 708
+  },
+  {
+   "i": 17,
+   "pass": true,
+   "got": "57500",
+   "exp": "57500",
+   "chars": 515
+  },
+  {
+   "i": 18,
+   "pass": true,
+   "got": "7",
+   "exp": "7",
+   "chars": 422
+  },
+  {
+   "i": 19,
+   "pass": false,
+   "got": "1",
+   "exp": "6",
+   "chars": 877
+  },
+  {
+   "i": 20,
+   "pass": false,
+   "got": "2",
+   "exp": "15",
+   "chars": 925
+  },
+  {
+   "i": 21,
+   "pass": true,
+   "got": "14",
+   "exp": "14",
+   "chars": 686
+  },
+  {
+   "i": 22,
+   "pass": true,
+   "got": "7",
+   "exp": "7",
+   "chars": 423
+  },
+  {
+   "i": 23,
+   "pass": true,
+   "got": "8",
+   "exp": "8",
+   "chars": 438
+  },
+  {
+   "i": 24,
+   "pass": true,
+   "got": "26",
+   "exp": "26",
+   "chars": 520
+  },
+  {
+   "i": 25,
+   "pass": true,
+   "got": "2",
+   "exp": "2",
+   "chars": 592
+  },
+  {
+   "i": 26,
+   "pass": true,
+   "got": "243",
+   "exp": "243",
+   "chars": 617
+  },
+  {
+   "i": 27,
+   "pass": true,
+   "got": "16",
+   "exp": "16",
+   "chars": 489
+  },
+  {
+   "i": 28,
+   "pass": true,
+   "got": "25",
+   "exp": "25",
+   "chars": 514
+  },
+  {
+   "i": 29,
+   "pass": true,
+   "got": "104",
+   "exp": "104",
+   "chars": 708
+  },
+  {
+   "i": 30,
+   "pass": true,
+   "got": "109",
+   "exp": "109",
+   "chars": 631
+  },
+  {
+   "i": 31,
+   "pass": false,
+   "got": "240",
+   "exp": "80",
+   "chars": 663
+  },
+  {
+   "i": 32,
+   "pass": true,
+   "got": "35",
+   "exp": "35",
+   "chars": 373
+  },
+  {
+   "i": 33,
+   "pass": true,
+   "got": "70",
+   "exp": "70",
+   "chars": 439
+  },
+  {
+   "i": 34,
+   "pass": true,
+   "got": "23",
+   "exp": "23",
+   "chars": 534
+  },
+  {
+   "i": 35,
+   "pass": true,
+   "got": "9",
+   "exp": "9",
+   "chars": 379
+  },
+  {
+   "i": 36,
+   "pass": true,
+   "got": "75",
+   "exp": "75",
+   "chars": 551
+  },
+  {
+   "i": 37,
+   "pass": false,
+   "got": "15",
+   "exp": "2",
+   "chars": 754
+  },
+  {
+   "i": 38,
+   "pass": true,
+   "got": "10",
+   "exp": "10",
+   "chars": 816
+  },
+  {
+   "i": 39,
+   "pass": false,
+   "got": "3",
+   "exp": "18",
+   "chars": 842
+  },
+  {
+   "i": 40,
+   "pass": true,
+   "got": "8",
+   "exp": "8",
+   "chars": 564
+  },
+  {
+   "i": 41,
+   "pass": false,
+   "got": "1200",
+   "exp": "200",
+   "chars": 951
+  },
+  {
+   "i": 42,
+   "pass": true,
+   "got": "26",
+   "exp": "26",
+   "chars": 421
+  },
+  {
+   "i": 43,
+   "pass": false,
+   "got": "60",
+   "exp": "48",
+   "chars": 747
+  },
+  {
+   "i": 44,
+   "pass": true,
+   "got": "20",
+   "exp": "20",
+   "chars": 666
+  },
+  {
+   "i": 45,
+   "pass": false,
+   "got": "5",
+   "exp": "104",
+   "chars": 929
+  },
+  {
+   "i": 46,
+   "pass": true,
+   "got": "163",
+   "exp": "163",
+   "chars": 725
+  },
+  {
+   "i": 47,
+   "pass": false,
+   "got": "4",
+   "exp": "800",
+   "chars": 774
+  },
+  {
+   "i": 48,
+   "pass": true,
+   "got": "8",
+   "exp": "8",
+   "chars": 416
+  },
+  {
+   "i": 49,
+   "pass": true,
+   "got": "30",
+   "exp": "30",
+   "chars": 480
+  },
+  {
+   "i": 50,
+   "pass": true,
+   "got": "294",
+   "exp": "294",
+   "chars": 622
+  },
+  {
+   "i": 51,
+   "pass": true,
+   "got": "5",
+   "exp": "5",
+   "chars": 505
+  },
+  {
+   "i": 52,
+   "pass": false,
+   "got": "1",
+   "exp": "15",
+   "chars": 759
+  },
+  {
+   "i": 53,
+   "pass": true,
+   "got": "40",
+   "exp": "40",
+   "chars": 681
+  },
+  {
+   "i": 54,
+   "pass": false,
+   "got": "21",
+   "exp": "40",
+   "chars": 1018
+  },
+  {
+   "i": 55,
+   "pass": true,
+   "got": "14",
+   "exp": "14",
+   "chars": 364
+  },
+  {
+   "i": 56,
+   "pass": true,
+   "got": "3",
+   "exp": "3",
+   "chars": 331
+  },
+  {
+   "i": 57,
+   "pass": false,
+   "got": "124",
+   "exp": "83",
+   "chars": 809
+  },
+  {
+   "i": 58,
+   "pass": false,
+   "got": "2",
+   "exp": "57",
+   "chars": 1017
+  },
+  {
+   "i": 59,
+   "pass": true,
+   "got": "187",
+   "exp": "187",
+   "chars": 323
+  },
+  {
+   "i": 60,
+   "pass": false,
+   "got": "2",
+   "exp": "17",
+   "chars": 761
+  },
+  {
+   "i": 61,
+   "pass": true,
+   "got": "1430",
+   "exp": "1430",
+   "chars": 431
+  },
+  {
+   "i": 62,
+   "pass": false,
+   "got": "0.05",
+   "exp": "25000",
+   "chars": 849
+  },
+  {
+   "i": 63,
+   "pass": false,
+   "got": "6",
+   "exp": "1596",
+   "chars": 839
+  },
+  {
+   "i": 64,
+   "pass": true,
+   "got": "300",
+   "exp": "300",
+   "chars": 864
+  },
+  {
+   "i": 65,
+   "pass": true,
+   "got": "36",
+   "exp": "36",
+   "chars": 579
+  },
+  {
+   "i": 66,
+   "pass": true,
+   "got": "48",
+   "exp": "48",
+   "chars": 685
+  },
+  {
+   "i": 67,
+   "pass": true,
+   "got": "595",
+   "exp": "595",
+   "chars": 571
+  },
+  {
+   "i": 68,
+   "pass": true,
+   "got": "36",
+   "exp": "36",
+   "chars": 456
+  },
+  {
+   "i": 69,
+   "pass": true,
+   "got": "60",
+   "exp": "60",
+   "chars": 471
+  },
+  {
+   "i": 70,
+   "pass": false,
+   "got": "7500",
+   "exp": "7425",
+   "chars": 450
+  },
+  {
+   "i": 71,
+   "pass": true,
+   "got": "60",
+   "exp": "60",
+   "chars": 412
+  },
+  {
+   "i": 72,
+   "pass": true,
+   "got": "221",
+   "exp": "221",
+   "chars": 505
+  },
+  {
+   "i": 73,
+   "pass": false,
+   "got": "765",
+   "exp": "255",
+   "chars": 770
+  },
+  {
+   "i": 74,
+   "pass": false,
+   "got": "3",
+   "exp": "88",
+   "chars": 745
+  },
+  {
+   "i": 75,
+   "pass": false,
+   "got": "2",
+   "exp": "60",
+   "chars": 842
+  },
+  {
+   "i": 76,
+   "pass": false,
+   "got": "180",
+   "exp": "5",
+   "chars": 782
+  },
+  {
+   "i": 77,
+   "pass": true,
+   "got": "100",
+   "exp": "100",
+   "chars": 746
+  },
+  {
+   "i": 78,
+   "pass": false,
+   "got": "3",
+   "exp": "6",
+   "chars": 802
+  },
+  {
+   "i": 79,
+   "pass": true,
+   "got": "70",
+   "exp": "70",
+   "chars": 321
+  },
+  {
+   "i": 80,
+   "pass": true,
+   "got": "10",
+   "exp": "10",
+   "chars": 500
+  },
+  {
+   "i": 81,
+   "pass": true,
+   "got": "17",
+   "exp": "17",
+   "chars": 544
+  },
+  {
+   "i": 82,
+   "pass": true,
+   "got": "623",
+   "exp": "623",
+   "chars": 402
+  },
+  {
+   "i": 83,
+   "pass": true,
+   "got": "600",
+   "exp": "600",
+   "chars": 270
+  },
+  {
+   "i": 84,
+   "pass": true,
+   "got": "15",
+   "exp": "15",
+   "chars": 401
+  },
+  {
+   "i": 85,
+   "pass": true,
+   "got": "44",
+   "exp": "44",
+   "chars": 593
+  },
+  {
+   "i": 86,
+   "pass": false,
+   "got": "",
+   "exp": "22",
+   "chars": 998
+  },
+  {
+   "i": 87,
+   "pass": false,
+   "got": "600",
+   "exp": "9360",
+   "chars": 970
+  },
+  {
+   "i": 88,
+   "pass": true,
+   "got": "8000",
+   "exp": "8000",
+   "chars": 405
+  },
+  {
+   "i": 89,
+   "pass": true,
+   "got": "24",
+   "exp": "24",
+   "chars": 670
+  },
+  {
+   "i": 90,
+   "pass": true,
+   "got": "225",
+   "exp": "225",
+   "chars": 635
+  },
+  {
+   "i": 91,
+   "pass": true,
+   "got": "28",
+   "exp": "28",
+   "chars": 438
+  },
+  {
+   "i": 92,
+   "pass": true,
+   "got": "4",
+   "exp": "4",
+   "chars": 834
+  },
+  {
+   "i": 93,
+   "pass": false,
+   "got": "10",
+   "exp": "36",
+   "chars": 909
+  },
+  {
+   "i": 94,
+   "pass": true,
+   "got": "348",
+   "exp": "348",
+   "chars": 770
+  },
+  {
+   "i": 95,
+   "pass": true,
+   "got": "40",
+   "exp": "40",
+   "chars": 654
+  },
+  {
+   "i": 96,
+   "pass": true,
+   "got": "3",
+   "exp": "3",
+   "chars": 323
+  },
+  {
+   "i": 97,
+   "pass": false,
+   "got": "4",
+   "exp": "12",
+   "chars": 994
+  },
+  {
+   "i": 98,
+   "pass": false,
+   "got": "25",
+   "exp": "5",
+   "chars": 929
+  },
+  {
+   "i": 99,
+   "pass": true,
+   "got": "58",
+   "exp": "58",
+   "chars": 609
+  },
+  {
+   "i": 100,
+   "pass": false,
+   "got": "5",
+   "exp": "175",
+   "chars": 854
+  },
+  {
+   "i": 101,
+   "pass": true,
+   "got": "6",
+   "exp": "6",
+   "chars": 567
+  },
+  {
+   "i": 102,
+   "pass": true,
+   "got": "26",
+   "exp": "26",
+   "chars": 717
+  },
+  {
+   "i": 103,
+   "pass": true,
+   "got": "140",
+   "exp": "140",
+   "chars": 677
+  },
+  {
+   "i": 104,
+   "pass": true,
+   "got": "500",
+   "exp": "500",
+   "chars": 592
+  },
+  {
+   "i": 105,
+   "pass": true,
+   "got": "20",
+   "exp": "20",
+   "chars": 300
+  },
+  {
+   "i": 106,
+   "pass": false,
+   "got": "4.",
+   "exp": "72",
+   "chars": 967
+  },
+  {
+   "i": 107,
+   "pass": false,
+   "got": "30",
+   "exp": "3",
+   "chars": 811
+  },
+  {
+   "i": 108,
+   "pass": false,
+   "got": "2",
+   "exp": "50",
+   "chars": 791
+  },
+  {
+   "i": 109,
+   "pass": true,
+   "got": "28",
+   "exp": "28",
+   "chars": 525
+  },
+  {
+   "i": 110,
+   "pass": true,
+   "got": "45",
+   "exp": "45",
+   "chars": 682
+  },
+  {
+   "i": 111,
+   "pass": false,
+   "got": "80",
+   "exp": "16",
+   "chars": 781
+  },
+  {
+   "i": 112,
+   "pass": true,
+   "got": "24",
+   "exp": "24",
+   "chars": 362
+  },
+  {
+   "i": 113,
+   "pass": true,
+   "got": "25",
+   "exp": "25",
+   "chars": 392
+  },
+  {
+   "i": 114,
+   "pass": false,
+   "got": "2",
+   "exp": "6",
+   "chars": 1098
+  },
+  {
+   "i": 115,
+   "pass": false,
+   "got": "50",
+   "exp": "90",
+   "chars": 861
+  },
+  {
+   "i": 116,
+   "pass": false,
+   "got": "120",
+   "exp": "42",
+   "chars": 944
+  },
+  {
+   "i": 117,
+   "pass": true,
+   "got": "360",
+   "exp": "360",
+   "chars": 305
+  },
+  {
+   "i": 118,
+   "pass": true,
+   "got": "4",
+   "exp": "4",
+   "chars": 676
+  },
+  {
+   "i": 119,
+   "pass": false,
+   "got": "1.3",
+   "exp": "95200",
+   "chars": 726
+  },
+  {
+   "i": 120,
+   "pass": true,
+   "got": "240",
+   "exp": "240",
+   "chars": 473
+  },
+  {
+   "i": 121,
+   "pass": true,
+   "got": "27",
+   "exp": "27",
+   "chars": 660
+  },
+  {
+   "i": 122,
+   "pass": false,
+   "got": "6",
+   "exp": "48",
+   "chars": 790
+  },
+  {
+   "i": 123,
+   "pass": true,
+   "got": "50",
+   "exp": "50",
+   "chars": 820
+  },
+  {
+   "i": 124,
+   "pass": true,
+   "got": "10",
+   "exp": "10",
+   "chars": 795
+  },
+  {
+   "i": 125,
+   "pass": true,
+   "got": "10",
+   "exp": "10",
+   "chars": 578
+  },
+  {
+   "i": 126,
+   "pass": true,
+   "got": "82",
+   "exp": "82",
+   "chars": 294
+  },
+  {
+   "i": 127,
+   "pass": true,
+   "got": "120",
+   "exp": "120",
+   "chars": 360
+  },
+  {
+   "i": 128,
+   "pass": false,
+   "got": "5",
+   "exp": "880",
+   "chars": 705
+  },
+  {
+   "i": 129,
+   "pass": false,
+   "got": "6",
+   "exp": "10000",
+   "chars": 888
+  },
+  {
+   "i": 130,
+   "pass": true,
+   "got": "30",
+   "exp": "30",
+   "chars": 505
+  },
+  {
+   "i": 131,
+   "pass": true,
+   "got": "940",
+   "exp": "940",
+   "chars": 262
+  },
+  {
+   "i": 132,
+   "pass": true,
+   "got": "60",
+   "exp": "60",
+   "chars": 473
+  },
+  {
+   "i": 133,
+   "pass": true,
+   "got": "13",
+   "exp": "13",
+   "chars": 473
+  },
+  {
+   "i": 134,
+   "pass": true,
+   "got": "720",
+   "exp": "720",
+   "chars": 243
+  },
+  {
+   "i": 135,
+   "pass": true,
+   "got": "40",
+   "exp": "40",
+   "chars": 554
+  },
+  {
+   "i": 136,
+   "pass": true,
+   "got": "6",
+   "exp": "6",
+   "chars": 356
+  },
+  {
+   "i": 137,
+   "pass": false,
+   "got": "2",
+   "exp": "29",
+   "chars": 565
+  },
+  {
+   "i": 138,
+   "pass": false,
+   "got": "3",
+   "exp": "105",
+   "chars": 850
+  },
+  {
+   "i": 139,
+   "pass": true,
+   "got": "70",
+   "exp": "70",
+   "chars": 549
+  },
+  {
+   "i": 140,
+   "pass": true,
+   "got": "20",
+   "exp": "20",
+   "chars": 459
+  },
+  {
+   "i": 141,
+   "pass": false,
+   "got": "1",
+   "exp": "400",
+   "chars": 735
+  },
+  {
+   "i": 142,
+   "pass": true,
+   "got": "140",
+   "exp": "140",
+   "chars": 536
+  },
+  {
+   "i": 143,
+   "pass": false,
+   "got": "1",
+   "exp": "16",
+   "chars": 717
+  },
+  {
+   "i": 144,
+   "pass": true,
+   "got": "20",
+   "exp": "20",
+   "chars": 699
+  },
+  {
+   "i": 145,
+   "pass": false,
+   "got": "10",
+   "exp": "4000",
+   "chars": 813
+  },
+  {
+   "i": 146,
+   "pass": true,
+   "got": "2125",
+   "exp": "2125",
+   "chars": 459
+  },
+  {
+   "i": 147,
+   "pass": false,
+   "got": "6",
+   "exp": "75",
+   "chars": 826
+  },
+  {
+   "i": 148,
+   "pass": true,
+   "got": "30",
+   "exp": "30",
+   "chars": 387
+  },
+  {
+   "i": 149,
+   "pass": true,
+   "got": "16",
+   "exp": "16",
+   "chars": 653
+  },
+  {
+   "i": 150,
+   "pass": false,
+   "got": "440",
+   "exp": "4",
+   "chars": 703
+  },
+  {
+   "i": 151,
+   "pass": false,
+   "got": "5.00",
+   "exp": "5",
+   "chars": 793
+  },
+  {
+   "i": 152,
+   "pass": true,
+   "got": "4",
+   "exp": "4",
+   "chars": 443
+  },
+  {
+   "i": 153,
+   "pass": false,
+   "got": "6",
+   "exp": "48",
+   "chars": 949
+  },
+  {
+   "i": 154,
+   "pass": false,
+   "got": "1",
+   "exp": "272",
+   "chars": 711
+  },
+  {
+   "i": 155,
+   "pass": false,
+   "got": "120",
+   "exp": "280",
+   "chars": 716
+  },
+  {
+   "i": 156,
+   "pass": true,
+   "got": "1400",
+   "exp": "1400",
+   "chars": 585
+  },
+  {
+   "i": 157,
+   "pass": false,
+   "got": "4",
+   "exp": "80",
+   "chars": 841
+  },
+  {
+   "i": 158,
+   "pass": true,
+   "got": "34",
+   "exp": "34",
+   "chars": 452
+  },
+  {
+   "i": 159,
+   "pass": false,
+   "got": "9",
+   "exp": "15",
+   "chars": 882
+  },
+  {
+   "i": 160,
+   "pass": true,
+   "got": "16",
+   "exp": "16",
+   "chars": 430
+  },
+  {
+   "i": 161,
+   "pass": false,
+   "got": "10",
+   "exp": "32",
+   "chars": 912
+  },
+  {
+   "i": 162,
+   "pass": true,
+   "got": "92",
+   "exp": "92",
+   "chars": 816
+  },
+  {
+   "i": 163,
+   "pass": true,
+   "got": "50",
+   "exp": "50",
+   "chars": 747
+  },
+  {
+   "i": 164,
+   "pass": true,
+   "got": "15",
+   "exp": "15",
+   "chars": 679
+  },
+  {
+   "i": 165,
+   "pass": true,
+   "got": "77",
+   "exp": "77",
+   "chars": 524
+  },
+  {
+   "i": 166,
+   "pass": true,
+   "got": "5",
+   "exp": "5",
+   "chars": 542
+  },
+  {
+   "i": 167,
+   "pass": false,
+   "got": "10",
+   "exp": "16",
+   "chars": 671
+  },
+  {
+   "i": 168,
+   "pass": true,
+   "got": "18",
+   "exp": "18",
+   "chars": 268
+  },
+  {
+   "i": 169,
+   "pass": true,
+   "got": "120",
+   "exp": "120",
+   "chars": 489
+  },
+  {
+   "i": 170,
+   "pass": true,
+   "got": "150",
+   "exp": "150",
+   "chars": 488
+  },
+  {
+   "i": 171,
+   "pass": true,
+   "got": "1210",
+   "exp": "1210",
+   "chars": 560
+  },
+  {
+   "i": 172,
+   "pass": false,
+   "got": "19",
+   "exp": "51",
+   "chars": 879
+  },
+  {
+   "i": 173,
+   "pass": true,
+   "got": "18000",
+   "exp": "18000",
+   "chars": 635
+  },
+  {
+   "i": 174,
+   "pass": true,
+   "got": "95",
+   "exp": "95",
+   "chars": 659
+  },
+  {
+   "i": 175,
+   "pass": true,
+   "got": "15",
+   "exp": "15",
+   "chars": 703
+  },
+  {
+   "i": 176,
+   "pass": true,
+   "got": "100",
+   "exp": "100",
+   "chars": 624
+  },
+  {
+   "i": 177,
+   "pass": false,
+   "got": "5",
+   "exp": "350",
+   "chars": 707
+  },
+  {
+   "i": 178,
+   "pass": true,
+   "got": "122",
+   "exp": "122",
+   "chars": 443
+  },
+  {
+   "i": 179,
+   "pass": true,
+   "got": "130",
+   "exp": "130",
+   "chars": 309
+  },
+  {
+   "i": 180,
+   "pass": true,
+   "got": "20",
+   "exp": "20",
+   "chars": 446
+  },
+  {
+   "i": 181,
+   "pass": true,
+   "got": "160",
+   "exp": "160",
+   "chars": 819
+  },
+  {
+   "i": 182,
+   "pass": false,
+   "got": "5",
+   "exp": "23",
+   "chars": 771
+  },
+  {
+   "i": 183,
+   "pass": false,
+   "got": "222",
+   "exp": "2",
+   "chars": 683
+  },
+  {
+   "i": 184,
+   "pass": false,
+   "got": "1",
+   "exp": "25",
+   "chars": 827
+  },
+  {
+   "i": 185,
+   "pass": true,
+   "got": "30",
+   "exp": "30",
+   "chars": 333
+  },
+  {
+   "i": 186,
+   "pass": false,
+   "got": "2",
+   "exp": "5",
+   "chars": 877
+  },
+  {
+   "i": 187,
+   "pass": false,
+   "got": "1.",
+   "exp": "106",
+   "chars": 793
+  },
+  {
+   "i": 188,
+   "pass": true,
+   "got": "50",
+   "exp": "50",
+   "chars": 736
+  },
+  {
+   "i": 189,
+   "pass": false,
+   "got": "5",
+   "exp": "34",
+   "chars": 631
+  },
+  {
+   "i": 190,
+   "pass": true,
+   "got": "360",
+   "exp": "360",
+   "chars": 395
+  },
+  {
+   "i": 191,
+   "pass": true,
+   "got": "5",
+   "exp": "5",
+   "chars": 456
+  },
+  {
+   "i": 192,
+   "pass": true,
+   "got": "91",
+   "exp": "91",
+   "chars": 721
+  },
+  {
+   "i": 193,
+   "pass": false,
+   "got": "4",
+   "exp": "24",
+   "chars": 800
+  },
+  {
+   "i": 194,
+   "pass": true,
+   "got": "10",
+   "exp": "10",
+   "chars": 264
+  },
+  {
+   "i": 195,
+   "pass": true,
+   "got": "12",
+   "exp": "12",
+   "chars": 446
+  },
+  {
+   "i": 196,
+   "pass": true,
+   "got": "120",
+   "exp": "120",
+   "chars": 434
+  },
+  {
+   "i": 197,
+   "pass": false,
+   "got": "6786",
+   "exp": "6277",
+   "chars": 518
+  },
+  {
+   "i": 198,
+   "pass": false,
+   "got": "4",
+   "exp": "320",
+   "chars": 871
+  },
+  {
+   "i": 199,
+   "pass": true,
+   "got": "7500",
+   "exp": "7500",
+   "chars": 748
+  }
+ ],
+ "note": "GGUF/Q4 artifact via Ollama; do not mix voi FP16 GSM-50"
+}

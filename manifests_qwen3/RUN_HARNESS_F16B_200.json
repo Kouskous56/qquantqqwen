@@ -1,0 +1,832 @@
+{
+ "run_id": "793aa120b57e6e91",
+ "model": "qwen3-f16-probe",
+ "model_path_kind": "registry-name",
+ "protocol": "khong-ghi",
+ "dataset_sha256": "521bf6f0228ee0e392aef6c1d86e6aaa68caf3ffc319bab3efe6e92216f145cf",
+ "detail_schema": "harness",
+ "dataset_sha256_scope": "CHI SHA256 CUA (i) -- manifest khong luu dap an mong doi, nen hash chi pin duoc TAP CAU, KHONG pin duoc noi dung cau. Khong du de chung minh dataset khong doi.",
+ "scorer": "bench/qwen3/harness_probe.py",
+ "scorer_sha256": "9cbd74fc9b1beaec5f9e97299ef1783562be524d7336662654a3241ee9c6fdb9",
+ "scorer_status": "verified-on-disk",
+ "timestamp": "2026-09-30T05:14:19.087331Z",
+ "timestamp_source": "file-mtime-cua-manifest, KHONG phai gio chay thoi",
+ "provenance": {
+  "gguf": "harness-dense-f16.gguf",
+  "gguf_sha256": "d5c56fbe26e205ae86e171215813dada88f81913f5d1548b1b3b44d0b5b2f50e",
+  "gguf_bytes": 8051283520,
+  "gguf_resolved_via": "ollama-modelfile-FROM-blob"
+ },
+ "regenerable": false,
+ "limitation": "Diem khong tai lap duoc: can GGUF 2.5GB + Ollama + ~20-140 phut GPU. CI chi verify tinh toan, khong tao lai diem.",
+ "scores": {
+  "n": 200,
+  "offset": 200,
+  "score": 130,
+  "acc": 0.65,
+  "elapsed_s": 7923,
+  "precision": "F16 lossless, cung runtime Ollama"
+ },
+ "details": [
+  {
+   "i": 200,
+   "pass": true
+  },
+  {
+   "i": 201,
+   "pass": false
+  },
+  {
+   "i": 202,
+   "pass": true
+  },
+  {
+   "i": 203,
+   "pass": false
+  },
+  {
+   "i": 204,
+   "pass": true
+  },
+  {
+   "i": 205,
+   "pass": false
+  },
+  {
+   "i": 206,
+   "pass": true
+  },
+  {
+   "i": 207,
+   "pass": true
+  },
+  {
+   "i": 208,
+   "pass": true
+  },
+  {
+   "i": 209,
+   "pass": false
+  },
+  {
+   "i": 210,
+   "pass": false
+  },
+  {
+   "i": 211,
+   "pass": true
+  },
+  {
+   "i": 212,
+   "pass": true
+  },
+  {
+   "i": 213,
+   "pass": true
+  },
+  {
+   "i": 214,
+   "pass": false
+  },
+  {
+   "i": 215,
+   "pass": true
+  },
+  {
+   "i": 216,
+   "pass": true
+  },
+  {
+   "i": 217,
+   "pass": true
+  },
+  {
+   "i": 218,
+   "pass": false
+  },
+  {
+   "i": 219,
+   "pass": false
+  },
+  {
+   "i": 220,
+   "pass": true
+  },
+  {
+   "i": 221,
+   "pass": true
+  },
+  {
+   "i": 222,
+   "pass": true
+  },
+  {
+   "i": 223,
+   "pass": true
+  },
+  {
+   "i": 224,
+   "pass": true
+  },
+  {
+   "i": 225,
+   "pass": true
+  },
+  {
+   "i": 226,
+   "pass": false
+  },
+  {
+   "i": 227,
+   "pass": false
+  },
+  {
+   "i": 228,
+   "pass": true
+  },
+  {
+   "i": 229,
+   "pass": false
+  },
+  {
+   "i": 230,
+   "pass": true
+  },
+  {
+   "i": 231,
+   "pass": true
+  },
+  {
+   "i": 232,
+   "pass": true
+  },
+  {
+   "i": 233,
+   "pass": true
+  },
+  {
+   "i": 234,
+   "pass": false
+  },
+  {
+   "i": 235,
+   "pass": true
+  },
+  {
+   "i": 236,
+   "pass": false
+  },
+  {
+   "i": 237,
+   "pass": true
+  },
+  {
+   "i": 238,
+   "pass": true
+  },
+  {
+   "i": 239,
+   "pass": false
+  },
+  {
+   "i": 240,
+   "pass": true
+  },
+  {
+   "i": 241,
+   "pass": false
+  },
+  {
+   "i": 242,
+   "pass": true
+  },
+  {
+   "i": 243,
+   "pass": false
+  },
+  {
+   "i": 244,
+   "pass": false
+  },
+  {
+   "i": 245,
+   "pass": false
+  },
+  {
+   "i": 246,
+   "pass": true
+  },
+  {
+   "i": 247,
+   "pass": true
+  },
+  {
+   "i": 248,
+   "pass": true
+  },
+  {
+   "i": 249,
+   "pass": false
+  },
+  {
+   "i": 250,
+   "pass": false
+  },
+  {
+   "i": 251,
+   "pass": true
+  },
+  {
+   "i": 252,
+   "pass": true
+  },
+  {
+   "i": 253,
+   "pass": true
+  },
+  {
+   "i": 254,
+   "pass": true
+  },
+  {
+   "i": 255,
+   "pass": false
+  },
+  {
+   "i": 256,
+   "pass": false
+  },
+  {
+   "i": 257,
+   "pass": true
+  },
+  {
+   "i": 258,
+   "pass": false
+  },
+  {
+   "i": 259,
+   "pass": false
+  },
+  {
+   "i": 260,
+   "pass": true
+  },
+  {
+   "i": 261,
+   "pass": true
+  },
+  {
+   "i": 262,
+   "pass": true
+  },
+  {
+   "i": 263,
+   "pass": true
+  },
+  {
+   "i": 264,
+   "pass": true
+  },
+  {
+   "i": 265,
+   "pass": false
+  },
+  {
+   "i": 266,
+   "pass": false
+  },
+  {
+   "i": 267,
+   "pass": false
+  },
+  {
+   "i": 268,
+   "pass": true
+  },
+  {
+   "i": 269,
+   "pass": true
+  },
+  {
+   "i": 270,
+   "pass": true
+  },
+  {
+   "i": 271,
+   "pass": true
+  },
+  {
+   "i": 272,
+   "pass": true
+  },
+  {
+   "i": 273,
+   "pass": false
+  },
+  {
+   "i": 274,
+   "pass": true
+  },
+  {
+   "i": 275,
+   "pass": false
+  },
+  {
+   "i": 276,
+   "pass": true
+  },
+  {
+   "i": 277,
+   "pass": true
+  },
+  {
+   "i": 278,
+   "pass": true
+  },
+  {
+   "i": 279,
+   "pass": false
+  },
+  {
+   "i": 280,
+   "pass": true
+  },
+  {
+   "i": 281,
+   "pass": false
+  },
+  {
+   "i": 282,
+   "pass": true
+  },
+  {
+   "i": 283,
+   "pass": false
+  },
+  {
+   "i": 284,
+   "pass": true
+  },
+  {
+   "i": 285,
+   "pass": true
+  },
+  {
+   "i": 286,
+   "pass": true
+  },
+  {
+   "i": 287,
+   "pass": false
+  },
+  {
+   "i": 288,
+   "pass": true
+  },
+  {
+   "i": 289,
+   "pass": true
+  },
+  {
+   "i": 290,
+   "pass": true
+  },
+  {
+   "i": 291,
+   "pass": true
+  },
+  {
+   "i": 292,
+   "pass": true
+  },
+  {
+   "i": 293,
+   "pass": false
+  },
+  {
+   "i": 294,
+   "pass": true
+  },
+  {
+   "i": 295,
+   "pass": true
+  },
+  {
+   "i": 296,
+   "pass": true
+  },
+  {
+   "i": 297,
+   "pass": true
+  },
+  {
+   "i": 298,
+   "pass": true
+  },
+  {
+   "i": 299,
+   "pass": false
+  },
+  {
+   "i": 300,
+   "pass": true
+  },
+  {
+   "i": 301,
+   "pass": false
+  },
+  {
+   "i": 302,
+   "pass": true
+  },
+  {
+   "i": 303,
+   "pass": false
+  },
+  {
+   "i": 304,
+   "pass": false
+  },
+  {
+   "i": 305,
+   "pass": true
+  },
+  {
+   "i": 306,
+   "pass": false
+  },
+  {
+   "i": 307,
+   "pass": false
+  },
+  {
+   "i": 308,
+   "pass": true
+  },
+  {
+   "i": 309,
+   "pass": false
+  },
+  {
+   "i": 310,
+   "pass": false
+  },
+  {
+   "i": 311,
+   "pass": true
+  },
+  {
+   "i": 312,
+   "pass": true
+  },
+  {
+   "i": 313,
+   "pass": false
+  },
+  {
+   "i": 314,
+   "pass": false
+  },
+  {
+   "i": 315,
+   "pass": true
+  },
+  {
+   "i": 316,
+   "pass": true
+  },
+  {
+   "i": 317,
+   "pass": true
+  },
+  {
+   "i": 318,
+   "pass": true
+  },
+  {
+   "i": 319,
+   "pass": true
+  },
+  {
+   "i": 320,
+   "pass": true
+  },
+  {
+   "i": 321,
+   "pass": true
+  },
+  {
+   "i": 322,
+   "pass": false
+  },
+  {
+   "i": 323,
+   "pass": false
+  },
+  {
+   "i": 324,
+   "pass": false
+  },
+  {
+   "i": 325,
+   "pass": false
+  },
+  {
+   "i": 326,
+   "pass": false
+  },
+  {
+   "i": 327,
+   "pass": true
+  },
+  {
+   "i": 328,
+   "pass": true
+  },
+  {
+   "i": 329,
+   "pass": true
+  },
+  {
+   "i": 330,
+   "pass": true
+  },
+  {
+   "i": 331,
+   "pass": false
+  },
+  {
+   "i": 332,
+   "pass": true
+  },
+  {
+   "i": 333,
+   "pass": true
+  },
+  {
+   "i": 334,
+   "pass": false
+  },
+  {
+   "i": 335,
+   "pass": true
+  },
+  {
+   "i": 336,
+   "pass": false
+  },
+  {
+   "i": 337,
+   "pass": true
+  },
+  {
+   "i": 338,
+   "pass": true
+  },
+  {
+   "i": 339,
+   "pass": false
+  },
+  {
+   "i": 340,
+   "pass": false
+  },
+  {
+   "i": 341,
+   "pass": false
+  },
+  {
+   "i": 342,
+   "pass": true
+  },
+  {
+   "i": 343,
+   "pass": true
+  },
+  {
+   "i": 344,
+   "pass": true
+  },
+  {
+   "i": 345,
+   "pass": true
+  },
+  {
+   "i": 346,
+   "pass": true
+  },
+  {
+   "i": 347,
+   "pass": true
+  },
+  {
+   "i": 348,
+   "pass": false
+  },
+  {
+   "i": 349,
+   "pass": true
+  },
+  {
+   "i": 350,
+   "pass": false
+  },
+  {
+   "i": 351,
+   "pass": true
+  },
+  {
+   "i": 352,
+   "pass": true
+  },
+  {
+   "i": 353,
+   "pass": false
+  },
+  {
+   "i": 354,
+   "pass": true
+  },
+  {
+   "i": 355,
+   "pass": true
+  },
+  {
+   "i": 356,
+   "pass": true
+  },
+  {
+   "i": 357,
+   "pass": false
+  },
+  {
+   "i": 358,
+   "pass": true
+  },
+  {
+   "i": 359,
+   "pass": true
+  },
+  {
+   "i": 360,
+   "pass": false
+  },
+  {
+   "i": 361,
+   "pass": false
+  },
+  {
+   "i": 362,
+   "pass": true
+  },
+  {
+   "i": 363,
+   "pass": true
+  },
+  {
+   "i": 364,
+   "pass": true
+  },
+  {
+   "i": 365,
+   "pass": true
+  },
+  {
+   "i": 366,
+   "pass": true
+  },
+  {
+   "i": 367,
+   "pass": false
+  },
+  {
+   "i": 368,
+   "pass": false
+  },
+  {
+   "i": 369,
+   "pass": false
+  },
+  {
+   "i": 370,
+   "pass": true
+  },
+  {
+   "i": 371,
+   "pass": false
+  },
+  {
+   "i": 372,
+   "pass": true
+  },
+  {
+   "i": 373,
+   "pass": false
+  },
+  {
+   "i": 374,
+   "pass": true
+  },
+  {
+   "i": 375,
+   "pass": true
+  },
+  {
+   "i": 376,
+   "pass": true
+  },
+  {
+   "i": 377,
+   "pass": false
+  },
+  {
+   "i": 378,
+   "pass": true
+  },
+  {
+   "i": 379,
+   "pass": true
+  },
+  {
+   "i": 380,
+   "pass": false
+  },
+  {
+   "i": 381,
+   "pass": true
+  },
+  {
+   "i": 382,
+   "pass": true
+  },
+  {
+   "i": 383,
+   "pass": false
+  },
+  {
+   "i": 384,
+   "pass": true
+  },
+  {
+   "i": 385,
+   "pass": true
+  },
+  {
+   "i": 386,
+   "pass": true
+  },
+  {
+   "i": 387,
+   "pass": true
+  },
+  {
+   "i": 388,
+   "pass": true
+  },
+  {
+   "i": 389,
+   "pass": true
+  },
+  {
+   "i": 390,
+   "pass": true
+  },
+  {
+   "i": 391,
+   "pass": true
+  },
+  {
+   "i": 392,
+   "pass": true
+  },
+  {
+   "i": 393,
+   "pass": true
+  },
+  {
+   "i": 394,
+   "pass": false
+  },
+  {
+   "i": 395,
+   "pass": true
+  },
+  {
+   "i": 396,
+   "pass": true
+  },
+  {
+   "i": 397,
+   "pass": true
+  },
+  {
+   "i": 398,
+   "pass": true
+  },
+  {
+   "i": 399,
+   "pass": true
+  }
+ ]
+}

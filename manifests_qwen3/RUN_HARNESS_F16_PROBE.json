@@ -1,0 +1,230 @@
+{
+ "run_id": "c5055abdca5216e5",
+ "model": "qwen3-f16-probe",
+ "model_path_kind": "registry-name",
+ "protocol": "khong-ghi",
+ "dataset_sha256": "69381e4c19f6a4950d52bca6fe08a47991d94da88933dcc4d997d5b2bc33ddd4",
+ "detail_schema": "harness",
+ "dataset_sha256_scope": "CHI SHA256 CUA (i) -- manifest khong luu dap an mong doi, nen hash chi pin duoc TAP CAU, KHONG pin duoc noi dung cau. Khong du de chung minh dataset khong doi.",
+ "scorer": "bench/qwen3/harness_probe.py",
+ "scorer_sha256": "9cbd74fc9b1beaec5f9e97299ef1783562be524d7336662654a3241ee9c6fdb9",
+ "scorer_status": "verified-on-disk",
+ "timestamp": "2026-09-29T21:25:46.070932Z",
+ "timestamp_source": "file-mtime-cua-manifest, KHONG phai gio chay thoi",
+ "provenance": {
+  "gguf": "harness-dense-f16.gguf",
+  "gguf_sha256": "d5c56fbe26e205ae86e171215813dada88f81913f5d1548b1b3b44d0b5b2f50e",
+  "gguf_bytes": 8051283520,
+  "gguf_resolved_via": "ollama-modelfile-FROM-blob"
+ },
+ "regenerable": false,
+ "limitation": "Diem khong tai lap duoc: can GGUF 2.5GB + Ollama + ~20-140 phut GPU. CI chi verify tinh toan, khong tao lai diem.",
+ "scores": {
+  "n": 50,
+  "score": 36,
+  "acc": 0.72,
+  "elapsed_s": 1945
+ },
+ "details": [
+  {
+   "i": 0,
+   "pass": true
+  },
+  {
+   "i": 1,
+   "pass": true
+  },
+  {
+   "i": 2,
+   "pass": false
+  },
+  {
+   "i": 3,
+   "pass": true
+  },
+  {
+   "i": 4,
+   "pass": true
+  },
+  {
+   "i": 5,
+   "pass": false
+  },
+  {
+   "i": 6,
+   "pass": true
+  },
+  {
+   "i": 7,
+   "pass": false
+  },
+  {
+   "i": 8,
+   "pass": false
+  },
+  {
+   "i": 9,
+   "pass": true
+  },
+  {
+   "i": 10,
+   "pass": true
+  },
+  {
+   "i": 11,
+   "pass": true
+  },
+  {
+   "i": 12,
+   "pass": false
+  },
+  {
+   "i": 13,
+   "pass": false
+  },
+  {
+   "i": 14,
+   "pass": false
+  },
+  {
+   "i": 15,
+   "pass": false
+  },
+  {
+   "i": 16,
+   "pass": true
+  },
+  {
+   "i": 17,
+   "pass": true
+  },
+  {
+   "i": 18,
+   "pass": true
+  },
+  {
+   "i": 19,
+   "pass": false
+  },
+  {
+   "i": 20,
+   "pass": true
+  },
+  {
+   "i": 21,
+   "pass": true
+  },
+  {
+   "i": 22,
+   "pass": true
+  },
+  {
+   "i": 23,
+   "pass": true
+  },
+  {
+   "i": 24,
+   "pass": true
+  },
+  {
+   "i": 25,
+   "pass": true
+  },
+  {
+   "i": 26,
+   "pass": false
+  },
+  {
+   "i": 27,
+   "pass": true
+  },
+  {
+   "i": 28,
+   "pass": true
+  },
+  {
+   "i": 29,
+   "pass": true
+  },
+  {
+   "i": 30,
+   "pass": true
+  },
+  {
+   "i": 31,
+   "pass": false
+  },
+  {
+   "i": 32,
+   "pass": true
+  },
+  {
+   "i": 33,
+   "pass": true
+  },
+  {
+   "i": 34,
+   "pass": true
+  },
+  {
+   "i": 35,
+   "pass": true
+  },
+  {
+   "i": 36,
+   "pass": true
+  },
+  {
+   "i": 37,
+   "pass": false
+  },
+  {
+   "i": 38,
+   "pass": true
+  },
+  {
+   "i": 39,
+   "pass": true
+  },
+  {
+   "i": 40,
+   "pass": true
+  },
+  {
+   "i": 41,
+   "pass": true
+  },
+  {
+   "i": 42,
+   "pass": true
+  },
+  {
+   "i": 43,
+   "pass": true
+  },
+  {
+   "i": 44,
+   "pass": true
+  },
+  {
+   "i": 45,
+   "pass": false
+  },
+  {
+   "i": 46,
+   "pass": true
+  },
+  {
+   "i": 47,
+   "pass": false
+  },
+  {
+   "i": 48,
+   "pass": true
+  },
+  {
+   "i": 49,
+   "pass": true
+  }
+ ]
+}
