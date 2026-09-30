@@ -17,34 +17,62 @@ only variable is arithmetic precision. The GGUF carries an importance matrix
 (`Qwen3-imatrix.dat`), and all three quantized artifacts were built with the
 same one — so the sweep varies bit width and nothing else.
 
-| precision | effective bpw | GSM8K-400 | MMLU-200 | McNemar vs F16 (GSM) |
-|---|---|---|---|---|
-| F16 (lossless) | 16.0 | **263/400 = 65.8%** | 152/200 = 76.0% | — |
-| Q4_K_M | 4.955 | **247/400 = 61.8%** | 148/200 = 74.0% | **p = 0.0226** |
-| Q5_K_M | 5.735 | (not run — see below) | 149/200 = 74.5% | p = 0.4531 (MMLU) |
-| Q6_K | 6.564 | (running) | 153/200 = 76.5% | p = 1.000 (MMLU) |
+| precision | bulk bpw | avg bpw | GSM8K-400 | MMLU-200 | McNemar vs F16 (GSM) |
+|---|---|---|---|---|---|
+| F16 (lossless) | — | 16.0 | **263/400 = 65.8%** | 152/200 = 76.0% | — |
+| Q6_K | 6.5625 | 6.564 | 260/400 = 65.0% | 153/200 = 76.5% | p = 0.728 |
+| Q5_K_M | 5.5 | 5.735 | **268/400 = 67.0%** | 149/200 = 74.5% | p = 0.533 |
+| Q4_K_M | 4.5 | 4.955 | **247/400 = 61.8%** | 148/200 = 74.0% | **p = 0.0226** |
 
-Effective bpw is measured, not assumed: read from the actual tensor types in
-each GGUF. Note `token_embd.weight` (389M params) is **Q6_K — the
-highest-precision tensor in the model** even inside Q4_K_M. The hypothesis that
-4-bit quantization specifically crushes the embedding is refuted by direct
-measurement.
+**The result is a threshold, not a curve.** F16, Q6_K and Q5_K_M are mutually
+indistinguishable; only Q4_K_M separates. Q5_K_M scores *above* the lossless
+control (268 vs 263, p = 0.53), and Q5-vs-Q4 is the strongest contrast in the
+whole sweep: 36 vs 15 discordant, p = 0.0046. Same pattern in both 200-question
+blocks — Q5 gets 135 and 133 against F16's 133 and 130.
 
-**Q4_K_M costs 4.00pp on GSM8K (p = 0.0226) and 2.00pp on MMLU (p = 0.388).**
+## The variable is not average bpw
 
-## Two things this block does NOT show
+Average bpw (4.955 / 5.735 / 6.564) looks like a continuous sweep. It is not.
+Reading tensor types shows the three artifacts differ in exactly one thing: the
+type of the 180 body tensors.
+
+| artifact | 180 body tensors | body bpw | `token_embd` |
+|---|---|---|---|
+| Q4_K_M | Q4_K × 180 | 4.5 | Q6_K |
+| Q5_K_M | Q5_K × 180 | 5.5 | Q6_K |
+| Q6_K | Q6_K × 180 | 6.5625 | Q6_K |
+
+`token_embd` (389M params) is Q6_K in all three — the highest-precision tensor in
+the model even inside Q4_K_M, which refutes the hypothesis that 4-bit
+specifically crushes the embedding. And no artifact exists between 4.955 and
+5.735 average bpw, so any mechanism explained in terms of average bits is
+explaining a quantity that was never varied.
+
+**Damage appears only at 4.5 bits of body; one extra bit of body recovers it
+completely, measurably indistinguishable from 16-bit.**
+
+## Three things this block does NOT show
 
 **1. "Quantization hurts reasoning more than knowledge" is not established.**
 The ratio is 2.0×, and GSM reaches significance while MMLU does not. The
 defensible statement is narrower: *quantization measurably damaged reasoning;
 we did not detect damage to knowledge, but at n=200 we could not have detected
-2pp.* Those are different claims and were previously conflated.
+2pp.* Those are different claims and were previously conflated. A second
+reading is available and better supported: MMLU in forced-single-letter format
+is simply insensitive, so the asymmetry may be a property of the instrument.
 
-**2. MMLU-200 has almost no power here.** Across all three quantized levels only
-14 of 200 items changed answer. Q6_K scored *above* F16 (153 vs 152), which is
-pure noise. MMLU in forced-single-letter format appears to shield knowledge
-from quantization — plausibly the real reason the asymmetry claim is appealing
-in the first place, and the reason it is hard to prove.
+**2. The threshold is bracketed, not located.** 4.5 to 5.5 body bits. Nothing
+in this sweep measures inside that interval. Do not quote 4.5 as the threshold.
+
+**3. Q6-vs-Q4 gives p = 0.079 and that is a power limit, not a finding.**
+Q6 is only 3 items below F16 on 400 — a smaller deficit than 400 items can
+resolve. Reporting "Q6 matches Q4" would be wrong; so would "Q6 differs from
+Q4". The honest line is: *no damage detected at Q6, and this comparison cannot
+separate them.*
+
+**4. MMLU-200 has almost no power here.** Across all quantized levels only 17
+of 200 items changed answer. Q6_K scored *above* F16 (153 vs 152), which is
+pure noise.
 
 ## A 200-question block is not a stable unit
 
@@ -92,8 +120,8 @@ built with a matrix gained 0. The dense↔s20-c4 gap shrank from 12 items to 3.
 
 ## Provenance
 
-29 of 36 manifests resolve to a GGUF still on disk, hashed. 10 come from the
-manifest's own record; 19 were resolved by walking
+34 of 41 manifests resolve to a GGUF still on disk, hashed. 10 come from the
+manifest's own record; 24 were resolved by walking
 model → Ollama `FROM` blob → SHA-256 → file. All 10 hashes that could be
 compared against a lab original matched exactly; 0 mismatches.
 
