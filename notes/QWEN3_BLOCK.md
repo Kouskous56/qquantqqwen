@@ -1,0 +1,102 @@
+# Qwen3-4B block — what these numbers are, and what they are not
+
+Companion to `manifests_qwen3/`. Read this before quoting any Qwen3 figure.
+
+## The single most important caveat
+
+**Qwen2.5 numbers and Qwen3 numbers in this repo are not comparable.** Qwen2.5
+scores come from HF/transformers on FP16 weights. Qwen3 scores come from GGUF
+through Ollama. Lora-style masked recovery even ran on a different quant (Q4 vs
+FP16) across arms in one early comparison. The blocks are kept apart on purpose;
+do not average them, do not put them in one table.
+
+## Cost of 4-bit quantization on this model
+
+Qwen3-4B-Instruct-2507, same 400 GSM8K items, same harness, greedy, CoT. The
+only variable is arithmetic precision. The GGUF carries an importance matrix
+(`Qwen3-imatrix.dat`), and all three quantized artifacts were built with the
+same one — so the sweep varies bit width and nothing else.
+
+| precision | effective bpw | GSM8K-400 | MMLU-200 | McNemar vs F16 (GSM) |
+|---|---|---|---|---|
+| F16 (lossless) | 16.0 | **263/400 = 65.8%** | 152/200 = 76.0% | — |
+| Q4_K_M | 4.955 | **247/400 = 61.8%** | 148/200 = 74.0% | **p = 0.0226** |
+| Q5_K_M | 5.735 | (not run — see below) | 149/200 = 74.5% | p = 0.4531 (MMLU) |
+| Q6_K | 6.564 | (running) | 153/200 = 76.5% | p = 1.000 (MMLU) |
+
+Effective bpw is measured, not assumed: read from the actual tensor types in
+each GGUF. Note `token_embd.weight` (389M params) is **Q6_K — the
+highest-precision tensor in the model** even inside Q4_K_M. The hypothesis that
+4-bit quantization specifically crushes the embedding is refuted by direct
+measurement.
+
+**Q4_K_M costs 4.00pp on GSM8K (p = 0.0226) and 2.00pp on MMLU (p = 0.388).**
+
+## Two things this block does NOT show
+
+**1. "Quantization hurts reasoning more than knowledge" is not established.**
+The ratio is 2.0×, and GSM reaches significance while MMLU does not. The
+defensible statement is narrower: *quantization measurably damaged reasoning;
+we did not detect damage to knowledge, but at n=200 we could not have detected
+2pp.* Those are different claims and were previously conflated.
+
+**2. MMLU-200 has almost no power here.** Across all three quantized levels only
+14 of 200 items changed answer. Q6_K scored *above* F16 (153 vs 152), which is
+pure noise. MMLU in forced-single-letter format appears to shield knowledge
+from quantization — plausibly the real reason the asymmetry claim is appealing
+in the first place, and the reason it is hard to prove.
+
+## A 200-question block is not a stable unit
+
+Both Qwen3 MMLU and GSM were run as two blocks of 200. The same Q4-vs-F16 GSM
+comparison:
+
+| block | Δ | McNemar p |
+|---|---|---|
+| A (items 0–199) | −5.5pp | 0.0192 |
+| B (items 200–399) | −2.5pp | 0.4244 |
+| **pooled (400)** | **−4.00pp** | **0.0226** |
+
+Identical models, identical protocol, identical harness. Block A looks
+significant, block B does not separate at all. An earlier single-50-question
+measurement of the same contrast gave −10pp — inflated 2.5×.
+
+So: the effect is real, but **the magnitude is not pinned down**, and no amount
+of re-analysis of the existing data will pin it down. Narrowing it to ±1pp
+needs roughly n=1000, about 20 GPU-hours. The honest number to quote is
+"roughly 2–5pp" with the pooled point estimate at −4.00pp, not a single crisp
+figure.
+
+This block-flip happened twice in one session. It is the most useful thing in
+this file.
+
+## Pruning arms (Q4_K_M + imatrix, all five arms)
+
+All arms are quantized with the same recipe, so these compare pruning against
+pruning. GSM8K-400: dense 247, s20-c4 250, s20-mixed 253, s30-mixed 251, EoRA
+257. **No arm separates from dense** (McNemar p ≥ 0.143 throughout).
+
+The direction reverses versus the project's earlier 4-bit-without-imatrix runs.
+That reversal is not a pruning effect — it is an artifact: three arms that had
+no importance matrix gained 6/12/7 items when one was added, while arms already
+built with a matrix gained 0. The dense↔s20-c4 gap shrank from 12 items to 3.
+
+## What was falsified along the way
+
+- **Embedding crushed to 4-bit** (would explain the GSM drop). Refuted by
+  reading tensor types: `token_embd` is Q6_K in Q4_K_M.
+- **Quantization damage is a sub-block range artifact.** Refuted by direct
+  measurement: per-32-element `max−min` shifts 0.005% on average (max 0.048%)
+  between dense and 20%-pruned, versus exactly 0.000% vs 20.000% between dense
+  and the pruned model.
+
+## Provenance
+
+29 of 36 manifests resolve to a GGUF still on disk, hashed. 10 come from the
+manifest's own record; 19 were resolved by walking
+model → Ollama `FROM` blob → SHA-256 → file. All 10 hashes that could be
+compared against a lab original matched exactly; 0 mismatches.
+
+7 have no resolvable artifact and 6 have no identifiable scorer. These are
+recorded as unverifiable rather than filled in. See `REPRODUCIBILITY.md` for
+what CI does and does not check.
