@@ -14,7 +14,7 @@ ap.add_argument("--offset", type=int, default=0)
 a = ap.parse_args()
 
 CK = f"D:/qwen/notes/R2CKPT_GSMSW_{a.tag}_{a.offset}.json"
-OUT = f"D:/qwen/notes/RUN_GSMSWEEP_{a.tag}.json"
+OUT = f"D:/qwen/notes/RUN_GSMSWEEP_{a.tag}_{a.offset}.json"
 
 
 def chat(content, n):
@@ -55,7 +55,11 @@ for j in range(a.n):
              "#### <number>", 256)
     me = re.search(r"####\s*(-?[\d,.]+)", r["answer"])
     exp = me.group(1).replace(",", "") if me else ""
-    det.append({"i": i, "pass": extract(t) == exp})
+    # Luu ca exp va got: hash noi dung dataset chi pin duoc chi so i neu
+    # khong co chung. Ban truoc chi ghi {"i","pass"} nen manifest chi
+    # chung minh duoc "dung 400 cau nao", khong chung minh duoc cau do co
+    # gi. Xem notes/QWEN3_BLOCK.md.
+    det.append({"i": i, "exp": exp, "got": extract(t), "pass": extract(t) == exp})
     json.dump({"done": len(det), "details": det}, open(CK, "w"))
     if len(det) % 25 == 0:
         print(f"  {len(det)}/{a.n} ({time.time()-t0:.0f}s)", flush=True)
