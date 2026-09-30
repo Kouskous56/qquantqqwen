@@ -1,0 +1,1236 @@
+{
+ "run_id": "653f16edfe7f06ec",
+ "model": "qwen3-sweep-q5km",
+ "model_path_kind": "registry-name",
+ "protocol": "khong-ghi",
+ "dataset_sha256": "dd91b1271e1d60a2f5a80bee7fb33309a2863cd2fd1bd1402912ed18b95826cf",
+ "detail_schema": "gsm",
+ "dataset_sha256_scope": "sha256 cua (i, dap-an-mong-doi) da cham thuc su.",
+ "scorer": "bench/qwen3/gsm_sweep.py",
+ "scorer_sha256": "457690e0a96bfe27ec2c9a9ee4602d28c6f345af7971021ae64d37089f91f107",
+ "scorer_status": "verified-on-disk",
+ "current_sha256": "7e5ec003777b9a2ffb598b49bb0d3f0eb35b4575e17b5dacf72ed9480ca1953a",
+ "modified_after_run": true,
+ "modification": "Ten file manifest khong kem offset (OUT khong co _{a.offset}, con CK thi co), nen block offset=200 de file manifest cua block offset=0. DU LIEU KHONG MAT: checkpoint giu 200 cau moi block, va merge_gsm_blocks.py gop lai duoc, kiem tra trung i. Chi 1 manifest bi de; duoc ghi lai tu checkpoint.",
+ "timestamp": "2026-09-30T10:41:27.949501Z",
+ "timestamp_source": "file-mtime-cua-manifest, KHONG phai gio chay thoi",
+ "provenance": {
+  "gguf": "sweep-Q5_K_M.gguf",
+  "gguf_sha256": "eda1d41d8b9f508d6e089ec0373baed9fcc4ae673dc98be73a6456a2b04bee68",
+  "gguf_bytes": 2889512256,
+  "gguf_resolved_via": "ollama-modelfile-FROM-blob"
+ },
+ "dataset_source": null,
+ "regenerable": false,
+ "limitation": "Diem khong tai lap duoc: can GGUF 2.5GB + Ollama + ~20-140 phut GPU. CI chi verify tinh toan, khong tao lai diem.",
+ "scores": {
+  "n": 200,
+  "gsm": 135,
+  "acc": 0.675,
+  "offset": 0,
+  "elapsed_s": 746,
+  "precision": "Q5_K_M"
+ },
+ "details": [
+  {
+   "i": 0,
+   "exp": "18",
+   "got": "18",
+   "pass": true
+  },
+  {
+   "i": 1,
+   "exp": "3",
+   "got": "3",
+   "pass": true
+  },
+  {
+   "i": 2,
+   "exp": "70000",
+   "got": "1",
+   "pass": false
+  },
+  {
+   "i": 3,
+   "exp": "540",
+   "got": "540",
+   "pass": true
+  },
+  {
+   "i": 4,
+   "exp": "20",
+   "got": "20",
+   "pass": true
+  },
+  {
+   "i": 5,
+   "exp": "64",
+   "got": "5",
+   "pass": false
+  },
+  {
+   "i": 6,
+   "exp": "260",
+   "got": "260",
+   "pass": true
+  },
+  {
+   "i": 7,
+   "exp": "160",
+   "got": "200",
+   "pass": false
+  },
+  {
+   "i": 8,
+   "exp": "45",
+   "got": "15",
+   "pass": false
+  },
+  {
+   "i": 9,
+   "exp": "460",
+   "got": "460",
+   "pass": true
+  },
+  {
+   "i": 10,
+   "exp": "366",
+   "got": "240",
+   "pass": false
+  },
+  {
+   "i": 11,
+   "exp": "694",
+   "got": "694",
+   "pass": true
+  },
+  {
+   "i": 12,
+   "exp": "13",
+   "got": "9",
+   "pass": false
+  },
+  {
+   "i": 13,
+   "exp": "18",
+   "got": "2",
+   "pass": false
+  },
+  {
+   "i": 14,
+   "exp": "60",
+   "got": "20",
+   "pass": false
+  },
+  {
+   "i": 15,
+   "exp": "125",
+   "got": "0.025",
+   "pass": false
+  },
+  {
+   "i": 16,
+   "exp": "230",
+   "got": "230",
+   "pass": true
+  },
+  {
+   "i": 17,
+   "exp": "57500",
+   "got": "57500",
+   "pass": true
+  },
+  {
+   "i": 18,
+   "exp": "7",
+   "got": "7",
+   "pass": true
+  },
+  {
+   "i": 19,
+   "exp": "6",
+   "got": "1",
+   "pass": false
+  },
+  {
+   "i": 20,
+   "exp": "15",
+   "got": "15",
+   "pass": true
+  },
+  {
+   "i": 21,
+   "exp": "14",
+   "got": "14",
+   "pass": true
+  },
+  {
+   "i": 22,
+   "exp": "7",
+   "got": "7",
+   "pass": true
+  },
+  {
+   "i": 23,
+   "exp": "8",
+   "got": "8",
+   "pass": true
+  },
+  {
+   "i": 24,
+   "exp": "26",
+   "got": "26",
+   "pass": true
+  },
+  {
+   "i": 25,
+   "exp": "2",
+   "got": "2",
+   "pass": true
+  },
+  {
+   "i": 26,
+   "exp": "243",
+   "got": "243",
+   "pass": true
+  },
+  {
+   "i": 27,
+   "exp": "16",
+   "got": "16",
+   "pass": true
+  },
+  {
+   "i": 28,
+   "exp": "25",
+   "got": "25",
+   "pass": true
+  },
+  {
+   "i": 29,
+   "exp": "104",
+   "got": "104",
+   "pass": true
+  },
+  {
+   "i": 30,
+   "exp": "109",
+   "got": "109",
+   "pass": true
+  },
+  {
+   "i": 31,
+   "exp": "80",
+   "got": "3",
+   "pass": false
+  },
+  {
+   "i": 32,
+   "exp": "35",
+   "got": "35",
+   "pass": true
+  },
+  {
+   "i": 33,
+   "exp": "70",
+   "got": "70",
+   "pass": true
+  },
+  {
+   "i": 34,
+   "exp": "23",
+   "got": "23",
+   "pass": true
+  },
+  {
+   "i": 35,
+   "exp": "9",
+   "got": "9",
+   "pass": true
+  },
+  {
+   "i": 36,
+   "exp": "75",
+   "got": "75",
+   "pass": true
+  },
+  {
+   "i": 37,
+   "exp": "2",
+   "got": "15",
+   "pass": false
+  },
+  {
+   "i": 38,
+   "exp": "10",
+   "got": "10",
+   "pass": true
+  },
+  {
+   "i": 39,
+   "exp": "18",
+   "got": "1.",
+   "pass": false
+  },
+  {
+   "i": 40,
+   "exp": "8",
+   "got": "8",
+   "pass": true
+  },
+  {
+   "i": 41,
+   "exp": "200",
+   "got": "200",
+   "pass": true
+  },
+  {
+   "i": 42,
+   "exp": "26",
+   "got": "26",
+   "pass": true
+  },
+  {
+   "i": 43,
+   "exp": "48",
+   "got": "48",
+   "pass": true
+  },
+  {
+   "i": 44,
+   "exp": "20",
+   "got": "20",
+   "pass": true
+  },
+  {
+   "i": 45,
+   "exp": "104",
+   "got": "3",
+   "pass": false
+  },
+  {
+   "i": 46,
+   "exp": "163",
+   "got": "163",
+   "pass": true
+  },
+  {
+   "i": 47,
+   "exp": "800",
+   "got": "20",
+   "pass": false
+  },
+  {
+   "i": 48,
+   "exp": "8",
+   "got": "8",
+   "pass": true
+  },
+  {
+   "i": 49,
+   "exp": "30",
+   "got": "30",
+   "pass": true
+  },
+  {
+   "i": 50,
+   "exp": "294",
+   "got": "294",
+   "pass": true
+  },
+  {
+   "i": 51,
+   "exp": "5",
+   "got": "5",
+   "pass": true
+  },
+  {
+   "i": 52,
+   "exp": "15",
+   "got": "7.5",
+   "pass": false
+  },
+  {
+   "i": 53,
+   "exp": "40",
+   "got": "40",
+   "pass": true
+  },
+  {
+   "i": 54,
+   "exp": "40",
+   "got": "12",
+   "pass": false
+  },
+  {
+   "i": 55,
+   "exp": "14",
+   "got": "14",
+   "pass": true
+  },
+  {
+   "i": 56,
+   "exp": "3",
+   "got": "3",
+   "pass": true
+  },
+  {
+   "i": 57,
+   "exp": "83",
+   "got": "83",
+   "pass": true
+  },
+  {
+   "i": 58,
+   "exp": "57",
+   "got": "25",
+   "pass": false
+  },
+  {
+   "i": 59,
+   "exp": "187",
+   "got": "187",
+   "pass": true
+  },
+  {
+   "i": 60,
+   "exp": "17",
+   "got": "20",
+   "pass": false
+  },
+  {
+   "i": 61,
+   "exp": "1430",
+   "got": "1430",
+   "pass": true
+  },
+  {
+   "i": 62,
+   "exp": "25000",
+   "got": "50000",
+   "pass": false
+  },
+  {
+   "i": 63,
+   "exp": "1596",
+   "got": "1596",
+   "pass": true
+  },
+  {
+   "i": 64,
+   "exp": "300",
+   "got": "300",
+   "pass": true
+  },
+  {
+   "i": 65,
+   "exp": "36",
+   "got": "36",
+   "pass": true
+  },
+  {
+   "i": 66,
+   "exp": "48",
+   "got": "48",
+   "pass": true
+  },
+  {
+   "i": 67,
+   "exp": "595",
+   "got": "595",
+   "pass": true
+  },
+  {
+   "i": 68,
+   "exp": "36",
+   "got": "36",
+   "pass": true
+  },
+  {
+   "i": 69,
+   "exp": "60",
+   "got": "60",
+   "pass": true
+  },
+  {
+   "i": 70,
+   "exp": "7425",
+   "got": "7425",
+   "pass": true
+  },
+  {
+   "i": 71,
+   "exp": "60",
+   "got": "60",
+   "pass": true
+  },
+  {
+   "i": 72,
+   "exp": "221",
+   "got": "221",
+   "pass": true
+  },
+  {
+   "i": 73,
+   "exp": "255",
+   "got": "255",
+   "pass": true
+  },
+  {
+   "i": 74,
+   "exp": "88",
+   "got": "1",
+   "pass": false
+  },
+  {
+   "i": 75,
+   "exp": "60",
+   "got": "64",
+   "pass": false
+  },
+  {
+   "i": 76,
+   "exp": "5",
+   "got": "370",
+   "pass": false
+  },
+  {
+   "i": 77,
+   "exp": "100",
+   "got": "100",
+   "pass": true
+  },
+  {
+   "i": 78,
+   "exp": "6",
+   "got": "9.00",
+   "pass": false
+  },
+  {
+   "i": 79,
+   "exp": "70",
+   "got": "70",
+   "pass": true
+  },
+  {
+   "i": 80,
+   "exp": "10",
+   "got": "10",
+   "pass": true
+  },
+  {
+   "i": 81,
+   "exp": "17",
+   "got": "17",
+   "pass": true
+  },
+  {
+   "i": 82,
+   "exp": "623",
+   "got": "623",
+   "pass": true
+  },
+  {
+   "i": 83,
+   "exp": "600",
+   "got": "600",
+   "pass": true
+  },
+  {
+   "i": 84,
+   "exp": "15",
+   "got": "15",
+   "pass": true
+  },
+  {
+   "i": 85,
+   "exp": "44",
+   "got": "44",
+   "pass": true
+  },
+  {
+   "i": 86,
+   "exp": "22",
+   "got": "4",
+   "pass": false
+  },
+  {
+   "i": 87,
+   "exp": "9360",
+   "got": "60",
+   "pass": false
+  },
+  {
+   "i": 88,
+   "exp": "8000",
+   "got": "8000",
+   "pass": true
+  },
+  {
+   "i": 89,
+   "exp": "24",
+   "got": "18",
+   "pass": false
+  },
+  {
+   "i": 90,
+   "exp": "225",
+   "got": "225",
+   "pass": true
+  },
+  {
+   "i": 91,
+   "exp": "28",
+   "got": "28",
+   "pass": true
+  },
+  {
+   "i": 92,
+   "exp": "4",
+   "got": "1",
+   "pass": false
+  },
+  {
+   "i": 93,
+   "exp": "36",
+   "got": "40",
+   "pass": false
+  },
+  {
+   "i": 94,
+   "exp": "348",
+   "got": "348",
+   "pass": true
+  },
+  {
+   "i": 95,
+   "exp": "40",
+   "got": "120",
+   "pass": false
+  },
+  {
+   "i": 96,
+   "exp": "3",
+   "got": "3",
+   "pass": true
+  },
+  {
+   "i": 97,
+   "exp": "12",
+   "got": "12",
+   "pass": true
+  },
+  {
+   "i": 98,
+   "exp": "5",
+   "got": "5",
+   "pass": true
+  },
+  {
+   "i": 99,
+   "exp": "58",
+   "got": "58",
+   "pass": true
+  },
+  {
+   "i": 100,
+   "exp": "175",
+   "got": "5",
+   "pass": false
+  },
+  {
+   "i": 101,
+   "exp": "6",
+   "got": "6",
+   "pass": true
+  },
+  {
+   "i": 102,
+   "exp": "26",
+   "got": "26",
+   "pass": true
+  },
+  {
+   "i": 103,
+   "exp": "140",
+   "got": "140",
+   "pass": true
+  },
+  {
+   "i": 104,
+   "exp": "500",
+   "got": "500",
+   "pass": true
+  },
+  {
+   "i": 105,
+   "exp": "20",
+   "got": "20",
+   "pass": true
+  },
+  {
+   "i": 106,
+   "exp": "72",
+   "got": "3",
+   "pass": false
+  },
+  {
+   "i": 107,
+   "exp": "3",
+   "got": "90",
+   "pass": false
+  },
+  {
+   "i": 108,
+   "exp": "50",
+   "got": "110",
+   "pass": false
+  },
+  {
+   "i": 109,
+   "exp": "28",
+   "got": "28",
+   "pass": true
+  },
+  {
+   "i": 110,
+   "exp": "45",
+   "got": "45",
+   "pass": true
+  },
+  {
+   "i": 111,
+   "exp": "16",
+   "got": "10",
+   "pass": false
+  },
+  {
+   "i": 112,
+   "exp": "24",
+   "got": "24",
+   "pass": true
+  },
+  {
+   "i": 113,
+   "exp": "25",
+   "got": "25",
+   "pass": true
+  },
+  {
+   "i": 114,
+   "exp": "6",
+   "got": "6",
+   "pass": true
+  },
+  {
+   "i": 115,
+   "exp": "90",
+   "got": "50",
+   "pass": false
+  },
+  {
+   "i": 116,
+   "exp": "42",
+   "got": "120",
+   "pass": false
+  },
+  {
+   "i": 117,
+   "exp": "360",
+   "got": "360",
+   "pass": true
+  },
+  {
+   "i": 118,
+   "exp": "4",
+   "got": "4",
+   "pass": true
+  },
+  {
+   "i": 119,
+   "exp": "95200",
+   "got": "560",
+   "pass": false
+  },
+  {
+   "i": 120,
+   "exp": "240",
+   "got": "240",
+   "pass": true
+  },
+  {
+   "i": 121,
+   "exp": "27",
+   "got": "27",
+   "pass": true
+  },
+  {
+   "i": 122,
+   "exp": "48",
+   "got": "8",
+   "pass": false
+  },
+  {
+   "i": 123,
+   "exp": "50",
+   "got": "50",
+   "pass": true
+  },
+  {
+   "i": 124,
+   "exp": "10",
+   "got": "10",
+   "pass": true
+  },
+  {
+   "i": 125,
+   "exp": "10",
+   "got": "10",
+   "pass": true
+  },
+  {
+   "i": 126,
+   "exp": "82",
+   "got": "82",
+   "pass": true
+  },
+  {
+   "i": 127,
+   "exp": "120",
+   "got": "120",
+   "pass": true
+  },
+  {
+   "i": 128,
+   "exp": "880",
+   "got": "18",
+   "pass": false
+  },
+  {
+   "i": 129,
+   "exp": "10000",
+   "got": "50",
+   "pass": false
+  },
+  {
+   "i": 130,
+   "exp": "30",
+   "got": "30",
+   "pass": true
+  },
+  {
+   "i": 131,
+   "exp": "940",
+   "got": "940",
+   "pass": true
+  },
+  {
+   "i": 132,
+   "exp": "60",
+   "got": "60",
+   "pass": true
+  },
+  {
+   "i": 133,
+   "exp": "13",
+   "got": "13",
+   "pass": true
+  },
+  {
+   "i": 134,
+   "exp": "720",
+   "got": "720",
+   "pass": true
+  },
+  {
+   "i": 135,
+   "exp": "40",
+   "got": "40",
+   "pass": true
+  },
+  {
+   "i": 136,
+   "exp": "6",
+   "got": "6",
+   "pass": true
+  },
+  {
+   "i": 137,
+   "exp": "29",
+   "got": "5.00",
+   "pass": false
+  },
+  {
+   "i": 138,
+   "exp": "105",
+   "got": "30",
+   "pass": false
+  },
+  {
+   "i": 139,
+   "exp": "70",
+   "got": "70",
+   "pass": true
+  },
+  {
+   "i": 140,
+   "exp": "20",
+   "got": "20",
+   "pass": true
+  },
+  {
+   "i": 141,
+   "exp": "400",
+   "got": "100",
+   "pass": false
+  },
+  {
+   "i": 142,
+   "exp": "140",
+   "got": "140",
+   "pass": true
+  },
+  {
+   "i": 143,
+   "exp": "16",
+   "got": "11",
+   "pass": false
+  },
+  {
+   "i": 144,
+   "exp": "20",
+   "got": "20",
+   "pass": true
+  },
+  {
+   "i": 145,
+   "exp": "4000",
+   "got": "4000",
+   "pass": true
+  },
+  {
+   "i": 146,
+   "exp": "2125",
+   "got": "2125",
+   "pass": true
+  },
+  {
+   "i": 147,
+   "exp": "75",
+   "got": "6",
+   "pass": false
+  },
+  {
+   "i": 148,
+   "exp": "30",
+   "got": "30",
+   "pass": true
+  },
+  {
+   "i": 149,
+   "exp": "16",
+   "got": "16",
+   "pass": true
+  },
+  {
+   "i": 150,
+   "exp": "4",
+   "got": "44",
+   "pass": false
+  },
+  {
+   "i": 151,
+   "exp": "5",
+   "got": "2.",
+   "pass": false
+  },
+  {
+   "i": 152,
+   "exp": "4",
+   "got": "4",
+   "pass": true
+  },
+  {
+   "i": 153,
+   "exp": "48",
+   "got": "6",
+   "pass": false
+  },
+  {
+   "i": 154,
+   "exp": "272",
+   "got": "272",
+   "pass": true
+  },
+  {
+   "i": 155,
+   "exp": "280",
+   "got": "2",
+   "pass": false
+  },
+  {
+   "i": 156,
+   "exp": "1400",
+   "got": "1400",
+   "pass": true
+  },
+  {
+   "i": 157,
+   "exp": "80",
+   "got": "100",
+   "pass": false
+  },
+  {
+   "i": 158,
+   "exp": "34",
+   "got": "34",
+   "pass": true
+  },
+  {
+   "i": 159,
+   "exp": "15",
+   "got": "11",
+   "pass": false
+  },
+  {
+   "i": 160,
+   "exp": "16",
+   "got": "16",
+   "pass": true
+  },
+  {
+   "i": 161,
+   "exp": "32",
+   "got": "32",
+   "pass": true
+  },
+  {
+   "i": 162,
+   "exp": "92",
+   "got": "7",
+   "pass": false
+  },
+  {
+   "i": 163,
+   "exp": "50",
+   "got": "50",
+   "pass": true
+  },
+  {
+   "i": 164,
+   "exp": "15",
+   "got": "105",
+   "pass": false
+  },
+  {
+   "i": 165,
+   "exp": "77",
+   "got": "77",
+   "pass": true
+  },
+  {
+   "i": 166,
+   "exp": "5",
+   "got": "5",
+   "pass": true
+  },
+  {
+   "i": 167,
+   "exp": "16",
+   "got": "16",
+   "pass": true
+  },
+  {
+   "i": 168,
+   "exp": "18",
+   "got": "18",
+   "pass": true
+  },
+  {
+   "i": 169,
+   "exp": "120",
+   "got": "120",
+   "pass": true
+  },
+  {
+   "i": 170,
+   "exp": "150",
+   "got": "150",
+   "pass": true
+  },
+  {
+   "i": 171,
+   "exp": "1210",
+   "got": "1210",
+   "pass": true
+  },
+  {
+   "i": 172,
+   "exp": "51",
+   "got": "51",
+   "pass": true
+  },
+  {
+   "i": 173,
+   "exp": "18000",
+   "got": "18000",
+   "pass": true
+  },
+  {
+   "i": 174,
+   "exp": "95",
+   "got": "95",
+   "pass": true
+  },
+  {
+   "i": 175,
+   "exp": "15",
+   "got": "3",
+   "pass": false
+  },
+  {
+   "i": 176,
+   "exp": "100",
+   "got": "100",
+   "pass": true
+  },
+  {
+   "i": 177,
+   "exp": "350",
+   "got": "1250",
+   "pass": false
+  },
+  {
+   "i": 178,
+   "exp": "122",
+   "got": "122",
+   "pass": true
+  },
+  {
+   "i": 179,
+   "exp": "130",
+   "got": "130",
+   "pass": true
+  },
+  {
+   "i": 180,
+   "exp": "20",
+   "got": "20",
+   "pass": true
+  },
+  {
+   "i": 181,
+   "exp": "160",
+   "got": "160",
+   "pass": true
+  },
+  {
+   "i": 182,
+   "exp": "23",
+   "got": "3",
+   "pass": false
+  },
+  {
+   "i": 183,
+   "exp": "2",
+   "got": "171",
+   "pass": false
+  },
+  {
+   "i": 184,
+   "exp": "25",
+   "got": "2",
+   "pass": false
+  },
+  {
+   "i": 185,
+   "exp": "30",
+   "got": "30",
+   "pass": true
+  },
+  {
+   "i": 186,
+   "exp": "5",
+   "got": "4",
+   "pass": false
+  },
+  {
+   "i": 187,
+   "exp": "106",
+   "got": "0.02",
+   "pass": false
+  },
+  {
+   "i": 188,
+   "exp": "50",
+   "got": "50",
+   "pass": true
+  },
+  {
+   "i": 189,
+   "exp": "34",
+   "got": "3",
+   "pass": false
+  },
+  {
+   "i": 190,
+   "exp": "360",
+   "got": "360",
+   "pass": true
+  },
+  {
+   "i": 191,
+   "exp": "5",
+   "got": "5",
+   "pass": true
+  },
+  {
+   "i": 192,
+   "exp": "91",
+   "got": "91",
+   "pass": true
+  },
+  {
+   "i": 193,
+   "exp": "24",
+   "got": "30",
+   "pass": false
+  },
+  {
+   "i": 194,
+   "exp": "10",
+   "got": "10",
+   "pass": true
+  },
+  {
+   "i": 195,
+   "exp": "12",
+   "got": "12.00",
+   "pass": false
+  },
+  {
+   "i": 196,
+   "exp": "120",
+   "got": "120",
+   "pass": true
+  },
+  {
+   "i": 197,
+   "exp": "6277",
+   "got": "6277",
+   "pass": true
+  },
+  {
+   "i": 198,
+   "exp": "320",
+   "got": "2",
+   "pass": false
+  },
+  {
+   "i": 199,
+   "exp": "7500",
+   "got": "7500",
+   "pass": true
+  }
+ ]
+}
