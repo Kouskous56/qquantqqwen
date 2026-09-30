@@ -1,0 +1,88 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Qwen3 run manifest (v2)",
+  "description": "Schema cho manifest Qwen3 trong manifests_qwen3/. Khac schema V1 o cho: (a) bat buoc co `regenerable` va `limitation` de noi ro thu gi khong kiem chung duoc, (b) `dataset_sha256` kem `dataset_sha256_scope` vi hash phu thuoc loai details, (c) `scorer_status` phai noi ro scorer co con tren dia hay khong.",
+  "type": "object",
+  "required": [
+    "run_id",
+    "model",
+    "protocol",
+    "dataset_sha256",
+    "dataset_sha256_scope",
+    "detail_schema",
+    "scorer",
+    "scorer_sha256",
+    "scorer_status",
+    "timestamp",
+    "timestamp_source",
+    "provenance",
+    "regenerable",
+    "limitation",
+    "scores",
+    "details"
+  ],
+  "properties": {
+    "run_id": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{16}$",
+      "description": "sinh tu ten file + dataset_sha256; bat bien giup phat hien manifest bi sao chep."
+    },
+    "model": {"type": "string"},
+    "model_path_kind": {
+      "enum": ["registry-name", "local-directory", "path", null],
+      "description": "Cho biet 'model' la ten trong Ollama hay basename cua thu muc dia. Duong dan may-lab khong duoc commit; chi giu basename."
+    },
+    "protocol": {"type": "string"},
+    "dataset_sha256": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$",
+      "description": "sha256 cua noi dung da cham thuc su. Pham vi chinh xac nam o dataset_sha256_scope."
+    },
+    "dataset_sha256_scope": {
+      "type": "string",
+      "description": "Bắt buộc: hash bao phu cai gi. Voi schema 'harness' chi khop tap cau, KHONG khop noi dung cau."
+    },
+    "detail_schema": {
+      "enum": ["mmlu", "gsm", "typed", "harness"]
+    },
+    "scorer": {
+      "type": ["string", "null"],
+      "description": "duong dan tuong doi trong repo nay, hoac null neu khong xac dinh duoc."
+    },
+    "scorer_sha256": {"type": ["string", "null"], "pattern": "^[0-9a-f]{64}$"},
+    "scorer_status": {
+      "enum": ["verified-on-disk", "script-khong-ton-tai", "khong-xac-dinh-duoc"]
+    },
+    "timestamp": {"type": "string"},
+    "timestamp_source": {
+      "type": "string",
+      "description": "timestamp lay tu mtime file manifest, KHONG phai gio chay that."
+    },
+    "provenance": {
+      "type": "object",
+      "properties": {
+        "gguf": {"type": "string"},
+        "gguf_sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+        "gguf_bytes": {"type": "integer"},
+        "gguf_resolved_via": {
+          "enum": ["manifest.provenance.gguf", "ollama-modelfile-FROM-blob"]
+        },
+        "gguf_sha256_matches_original": {"type": "boolean"},
+        "gguf_sha256_from_ollama_blob": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+        "imatrix": {"type": ["string", "null"]},
+        "gguf_available": {"type": "boolean"},
+        "gguf_note": {"type": "string"}
+      }
+    },
+    "regenerable": {
+      "const": false,
+      "description": "Tat ca manifest Qwen3 deu can GPU. Hang nay ton tai de nguoi doc khong tuong lai nham tinh lai tu 0."
+    },
+    "limitation": {"type": "string", "minLength": 20},
+    "scores": {"type": "object"},
+    "details": {"type": "array", "minItems": 1},
+    "precision": {"type": "string"},
+    "note": {"type": "string"}
+  },
+  "additionalProperties": true
+}
