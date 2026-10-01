@@ -12,6 +12,10 @@
  "current_sha256": null,
  "modified_after_run": null,
  "modification": null,
+ "generator_evidence": "E1: details {i,pass} khop harness_probe.py; E2: ten file RUN_HARNESS_*",
+ "generator_version": null,
+ "generator_features": null,
+ "version_note": "Lab khong co git; khong chung minh duoc file nay giong ban luc chay. Bang chung la schema + tag + mtime (xem generator_evidence). 'Khong biet sua' khac voi 'chung minh chua sua'.",
  "timestamp": "2026-09-29T21:25:46.070932Z",
  "timestamp_source": "file-mtime-cua-manifest, KHONG phai gio chay thoi",
  "provenance": {

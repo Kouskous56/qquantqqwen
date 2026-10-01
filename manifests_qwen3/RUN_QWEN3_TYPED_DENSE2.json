@@ -12,6 +12,10 @@
  "current_sha256": null,
  "modified_after_run": null,
  "modification": null,
+ "generator_evidence": "khong du 2 bang chung doc lap",
+ "generator_version": null,
+ "generator_features": null,
+ "version_note": null,
  "timestamp": "2026-09-29T14:49:32.855737Z",
  "timestamp_source": "file-mtime-cua-manifest, KHONG phai gio chay thoi",
  "provenance": {

@@ -1,7 +1,17 @@
 {
- "conform": 41,
- "total": 41,
+ "conform": 44,
+ "total": 44,
  "rows": [
+  {
+   "name": "RUN_GSM400_Q3KMi.json",
+   "run_id": "408e3ab345ed3775",
+   "scorer_status": "verified-on-disk",
+   "gguf": "sweep-Q3_K_M.gguf",
+   "gguf_verified": true,
+   "gguf_via": "ollama-modelfile-FROM-blob",
+   "gguf_matches_original": null,
+   "dataset_sha256": "3260aa13c3f0"
+  },
   {
    "name": "RUN_GSM400_Q5KMi.json",
    "run_id": "e435822f3fbc1850",
@@ -21,6 +31,26 @@
    "gguf_via": "ollama-modelfile-FROM-blob",
    "gguf_matches_original": null,
    "dataset_sha256": "a04be62e0444"
+  },
+  {
+   "name": "RUN_GSMSWEEP_Q3KMi_0.json",
+   "run_id": "804a9927e455ff41",
+   "scorer_status": "verified-on-disk",
+   "gguf": "sweep-Q3_K_M.gguf",
+   "gguf_verified": true,
+   "gguf_via": "ollama-modelfile-FROM-blob",
+   "gguf_matches_original": null,
+   "dataset_sha256": "dd91b1271e1d"
+  },
+  {
+   "name": "RUN_GSMSWEEP_Q3KMi_200.json",
+   "run_id": "d2e0f415f834c444",
+   "scorer_status": "verified-on-disk",
+   "gguf": "sweep-Q3_K_M.gguf",
+   "gguf_verified": true,
+   "gguf_via": "ollama-modelfile-FROM-blob",
+   "gguf_matches_original": null,
+   "dataset_sha256": "3182ab056d51"
   },
   {
    "name": "RUN_GSMSWEEP_Q5KMi_0.json",
@@ -195,7 +225,7 @@
   {
    "name": "RUN_QWEN3_MMLU200_DENSE.json",
    "run_id": "814a4ad61f623c3e",
-   "scorer_status": "verified-on-disk",
+   "scorer_status": "khong-xac-dinh-duoc",
    "gguf": "DENSE-Q4KM.gguf",
    "gguf_verified": true,
    "gguf_via": "ollama-modelfile-FROM-blob",
@@ -205,7 +235,7 @@
   {
    "name": "RUN_QWEN3_MMLU200_EORA.json",
    "run_id": "028461a61cf61b5e",
-   "scorer_status": "verified-on-disk",
+   "scorer_status": "khong-xac-dinh-duoc",
    "gguf": "Qwen3-4B-s20-c4-eora128-Q4KM.gguf",
    "gguf_verified": true,
    "gguf_via": "ollama-modelfile-FROM-blob",
@@ -215,7 +245,7 @@
   {
    "name": "RUN_QWEN3_MMLU200_S20C4.json",
    "run_id": "8f4f9ae290f500b8",
-   "scorer_status": "verified-on-disk",
+   "scorer_status": "khong-xac-dinh-duoc",
    "gguf": "Qwen3-4B-s20-c4-Q4KM.gguf",
    "gguf_verified": true,
    "gguf_via": "ollama-modelfile-FROM-blob",
@@ -225,7 +255,7 @@
   {
    "name": "RUN_QWEN3_MMLU200_S20C4_SMOKE.json",
    "run_id": "18cef1c55a2bde8e",
-   "scorer_status": "verified-on-disk",
+   "scorer_status": "khong-xac-dinh-duoc",
    "gguf": "Qwen3-4B-s20-c4-Q4KM.gguf",
    "gguf_verified": true,
    "gguf_via": "ollama-modelfile-FROM-blob",
@@ -235,7 +265,7 @@
   {
    "name": "RUN_QWEN3_MMLU200_S20MIX.json",
    "run_id": "7a6b046705dfb651",
-   "scorer_status": "verified-on-disk",
+   "scorer_status": "khong-xac-dinh-duoc",
    "gguf": "S20MIX-Q4KM.gguf",
    "gguf_verified": true,
    "gguf_via": "ollama-modelfile-FROM-blob",
@@ -245,7 +275,7 @@
   {
    "name": "RUN_QWEN3_MMLU200_S30MIX.json",
    "run_id": "21b483ea4d2ed36a",
-   "scorer_status": "verified-on-disk",
+   "scorer_status": "khong-xac-dinh-duoc",
    "gguf": "S30MIX-Q4KM.gguf",
    "gguf_verified": true,
    "gguf_via": "ollama-modelfile-FROM-blob",
