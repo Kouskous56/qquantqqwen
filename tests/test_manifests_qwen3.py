@@ -16,6 +16,7 @@ Vi vay moi co truong `regenerable: false` trong tung manifest.
 """
 import hashlib
 import json
+import os
 import re
 from pathlib import Path
 
@@ -169,12 +170,15 @@ def test_modified_scorers_are_declared():
 def test_gguf_hash_matches_manifest_original():
     """Hash gguf trong ban patch phai bang hash ghi trong manifest goc.
 
-    Do doc lap: doc file goc trong notes/ cua may lab. tren may khong co
-    notes/ (khong commit file phuc tap), test nay tu bo qua.
+    Do doc lap: doc file goc trong notes/ cua may lab, chi duong dan qua
+    bien moi truong QWEN_LAB_NOTES (mặc định giữ đường dẫn lab cũ để
+    tương thích). tren may khong co notes/ (khong commit file phuc tap),
+    test nay tu bo qua.
     """
-    src = Path("D:/qwen/notes")
+    import os
+    src = Path(os.environ.get("QWEN_LAB_NOTES", "D:/qwen/notes"))
     if not src.is_dir():
-        pytest.skip("khong co thu muc lab D:/qwen/notes tren may nay")
+        pytest.skip("khong co thu muc lab notes tren may nay (QWEN_LAB_NOTES=%s)" % src)
     n = 0
     for p in FILES:
         o = src / p.name
