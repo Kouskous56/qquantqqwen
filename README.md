@@ -3,7 +3,7 @@
 ![repro](https://github.com/Kouskous56/qquantqqwen/actions/workflows/repro.yml/badge.svg)
 
 This repository accompanies the frozen V1 technical report of the same name
-(paper/paper1042.pdf; arXiv record to be linked after submission). The central finding is that **similar perplexity
+(paper/paper1042.pdf). The central finding is that **similar perplexity
 degradation under pruning can correspond to substantially different behavioral
 degradation across Qwen2.5 model scales**.
 
@@ -24,7 +24,7 @@ points the trend is 7 / 7 / 2, and the significant step is 0.5B→1.5B
 scales, Cochran–Armitage χ² = 17.6, p = 0.00003. The 0.5B figure additionally
 moves in both directions: 3 items that dense answered *wrong* were answered
 *right* after pruning, so its retention number is two-sided noise rather than a
-clean degradation signal. See `notes/SCALE_STATS.md` in the lab repo for the
+clean degradation signal. See `notes/SCALE_STATS.md` for the
 full 2×2 tables.
 
 ## Repository map
