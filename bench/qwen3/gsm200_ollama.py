@@ -16,10 +16,16 @@ ap.add_argument("--tag", required=True)
 ap.add_argument("--n", type=int, default=200)
 ap.add_argument("--offset", type=int, default=0)
 ap.add_argument("--npredict", type=int, default=256)
+ap.add_argument("--notes-dir", default="D:/qwen/notes",
+                help="thu muc ghi checkpoint + manifest (mac dinh giu duong lab cu)")
+ap.add_argument("--endpoint", default="http://127.0.0.1:11434",
+                help="Ollama API root (mac dinh giu endpoint cu)")
 args = ap.parse_args()
 
-OUT = f"D:/qwen/notes/RUN_QWEN3_{args.tag}.json"
-CKPT = f"D:/qwen/notes/CKPT_GSM200_{args.tag}.json"
+NOTES = args.notes_dir.rstrip("/\\")
+EP = args.endpoint.rstrip("/")
+OUT = f"{NOTES}/RUN_QWEN3_{args.tag}.json"
+CKPT = f"{NOTES}/CKPT_GSM200_{args.tag}.json"
 
 
 def chat(content, n):
@@ -27,7 +33,7 @@ def chat(content, n):
                        "messages": [{"role": "user", "content": content}],
                        "options": {"num_predict": n, "temperature": 0}}
                       ).encode()
-    q = urllib.request.Request("http://127.0.0.1:11434/api/chat", data=body,
+    q = urllib.request.Request(EP + "/api/chat", data=body,
                                headers={"Content-Type": "application/json"})
     with urllib.request.urlopen(q, timeout=900) as r:
         return json.load(r)["message"]["content"]

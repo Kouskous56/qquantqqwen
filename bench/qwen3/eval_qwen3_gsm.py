@@ -1,4 +1,5 @@
 """Qwen3-4B FP16 GSM-50 only, max 256 tokens (device_map auto, offload OK)."""
+import argparse
 import json
 import re
 import time
@@ -7,7 +8,16 @@ import torch
 from datasets import load_dataset
 from transformers import AutoModelForCausalLM, AutoTokenizer
 
-P = "D:/qwen/models/Qwen3-4B-FP16"
+ap = argparse.ArgumentParser()
+ap.add_argument("--model-root", default="D:/qwen/models/Qwen3-4B-FP16",
+                help="thu muc checkpoint (mac dinh giu duong lab cu)")
+ap.add_argument("--notes-dir", default="D:/qwen/notes",
+                help="thu muc ghi manifest (mac dinh giu duong lab cu)")
+ap.add_argument("--n", type=int, default=50)
+a = ap.parse_args()
+
+P = a.model_root
+NOTES = a.notes_dir.rstrip("/\\")
 tok = AutoTokenizer.from_pretrained(P)
 m = AutoModelForCausalLM.from_pretrained(P, dtype=torch.float16,
                                          device_map="auto").eval()
@@ -38,7 +48,7 @@ def chat(q):
                                    tokenize=False, add_generation_prompt=True)
 
 
-ds = load_dataset("openai/gsm8k", "main", split="test").select(range(50))
+ds = load_dataset("openai/gsm8k", "main", split="test").select(range(a.n))
 g, det = 0, []
 t0 = time.time()
 for i, r in enumerate(ds):
@@ -52,5 +62,5 @@ for i, r in enumerate(ds):
 json.dump({"model": "Qwen3-4B-Instruct-2507-FP16", "gsm50_256": g,
            "details": det, "elapsed_s": round(time.time() - t0),
            "timestamp": time.strftime("%Y-%m-%dT%H:%M")},
-          open("D:/qwen/notes/RUN_QWEN3_GSM.json", "w"), indent=1)
+          open(f"{NOTES}/RUN_QWEN3_GSM.json", "w"), indent=1)
 print(f"GSM-50: {g}/50")

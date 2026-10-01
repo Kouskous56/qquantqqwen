@@ -59,6 +59,27 @@ LIM_SCRIPT = ("Script goc da bien mat khoi dia (script_sha256=689631b78649 khong
 # Script da bi sua SAU khi sinh ra so lieu. Manifest phai giu hash luc chay
 # (nguon cua so lieu), khong phai hash hien tai -- neu doi hash thi se noi
 # sai rang ban da sua da sinh ra cac diem nay.
+# Hash cua ban script LUC CHAY cho cac script chi co mot ban da biet.
+# Lay tu git HEAD truoc khi sua portability (doi chieu truc tiep, khong nho).
+# gsm_sweep.py khong nam day vi no co 3 ban (GSM_SWEEP_VERSIONS).
+RUN_TIME_HASHES = {
+    "bench/qwen3/mmlu_any.py":
+        "2db326463998922c6a29a692d60805fd10640b987e0ab0b84c8aba3051c1e833",
+    "bench/qwen3/harness_probe.py":
+        "9cbd74fc9b1beaec5f9e97299ef1783562be524d7336662654a3241ee9c6fdb9",
+    "bench/qwen3/eval_round2.py":
+        "d8998bae091cf308fbe6494c1b3dfe7465d380eabf33adbd96b11dea9e258f7f",
+    "bench/qwen3/gsm200_ollama.py":
+        "a7cce0be3e93425035477473746301d34d562c3dd55a57d2a1e75c091f95e1dc",
+    "bench/qwen3/eval_qwen3_gsm.py":
+        "23533bb89b4f3d6b9c6df888eb99c099f35b6d24fb68de708281812ab874f817",
+}
+
+PORTABILITY_NOTE = (
+    "Lan sua portability (them --notes-dir/--endpoint, mac dinh giu hanh vi "
+    "cu): chi them tham so dong lenh, khong doi logic cham, prompt, trich "
+    "so. Du lieu cu sinh bang ban cu nen scorer_sha256 giu nguyen.")
+
 POST_RUN_FIXES = {
     "bench/qwen3/gsm_sweep.py": {
         # Lay tu git cat-file 6d86908 -- ban da sinh ra so lieu. Khong do
@@ -352,17 +373,31 @@ def main():
                     scorer_block["modification"] = (
                         "Script bi sua SAU khi sinh so lieu nay. "
                         "scorer_sha256 giu ban luc chay; current_sha256 la "
-                        "ban hien tai. Chi tiet 2 lan sua: (1) ten file "
+                        "ban hien tai. Chi tiet 3 lan sua: (1) ten file "
                         "manifest thieu offset nen block sau de block truoc; "
-                        "(2) them truong exp/got/text vao details.")
+                        "(2) them truong exp/got/text vao details; "
+                        "(3) portability: them --notes-dir/--endpoint, "
+                        "mac dinh giu hanh vi cu, khong doi logic cham.")
             else:
-                scorer_block["sha256"] = cur
-                scorer_block["status"] = "verified-on-disk"
-                scorer_block["version_note"] = (
-                    "Lab khong co git; khong chung minh duoc file nay "
-                    "giong ban luc chay. Bang chung la schema + tag + mtime "
-                    "(xem generator_evidence). 'Khong biet sua' khac voi "
-                    "'chung minh chua sua'.")
+                run_h = RUN_TIME_HASHES.get(rel)
+                if run_h is None:
+                    # khong biet ban luc chay: noi ro, khong doan
+                    scorer_block["sha256"] = cur
+                    scorer_block["status"] = "verified-on-disk"
+                    scorer_block["version_note"] = (
+                        "Lab khong co git; khong chung minh duoc file nay "
+                        "giong ban luc chay. Bang chung la schema + tag + mtime "
+                        "(xem generator_evidence). 'Khong biet sua' khac voi "
+                        "'chung minh chua sua'.")
+                elif run_h == cur:
+                    scorer_block["sha256"] = cur
+                    scorer_block["status"] = "verified-on-disk"
+                else:
+                    scorer_block["sha256"] = run_h
+                    scorer_block["status"] = "verified-on-disk"
+                    scorer_block["current_sha256"] = cur
+                    scorer_block["modified_after_run"] = True
+                    scorer_block["modification"] = PORTABILITY_NOTE
         elif sc:
             scorer_block["status"] = "script-khong-ton-tai"
         else:

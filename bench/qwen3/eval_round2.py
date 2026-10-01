@@ -30,7 +30,7 @@ def chat(content, n):
                        "messages": [{"role": "user", "content": content}],
                        "options": {"num_predict": n, "temperature": 0}}
                       ).encode()
-    q = urllib.request.Request("http://127.0.0.1:11434/api/chat", data=body,
+    q = urllib.request.Request(EP + "/api/chat", data=body,
                                headers={"Content-Type": "application/json"})
     with urllib.request.urlopen(q, timeout=900) as r:
         return json.load(r)["message"]["content"]
@@ -82,7 +82,22 @@ if __name__ == "__main__":
     ap.add_argument("--tag", required=True)
     ap.add_argument("--gguf", required=True, help="duong dan file .gguf de hash")
     ap.add_argument("--imatrix", default="unknown")
+    ap.add_argument("--notes-dir", default="D:/qwen/notes",
+                    help="thu muc ghi checkpoint + manifest (mac dinh giu duong lab cu)")
+    ap.add_argument("--endpoint", default="http://127.0.0.1:11434",
+                    help="Ollama API root (mac dinh giu endpoint cu)")
+    ap.add_argument("--questions", default="",
+                    help="duong dan questions.json (mac dinh: data/v2/questions.json ke repo nay)")
     ARGS = ap.parse_args()
+
+    EP = ARGS.endpoint.rstrip("/\\")
+    NOTES = ARGS.notes_dir.rstrip("/\\")
+    if ARGS.questions:
+        QUESTIONS = ARGS.questions
+    else:
+        _root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+        _q = os.path.join(_root, "data", "v2", "questions.json")
+        QUESTIONS = _q if os.path.exists(_q) else "D:/qwen_release/data/v2/questions.json"
 
     t0 = time.time()
     prov = {"gguf": os.path.basename(ARGS.gguf),
@@ -93,8 +108,8 @@ if __name__ == "__main__":
 
     # ---------- MMLU-200 ----------
     import datasets
-    mc = f"D:/qwen/notes/R2CKPT_MMLU_{ARGS.tag}.json"
-    Qs = json.load(open("D:/qwen_release/data/v2/questions.json",
+    mc = f"{NOTES}/R2CKPT_MMLU_{ARGS.tag}.json"
+    Qs = json.load(open(QUESTIONS,
                         encoding="utf-8"))
     ds = datasets.load_dataset("cais/mmlu", "all", split="test")
     bysub = {}
@@ -133,7 +148,7 @@ if __name__ == "__main__":
                "protocol": "ollama-greedy-MC-one-letter-npredict32",
                "details": mdet, "elapsed_s": round(time.time() - t0),
                "note": "GGUF Q4_K_M co imatrix; khong tron voi FP16 block"},
-              open(f"D:/qwen/notes/RUN_QWEN3_R2_MMLU200_{ARGS.tag}.json", "w"),
+              open(f"{NOTES}/RUN_QWEN3_R2_MMLU200_{ARGS.tag}.json", "w"),
               indent=1)
     print(f"R2-MMLU {ARGS.tag}: {mscore}/{len(mdet)}", flush=True)
 
@@ -141,7 +156,7 @@ if __name__ == "__main__":
     gsm = datasets.load_dataset("openai/gsm8k", "main", split="test")
     gdet = []
     for off in (0, 200):
-        gp = f"D:/qwen/notes/R2CKPT_GSM_{ARGS.tag}_{off}.json"
+        gp = f"{NOTES}/R2CKPT_GSM_{ARGS.tag}_{off}.json"
         blk = load_ckpt(gp)
         for j in range(200):
             if j < len(blk):
@@ -165,7 +180,7 @@ if __name__ == "__main__":
                "protocol": "ollama-greedy-CoT-####-npredict256",
                "details": gdet, "elapsed_s": round(time.time() - t0),
                "note": "GGUF Q4_K_M co imatrix; khong tron voi FP16 block"},
-              open(f"D:/qwen/notes/RUN_QWEN3_R2_GSM400_{ARGS.tag}.json", "w"),
+              open(f"{NOTES}/RUN_QWEN3_R2_GSM400_{ARGS.tag}.json", "w"),
               indent=1)
     print(f"R2-GSM400 {ARGS.tag}: A={blkA}/200 B={blkB}/200 "
           f"tong={g}/{len(gdet)}", flush=True)

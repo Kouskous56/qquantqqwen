@@ -22,7 +22,7 @@ def chat(content, n):
                        "messages": [{"role": "user", "content": content}],
                        "options": {"num_predict": n, "temperature": 0}}
                       ).encode()
-    q = urllib.request.Request("http://127.0.0.1:11434/api/chat", data=body,
+    q = urllib.request.Request(EP + "/api/chat", data=body,
                                headers={"Content-Type": "application/json"})
     with urllib.request.urlopen(q, timeout=900) as r:
         return json.load(r)["message"]["content"]
@@ -52,11 +52,18 @@ if __name__ == "__main__":
     ap.add_argument("--gguf", default="")
     ap.add_argument("--precision", required=True,
                     help="F16 | Q4_K_M | ... de ghi vao manifest")
+    ap.add_argument("--notes-dir", default="D:/qwen/notes",
+                    help="thu muc ghi checkpoint + manifest (mac dinh giu duong lab cu)")
+    ap.add_argument("--endpoint", default="http://127.0.0.1:11434",
+                    help="Ollama API root (mac dinh giu endpoint cu)")
     a = ARGS = ap.parse_args()
 
+    EP = ARGS.endpoint.rstrip("/\\")
+    NOTES = ARGS.notes_dir.rstrip("/\\")
+
     import datasets
-    ck = f"D:/qwen/notes/R2CKPT_MMLU_{a.tag}.json"
-    out = f"D:/qwen/notes/RUN_MMLU200_{a.tag}.json"
+    ck = f"{NOTES}/R2CKPT_MMLU_{a.tag}.json"
+    out = f"{NOTES}/RUN_MMLU200_{a.tag}.json"
     ds = datasets.load_dataset("cais/mmlu", "all", split="test")
     bysub = {}
     for i, r in enumerate(ds):

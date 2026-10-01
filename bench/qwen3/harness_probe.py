@@ -19,13 +19,19 @@ _ap.add_argument("--model", default="qwen3-f16-probe")
 _ap.add_argument("--n", type=int, default=50)
 _ap.add_argument("--offset", type=int, default=0)
 _ap.add_argument("--tag", default="F16PROBE")
+_ap.add_argument("--notes-dir", default="D:/qwen/notes",
+                 help="thu muc ghi checkpoint + manifest (mac dinh giu duong lab cu)")
+_ap.add_argument("--endpoint", default="http://127.0.0.1:11434",
+                 help="Ollama API root (mac dinh giu endpoint cu)")
 _args = _ap.parse_args()
 
 MODEL = _args.model
 N = _args.n
 OFF = _args.offset
-CKPT = f"D:/qwen/notes/R2CKPT_{_args.tag}_{OFF}.json"
-OUT = f"D:/qwen/notes/RUN_HARNESS_{_args.tag}_{OFF}.json"
+NOTES = _args.notes_dir.rstrip("/\\")
+EP = _args.endpoint.rstrip("/")
+CKPT = f"{NOTES}/R2CKPT_{_args.tag}_{OFF}.json"
+OUT = f"{NOTES}/RUN_HARNESS_{_args.tag}_{OFF}.json"
 
 
 def chat(content, n):
@@ -33,7 +39,7 @@ def chat(content, n):
                        "messages": [{"role": "user", "content": content}],
                        "options": {"num_predict": n, "temperature": 0}}
                       ).encode()
-    q = urllib.request.Request("http://127.0.0.1:11434/api/chat", data=body,
+    q = urllib.request.Request(EP + "/api/chat", data=body,
                                headers={"Content-Type": "application/json"})
     with urllib.request.urlopen(q, timeout=900) as r:
         return json.load(r)["message"]["content"]
