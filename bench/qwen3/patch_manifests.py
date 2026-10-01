@@ -286,6 +286,20 @@ def build_disk_index(cache):
     return idx
 
 
+# Anh xa ten model Ollama doi R1 -> file GGUF, cho truong hop model khong
+# con trong Ollama nhung file con tren dia. Moi anh xa da duoc xac minh
+# bang `ollama show --modelfile` (blob sha256 trung hash file) truoc khi
+# model bi xoa. Hash van duoc tinh lai tu file that tren dia moi lan chay,
+# nen bang chung khong yeu di -- chi duong di doi tu blob sang ten file.
+R1_MODEL_FILES = {
+    "qwen3-dense": "DENSE-Q4KM.gguf",
+    "qwen3-s20c4": "Qwen3-4B-s20-c4-Q4KM.gguf",
+    "qwen3-s20mix": "S20MIX-Q4KM.gguf",
+    "qwen3-s30mix": "S30MIX-Q4KM.gguf",
+    "qwen3-eora": "Qwen3-4B-s20-c4-eora128-Q4KM.gguf",
+}
+
+
 def resolve_gguf(d, disk_idx):
     """Tra ve (ten_file, path, sha256, nguon) neu xac dinh duoc artifact."""
     pr = d.get("provenance") or {}
@@ -304,6 +318,12 @@ def resolve_gguf(d, disk_idx):
     if h and h in disk_idx:
         f = disk_idx[h]
         return f.name, f, h, "ollama-modelfile-FROM-blob"
+    # 3. anh xa legacy cho model R1 da xoa (file con, hash tinh lai)
+    legacy = R1_MODEL_FILES.get(d.get("model") or "")
+    if legacy:
+        f = MODELS / legacy
+        if f.exists():
+            return f.name, f, None, "legacy-model-to-file-map"
     return None, None, h, None
 
 
@@ -348,6 +368,31 @@ def main():
             pr.setdefault("gguf_available", False)
             pr["gguf_note"] = ("Khong xac dinh duoc artifact: manifest khong tro "
                                "ten file, va ten model Ollama khong con.")
+        # CHOT DON DIEU: khong bao gio ghi de hash GGUF tot bang ket qua kem.
+        # Patcher xay tu manifest goc moi lan, nen khi moi truong suy giam
+        # (vd Ollama serve chet, khong truy vet blob duoc) lan chay se mat
+        # hash da xac minh. Truong hop do da xay ra that: 13 hash bien mat
+        # trong mot lan chay lai. Tu nay: giu hash cu + ghi ro nguon.
+        if not pr.get("gguf_sha256"):
+            _prev = OUT / p.name
+            if _prev.exists():
+                try:
+                    _ppr = json.loads(_prev.read_text(encoding="utf-8"))
+                    _pprov = _ppr.get("provenance") or {}
+                except Exception:
+                    _pprov = {}
+                if _pprov.get("gguf_sha256"):
+                    pr["gguf"] = _pprov.get("gguf", pr.get("gguf"))
+                    pr["gguf_sha256"] = _pprov["gguf_sha256"]
+                    pr["gguf_bytes"] = _pprov.get("gguf_bytes",
+                                                  pr.get("gguf_bytes"))
+                    pr["gguf_resolved_via"] = _pprov.get(
+                        "gguf_resolved_via", "carried-over-previous-run")
+                    pr["gguf_carried_over"] = True
+                    pr["gguf_carry_reason"] = (
+                        "Lan chay nay khong phan giai duoc artifact "
+                        "(vd serve tat); giu hash da xac minh tu ban truoc "
+                        "thay vi de mat. Khong phai bang chung moi.")
 
         rel, shav = SCORERS.get(sc, (None, None))
         scorer_block = {
