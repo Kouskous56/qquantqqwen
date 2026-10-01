@@ -22,7 +22,7 @@
   "gguf": "S20MIX-Q4KM.gguf",
   "gguf_sha256": "e2a51a8cf3f60a67f76774e55d8c1e6ec0872a505a1cd5956876e9ce7efd880f",
   "gguf_bytes": 2497278912,
-  "gguf_resolved_via": "ollama-modelfile-FROM-blob"
+  "gguf_resolved_via": "legacy-model-to-file-map"
  },
  "dataset_source": null,
  "regenerable": false,

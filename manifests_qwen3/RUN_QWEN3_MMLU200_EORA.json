@@ -22,7 +22,7 @@
   "gguf": "Qwen3-4B-s20-c4-eora128-Q4KM.gguf",
   "gguf_sha256": "0e860e13d26d95dac8435ad7479a6de3e18e073657f039d3836c24ce4a83d2ab",
   "gguf_bytes": 2497279136,
-  "gguf_resolved_via": "ollama-modelfile-FROM-blob"
+  "gguf_resolved_via": "legacy-model-to-file-map"
  },
  "dataset_source": null,
  "regenerable": false,

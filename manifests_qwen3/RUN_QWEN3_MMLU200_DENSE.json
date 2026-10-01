@@ -22,7 +22,7 @@
   "gguf": "DENSE-Q4KM.gguf",
   "gguf_sha256": "853c9c71975dfef6afb24a94c3f64c3fe9bad3d5087b7b2420c6f54887448eee",
   "gguf_bytes": 2497279040,
-  "gguf_resolved_via": "ollama-modelfile-FROM-blob"
+  "gguf_resolved_via": "legacy-model-to-file-map"
  },
  "dataset_source": null,
  "regenerable": false,

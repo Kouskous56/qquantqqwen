@@ -168,7 +168,7 @@
    "scorer_status": "verified-on-disk",
    "gguf": "DENSE-Q4KM.gguf",
    "gguf_verified": true,
-   "gguf_via": "ollama-modelfile-FROM-blob",
+   "gguf_via": "legacy-model-to-file-map",
    "gguf_matches_original": null,
    "dataset_sha256": "dd91b1271e1d"
   },
@@ -178,7 +178,7 @@
    "scorer_status": "verified-on-disk",
    "gguf": "Qwen3-4B-s20-c4-eora128-Q4KM.gguf",
    "gguf_verified": true,
-   "gguf_via": "ollama-modelfile-FROM-blob",
+   "gguf_via": "legacy-model-to-file-map",
    "gguf_matches_original": null,
    "dataset_sha256": "dd91b1271e1d"
   },
@@ -188,7 +188,7 @@
    "scorer_status": "verified-on-disk",
    "gguf": "Qwen3-4B-s20-c4-Q4KM.gguf",
    "gguf_verified": true,
-   "gguf_via": "ollama-modelfile-FROM-blob",
+   "gguf_via": "legacy-model-to-file-map",
    "gguf_matches_original": null,
    "dataset_sha256": "dd91b1271e1d"
   },
@@ -198,7 +198,7 @@
    "scorer_status": "verified-on-disk",
    "gguf": "S20MIX-Q4KM.gguf",
    "gguf_verified": true,
-   "gguf_via": "ollama-modelfile-FROM-blob",
+   "gguf_via": "legacy-model-to-file-map",
    "gguf_matches_original": null,
    "dataset_sha256": "dd91b1271e1d"
   },
@@ -208,7 +208,7 @@
    "scorer_status": "verified-on-disk",
    "gguf": "S30MIX-Q4KM.gguf",
    "gguf_verified": true,
-   "gguf_via": "ollama-modelfile-FROM-blob",
+   "gguf_via": "legacy-model-to-file-map",
    "gguf_matches_original": null,
    "dataset_sha256": "dd91b1271e1d"
   },
@@ -218,7 +218,7 @@
    "scorer_status": "verified-on-disk",
    "gguf": "DENSE-Q4KM.gguf",
    "gguf_verified": true,
-   "gguf_via": "ollama-modelfile-FROM-blob",
+   "gguf_via": "legacy-model-to-file-map",
    "gguf_matches_original": null,
    "dataset_sha256": "3182ab056d51"
   },
@@ -228,7 +228,7 @@
    "scorer_status": "verified-on-disk",
    "gguf": "Qwen3-4B-s20-c4-Q4KM.gguf",
    "gguf_verified": true,
-   "gguf_via": "ollama-modelfile-FROM-blob",
+   "gguf_via": "legacy-model-to-file-map",
    "gguf_matches_original": null,
    "dataset_sha256": "3182ab056d51"
   },
@@ -238,7 +238,7 @@
    "scorer_status": "khong-xac-dinh-duoc",
    "gguf": "DENSE-Q4KM.gguf",
    "gguf_verified": true,
-   "gguf_via": "ollama-modelfile-FROM-blob",
+   "gguf_via": "legacy-model-to-file-map",
    "gguf_matches_original": null,
    "dataset_sha256": "0e56b39d5215"
   },
@@ -248,7 +248,7 @@
    "scorer_status": "khong-xac-dinh-duoc",
    "gguf": "Qwen3-4B-s20-c4-eora128-Q4KM.gguf",
    "gguf_verified": true,
-   "gguf_via": "ollama-modelfile-FROM-blob",
+   "gguf_via": "legacy-model-to-file-map",
    "gguf_matches_original": null,
    "dataset_sha256": "0e56b39d5215"
   },
@@ -258,7 +258,7 @@
    "scorer_status": "khong-xac-dinh-duoc",
    "gguf": "Qwen3-4B-s20-c4-Q4KM.gguf",
    "gguf_verified": true,
-   "gguf_via": "ollama-modelfile-FROM-blob",
+   "gguf_via": "legacy-model-to-file-map",
    "gguf_matches_original": null,
    "dataset_sha256": "0e56b39d5215"
   },
@@ -268,7 +268,7 @@
    "scorer_status": "khong-xac-dinh-duoc",
    "gguf": "Qwen3-4B-s20-c4-Q4KM.gguf",
    "gguf_verified": true,
-   "gguf_via": "ollama-modelfile-FROM-blob",
+   "gguf_via": "legacy-model-to-file-map",
    "gguf_matches_original": null,
    "dataset_sha256": "779d86f42eae"
   },
@@ -278,7 +278,7 @@
    "scorer_status": "khong-xac-dinh-duoc",
    "gguf": "S20MIX-Q4KM.gguf",
    "gguf_verified": true,
-   "gguf_via": "ollama-modelfile-FROM-blob",
+   "gguf_via": "legacy-model-to-file-map",
    "gguf_matches_original": null,
    "dataset_sha256": "0e56b39d5215"
   },
@@ -288,7 +288,7 @@
    "scorer_status": "khong-xac-dinh-duoc",
    "gguf": "S30MIX-Q4KM.gguf",
    "gguf_verified": true,
-   "gguf_via": "ollama-modelfile-FROM-blob",
+   "gguf_via": "legacy-model-to-file-map",
    "gguf_matches_original": null,
    "dataset_sha256": "0e56b39d5215"
   },

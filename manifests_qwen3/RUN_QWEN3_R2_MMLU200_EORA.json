@@ -9,7 +9,7 @@
  "scorer": "bench/qwen3/eval_round2.py",
  "scorer_sha256": "d8998bae091cf308fbe6494c1b3dfe7465d380eabf33adbd96b11dea9e258f7f",
  "scorer_status": "verified-on-disk",
- "current_sha256": "4d5ab66f6cdba35a25e643d39c9661a12538e9642c559e7ba641a7d4a29d9f37",
+ "current_sha256": "b1e97135240d305e44853ba360f964c7acabbe4eb0512011161256511405fbe9",
  "modified_after_run": true,
  "modification": "Lan sua portability (them --notes-dir/--endpoint, mac dinh giu hanh vi cu): chi them tham so dong lenh, khong doi logic cham, prompt, trich so. Du lieu cu sinh bang ban cu nen scorer_sha256 giu nguyen.",
  "generator_evidence": "E1: details khop mdet.append cua eval_round2.py; E2: tag R2_* + checkpoint R2CKPT_MMLU_* do script nay ghi",
