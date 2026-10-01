@@ -17,13 +17,37 @@ NOTES = Path("D:/qwen/notes")
 MODELS = Path("D:/qwen/models")
 OUT = Path("D:/qwen_release/manifests_qwen3")
 
-# Ban do: ten manifest -> script da sinh ra nhan 'pass'.
-# Chi nhung mapping ma ta that su chung minh duoc bang cach doi chieu
-# truc 'protocol' + 'details' cua tung file.
+# Ban do: ten logic -> (duong dan trong repo, duong dan lab)
 SCORERS = {
     "mmlu_ollama": ("bench/qwen3/mmlu_any.py", "D:/qwen/bench/mmlu_any.py"),
     "gsm_ollama": ("bench/qwen3/gsm_sweep.py", "D:/qwen/bench/gsm_sweep.py"),
     "gsm_harness": ("bench/qwen3/harness_probe.py", "D:/qwen/bench/harness_probe.py"),
+    "eval_r2": ("bench/qwen3/eval_round2.py", "D:/qwen/bench/eval_round2.py"),
+    "gsm200_r1": ("bench/qwen3/gsm200_ollama.py", "D:/qwen/bench/gsm200_ollama.py"),
+    "gsm_fp16": ("bench/qwen3/eval_qwen3_gsm.py", "D:/qwen/bench/eval_qwen3_gsm.py"),
+}
+
+# Cac ban gsm_sweep.py da biet, phan biet bang DAC DIEM KIEM CHUNG DUOC
+# (khong phai bang tri nho): dong OUT va truong trong det.append.
+#   4576 = git 6d86908: OUT khong offset, details {i,pass}       -> Q6
+#   7e5e = repo hien tai: OUT co offset, {i,exp,got}, KHONG text -> Q5
+#   b1cb = lab hien tai: OUT co offset, {i,exp,got,text}         -> Q3
+GSM_SWEEP_VERSIONS = {
+    "v_orig": {
+        "hash": "457690e0a96bfe27ec2c9a9ee4602d28c6f345af7971021ae64d37089f91f107",
+        "features": "OUT khong offset; details {i,pass}",
+        "source": "git cat-file 6d86908:bench/qwen3/gsm_sweep.py",
+    },
+    "v_exp": {
+        "hash": "7e5ec003777b9a2ffb598b49bb0d3f0eb35b4575e17b5dacf72ed9480ca1953a",
+        "features": "OUT co offset; details {i,exp,got}, khong text",
+        "source": "ban repo truoc khi copy lab (da xac minh dac diem truc tiep)",
+    },
+    "v_text": {
+        "hash": "b1cb7dc35a316fd0cfe06105d8e56f61ebf4956620d194340859d0023e2ca1ae",
+        "features": "OUT co offset; details {i,exp,got,text}",
+        "source": "lab hien tai (da xac minh dac diem truc tiep)",
+    },
 }
 
 LIM_GPU = ("Diem khong tai lap duoc: can GGUF 2.5GB + Ollama + ~20-140 phut GPU. "
@@ -133,18 +157,74 @@ def pick_scorer(name, d, kind):
     return None  # typed: script rescore V3.3, kiem chuc chua xac nhan
 
 
-def scorer_from_run_id(d):
-    """Uu tien bang chung do chinh script ghi vao manifest.
+def attribute(name, d, kind, det0):
+    """Tra ve (sc_key, version_key, evidence). Khong doan.
 
-    Chi gsm_sweep.py ghi ca `tag`, `offset` va `precision`. harness_probe.py
-    khong ghi. Ten file va hinh dang details chi la suy luan, va suy luan
-    do sai: mot manifest GSM ghi boi gsm_sweep.py co details dang 'harness'
-    (chi {i,pass}) nen se bi gan nham sang harness_probe.py.
+    Moi mapping phai co it nhat 2 bang chung doc lap:
+      E1: schema cua details khop voi cau append trong script
+      E2: tag khop voi quy uoc dat ten / mau OUT cua script
+      E3: mtime script cu hon manifest (yeu, chi ho tro)
+    Neu khong du 2 bang chung: tra (None, None, ly-do).
     """
-    if isinstance(d.get("tag"), str) and isinstance(d.get("offset"), int) \
-            and d.get("precision"):
-        return "gsm_ollama"
-    return None
+    tag = d.get("tag") or ""
+    keys = set(det0.keys())
+
+    # --- R2: tag R2_* + schema khop eval_round2.py ---
+    if tag.startswith("R2_"):
+        if kind in ("gsm",):
+            return ("eval_r2", None,
+                    "E1: details {i,exp,got} khop eval_round2.py L155-156; "
+                    "E2: tag R2_* + checkpoint R2CKPT_GSM_* do script nay ghi")
+        if kind == "mmlu":
+            return ("eval_r2", None,
+                    "E1: details khop mdet.append cua eval_round2.py; "
+                    "E2: tag R2_* + checkpoint R2CKPT_MMLU_* do script nay ghi")
+        return (None, None, "tag R2_ nhung schema la khong biet")
+
+    # --- sweep GSM Q3/Q5/Q6: tag *KMi/*Ki + offset, phan biet ban ---
+    # CAN kind vi tag Q5KMi/Q6Ki dung cho ca GSM lan MMLU.
+    if kind in ("gsm", "harness") and (
+            tag in ("Q3KMi", "Q5KMi", "Q6Ki")
+            or name.startswith("RUN_GSMSWEEP_Q")):
+        if "text" in keys:
+            return ("gsm_ollama", "v_text",
+                    "E1: details co 'text', chi ban v_text ghi truong nay; "
+                    "E2: tag %s + offset, khop mau OUT co-offset" % tag)
+        if "exp" in keys and "got" in keys:
+            return ("gsm_ollama", "v_exp",
+                    "E1: details {i,exp,got} khong text, khop ban v_exp; "
+                    "E2: tag %s + offset" % tag)
+        if keys == {"i", "pass"}:
+            return ("gsm_ollama", "v_orig",
+                    "E1: details {i,pass}, khop ban goc v_orig; "
+                    "E2: tag %s" % tag)
+        return (None, None, "tag sweep nhung schema la")
+
+    # --- sweep MMLU F16/Q5/Q6 (khong phai R2) ---
+    if kind == "mmlu" and tag in ("F16", "Q5KMi", "Q6Ki"):
+        return ("mmlu_ollama", None,
+                "E1: details khop det.append cua mmlu_any.py; "
+                "E2: tag %s, khong phai R2_" % tag)
+
+    # --- R1 GSM200: schema co 'chars' ---
+    if "chars" in keys:
+        return ("gsm200_r1", None,
+                "E1: details co 'chars', chi gsm200_ollama.py L67 ghi; "
+                "E2: mau OUT RUN_QWEN3_{tag} khop ten file")
+
+    # --- FP16 baseline: truong gsm50_256 ---
+    if "gsm50_256" in d:
+        return ("gsm_fp16", None,
+                "E1: truong gsm50_256, chi eval_qwen3_gsm.py L52 ghi; "
+                "E2: model la thu muc FP16, khop dau vao transformers")
+
+    # --- harness probe ---
+    if name.startswith("RUN_HARNESS_") or kind == "harness":
+        return ("gsm_harness", None,
+                "E1: details {i,pass} khop harness_probe.py; "
+                "E2: ten file RUN_HARNESS_*")
+
+    return (None, None, "khong du 2 bang chung doc lap")
 
 
 def post_run_fix_for(tag, sc):
@@ -220,7 +300,7 @@ def main():
         det = d["details"]
         kind = detail_schema(det)
         ch = content_hash(det, kind)
-        sc = scorer_from_run_id(d) or pick_scorer(p.name, d, kind)
+        sc, ver, ev = attribute(p.name, d, kind, det[0])
 
         gname, gpath, gsha, gsrc = resolve_gguf(d, disk_idx)
         pr = dict(d.get("provenance") or {})
@@ -253,19 +333,36 @@ def main():
             "script": rel,
             "sha256": None,
             "status": None,
+            "generator_evidence": ev,
         }
-        if sc and Path(shav).exists():
+        if sc and shav and Path(shav).exists():
             cur = sha_cached(Path(shav), cache)
-            fix = post_run_fix_for(d.get("tag"), sc)
-            if fix and fix.get("hash_at_run") is None:
-                # lan patch dau: giu hash cua ban da sinh ra so lieu nay
-                fix["hash_at_run"] = cur
-            scorer_block["sha256"] = fix["hash_at_run"] if fix else cur
-            scorer_block["status"] = "verified-on-disk"
-            if fix and fix["hash_at_run"] != cur:
-                scorer_block["current_sha256"] = cur
-                scorer_block["modified_after_run"] = True
-                scorer_block["modification"] = fix["reason"]
+            if sc == "gsm_ollama" and ver:
+                # moi manifest giu hash cua DUNG ban da sinh ra no,
+                # xac dinh bang dac diem (khong phai tri nho)
+                run_h = GSM_SWEEP_VERSIONS[ver]["hash"]
+                scorer_block["sha256"] = run_h
+                scorer_block["generator_version"] = ver
+                scorer_block["generator_features"] = \
+                    GSM_SWEEP_VERSIONS[ver]["features"]
+                scorer_block["status"] = "verified-on-disk"
+                if run_h != cur:
+                    scorer_block["current_sha256"] = cur
+                    scorer_block["modified_after_run"] = True
+                    scorer_block["modification"] = (
+                        "Script bi sua SAU khi sinh so lieu nay. "
+                        "scorer_sha256 giu ban luc chay; current_sha256 la "
+                        "ban hien tai. Chi tiet 2 lan sua: (1) ten file "
+                        "manifest thieu offset nen block sau de block truoc; "
+                        "(2) them truong exp/got/text vao details.")
+            else:
+                scorer_block["sha256"] = cur
+                scorer_block["status"] = "verified-on-disk"
+                scorer_block["version_note"] = (
+                    "Lab khong co git; khong chung minh duoc file nay "
+                    "giong ban luc chay. Bang chung la schema + tag + mtime "
+                    "(xem generator_evidence). 'Khong biet sua' khac voi "
+                    "'chung minh chua sua'.")
         elif sc:
             scorer_block["status"] = "script-khong-ton-tai"
         else:
@@ -298,6 +395,10 @@ def main():
             "current_sha256": scorer_block.get("current_sha256"),
             "modified_after_run": scorer_block.get("modified_after_run"),
             "modification": scorer_block.get("modification"),
+            "generator_evidence": scorer_block.get("generator_evidence"),
+            "generator_version": scorer_block.get("generator_version"),
+            "generator_features": scorer_block.get("generator_features"),
+            "version_note": scorer_block.get("version_note"),
             "timestamp": mtime.isoformat().replace("+00:00", "Z"),
             "timestamp_source": "file-mtime-cua-manifest, KHONG phai gio chay thoi",
             "provenance": pr,

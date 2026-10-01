@@ -55,11 +55,14 @@ for j in range(a.n):
              "#### <number>", 256)
     me = re.search(r"####\s*(-?[\d,.]+)", r["answer"])
     exp = me.group(1).replace(",", "") if me else ""
-    # Luu ca exp va got: hash noi dung dataset chi pin duoc chi so i neu
-    # khong co chung. Ban truoc chi ghi {"i","pass"} nen manifest chi
-    # chung minh duoc "dung 400 cau nao", khong chung minh duoc cau do co
-    # gi. Xem notes/QWEN3_BLOCK.md.
-    det.append({"i": i, "exp": exp, "got": extract(t), "pass": extract(t) == exp})
+    # Luu ca exp, got VA TOAN BO CHUOI SINH. Ba muc do deu can:
+    #  - exp/got: hash noi dung dataset chi pin duoc chi so i neu khong co
+    #    chung (ban truoc chi ghi {"i","pass"}).
+    #  - text: de biet loi bat dau o buoc nao. Khong co no thi moi phan
+    #    tich duoc la 'sai cuc bo' hay 'lan truyen qua chuoi' phai suy
+    #    doan. Xem notes/QWEN3_BLOCK.md.
+    det.append({"i": i, "exp": exp, "got": extract(t),
+                "pass": extract(t) == exp, "text": t})
     json.dump({"done": len(det), "details": det}, open(CK, "w"))
     if len(det) % 25 == 0:
         print(f"  {len(det)}/{a.n} ({time.time()-t0:.0f}s)", flush=True)
