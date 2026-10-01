@@ -128,6 +128,22 @@ def test_honesty_fields(name):
         assert d["scorer_sha256"], name
 
 
+def test_no_crlf_in_hashed_scripts():
+    """Moi file .py duoc bam hash phai la LF thuan.
+
+    Ly do ton tai: mot script mot lan da ghi eval_round2.py bang che do
+    text cua Windows (CRLF). Patcher bam dung byte dia (CRLF) nen test
+    xanh o may lab, nhung kho git luu ban LF (do .gitattributes) nen CI
+    Linux do. Test nay bien loi nen-thanh-LF thành loi hien tai thay vi
+    de CI phat hien sau khi day.
+    """
+    bad = []
+    for p in sorted(SCRIPT_DIR.glob("*.py")):
+        if b"\r\n" in p.read_bytes():
+            bad.append(p.name)
+    assert not bad, "CRLF trong: %s (chuan hoa LF truoc khi commit)" % bad
+
+
 def test_scorer_hashes_match_repo_scripts():
     """Hash scorer phai khop mot trong cac ban da ghi nho.
 

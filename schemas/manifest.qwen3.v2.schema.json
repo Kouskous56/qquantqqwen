@@ -118,7 +118,8 @@
         "gguf_sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
         "gguf_bytes": {"type": "integer"},
         "gguf_resolved_via": {
-          "enum": ["manifest.provenance.gguf", "ollama-modelfile-FROM-blob"]
+          "enum": ["manifest.provenance.gguf", "ollama-modelfile-FROM-blob",
+                   "legacy-model-to-file-map"]
         },
         "gguf_sha256_matches_original": {"type": "boolean"},
         "gguf_sha256_from_ollama_blob": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
