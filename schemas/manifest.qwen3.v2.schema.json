@@ -68,6 +68,22 @@
       "minLength": 30,
       "description": "Ly do sua, va cho biet du lieu co bi anh huong khong."
     },
+    "generator_evidence": {
+      "type": ["string", "null"],
+      "description": "Tai sao tin script nay sinh ra manifest nay. Moi mapping can it nhat 2 bang chung doc lap (schema + tag/mau OUT/mtime). Khong co thi scorer=null."
+    },
+    "generator_version": {
+      "type": ["string", "null"],
+      "description": "Ban script nao trong cac ban da biet (v_orig/v_exp/v_text cua gsm_sweep). Chi dung khi xac dinh duoc bang dac diem."
+    },
+    "generator_features": {
+      "type": ["string", "null"],
+      "description": "Dac diem cua ban do (dong OUT, truong details) de nguoi doc tu kiem."
+    },
+    "version_note": {
+      "type": ["string", "null"],
+      "description": "Ghi ro khi lab khong co git: khong chung minh duoc file hien tai giong ban luc chay."
+    },
     "scorer_status": {
       "enum": ["verified-on-disk", "script-khong-ton-tai", "khong-xac-dinh-duoc"]
     },

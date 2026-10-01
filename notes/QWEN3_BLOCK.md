@@ -23,6 +23,22 @@ same one — so the sweep varies bit width and nothing else.
 | Q6_K | 6.5625 | 6.564 | 260/400 = 65.0% | 153/200 = 76.5% | p = 0.728 |
 | Q5_K_M | 5.5 | 5.735 | **268/400 = 67.0%** | 149/200 = 74.5% | p = 0.533 |
 | Q4_K_M | 4.5 | 4.955 | **247/400 = 61.8%** | 148/200 = 74.0% | **p = 0.0226** |
+| Q3_K_M | 3.986 | 4.377 | **220/400 = 55.0%** | (not run) | **p < 0.0001** |
+
+**The threshold is real, and it is now bracketed on both sides.**
+Q3_K_M (3.986 body bits) scores 220/400, below Q4 by 27 items with
+McNemar p = 0.0004, in the same direction in both blocks (A: 111 vs 122,
+B: 109 vs 125). Against F16 the gap is 43 items, p < 0.0001.
+
+So the damage curve across body precision is: nothing measurable at 5.5
+and 6.5625, −4.00pp at 4.5, and a further −6.75pp at 3.986. The threshold
+lies in (3.986, 4.5), tighter than the previous (4.5, 5.5) bracket.
+
+One caveat on symmetry: Q3_K_M is a *mixed* artifact (2265M params at
+Q3_K, 377M lifted to Q4_K), while Q4/Q5/Q6 are single-type bodies. A mixed
+body cannot be compared to a pure body as cleanly. But the mixture only
+makes Q3 look *better* than a pure Q3_K body would — so Q3 scoring worse
+despite 377M Q4-strength tensors strengthens, not weakens, the conclusion.
 
 **The result is a threshold, not a curve.** F16, Q6_K and Q5_K_M are mutually
 indistinguishable; only Q4_K_M separates. Q5_K_M scores *above* the lossless
