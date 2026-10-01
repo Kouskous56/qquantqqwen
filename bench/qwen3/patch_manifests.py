@@ -201,7 +201,7 @@ def attribute(name, d, kind, det0):
         return (None, None, "tag sweep nhung schema la")
 
     # --- sweep MMLU F16/Q5/Q6 (khong phai R2) ---
-    if kind == "mmlu" and tag in ("F16", "Q5KMi", "Q6Ki"):
+    if kind == "mmlu" and tag in ("F16", "Q3KMi", "Q5KMi", "Q6Ki"):
         return ("mmlu_ollama", None,
                 "E1: details khop det.append cua mmlu_any.py; "
                 "E2: tag %s, khong phai R2_" % tag)

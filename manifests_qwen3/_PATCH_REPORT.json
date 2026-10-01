@@ -1,6 +1,6 @@
 {
- "conform": 44,
- "total": 44,
+ "conform": 45,
+ "total": 45,
  "rows": [
   {
    "name": "RUN_GSM400_Q3KMi.json",
@@ -117,6 +117,16 @@
    "run_id": "0257ee53393a0e17",
    "scorer_status": "verified-on-disk",
    "gguf": "harness-dense-f16.gguf",
+   "gguf_verified": true,
+   "gguf_via": "ollama-modelfile-FROM-blob",
+   "gguf_matches_original": null,
+   "dataset_sha256": "0e56b39d5215"
+  },
+  {
+   "name": "RUN_MMLU200_Q3KMi.json",
+   "run_id": "58515117a92051eb",
+   "scorer_status": "verified-on-disk",
+   "gguf": "sweep-Q3_K_M.gguf",
    "gguf_verified": true,
    "gguf_via": "ollama-modelfile-FROM-blob",
    "gguf_matches_original": null,

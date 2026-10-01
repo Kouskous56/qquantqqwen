@@ -23,7 +23,7 @@ same one — so the sweep varies bit width and nothing else.
 | Q6_K | 6.5625 | 6.564 | 260/400 = 65.0% | 153/200 = 76.5% | p = 0.728 |
 | Q5_K_M | 5.5 | 5.735 | **268/400 = 67.0%** | 149/200 = 74.5% | p = 0.533 |
 | Q4_K_M | 4.5 | 4.955 | **247/400 = 61.8%** | 148/200 = 74.0% | **p = 0.0226** |
-| Q3_K_M | 3.986 | 4.377 | **220/400 = 55.0%** | (not run) | **p < 0.0001** |
+| Q3_K_M | 3.986 | 4.377 | **220/400 = 55.0%** | 151/200 = 75.5% | **p < 0.0001** |
 
 **The threshold is real, and it is now bracketed on both sides.**
 Q3_K_M (3.986 body bits) scores 220/400, below Q4 by 27 items with
@@ -86,9 +86,11 @@ resolve. Reporting "Q6 matches Q4" would be wrong; so would "Q6 differs from
 Q4". The honest line is: *no damage detected at Q6, and this comparison cannot
 separate them.*
 
-**4. MMLU-200 has almost no power here.** Across all quantized levels only 17
-of 200 items changed answer. Q6_K scored *above* F16 (153 vs 152), which is
-pure noise.
+**4. MMLU-200 has almost no power here.** Across all quantized levels only 24
+of 200 items changed answer (17 across the first three levels, 24 with Q3
+included). Q6_K scored *above* F16 (153 vs 152), which is
+pure noise. Q3_K_M scores 151/200, indistinguishable from F16 (p = 1.0):
+even below the damage threshold, multiple-choice knowledge does not move.
 
 ## A 200-question block is not a stable unit
 
