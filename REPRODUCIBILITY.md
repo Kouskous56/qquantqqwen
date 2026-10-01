@@ -86,10 +86,11 @@ compared against the original and the result is in
 
 **Where a manifest cannot be verified, it says so instead of guessing:**
 
-- 7 of 36 have no resolvable artifact (`gguf_available: false`) — pruned FP16
+- 7 of 45 have no resolvable artifact (`gguf_available: false`) — pruned FP16
   directories were deleted during cleanup, so there is nothing left to hash.
-- 6 of 36 (`RUN_QWEN3_TYPED_*`) have no identifiable scoring script
-  (`scorer_status: khong-xac-dinh-duoc`, `scorer: null`).
+- 12 of 45 have no identifiable scoring script
+  (`scorer_status: khong-xac-dinh-duoc`, `scorer: null`): 6 `RUN_QWEN3_TYPED_*`,
+  5 R1 MMLU (their record shape matches no script on disk), 1 smoke probe.
 - `timestamp` is the manifest's file mtime, not the original run time. This is
   stated in `timestamp_source`. File mtimes are not preserved by git, so treat
   these dates as unreliable.
@@ -111,8 +112,11 @@ discover.
 
 ## Re-running a Qwen3 measurement yourself
 
-Requires: Ollama, a Qwen3-4B GGUF, and the same calibration file. The three
-scoring scripts are in `bench/qwen3/`.
+Requires: Ollama, a Qwen3-4B GGUF, and the same calibration file. The seven
+scoring and provenance scripts are in `bench/qwen3/` (`gsm_sweep.py`,
+`mmlu_any.py`, `harness_probe.py`, `eval_round2.py`, `gsm200_ollama.py`,
+`eval_qwen3_gsm.py`, plus `patch_manifests.py` which rebuilds provenance
+without touching scores).
 
 ```bash
 # GSM8K, CoT, greedy. Two blocks of 200 so a mid-run failure loses one block.
@@ -126,6 +130,11 @@ python bench/qwen3/mmlu_any.py --model <ollama-tag> --tag MINE --precision Q4_K_
 ```
 
 Both checkpoint per item and resume, so killing one does not lose the run.
+All Qwen3 scripts accept `--notes-dir` (default `D:/qwen/notes`, the lab path
+used for every number in this repo) and `--endpoint` (default
+`http://127.0.0.1:11434`). Pass your own values on another machine; the
+defaults reproduce the lab layout byte-for-byte, which is why historical
+hashes keep matching.
 
 **One number from this block needs a caveat, and it is not a small one:** a
 single 200-question block is not a stable unit. A quantization effect of ~4pp

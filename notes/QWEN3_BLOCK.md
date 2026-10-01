@@ -54,6 +54,7 @@ type of the 180 body tensors.
 
 | artifact | 180 body tensors | body bpw | `token_embd` |
 |---|---|---|---|
+| Q3_K_M | Q3_K × 144 + Q4_K × 36 (mixed) | 3.986 | Q6_K |
 | Q4_K_M | Q4_K × 180 | 4.5 | Q6_K |
 | Q5_K_M | Q5_K × 180 | 5.5 | Q6_K |
 | Q6_K | Q6_K × 180 | 6.5625 | Q6_K |
@@ -67,7 +68,7 @@ explaining a quantity that was never varied.
 **Damage appears only at 4.5 bits of body; one extra bit of body recovers it
 completely, measurably indistinguishable from 16-bit.**
 
-## Three things this block does NOT show
+## Four things this block does NOT show
 
 **1. "Quantization hurts reasoning more than knowledge" is not established.**
 The ratio is 2.0×, and GSM reaches significance while MMLU does not. The
@@ -77,7 +78,7 @@ we did not detect damage to knowledge, but at n=200 we could not have detected
 reading is available and better supported: MMLU in forced-single-letter format
 is simply insensitive, so the asymmetry may be a property of the instrument.
 
-**2. The threshold is bracketed, not located.** 4.5 to 5.5 body bits. Nothing
+**2. The threshold is bracketed, not located.** (3.986, 4.5) body bits. Nothing
 in this sweep measures inside that interval. Do not quote 4.5 as the threshold.
 
 **3. Q6-vs-Q4 gives p = 0.079 and that is a power limit, not a finding.**
@@ -138,7 +139,7 @@ built with a matrix gained 0. The dense↔s20-c4 gap shrank from 12 items to 3.
 
 ## Provenance
 
-34 of 41 manifests resolve to a GGUF still on disk, hashed. 10 come from the
+38 of 45 manifests resolve to a GGUF still on disk, hashed. 10 come from the
 manifest's own record; 24 were resolved by walking
 model → Ollama `FROM` blob → SHA-256 → file. All 10 hashes that could be
 compared against a lab original matched exactly; 0 mismatches.
