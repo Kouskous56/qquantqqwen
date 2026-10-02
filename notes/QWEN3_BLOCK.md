@@ -148,11 +148,14 @@ built with a matrix gained 0. The dense↔s20-c4 gap shrank from 12 items to 3.
 
 ## Provenance
 
-38 of 45 manifests resolve to a GGUF still on disk, hashed. 10 come from the
-manifest's own record; 24 were resolved by walking
-model → Ollama `FROM` blob → SHA-256 → file. All 10 hashes that could be
+41 of 48 manifests resolve to a GGUF still on disk, hashed. 10 come from the
+manifest's own record; 18 were resolved by walking
+model → Ollama `FROM` blob → SHA-256 → file; 13 R1 manifests resolve
+through a verified legacy model-to-file map (blob SHAs matched before the
+Ollama models were removed, hashes recomputed from the files on every
+run). All 10 hashes that could be
 compared against a lab original matched exactly; 0 mismatches.
 
-7 have no resolvable artifact and 6 have no identifiable scorer. These are
+7 have no resolvable artifact and 12 have no identifiable scorer. These are
 recorded as unverifiable rather than filled in. See `REPRODUCIBILITY.md` for
 what CI does and does not check.

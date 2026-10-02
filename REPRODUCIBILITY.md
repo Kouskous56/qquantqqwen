@@ -86,9 +86,9 @@ compared against the original and the result is in
 
 **Where a manifest cannot be verified, it says so instead of guessing:**
 
-- 7 of 45 have no resolvable artifact (`gguf_available: false`) — pruned FP16
+- 7 of 48 have no resolvable artifact (`gguf_available: false`) — pruned FP16
   directories were deleted during cleanup, so there is nothing left to hash.
-- 12 of 45 have no identifiable scoring script
+- 12 of 48 have no identifiable scoring script
   (`scorer_status: khong-xac-dinh-duoc`, `scorer: null`): 6 `RUN_QWEN3_TYPED_*`,
   5 R1 MMLU (their record shape matches no script on disk), 1 smoke probe.
 - `timestamp` is the manifest's file mtime, not the original run time. This is
