@@ -149,11 +149,15 @@ built with a matrix gained 0. The dense↔s20-c4 gap shrank from 12 items to 3.
   measurement: per-32-element `max−min` shifts 0.005% on average (max 0.048%)
   between dense and 20%-pruned, versus exactly 0.000% vs 20.000% between dense
   and the pruned model.
+- **Q4_K_S beats Q4_K_M (p = 0.014, same 4.5-bit body).** Replicate on 400
+  fresh items (400-799, same harness, pre-registered rule): 270 vs 276,
+  opposite direction, p = 0.405; pooled 800 items p = 0.295. The original
+  p was noise among ~15 tests; the body-tensor mechanism survives.
 
 ## Provenance
 
-41 of 48 manifests resolve to a GGUF still on disk, hashed. 10 come from the
-manifest's own record; 18 were resolved by walking
+47 of 54 manifests resolve to a GGUF still on disk, hashed. 10 come from the
+manifest's own record; 24 were resolved by walking
 model → Ollama `FROM` blob → SHA-256 → file; 13 R1 manifests resolve
 through a verified legacy model-to-file map (blob SHAs matched before the
 Ollama models were removed, hashes recomputed from the files on every
