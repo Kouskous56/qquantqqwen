@@ -1,7 +1,17 @@
 {
- "conform": 45,
- "total": 45,
+ "conform": 48,
+ "total": 48,
  "rows": [
+  {
+   "name": "RUN_GSM400_Q2Ki.json",
+   "run_id": "3375e085de7f3447",
+   "scorer_status": "verified-on-disk",
+   "gguf": "sweep-Q2_K.gguf",
+   "gguf_verified": true,
+   "gguf_via": "ollama-modelfile-FROM-blob",
+   "gguf_matches_original": null,
+   "dataset_sha256": "3260aa13c3f0"
+  },
   {
    "name": "RUN_GSM400_Q3KMi.json",
    "run_id": "408e3ab345ed3775",
@@ -31,6 +41,26 @@
    "gguf_via": "ollama-modelfile-FROM-blob",
    "gguf_matches_original": null,
    "dataset_sha256": "a04be62e0444"
+  },
+  {
+   "name": "RUN_GSMSWEEP_Q2Ki_0.json",
+   "run_id": "03c647e6aa34aeb9",
+   "scorer_status": "verified-on-disk",
+   "gguf": "sweep-Q2_K.gguf",
+   "gguf_verified": true,
+   "gguf_via": "ollama-modelfile-FROM-blob",
+   "gguf_matches_original": null,
+   "dataset_sha256": "dd91b1271e1d"
+  },
+  {
+   "name": "RUN_GSMSWEEP_Q2Ki_200.json",
+   "run_id": "8bc3e7772def45cf",
+   "scorer_status": "verified-on-disk",
+   "gguf": "sweep-Q2_K.gguf",
+   "gguf_verified": true,
+   "gguf_via": "ollama-modelfile-FROM-blob",
+   "gguf_matches_original": null,
+   "dataset_sha256": "3182ab056d51"
   },
   {
    "name": "RUN_GSMSWEEP_Q3KMi_0.json",
