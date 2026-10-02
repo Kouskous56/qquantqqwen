@@ -202,10 +202,10 @@ def attribute(name, d, kind, det0):
                     "E2: tag R2_* + checkpoint R2CKPT_MMLU_* do script nay ghi")
         return (None, None, "tag R2_ nhung schema la khong biet")
 
-    # --- sweep GSM Q3/Q5/Q6: tag *KMi/*Ki + offset, phan biet ban ---
+    # --- sweep GSM Q2/Q3/Q5/Q6: tag *KMi/*Ki + offset, phan biet ban ---
     # CAN kind vi tag Q5KMi/Q6Ki dung cho ca GSM lan MMLU.
     if kind in ("gsm", "harness") and (
-            tag in ("Q3KMi", "Q5KMi", "Q6Ki")
+            tag in ("Q2Ki", "Q3KMi", "Q5KMi", "Q6Ki")
             or name.startswith("RUN_GSMSWEEP_Q")):
         if "text" in keys:
             return ("gsm_ollama", "v_text",
