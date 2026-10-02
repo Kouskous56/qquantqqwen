@@ -1,0 +1,1440 @@
+{
+ "run_id": "74cf2500d6342e89",
+ "model": "qwen3-sweep-q40",
+ "model_path_kind": "registry-name",
+ "protocol": "khong-ghi",
+ "dataset_sha256": "3182ab056d510eadf2b6b5c3ade1462f557453ac14243a586cb9195c766256a2",
+ "detail_schema": "gsm",
+ "dataset_sha256_scope": "sha256 cua (i, dap-an-mong-doi) da cham thuc su.",
+ "scorer": "bench/qwen3/gsm_sweep.py",
+ "scorer_sha256": "b1cb7dc35a316fd0cfe06105d8e56f61ebf4956620d194340859d0023e2ca1ae",
+ "scorer_status": "verified-on-disk",
+ "current_sha256": "697391f4dbd93bda0220adcf91f85ba1a65ef5168af706c3533d479df5e617c6",
+ "modified_after_run": true,
+ "modification": "Script bi sua SAU khi sinh so lieu nay. scorer_sha256 giu ban luc chay; current_sha256 la ban hien tai. Chi tiet 3 lan sua: (1) ten file manifest thieu offset nen block sau de block truoc; (2) them truong exp/got/text vao details; (3) portability: them --notes-dir/--endpoint, mac dinh giu hanh vi cu, khong doi logic cham.",
+ "generator_evidence": "E1: details co 'text', chi ban v_text ghi truong nay; E2: tag Q40 + offset, khop mau OUT co-offset",
+ "generator_version": "v_text",
+ "generator_features": "OUT co offset; details {i,exp,got,text}",
+ "version_note": null,
+ "timestamp": "2026-10-02T03:46:42.408901Z",
+ "timestamp_source": "file-mtime-cua-manifest, KHONG phai gio chay thoi",
+ "provenance": {
+  "gguf": "sweep-Q4_0.gguf",
+  "gguf_sha256": "71fbe200c38cc52f72aee299309f4513b5e3e56d20b976c3e24ec6d9963d43f9",
+  "gguf_bytes": 2375771456,
+  "gguf_resolved_via": "ollama-modelfile-FROM-blob"
+ },
+ "dataset_source": null,
+ "regenerable": false,
+ "limitation": "Diem khong tai lap duoc: can GGUF 2.5GB + Ollama + ~20-140 phut GPU. CI chi verify tinh toan, khong tao lai diem.",
+ "scores": {
+  "n": 200,
+  "gsm": 123,
+  "acc": 0.615,
+  "offset": 200,
+  "elapsed_s": 610,
+  "precision": "Q4_0"
+ },
+ "details": [
+  {
+   "i": 200,
+   "exp": "55",
+   "got": "55",
+   "pass": true,
+   "text": "Let's solve this step by step:\n\n1. Baldur gets 5 pails of water in the morning.\n2. He gets 6 pails of water in the afternoon.\n3. So, total pails per day = 5 (morning) + 6 (afternoon) = 11 pails.\n4. Each pail contains 5 liters of water.\n5. So, total water per day = 11 pails × 5 liters per pail = 55 liters.\n\n#### 55"
+  },
+  {
+   "i": 201,
+   "exp": "114200",
+   "got": "21",
+   "pass": false,
+   "text": "Let's solve this step by step.\n\n**Step 1: Understand the components of the award**\n\nJohn receives:\n- A one-time monetary reward of **$5,000**\n- A **5% raise in salary**\n\nHe makes **$2,000 per week**.\n\nWe are to find out **how much money he made that year**, considering:\n- His weekly salary\n- The 5% raise (which starts on the first day of the year)\n- The one-time $5,000 bonus\n\n**Step 2: Determine his weekly salary after the raise**\n\nHe makes $2,000 per week before the raise.\n\nWith a 5% raise:\n- Raise amount = 5% of $2,000 = 0.05 × 2000 = $100\n- New weekly salary = $2,000 + $100 = **$2,100 per week**\n\n**Step 3: How many weeks in a year?**\n\nAssuming a standard year with 52 weeks (we don’t account for leap years unless specified, and the problem doesn’t mention it)\n\nSo, weekly earnings after raise = $2,1"
+  },
+  {
+   "i": 202,
+   "exp": "100",
+   "got": "100",
+   "pass": true,
+   "text": "Let's solve this step by step:\n\n1. **Grapes per acre per year**:  \n   Each acre produces 5 tons of grapes per year.\n\n2. **Total acres**:  \n   Josie has 10 acres.\n\n3. **Total tons of grapes per year**:  \n   10 acres × 5 tons/acre = 50 tons of grapes per year.\n\n4. **Barrels of wine per ton**:  \n   Each ton of grapes makes 2 barrels of wine.\n\n5. **Total barrels of wine per year**:  \n   50 tons × 2 barrels/ton = 100 barrels.\n\n#### 100"
+  },
+  {
+   "i": 203,
+   "exp": "31",
+   "got": "8",
+   "pass": false,
+   "text": "Let's solve this step by step.\n\nWe are given:\n\n- Carl ate a sandwich every day for lunch this week.  \n  → There are 7 days in a week.  \n  → Each sandwich used **2 slices of cheese**.  \n  → So, lunch cheese = 7 days × 2 slices = **14 slices**\n\n- For breakfast, he ate cheese and egg omelets on **3 days**.  \n  → Each omelet used **one more slice than per sandwich**.  \n  → Sandwich uses 2 slices → omelet uses 2 + 1 = **3 slices per omelet**  \n  → So, breakfast cheese = 3 days × 3 slices = **9 slices**\n\n- He also made a big dish of macaroni and cheese for several dinners.  \n  → The problem says: \"to last him several dinners for the week\" and \"used 8 slices of cheese in it\".  \n  → So, this is **one dish** that used **8 slices**.  \n  → We assume this was for **several dinners**, but we are told how much cheese was used: **8 slices**.\n\nNow, total cheese used =  \n- Lunch (sandwiches"
+  },
+  {
+   "i": 204,
+   "exp": "98",
+   "got": "98",
+   "pass": true,
+   "text": "Let's solve this step by step:\n\n1. **Initial pens:**\n   - Green pens: 22\n   - Yellow pens: 10  \n   So, total initial pens = 22 + 10 = **32 pens**\n\n2. **Blue pens:**\n   - She bought 6 bags of blue pens\n   - Each bag has 9 pens\n   - Total blue pens = 6 × 9 = **54 pens**\n\n3. **Red pens:**\n   - She bought 2 bags of red pens\n   - Each bag has 6 pens\n   - Total red pens = 2 × 6 = **12 pens**\n\n4. **Total pens now:**\n   - Initial pens: 32\n   - Blue pens: 54\n   - Red pens: 12  \n   Total = 32 + 54 + 12 = **98 pens**\n\n#### 98"
+  },
+  {
+   "i": 205,
+   "exp": "98",
+   "got": "86",
+   "pass": false,
+   "text": "Let's solve this step by step.\n\nWe are told:\n\n- Brinley has taken 5 tests with scores: 89, 71, 92, 100, 86.\n- Mr. Bert allows students to **remove the lowest score** when calculating the average.\n- Brinley wants an **average of 93** over the six tests.\n- We need to find the score she needs on the **sixth test** to achieve this average, **after removing the lowest score**.\n\n---\n\n### Step 1: Understand the rule\nShe can remove the **lowest** of the six test scores when computing the average. So, the average will be based on the **highest five scores**, excluding the lowest one.\n\nWe want the average of the **top 5 scores** (after removing the lowest) to be **93**.\n\nSo, we are to find the score on the sixth test such that, when we remove the lowest score among the six, the average of the remaining five is 93.\n\n---\n\n### Step 2: Current scores\nScores: 89, 71, 92, 100, 86, and one unknown (let's call"
+  },
+  {
+   "i": 206,
+   "exp": "860",
+   "got": "860",
+   "pass": true,
+   "text": "Let's solve this step by step.\n\n**Step 1: First period – 4 weeks, 5 times a week, 25 km each time**\n\n- Rides per week: 5\n- Distance per ride: 25 km\n- Weeks: 4\n\nTotal distance in first period:\n= 5 rides/week × 25 km/ride × 4 weeks  \n= 125 km/week × 4 weeks  \n= 500 km\n\n**Step 2: Second period – 3 weeks, 2 times a week, 60 km each time**\n\n- Rides per week: 2\n- Distance per ride: 60 km\n- Weeks: 3\n\nTotal distance in second period:\n= 2 rides/week × 60 km/ride × 3 weeks  \n= 120 km/week × 3 weeks  \n= 360 km\n\n**Step 3: Total distance**\n\n= First period + Second period  \n= 500 km + 360 km  \n= **860 km**\n\n#### 860"
+  },
+  {
+   "i": 207,
+   "exp": "2600",
+   "got": "5.",
+   "pass": false,
+   "text": "Let's solve this step by step:\n\n1. We are given:\n   - Joe has 25 chocolate bars and 80 candied apples.\n   - Each chocolate bar weighs 40 grams.\n   - Each chocolate bar weighs **twice as much** as each candied apple.\n\n2. First, find the weight of one candied apple:\n   - Since a chocolate bar weighs twice as much as a candied apple, and a chocolate bar is 40g:\n     $$\n     \\text{Weight of one candied apple} = \\frac{40}{2} = 20 \\text{ grams}\n     $$\n\n3. Now calculate total weight of chocolate bars:\n   - 25 chocolate bars × 40g each:\n     $$\n     25 \\times 40 = 1000 \\text{ grams}\n     $$\n\n4. Now calculate total weight of candied apples:\n   - 80 candied apples × 20g each:\n     $$\n     80 \\times 20 = 1600 \\text{ grams}\n     $$\n\n5. Total weight of the bag:\n   - Chocolate bars + candied apples:\n     $$\n"
+  },
+  {
+   "i": 208,
+   "exp": "76",
+   "got": "76",
+   "pass": true,
+   "text": "Let's solve this step by step:\n\n1. **Monday**:  \n   Rose bought 4 cakes.\n\n2. **Tuesday**:  \n   She bought three times the number of cakes she bought on Monday.  \n   So, Tuesday = 3 × 4 = 12 cakes.\n\n3. **Wednesday**:  \n   She bought 5 times the number of cakes she did on Tuesday.  \n   So, Wednesday = 5 × 6 = 30 cakes? Wait — let's double-check:  \n   Tuesday was 12 cakes, so:  \n   Wednesday = 5 × 12 = 60 cakes.\n\nNow, total cakes over the three days:\n\n- Monday: 4  \n- Tuesday: 12  \n- Wednesday: 60  \n\nAdd them:  \n4 + 12 = 16  \n16 + 60 = 76\n\n#### 76"
+  },
+  {
+   "i": 209,
+   "exp": "145",
+   "got": "240",
+   "pass": false,
+   "text": "Let's solve this step by step.\n\nWe are given:\n\n- Twenty dozen cups cost $1200 **less** than the total cost of half a dozen plates sold at $6000 each.\n- We are to **calculate the total cost of buying each cup**.\n\n---\n\n### Step 1: Understand what \"twenty dozen cups\" means\n\n- 1 dozen = 12\n- So, 20 dozen = 20 × 12 = 240 cups\n\nLet the **cost per cup** be **x** dollars.\n\nThen, the **total cost for 240 cups** = 240x\n\n---\n\n### Step 2: Understand the cost of half a dozen plates\n\n- \"Half a dozen\" = 6 plates\n- Each plate is sold at $6000\n- So, total cost for 6 plates = 6 × 6000 = $36,000\n\n---\n\n### Step 3: Use the given relationship\n\n> Twenty dozen cups cost $1200 **less** than the total cost of half a dozen plates sold at $6000 each.\n\nSo:\n\n> Cost of 240 cups = Cost"
+  },
+  {
+   "i": 210,
+   "exp": "10",
+   "got": "60",
+   "pass": false,
+   "text": "Let's solve this step by step.\n\n### Step 1: Determine the total cost of the items\n- Jacket: $30  \n- 2 pairs of shoes: 2 × $20 = $40  \n**Total cost** = $30 + $40 = **$70**\n\n### Step 2: How much money does Sara already have?\n- Already saved: $10  \nSo, she needs **$70 - $10 = $60** more.\n\n### Step 3: How much does she earn from babysitting and mowing the lawn?\n- Babysits 4 times, $5 each:  \n  4 × $5 = $20  \n- Mowing the lawn: $4 per time (we need to find how many times she must do it)\n\nLet’s say she mows the lawn **x** times.  \nThen, money from mowing = 4x dollars.\n\nTotal money she earns from babysitting and mowing = $20 + 4x\n\nThis total must be at least $60 (the amount needed after her initial $10).\n\nSo:\n$$\n20 + 4x \\geq 60\n$$\n\nSubtract"
+  },
+  {
+   "i": 211,
+   "exp": "4",
+   "got": "4",
+   "pass": true,
+   "text": "Let's solve this step by step.\n\nWe are given:\n\n- Red chickens produce **3 eggs per day**.\n- White chickens produce **5 eggs per day**.\n- Jerry collects **42 eggs per day**.\n- He has **two more white chickens than red chickens**.\n\nLet’s define variables:\n\nLet **r** = number of red chickens  \nThen, number of white chickens = **r + 2**\n\nTotal eggs per day = (red chickens × 3) + (white chickens × 5) = 42\n\nSo we write the equation:\n\n3r + 5(r + 2) = 42\n\nNow simplify:\n\n3r + 5r + 10 = 42  \n8r + 10 = 42  \n8r = 42 - 10 = 32  \nr = 32 / 8 = 4\n\nSo Jerry has **4 red chickens**.\n\nLet’s verify:\n\n- Red chickens: 4 → 4 × 3 = 12 eggs  \n- White chickens: 4 + 2 = 6 → 6 × 5 = 30 eggs  \n- Total: 12 + 30 = 4"
+  },
+  {
+   "i": 212,
+   "exp": "5",
+   "got": "5",
+   "pass": true,
+   "text": "Let's solve this step by step:\n\n1. **Find the perimeter of the park**  \n   The park is a rectangle measuring 1.5 miles by 6 miles.  \n   The perimeter of a rectangle is:  \n   $$\n   P = 2 \\times (\\text{length} + \\text{width})\n   $$  \n   So:  \n   $$\n   P = 2 \\times (6 + 1.5) = 2 \\times 7.5 = 15 \\text{ miles}\n   $$\n\n2. **Gary walks the entire perimeter**  \n   So he walks 15 miles.\n\n3. **He walks at 3 miles per hour**  \n   Time = Distance ÷ Speed  \n   $$\n   \\text{Time} = \\frac{15 \\text{ miles}}{3 \\text{ miles/hour}} = 5 \\text{ hours}\n   $$\n\n#### 5"
+  },
+  {
+   "i": 213,
+   "exp": "250",
+   "got": "250",
+   "pass": true,
+   "text": "Let's solve this step by step:\n\n1. On the **first day**, Sloane counts **100 customers**.\n\n2. On the **second day**, she counts **50 more** than the first day:\n   - So, second day = 100 + 50 = **150 customers**\n\n3. The **total number of customers by the third day** is **500**.\n\n4. We are asked: **How many customers did she count on the third day?**\n\nSo, total customers over three days = 500  \nWe already know:\n- Day 1: 100\n- Day 2: 150  \nSo, total for first two days = 100 + 150 = 250\n\nTherefore, customers on the **third day** = Total – first two days  \n= 500 – 250 = **250**\n\n#### 250"
+  },
+  {
+   "i": 214,
+   "exp": "8",
+   "got": "4",
+   "pass": false,
+   "text": "Let's solve this step by step.\n\nWe are told:\n\n- Both pools have leaks that empty them at **4 gallons per minute**.\n- 4 minutes ago, the **big pool had twice as much water** as the small pool.\n- Now, the **big pool has four times as much water** as the small pool.\n- We are to find **how much water the small pool has now**.\n\n---\n\nLet’s define variables:\n\nLet:\n- $ S $ = current amount of water in the **small pool** (in gallons)\n- $ B $ = current amount of water in the **big pool** (in gallons)\n\nWe are told:\n- Now: $ B = 4S $\n\nAlso, 4 minutes ago, both pools were leaking at 4 gallons per minute, so each lost:\n- $ 4 \\text{ minutes} \\times 4 \\text{ gal/min} = 16 \\text{ gallons} $\n\nSo, 4 minutes ago:\n- Small pool had: $ S + 16 $\n- Big pool had: $ B + 16 $\n\nBut we are told that **4 minutes ago**, the big pool had **twice as much** as the small pool.\n\nSo:\n$$\nB"
+  },
+  {
+   "i": 215,
+   "exp": "44",
+   "got": "44",
+   "pass": true,
+   "text": "Let's solve this step by step:\n\n1. **Find the total cost of the items:**\n   - Shoes: $320.00\n   - Belt: $32.00\n   - Total cost = $320.00 + $32.00 = **$352.00**\n\n2. **Lori earns $8.00 per hour.**\n\n3. **We need to find how many hours she must work to earn $352.00.**\n\n   Use the formula:\n   $$\n   \\text{Hours} = \\frac{\\text{Total cost}}{\\text{Hourly wage}} = \\frac{352}{8}\n   $$\n\n4. **Calculate:**\n   $$\n   352 \\div 8 = 44\n   $$\n\nSo, Lori needs to work **44 hours**.\n\n#### 44"
+  },
+  {
+   "i": 216,
+   "exp": "220",
+   "got": "220",
+   "pass": true,
+   "text": "Let's solve this step by step.\n\nStep 1: Determine the total amount Janeth promised to return.\n\nShe borrowed $2000 and promised to return **10% more** of the amount.\n\nSo, the total amount to be repaid = original amount + 10% of original amount  \n= $2000 + (10% of $2000)  \n= $2000 + $200  \n= **$2200**\n\nSo, she owes $2200 in total.\n\nStep 2: Determine how much she will pay over 12 months.\n\nShe pays $165 per month for 12 months.\n\nTotal payments = $165 × 12 = **$1980**\n\nStep 3: Calculate the remaining balance after 12 months.\n\nRemaining balance = Total amount owed – Total payments  \n= $2200 – $1980  \n= **$220**\n\n#### 220"
+  },
+  {
+   "i": 217,
+   "exp": "15",
+   "got": "15",
+   "pass": true,
+   "text": "Let's solve this step by step:\n\n1. We are told there are **4 roses** in the vase.\n\n2. There are **7 more dahlias than roses**.  \n   Since there are 4 roses, then the number of dahlias = 4 + 7 = **11 dahlias**.\n\n3. Now, to find the total number of flowers in the vase, we add the number of roses and dahlias:  \n   Total flowers = roses + dahlias = 4 + 11 = **15**\n\n#### 15"
+  },
+  {
+   "i": 218,
+   "exp": "45",
+   "got": "135",
+   "pass": false,
+   "text": "Let's solve this step by step.\n\nWe are given:\n\n- Harriet is 21 years old now.\n- Adrian's age is three times Harriet's age.\n- Harriet is half the age of Zack.\n\nWe are to **calculate the average age of the three in three years**.\n\n---\n\n**Step 1: Find current ages**\n\nHarriet = 21 years\n\nAdrian = 3 × Harriet = 3 × 21 = 63 years\n\nHarriet is half the age of Zack → So Zack is twice Harriet's age  \nZack = 2 × 21 = 42 years\n\nSo current ages:\n- Adrian: 63\n- Harriet: 21\n- Zack: 42\n\n---\n\n**Step 2: Find their ages in three years**\n\nIn three years:\n- Adrian: 63 + 3 = 66\n- Harriet: 21 + 3 = 24\n- Zack: 42 + 3 = 45\n\n---\n\n**Step 3: Calculate the average age in three years**\n\nAverage = (66 + 24 + 45) / 3  \n= (135"
+  },
+  {
+   "i": 219,
+   "exp": "54",
+   "got": "68",
+   "pass": false,
+   "text": "Let's solve this step by step.\n\nWe are told:\n\n- Total points scored by four students: **251**\n- Naomi scored: **68** points\n- Yuri scored **10 more than half as many points as Naomi**\n- Brianna scored **17 points more than Naomi**\n- We need to find how many points **Jojo** scored.\n\n---\n\n**Step 1: Naomi's score**\n\nNaomi = 68 points ✅\n\n---\n\n**Step 2: Yuri's score**\n\nYuri scored 10 more than half as many points as Naomi.\n\nHalf of Naomi's points:  \n½ × 68 = 34\n\nThen add 10:  \n34 + 10 = **44**\n\nSo Yuri = 44 points ✅\n\n---\n\n**Step 3: Brianna's score**\n\nBrianna scored 17 points more than Naomi.\n\n68 + 17 = **85**\n\nSo Brianna = 85 points ✅\n\n---\n\n**Step 4: Total points scored by Naomi, Yuri, and Brianna**\n\n68 (Naomi) + 44 (Yuri) + 85 (Brianna) =  \n68"
+  },
+  {
+   "i": 220,
+   "exp": "70",
+   "got": "70",
+   "pass": true,
+   "text": "Let's solve this step by step:\n\n1. **Time to finish one crossword puzzle**: 10 minutes  \n   Carmen solved **3** crossword puzzles.  \n   So, time spent on crosswords = 3 × 10 = **30 minutes**\n\n2. **Time to finish one sudoku puzzle**: 5 minutes  \n   Carmen solved **8** sudoku puzzles.  \n   So, time spent on sudokus = 8 × 5 = **40 minutes**\n\n3. **Total time spent**:  \n   30 minutes (crosswords) + 40 minutes (sudokus) = **70 minutes**\n\n#### 70"
+  },
+  {
+   "i": 221,
+   "exp": "90",
+   "got": "90",
+   "pass": true,
+   "text": "Let's solve this step by step:\n\n1. **Initial amount of water in the tank**:  \n   120 liters\n\n2. **Water used by Celine to water the garden**:  \n   90 liters\n\n3. **Water left after using 90 liters**:  \n   120 - 90 = 30 liters\n\n4. **Rainwater collected**:  \n   It is stated that she collected rainwater that is **twice as much** as what was left.  \n   What was left was 30 liters, so:  \n   Rainwater collected = 2 × 30 = 60 liters\n\n5. **Total water in the tank now**:  \n   The original water was reduced by 90 liters, then she added 60 liters of rainwater.  \n   So:  \n   120 - 90 + 60 = 30 + 60 = 90 liters\n\n#### 90"
+  },
+  {
+   "i": 222,
+   "exp": "140",
+   "got": "140",
+   "pass": true,
+   "text": "Let's solve this step by step:\n\n1. Andy plants **90 geraniums**.\n\n2. He plants **40 fewer petunias than geraniums**.  \n   So, number of petunias = 90 - 40 = **50 petunias**.\n\n3. Total flowers = geraniums + petunias  \n   = 90 + 50 = **140**\n\n#### 140"
+  },
+  {
+   "i": 223,
+   "exp": "20000",
+   "got": "20000",
+   "pass": true,
+   "text": "Let's solve this step by step:\n\n1. The company spends $15,000 on advertising for the first year.\n\n2. For the second year, it spends a third of the first year's amount:\n   - A third of $15,000 = $15,000 ÷ 3 = $5,000\n\n3. Total spending over two years:\n   - First year: $15,000\n   - Second year: $5,000\n   - Total = $15,000 + $5,000 = $20,000\n\n#### 20000"
+  },
+  {
+   "i": 224,
+   "exp": "180",
+   "got": "180",
+   "pass": true,
+   "text": "Let's solve this step by step:\n\n1. **Carlos's rental cost:**\n   - Carlos rents a canoe for $30 per hour.\n   - He uses it for 3 hours.\n   - Cost = 30 dollars/hour × 3 hours = $90.\n\n2. **Benji's rental cost:**\n   - Benji rents a banana boat raft for $18 per hour.\n   - He uses it for 5 hours.\n   - Cost = 18 dollars/hour × 5 hours = $90.\n\n3. **Total cost:**\n   - Add Carlos's and Benji's costs together.\n   - $90 + $90 = $180.\n\n#### 180"
+  },
+  {
+   "i": 225,
+   "exp": "9",
+   "got": "9",
+   "pass": true,
+   "text": "Let's solve this step by step:\n\n1. **Time to travel by bus (New Jersey to Rochester):**  \n   Given: 6 days\n\n2. **Time to travel by car (New Jersey to Rochester):**  \n   Given: Half as many days as by bus  \n   So, car travel time = 6 ÷ 2 = 3 days\n\n3. **Andrew's plan:**  \n   - Go to Rochester by **bus** → 6 days  \n   - Return from Rochester by **car** → 3 days\n\n4. **Total travel time:**  \n   6 days (bus) + 3 days (car) = **9 days**\n\n#### 9"
+  },
+  {
+   "i": 226,
+   "exp": "33",
+   "got": "100",
+   "pass": false,
+   "text": "Let's solve this step by step.\n\n### Step 1: Initial counts\nJames starts with:\n- Fire type: 30\n- Grass type: 20\n- Water type: 40\n\n### Step 2: Changes\n- He **loses 8 water type** cards → 40 - 8 = 32 water type\n- He **buys 14 grass type** → 20 + 14 = 34 grass type\n\nSo now:\n- Fire: 30 (unchanged)\n- Grass: 34\n- Water: 32\n\n### Step 3: Total number of cards now\nTotal = 30 (fire) + 34 (grass) + 32 (water)  \n= 30 + 34 + 32 = **96**\n\n### Step 4: Probability that a randomly picked card is water type\nWater cards = 32  \nTotal cards = 96\n\nSo, probability = 32 / 96 = 1/3 ≈ 0.3333...\n\n### Step 5: Convert to percentage\n0.3333... × 100 ="
+  },
+  {
+   "i": 227,
+   "exp": "9",
+   "got": "14.0",
+   "pass": false,
+   "text": "Let's break this down step by step:\n\n1. **Base burrito**: $6.50  \n2. **Extra meat**: $2.00  \n3. **Extra cheese**: $1.00  \n4. **Avocado**: $1.00  \n5. **2 sauces**: $0.25 each → 2 × $0.25 = $0.50  \n6. **Upgrade for chips and drink**: $3.00  \n\nNow, add up all the add-ons:\n\n- Base: $6.50  \n- Extra meat: +$2.00 → $8.50  \n- Extra cheese: +$1.00 → $9.50  \n- Avocado: +$1.00 → $10.50  \n- Sauces: +$0.50 → $11.00  \n- Upgrade (chips & drink): +$3.00 → $14.00  \n\nTotal cost before gift card: **$14.00**\n\nHe has a **$5.00 gift card**, which he uses at checkout.\n\nSo, amount he still owes:  \n$14.0"
+  },
+  {
+   "i": 228,
+   "exp": "1",
+   "got": "1",
+   "pass": true,
+   "text": "Let's solve this step by step.\n\nWe are given:\n\n- Total puzzle pieces: 360\n- Kalinda's rate: 4 pieces per minute\n- Mom's rate: half of Kalinda's → 4 ÷ 2 = 2 pieces per minute\n\nSo, together, their combined rate is:\n\n4 (Kalinda) + 2 (Mom) = 6 pieces per minute\n\nNow, we want to find out how many minutes it will take to complete 360 pieces at 6 pieces per minute:\n\nTime (in minutes) = Total pieces ÷ Combined rate  \n= 360 ÷ 6  \n= 60 minutes\n\nNow convert minutes to hours:\n\n60 minutes = 60 ÷ 60 = 1 hour\n\n#### 1"
+  },
+  {
+   "i": 229,
+   "exp": "21",
+   "got": "4",
+   "pass": false,
+   "text": "Let's solve this step by step.\n\n**Step 1: Initial number of watermelons**\nThe farm started with **120** baby watermelons.\n\n---\n\n**Step 2: First harvest — after two months**\n\n30% of the watermelons were ready for harvest.\n\nSo, number of watermelons harvested the first time:\n$$\n30\\% \\text{ of } 120 = 0.30 \\times 120 = 36\n$$\n\nRemaining after first harvest:\n$$\n120 - 36 = 84\n$$\n\n---\n\n**Step 3: Two weeks later — 3/4 of the remaining melons are ready**\n\nNow, 3/4 of the **remaining 84** melons are ready for harvest.\n\nSo, number harvested the second time:\n$$\n\\frac{3}{4} \\times 84 = 63\n$$\n\nRemaining after second harvest:\n$$\n84 - 63 = 21\n$$\n\n---\n\n**Step 4: Answer the question**\n\n> How many melons were **not ready** to be harvested after the two weeks?\n\nThat means the number left that were **not"
+  },
+  {
+   "i": 230,
+   "exp": "276000",
+   "got": "1200",
+   "pass": false,
+   "text": "Let's solve this step by step:\n\n1. **Cost of the cars**:  \n   Mark buys 12 cars, each selling for $20,000.  \n   So, total cost of cars = 12 × $20,000 = $240,000\n\n2. **Tax on the cars**:  \n   He pays 10% tax on the cars.  \n   Tax amount = 10% of $240,000 = 0.10 × $240,000 = $24,000\n\n3. **Registration fees**:  \n   He pays $1,000 for registration on each car.  \n   Total registration cost = 12 × $1,000 = $12,000\n\n4. **Total cost**:  \n   Add up all the costs:  \n   - Cost of cars: $240,000  \n   - Tax: $24,000  \n   - Registration: $12,000  \n   Total = $240,000 + $24,000 + $12,00"
+  },
+  {
+   "i": 231,
+   "exp": "50",
+   "got": "50",
+   "pass": true,
+   "text": "Let's solve this step by step:\n\n1. On Monday:\n   - Robert collects 20 shells.\n   - Kylie collects 5 more shells than Robert.\n   - So, Kylie's collection on Monday = 20 + 5 = 25 shells.\n\n2. On Tuesday:\n   - Kylie collects **2 times more** shells than she did on Monday.\n   - \"2 times more\" can be interpreted as **twice as many**, which is 2 × 25 = 50 shells.\n\nNote: Sometimes \"2 times more\" is misinterpreted, but in standard mathematical usage, \"2 times more\" means \"twice as many\" — so 2 × 60 = 120 is not correct here. We are not adding 200% more, we are just doubling.\n\nSo, 2 × 25 = 50 shells.\n\n#### 50"
+  },
+  {
+   "i": 232,
+   "exp": "75",
+   "got": "75",
+   "pass": true,
+   "text": "Let's solve this step by step:\n\n1. We are told that Dax found **half as many bugs as ants** in the garden.\n2. The number of ants is given as **50**.\n3. So, the number of bugs = half of the number of ants =  \n   $ \\frac{1}{2} \\times 50 = 25 $ bugs.\n\n4. Now, to find the **total number of insects**, we add the number of ants and bugs:  \n   $ 50 + 25 = 75 $\n\nSo, the total number of insects in the garden is **75**.\n\n#### 75"
+  },
+  {
+   "i": 233,
+   "exp": "12",
+   "got": "12",
+   "pass": true,
+   "text": "Let's solve this step by step:\n\n1. We start with **36 penguins** sunbathing in the snow.\n\n2. One-third of them jump in and swim in the ocean:\n   - One-third of 36 = (1/3) × 36 = **12 penguins**\n\n3. Another one-third go inside the cave to eat:\n   - (1/3) × 36 = **12 penguins**\n\n4. So, total number of penguins that left (swam or went to cave) = 12 + 12 = **24 penguins**\n\n5. Therefore, the number of penguins still left sunbathing =  \n   36 - 24 = **12 penguins**\n\n#### 12"
+  },
+  {
+   "i": 234,
+   "exp": "21",
+   "got": "14",
+   "pass": false,
+   "text": "Let's solve this step by step:\n\n1. **Steve eats 6 tomatoes per day.**  \n   So, in a week (7 days), Steve eats:  \n   6 tomatoes/day × 7 days = **42 tomatoes per week**\n\n2. **Steve eats twice as much as his girlfriend.**  \n   Let’s find out how much his girlfriend eats.  \n   If Steve eats twice as much as his girlfriend, then:  \n   Let G = amount girlfriend eats per day  \n   Then Steve eats 2G = 6  \n   So, G = 6 / 2 = 3 tomatoes per day  \n   But we don’t need her daily consumption — we already have Steve’s weekly consumption.\n\n3. **Each vine produces 3 tomatoes per week.**  \n   So, to find how many vines Steve needs to produce 42 tomatoes per week:  \n   Number of vines = Total tomatoes needed / Tomatoes per vine  \n   = 42 / 3 = **14 vines**\n\n#### 14"
+  },
+  {
+   "i": 235,
+   "exp": "10",
+   "got": "10",
+   "pass": true,
+   "text": "Let's solve this step by step:\n\n1. **Total number of friends**: 20  \n   John wants each friend to have 4 slices.\n\n2. **Total slices needed**:  \n   20 friends × 4 slices each = **80 slices**\n\n3. **Slices per pizza**:  \n   Each pizza is sliced into 8 portions (i.e., 8 slices)\n\n4. **Number of pizzas needed**:  \n   Total slices needed ÷ slices per pizza  \n   = 80 ÷ 8 = **10 pizzas**\n\nSo, John needs to order 10 pizzas.\n\n#### 10"
+  },
+  {
+   "i": 236,
+   "exp": "31",
+   "got": "25",
+   "pass": false,
+   "text": "Let's solve this step by step.\n\nWe are told:\n\n- Ram can **save money** by **mixing ink from 5 empty pens to make 1 full pen**.\n- He **buys 25 pens** initially.\n- When ink runs low, he **uses the empty pens** to make new full pens by mixing ink from 5 empty pens → 1 full pen.\n\nWe are to find: **How many total pens does he end up with?**\n\n---\n\nStep 1: He starts with 25 pens.\n\nAs he uses pens, they become empty. When a pen is used up, it becomes an empty pen.\n\nSo, every time he uses a pen, it becomes an empty pen.\n\nNow, when he has 5 empty pens, he can **make 1 full pen** from their ink.\n\nSo, the process is:\n\n- For every 5 empty pens, he can create 1 new full pen.\n\nThis means: **He can recycle 5 empty pens into 1 full pen.**\n\nSo, the total number of pens he ends up with is:\n\n- Original 25 pens → he uses them, so they become 25 empty pens.\n- Then, from those 25 empty pens,"
+  },
+  {
+   "i": 237,
+   "exp": "90",
+   "got": "90",
+   "pass": true,
+   "text": "Let's solve this step by step:\n\n1. Johnny's original allowance is $20.  \n2. He adds an extra $10 to it.  \n   So, the total amount he invests is:  \n   $20 + $10 = $30  \n3. This amount triples in a year.  \n   So, after one year, the amount becomes:  \n   $30 × 3 = $90  \n\nTherefore, after a year, Johnny has $90.\n\n#### 90"
+  },
+  {
+   "i": 238,
+   "exp": "68",
+   "got": "68",
+   "pass": true,
+   "text": "Let's solve this step by step:\n\n1. We are given that **Jessa is 20 years old**.\n\n2. Joan is **five years older than Jessa**:\n   - So, Joan's age = Jessa's age + 5\n   - Joan = 20 + 5 = **25 years old**\n\n3. Mary is **two years younger than Joan**:\n   - So, Mary's age = Joan's age - 2\n   - Mary = 25 - 2 = **23 years old**\n\n4. Now, sum the ages of the three girls:\n   - Jessa: 20\n   - Joan: 25\n   - Mary: 23\n   - Sum = 20 + 25 + 23 = **68**\n\n#### 68"
+  },
+  {
+   "i": 239,
+   "exp": "280",
+   "got": "700",
+   "pass": false,
+   "text": "Let's solve the problem step by step.\n\nWe are given:\n\n- Total number of students initially = 1000\n- 30% of the students went out through **exit A**\n- Then, **3/5 of the remaining** students went out through **exit B**\n- The **rest** went out through **exit C**\n\nWe need to find how many students went out through **exit C**.\n\n---\n\n**Step 1: Students who went through exit A**\n\n30% of 1000:\n\n$$\n0.30 \\times 1000 = 300\n$$\n\nSo, 300 students left through exit A.\n\nRemaining students:\n\n$$\n1000 - 300 = 700\n$$\n\n---\n\n**Step 2: Students who went through exit B**\n\n3/5 of the **remaining** (700) went through exit B:\n\n$$\n\\frac{3}{5} \\times 700 = 420\n$$\n\nSo, 420 students left through exit B.\n\n---\n\n**Step 3: Students who went through exit C**\n\nThe rest went through exit C:\n\n$$\n700"
+  },
+  {
+   "i": 240,
+   "exp": "21",
+   "got": "21",
+   "pass": true,
+   "text": "Let's solve this step by step.\n\nWe are given:\n\n- James has 6 more candies than Robert.\n- John has twice as many candies as Robert.\n- John has 54 candies.\n\nWe need to find: **How many more candies does John have than James?**\n\n---\n\nStep 1: Let Robert's number of candies be **R**.\n\nSince John has twice as many candies as Robert:\n\n> John = 2 × R\n\nWe are told John has 54 candies:\n\n> 2R = 54\n\nSolve for R:\n\n> R = 54 ÷ 2 = 27\n\nSo Robert has **27 candies**.\n\n---\n\nStep 2: James has 6 more candies than Robert.\n\n> James = R + 6 = 27 + 6 = 33\n\nSo James has **33 candies**.\n\n---\n\nStep 3: How many more candies does John have than James?\n\n> John - James = 54 - 33 = 21\n\n---\n\n#### 21"
+  },
+  {
+   "i": 241,
+   "exp": "6",
+   "got": "5.",
+   "pass": false,
+   "text": "Let's solve this step by step:\n\n1. **Initial books:**\n   - Dolly has 2 books.\n   - Pandora has 1 book.\n   - Total books = 2 + 1 = 3 books.\n\n2. **Who reads what?**\n   - Dolly reads her own books and Pandora's book.\n   - Pandora reads her own book and Dolly's books.\n\n3. **What does \"read\" mean here?**\n   - The question says: \"both Dolly and Pandora read each other's books as well as their own.\"\n   - So each person reads:\n     - Their own books\n     - The other person's books\n\n4. **How many books do they read collectively?**\n   - Dolly reads:\n     - Her 2 books\n     - Pandora's 1 book\n     → Total for Dolly: 3 books\n\n   - Pandora reads:\n     - Her 1 book\n     - Dolly's 2 books\n     → Total for Pandora: 3 books\n\n   - Total books read collectively: 3 (by Dolly) + 3 (by Pandora) = 6\n\n5. **Important note:**\n   - The question is not asking how many books they *"
+  },
+  {
+   "i": 242,
+   "exp": "3",
+   "got": "3",
+   "pass": true,
+   "text": "Let's solve this step by step:\n\n1. **Initial number of pen pals**: Mike started with 5 people.  \n   He stopped being penpals with 2 of them.  \n   So, now he is penpals with:  \n   5 - 2 = **3 people**\n\n2. **Each person sends**:  \n   2 letters per week  \n   Each letter is 5 pages long  \n   So, each person sends:  \n   2 letters × 5 pages = **10 pages per week**\n\n3. **Total pages Mike receives per week**:  \n   3 people × 10 pages = **30 pages**\n\n4. **Mike responds in kind**:  \n   So, he writes **30 pages** per week (same number of pages as received)\n\n5. **Time to write one page**:  \n   Mike can write a page every 6 minutes  \n   So, for 30 pages:  \n   30 pages × 6 minutes = 180 minutes\n\n6. **Convert minutes to hours**:  \n   180 minutes ÷ 60 = **3 hours**\n\n#### 3"
+  },
+  {
+   "i": 243,
+   "exp": "250",
+   "got": "250",
+   "pass": true,
+   "text": "Let's solve this step by step:\n\n1. **Total minutes in the plan**:  \n   Jason has a phone plan of **1000 minutes** per month.\n\n2. **Daily calls with his boss**:  \n   He has a 15-minute call with his boss every day.  \n   This month has **30 days**, so total minutes used for boss calls:  \n   15 minutes/day × 30 days = **450 minutes**\n\n3. **Extra minutes used for other people**:  \n   He has used **300 extra minutes** for calls with others.\n\n4. **Total minutes used**:  \n   Minutes used for boss calls + extra minutes =  \n   450 + 300 = **750 minutes**\n\n5. **Minutes left**:  \n   Total plan minutes – total used minutes =  \n   1000 – 750 = **250 minutes**\n\n#### 250"
+  },
+  {
+   "i": 244,
+   "exp": "20",
+   "got": "1",
+   "pass": false,
+   "text": "Let's solve this step by step.\n\nWe are given:\n\n- Griffin started with **24 french fries**.\n- **Kyle took 5** of them.\n- **Billy took twice as many as Kyle**.\n- **Ginger gave Griffin some fries** (let’s call this number **x**).\n- **Colby took 3 less than the number of fries that Kyle had taken**.\n\nAt the end, Griffin has **27 fries**.\n\nWe need to find how many fries Ginger gave Griffin — that is, **x**.\n\n---\n\n**Step 1: How many did Kyle take?**\n\nKyle took **5**.\n\n---\n\n**Step 2: How many did Billy take?**\n\nBilly took **twice as many as Kyle** → 2 × 5 = **10**\n\n---\n\n**Step 3: How many did Colby take?**\n\nColby took **3 less than the number Kyle took** → 5 - 3 = **2**\n\n---\n\n**Step 4: Total fries taken by others (Kyle, Billy, Colby)**\n\n- Kyle: 5\n- Billy: 10\n- Colby: 2\n\nTotal taken: 5 + 10 + 2 = **1"
+  },
+  {
+   "i": 245,
+   "exp": "7",
+   "got": "7",
+   "pass": true,
+   "text": "Let's solve this step by step.\n\nWe are given:\n\n- Aquarium 1 has 4 snails  \n- Aquarium 2 has 32 snails  \n- The **difference** between the number of snails in the two aquariums is **twice** the number of fish in both aquariums.  \n- Both aquariums have the **same number of fish**.\n\nLet’s define:\n\n- Let $ f $ be the number of fish in **each** aquarium.\n\nSo total fish in both aquariums = $ f + f = 2f $\n\nNow, the difference in the number of snails:\n\n- Difference = $ 32 - 4 = 28 $\n\nWe are told:\n\n> The difference between the number of snails in the two aquariums is **twice** the amount of fish in both aquariums.\n\nSo:\n\n$$\n28 = 2 \\times (2f)\n$$\n\nSimplify the right-hand side:\n\n$$\n28 = 4f\n$$\n\nNow solve for $ f $:\n\n$$\nf = \\frac{28}{4} = 7\n$$\n\nSo, each aquarium has **7 fish**.\n\n#### 7"
+  },
+  {
+   "i": 246,
+   "exp": "27000",
+   "got": "2",
+   "pass": false,
+   "text": "Let's solve this step by step:\n\n1. **Hourly rate**: $250 per hour  \n2. **Hours per day**: 6 hours  \n3. **Days per week**: 4 times a week  \n4. **Weeks for the movie**: 5 weeks  \n5. **Discount after movie**: 10% off (because of the amount of work done)\n\n---\n\n**Step 1: Calculate total hours worked**\n\nEach day: 6 hours  \nPer week: 4 days → 6 hours/day × 4 days = 24 hours/week  \nOver 5 weeks: 24 hours/week × 5 weeks = **120 hours**\n\n---\n\n**Step 2: Calculate total cost before discount**\n\nHourly rate: $250  \nTotal cost = 120 hours × $250 = **$30,000**\n\n---\n\n**Step 3: Apply 10% discount**\n\n10% of $30,000 = 0.10 × 30,000 = $3,000  \nSo, final amount = $30,000 − $3,000 = **$2"
+  },
+  {
+   "i": 247,
+   "exp": "32",
+   "got": "32",
+   "pass": true,
+   "text": "Let's solve this step by step:\n\n1. **Find the total cost of all party supplies:**\n\n- Cake ingredients: $12  \n- Birthday presents: $43  \n- Decorations: $15  \n- Invitations: $4  \n- Goodie bags: $22  \n\nAdd them up:\n\n$12 + $43 = $55  \n$55 + $15 = $70  \n$70 + $4 = $74  \n$74 + $22 = $96  \n\nSo, the total cost is **$96**.\n\n2. **She split the cost evenly with her two parents (three people total):**\n\nSo, the $96 is divided among **3 people**.\n\nDivide:  \n$96 ÷ 3 = $32\n\nEach person paid **$32**.\n\n#### 32"
+  },
+  {
+   "i": 248,
+   "exp": "300",
+   "got": "300",
+   "pass": true,
+   "text": "Let's solve this step by step:\n\n1. The chef bought 4 bags of onions.  \n2. Each bag weighs 50 pounds.  \n   So, total weight = 4 bags × 50 pounds = 200 pounds  \n3. Each pound of onions costs $1.50.  \n   So, total cost = 200 pounds × $1.50 per pound  \n4. Calculate:  \n   200 × 1.50 = 300  \n\nSo, the chef spent $300.\n\n#### 300"
+  },
+  {
+   "i": 249,
+   "exp": "5600",
+   "got": "3",
+   "pass": false,
+   "text": "Let's solve this step by step.\n\nWe are given:\n\n- On Monday, Sue ate 4 times as many cookies as her sister.\n- On Tuesday, Sue ate twice as many cookies as her sister.\n- Her sister ate 5 cookies on Monday and 13 on Tuesday.\n- Each cookie has 200 calories.\n- We need to find how many **more calories** Sue consumed than her sister.\n\n---\n\n**Step 1: Determine how many cookies each ate on Monday and Tuesday**\n\nSister's consumption:\n- Monday: 5 cookies\n- Tuesday: 13 cookies\n\nSue's consumption:\n- Monday: 4 times as many as sister → 4 × 5 = 20 cookies\n- Tuesday: twice as many as sister → 2 × 13 = 26 cookies\n\n---\n\n**Step 2: Total cookies eaten by each**\n\nSue:\n- Monday: 20\n- Tuesday: 26\n- Total = 20 + 26 = 46 cookies\n\nSister:\n- Monday: 5\n- Tuesday: 13\n- Total = 5 + 13 = 18 cookies\n\n---\n\n**Step 3: Total calories**\n\nEach"
+  },
+  {
+   "i": 250,
+   "exp": "17",
+   "got": "27",
+   "pass": false,
+   "text": "Let's solve this step by step.\n\nWe are given:\n\n- Each class has 20 students.\n- There are 3 classes.\n- The school as a whole is 50% boys and 50% girls.\n- First class: 15 girls → so 20 - 15 = 5 boys\n- Second class: 12 girls → so 20 - 12 = 8 boys\n- We are to find the number of **boys in the third class**.\n\n---\n\nStep 1: Total number of students in the school\n\nEach class has 20 students → 3 classes →  \nTotal students = 3 × 20 = 60\n\nStep 2: Since the school is 50% boys and 50% girls,  \nTotal boys = 50% of 60 = 0.5 × 60 = 30  \nTotal girls = 30\n\nStep 3: Find total girls in first two classes\n\n- First class: 15 girls  \n- Second class: 12 girls  \n→ Total girls in first two classes = 15 + 12 = 27\n\nSo, girls in third class"
+  },
+  {
+   "i": 251,
+   "exp": "70",
+   "got": "70",
+   "pass": true,
+   "text": "Let's solve this step by step:\n\n1. Travis started with **61 apps** on his tablet.\n\n2. He **deleted 9 apps** he didn't use anymore.  \n   So, we subtract 9 from 61:  \n   61 - 9 = 52 apps remaining.\n\n3. Then, he **downloaded 18 more apps**.  \n   So, we add 18 to the 52:  \n   52 + 18 = 70 apps.\n\nFinal answer:  \n#### 70"
+  },
+  {
+   "i": 252,
+   "exp": "73",
+   "got": "73",
+   "pass": true,
+   "text": "Let's solve this step by step.\n\nWe are given information about Rick's hunting over two nights:\n\n**Last night:**\n- Rick killed 10 wolves and 15 cougars.\n\n**Today:**\n- He killed **three times as many wolves as cougars**\n- He killed **three fewer cougars than the previous night**\n\n---\n\nStep 1: Find how many cougars Rick killed today.\n\nLast night: 15 cougars  \nToday: 3 fewer than last night →  \n15 - 3 = **12 cougars**\n\nStep 2: Find how many wolves he killed today.\n\nToday: three times as many wolves as cougars  \nSo: 3 × 12 = **36 wolves**\n\nStep 3: Total animals killed today = wolves + cougars  \n= 36 + 12 = **48 animals**\n\nStep 4: Total animals killed over both nights:\n\nLast night: 10 wolves + 15 cougars = 25 animals  \nToday: 48 animals  \n\nTotal = 25 + 48 = **73 animals**\n\n#### 73"
+  },
+  {
+   "i": 253,
+   "exp": "18",
+   "got": "18",
+   "pass": true,
+   "text": "Let's solve this step by step:\n\n1. Bill starts on the **3rd floor**.\n\n2. He rides the elevator up to the floor that is **equal to 4 times his starting floor plus 6**.\n\nSo, we calculate:\n\n- 4 times his starting floor:  \n  4 × 3 = 12\n\n- Then add 6:  \n  12 + 6 = 18\n\nSo, Bill ends up on the **18th floor**.\n\n#### 18"
+  },
+  {
+   "i": 254,
+   "exp": "84",
+   "got": "84",
+   "pass": true,
+   "text": "Let's solve this step by step.\n\nWe are given:\n\n- Mitchel went down the water slide **30 times**.\n- Anne went down **30% less** than Mitchel.\n- Robert went down **4 times as much as Anne**.\n- We need to find how many times Robert went down the slide.\n\n---\n\n**Step 1: Find how many times Anne went down the slide.**\n\nAnne went down 30% less than Mitchel.\n\nMitchel = 30 times\n\n30% of 30 = 0.30 × 30 = 9\n\nSo, Anne went down:  \n30 − 9 = **21 times**\n\n---\n\n**Step 2: Robert went down 4 times as much as Anne.**\n\nSo, Robert = 4 × 21 = **84 times**\n\n---\n\n#### 84"
+  },
+  {
+   "i": 255,
+   "exp": "192",
+   "got": "40",
+   "pass": false,
+   "text": "Let's solve this step by step.\n\n**Step 1: Initial number of cows**\n\nThere are 10 stalls, and each stall has 20 cows.\n\nSo, total cows initially:\n10 stalls × 20 cows = 200 cows\n\n**Step 2: Mr. Sylas buys 40 cows**\n\nHe buys 40 cows and divides them equally among **20 stalls**.\n\nWait — the problem says:  \n\"Mr. Sylas buys 40 cows and divides them equally, putting an equal number of the new cows into each of the twenty stalls.\"\n\nSo, he divides the 40 cows into **20 stalls**, equally.\n\nSo, each of the 20 stalls gets:\n40 cows ÷ 20 stalls = 2 cows per stall\n\n**Step 3: What happens to the original 10 stalls?**\n\nWait — there are only 10 stalls originally. But now he's putting cows into **20 stalls**?\n\nThat seems inconsistent.\n\nLet’s re-read the problem:\n\n> \"Ten stalls have 20 cows each. Mr. Sylas buys 40 cows and divides them equally, putting an equal number of the new cows into"
+  },
+  {
+   "i": 256,
+   "exp": "45",
+   "got": "2.00",
+   "pass": false,
+   "text": "Let's solve this step by step.\n\nFirst, we need to calculate the total value of each type of coin and bill in dollars.\n\n1. **Pennies**:  \n   - 100 pennies  \n   - Each penny is $0.01  \n   - Total value = 100 × $0.01 = $1.00\n\n2. **Nickels**:  \n   - 40 nickels  \n   - Each nickel is $0.05  \n   - Total value = 40 × $0.05 = $2.00\n\n3. **Dimes**:  \n   - 20 dimes  \n   - Each dime is $0.10  \n   - Total value = 20 × $0.010 = $2.00\n\n4. **Dollar bills**:  \n   - 40 pieces of dollar bills  \n   - Each dollar bill is $1.00  \n   - Total value = 40 × $1.00 = $40.00\n\nNow, add all these values together:\n\n- Pennies: $1.00  \n- Nickels: $2.00  \n- Dimes: $"
+  },
+  {
+   "i": 257,
+   "exp": "5600",
+   "got": "5600",
+   "pass": true,
+   "text": "Let's solve this step by step:\n\n1. **Determine the weight of one 10-foot section of redwood:**\n   - Given: Each 10-foot section weighs 400 pounds.\n\n2. **Find how many 10-foot sections are in a 200-foot redwood tree:**\n   - 200 feet ÷ 10 feet per section = 20 sections.\n\n3. **Total weight before termites ate any wood:**\n   - 20 sections × 400 pounds = 8,000 pounds.\n\n4. **Termites ate 30% of the wood:**\n   - So, 70% of the wood remains.\n   - 70% of 8,000 pounds = 0.70 × 8,000 = 5,600 pounds.\n\n5. **Final answer:**\n   - The redwood tree now weighs 5,600 pounds.\n\n#### 5600"
+  },
+  {
+   "i": 258,
+   "exp": "6",
+   "got": "6.00",
+   "pass": false,
+   "text": "Let's solve this step by step:\n\n1. **Number of books**: 8  \n2. **Fine per book**: $0.50 (this is 50 cents per book)  \n3. **Flat fee**: $2.00 (for having at least one book overdue past a week)\n\nStep 1: Calculate the fine for the 8 books  \n= 8 books × $0.50 = $4.00\n\nStep 2: Add the flat fee  \n= $4.00 + $2.00 = $6.00\n\nSo, Nancy has to pay a total of $6.00.\n\n#### 6.00"
+  },
+  {
+   "i": 259,
+   "exp": "168",
+   "got": "52",
+   "pass": false,
+   "text": "Let's solve this step by step.\n\nWe are given:\n\n- Andrea has 52 apples.\n- Andrea has 8 more apples than Jamal.\n- Andrea has half as many bananas as Jamal.\n- Jamal has 4 more bananas than apples.\n\nWe are to find the total number of fruits (apples + bananas) that both Andrea and Jamal have.\n\n---\n\n**Step 1: Use the apple information**\n\nAndrea has 52 apples.\n\nAndrea has 8 more apples than Jamal.\n\nSo:\n\n> Jamal's apples = Andrea's apples - 8  \n> Jamal's apples = 52 - 8 = 44 apples\n\n---\n\n**Step 2: Use the banana information about Jamal**\n\nJamal has 4 more bananas than apples.\n\nSo:\n\n> Jamal's bananas = Jamal's apples + 4  \n> = 44 + 4 = 48 bananas\n\n---\n\n**Step 3: Andrea has half as many bananas as Jamal**\n\nSo:\n\n> Andrea's bananas = (1/2) × Jamal's bananas  \n> = (1/2) × 48 = 24 bananas\n\n---\n\n**Step 4: Total fruits**\n\nNow, sum up all fruits:\n\n- Andrea's apples: 52"
+  },
+  {
+   "i": 260,
+   "exp": "11",
+   "got": "11",
+   "pass": true,
+   "text": "Let's solve this step by step.\n\nWe are told:\n\n- 2 cups of flour are needed to make a **dozen** (12) cookies.\n- Carla is making **36 cookies today** and **30 cookies tomorrow**.\n\nStep 1: Find out how many dozens are in 36 cookies.\n\n36 ÷ 12 = 3 dozen\n\nSo, for 36 cookies:  \n3 dozen × 2 cups per dozen = 6 cups of flour\n\nStep 2: Find out how many dozens are in 30 cookies.\n\n30 ÷ 12 = 2.5 dozen\n\nSo, for 30 cookies:  \n2.5 dozen × 2 cups per dozen = 5 cups of flour\n\nStep 3: Add the flour needed for both days.\n\n6 cups (today) + 5 cups (tomorrow) = 11 cups\n\n#### 11"
+  },
+  {
+   "i": 261,
+   "exp": "62",
+   "got": "62",
+   "pass": true,
+   "text": "Let's solve this step by step:\n\nStep 1: Find two thirds of the 9,300 pennies.\n\nWe calculate:\n$$\n\\frac{2}{3} \\times 9300 = \\frac{2 \\times 9300}{3} = \\frac{18600}{3} = 6200 \\text{ pennies}\n$$\n\nStep 2: Convert pennies to dollars.\n\nSince 100 pennies = $1, we divide the number of pennies by 100:\n\n$$\n6200 \\div 100 = 62 \\text{ dollars}\n$$\n\n#### 62"
+  },
+  {
+   "i": 262,
+   "exp": "270",
+   "got": "270",
+   "pass": true,
+   "text": "Let's solve this step by step:\n\n1. Maddison has 5 boxes, and each box has 50 marbles.  \n   So, total marbles from the boxes = 5 × 50 = 250 marbles.\n\n2. Then, she gets 20 more marbles from her friend.  \n   So, we add those 20 marbles to the 250.\n\n3. Total marbles now = 250 + 20 = 270 marbles.\n\n#### 270"
+  },
+  {
+   "i": 263,
+   "exp": "8",
+   "got": "8",
+   "pass": true,
+   "text": "Let's solve this step by step.\n\n1. **Chris has 6 trees.**  \n   Given directly.\n\n2. **Ferdinand has half the number of trees that Chris has.**  \n   So, Ferdinand = ½ × 6 = **3 trees**\n\n3. **Harry has 5 more than twice the number of trees that Ferdinand has.**  \n   Twice Ferdinand's trees = 2 × 3 = 6  \n   Then, Harry = 6 + 5 = **11 trees**\n\n4. **How many more trees are in Harry's yard than Ferdinand's yard?**  \n   Harry has 11 trees, Ferdinand has 3 trees.  \n   Difference = 11 - 3 = **8 trees**\n\n#### 8"
+  },
+  {
+   "i": 264,
+   "exp": "400",
+   "got": "400",
+   "pass": true,
+   "text": "Let's solve this step by step:\n\n1. Carmen has $100.\n\n2. Samantha has $25 more than Carmen:\n   - So, Samantha has $100 + $25 = $125.\n\n3. Daisy has $50 more than Samantha:\n   - So, Daisy has $125 + $50 = $175.\n\n4. Now, add all three amounts together:\n   - Carmen: $100\n   - Samantha: $125\n   - Daisy: $175\n\nTotal = $100 + $125 + $175 = $400\n\n#### 400"
+  },
+  {
+   "i": 265,
+   "exp": "9500",
+   "got": "400000",
+   "pass": false,
+   "text": "Let's solve this step by step.\n\nStep 1: Identify the selling price of the house  \nThe selling price is **$350,000**.\n\nStep 2: Calculate the brokerage fee  \nBrokerage fee = 5% of selling price  \n= 0.05 × 350,000 = **$17,500**\n\nStep 3: Calculate the transfer fee  \nTransfer fee = 12% of selling price  \n= 0.12 × 350,000 = **$42,000**\n\nStep 4: Calculate total cost (selling price + brokerage + transfer)  \nTotal cost = 350,000 + 17,500 + 42,000  \n= 350,000 + 59,500 = **$409,500**\n\nStep 5: Compare with Mrs. Cruz's budget  \nMrs. Cruz's budget = $400,000  \nTotal cost = $409,500  \n\nDifference = 409,500 - 400,000 ="
+  },
+  {
+   "i": 266,
+   "exp": "118000",
+   "got": "250000",
+   "pass": false,
+   "text": "Let's solve this step by step.\n\nStep 1: Determine the selling price  \nMr. Tan sold his house for **$400,000**.\n\nStep 2: Calculate the transfer fees  \nTransfer fees = 3% of $400,000  \n= 0.03 × 400,000 = **$12,000**\n\nStep 3: Calculate the brokerage fee  \nBrokerage fee = 5% of $400,000  \n= 0.05 × 400,000 = **$20,000**\n\nStep 4: Total expenses (transfer + brokerage)  \n= $12,000 + $20,000 = **$32,000**\n\nStep 5: Mr. Tan also paid $250,000 for the remaining loan amount  \nThis means he paid $250,000 to the lender (i.e., he used $250,000 of his proceeds to pay off the loan).\n\nNote: This is not a cost to him — it's a payment to settle a loan. So,"
+  },
+  {
+   "i": 267,
+   "exp": "91",
+   "got": "1.4",
+   "pass": false,
+   "text": "Let's solve this step by step.\n\n**Step 1: Time to heat oil to 300 degrees**  \nIt takes **20 minutes** to heat the oil to 300 degrees.\n\n**Step 2: Time to heat oil from 300 to 400 degrees**  \nIt takes **40% longer** than the first part (20 minutes) to go from 300 to 400 degrees.\n\nSo, 40% of 20 minutes = 0.40 × 20 = 8 minutes  \nTherefore, time to heat to 400 degrees = 20 + 8 = **28 minutes**\n\nWait — actually, let's clarify:  \nThe problem says:  \n> \"It then takes 40% longer for the oil to heat up to the desired temperature of 400 degrees.\"\n\nThis means:  \nIt takes **40% longer than the initial 20 minutes** to go from 300 to 400.\n\nSo, time from 300 to 400 = 20 minutes × (1 + 0.40) = 20 × 1.4"
+  },
+  {
+   "i": 268,
+   "exp": "1375",
+   "got": "1375",
+   "pass": true,
+   "text": "Let's solve this step by step:\n\n1. **Cost per newspaper ad**: $5  \n   The agent bought **50** newspaper ads.  \n   So, total cost for newspaper ads = 50 × $5 = $250\n\n2. **Cost per television ad**: $75  \n   The agent bought **15** television ads.  \n   So, total cost for television ads = 15 × $75 = $1,125\n\n3. **Total spending**:  \n   Add the two amounts:  \n   $250 + $1,125 = $1,375\n\n#### 1375"
+  },
+  {
+   "i": 269,
+   "exp": "4",
+   "got": "4",
+   "pass": true,
+   "text": "Let's solve this step by step:\n\n1. The juggler can juggle **16 balls** in total.\n\n2. Half of the balls are golf balls.  \n   So, number of golf balls = 16 ÷ 2 = **8 golf balls**\n\n3. Half of the golf balls are blue.  \n   So, number of blue golf balls = 8 ÷ 2 = **4**\n\n#### 4"
+  },
+  {
+   "i": 270,
+   "exp": "762",
+   "got": "762",
+   "pass": true,
+   "text": "Let's solve this step by step:\n\n1. **First bag**:  \n   Mary buys the first bag and it has **300 M&Ms**.\n\n2. **Second bag**:  \n   It has **12 more** M&Ms than the first bag.  \n   So, second bag = 300 + 12 = **312 M&Ms**\n\n3. **Third bag**:  \n   It has a hole, so it only has **half** the number of M&Ms that the first bag had.  \n   First bag had 300, so half of that is:  \n   300 ÷ 2 = **150 M&Ms**\n\n4. **Total M&Ms**:  \n   Add all three bags:  \n   300 (first) + 312 (second) + 150 (third) =  \n   300 + 312 = 612  \n   612 + 150 = **762**\n\n#### 762"
+  },
+  {
+   "i": 271,
+   "exp": "20",
+   "got": "20",
+   "pass": true,
+   "text": "Let's solve this step by step:\n\n1. John has **2 houses**.\n\n2. Each house has **3 bedrooms**.\n\n   → So, total bedrooms = 2 houses × 3 bedrooms = **6 bedrooms**\n\n3. Each bedroom has **2 windows**.\n\n   → Total windows from bedrooms = 6 bedrooms × 2 windows = **12 windows**\n\n4. Each house has **an additional 4 windows** not connected to bedrooms.\n\n   → So, per house: 4 extra windows  \n   → For 2 houses: 2 × 4 = **8 extra windows**\n\n5. Total windows = windows from bedrooms + extra windows  \n   = 12 + 8 = **20 windows**\n\n#### 20"
+  },
+  {
+   "i": 272,
+   "exp": "5",
+   "got": "5",
+   "pass": true,
+   "text": "Let's solve this step by step:\n\n1. First, find the total cost of all items:\n   - Cocoa: $4.20  \n   - Laundry: $9.45  \n   - Pasta: $1.35  \n\n   Add them together:\n   $4.20 + $9.45 = $13.65  \n   $13.65 + $1.35 = $15.00  \n\n   So, the total cost is $15.00.\n\n2. She pays $20.00.\n\n3. To find the change:\n   $20.00 - $15.00 = $5.00\n\n#### 5"
+  },
+  {
+   "i": 273,
+   "exp": "315",
+   "got": "1170",
+   "pass": false,
+   "text": "Let's solve this step by step.\n\nWe are told:\n\n- The **body** of the sweater takes **900 stitches**.\n- The **collar** takes **a tenth of the body**.\n- The **rosette** takes **twice as many as the collar**.\n- The **whole sweater** is an **1800-stitch** project.\n- The sweater has **two sleeves**, and we are to find how many stitches **each sleeve** takes.\n\n---\n\n**Step 1: Stitches in the collar**\n\nCollar = 1/10 of body  \nBody = 900 stitches  \nSo, collar = 900 / 10 = **90 stitches**\n\n---\n\n**Step 2: Stitches in the rosette**\n\nRosette = twice the collar  \nSo, rosette = 2 × 90 = **180 stitches**\n\n---\n\n**Step 3: Total stitches accounted for (body + collar + rosette)**\n\nBody: 900  \nCollar: 90  \nRosette: 180  \nSum = 900 + 90 + 180 = **1170 stitches**\n\n---\n\n"
+  },
+  {
+   "i": 274,
+   "exp": "3200",
+   "got": "3200",
+   "pass": true,
+   "text": "Let's solve this step by step:\n\n1. **Find the cost of tomato seeds:**\n   - Mrs. Rylan bought 20 packets of tomato seeds.\n   - Each packet costs $40.\n   - Total cost for tomato seeds = 20 × $40 = $800.\n\n2. **Find the cost of celery seeds:**\n   - She bought 80 packets of celery seeds.\n   - Each packet costs $30.\n   - Total cost for celery seeds = 80 × $30 = $2,400.\n\n3. **Add both amounts to find total money spent:**\n   - Total cost = $800 + $2,400 = $3,200.\n\n#### 3200"
+  },
+  {
+   "i": 275,
+   "exp": "138",
+   "got": "5",
+   "pass": false,
+   "text": "Let's solve this step by step.\n\nWe are given:\n\n- Sean has to memorize:\n  - Lines from **two scenes**\n  - Lyrics from **one solo song** (54 lines)\n\nWe need to find the total number of lines Sean has to memorize.\n\n---\n\n### Step 1: Solo song\nThe song has **54 lines**.  \nAll of these are part of the memorization, so:\n\n→ **54 lines** from the song\n\n---\n\n### Step 2: First scene\n\n- The first scene has **twice the number of lines** as the song.\n- So, total lines in first scene = 2 × 54 = **108 lines**\n- But **only a third of them are Sean's lines**\n\nSo, Sean's lines from first scene = (1/3) × 108 = **36 lines**\n\n---\n\n### Step 3: Second scene\n\n- The second scene has **six more lines than the song**\n- Song has 54 lines → second scene has 54 + 6 = **60 lines**\n- **Four-fifths of them are Sean's lines**\n\nSo, Sean's lines from second scene = (4/5) ×"
+  },
+  {
+   "i": 276,
+   "exp": "9",
+   "got": "4",
+   "pass": false,
+   "text": "Let's solve this step by step.\n\nCarly had **80 cards** in total.\n\n---\n\n**Step 1: Cards with letter A**\n\n2/5 of the cards had the letter A.\n\nSo:\n\n$$\n\\frac{2}{5} \\times 80 = 32 \\text{ cards with A}\n$$\n\nRemaining cards:\n\n$$\n80 - 32 = 48 \\text{ cards left}\n$$\n\n---\n\n**Step 2: Cards with letter B**\n\n1/2 of the **remaining** cards had the letter B.\n\nSo:\n\n$$\n\\frac{1}{2} \\times 48 = 24 \\text{ cards with B}\n$$\n\nRemaining cards:\n\n$$\n48 - 24 = 24 \\text{ cards left}\n$$\n\n---\n\n**Step 3: Cards with letter C**\n\n5/8 of the **remaining** cards had the letter C.\n\nSo:\n\n$$\n\\frac{5}{8} \\times 24 = 15 \\text{ cards with C}\n$$\n\nRemaining cards:\n\n$$\n24 - 15 = 9 \\text{ cards left}\n$$\n\n---\n\n**Step 4: Cards with letter D"
+  },
+  {
+   "i": 277,
+   "exp": "4",
+   "got": "4",
+   "pass": true,
+   "text": "Let's solve this step by step.\n\n**Step 1: Time to dig one small hole**  \nMatthew takes 3 minutes to dig a small hole.\n\nSo, for 30 small holes:  \n30 × 3 = 90 minutes\n\n**Step 2: Time to dig one large hole**  \nMatthew takes 10 minutes to dig a large hole.\n\nSo, for 15 large holes:  \n15 × 0 = 150 minutes\n\n**Step 3: Total time in minutes**  \n90 (small holes) + 150 (large holes) = 240 minutes\n\n**Step 4: Convert minutes to hours**  \nThere are 60 minutes in an hour.  \n240 ÷ 60 = 4 hours\n\n#### 4"
+  },
+  {
+   "i": 278,
+   "exp": "40",
+   "got": "40",
+   "pass": true,
+   "text": "Let's solve this step by step.\n\nWe are told that:\n\n- The sum of Mico and Marco's current ages is 20.\n- We are asked: What will be the sum of their ages in 10 years?\n\nStep 1: Understand how ages change over time.\nEach person ages 1 year per year. So, in 10 years, each of them will be 10 years older.\n\nStep 2: If both age 10 years in 10 years, then the total increase in age for both combined is:\n10 years (for Mico) + 10 years (for Marco) = 20 years\n\nStep 3: Add that increase to their current total age:\nCurrent sum of ages = 20  \nIncrease in sum in 10 years = 20\n\nSo, sum of their ages in 10 years = 20 + 20 = 40\n\n✅ Answer: 40\n\n#### 40"
+  },
+  {
+   "i": 279,
+   "exp": "6",
+   "got": "36",
+   "pass": false,
+   "text": "Let's solve the problem step by step.\n\nWe are told:\n\n- Ruby is 6 times older than Sam.\n- In 9 years, Ruby will be 3 times as old as Sam.\n\nLet’s define variables:\n\nLet **S** = Sam's current age  \nThen Ruby's current age = **6S** (since Ruby is 6 times older than Sam)\n\nNow, in 9 years:\n\n- Sam's age will be: S + 9  \n- Ruby's age will be: 6S + 9\n\nWe are told that in 9 years, Ruby will be 3 times as old as Sam:\n\nSo:\n\n6S + 9 = 3(S + 9)\n\nNow solve the equation:\n\n6S + 9 = 3(S + 9)  \n6S + 9 = 3S + 27\n\nSubtract 3S from both sides:\n\n3S + 9 = 27\n\nSubtract 9 from both sides:\n\n3S = 18\n\nDivide by 3:\n\nS = 6\n\nSo Sam is currently **6 years old**.\n\nLet’s verify:\n\n- Sam = 6  \n- Ruby = 6 × 6 = 36\n\nIn"
+  },
+  {
+   "i": 280,
+   "exp": "7",
+   "got": "7.00",
+   "pass": false,
+   "text": "Let's solve this step by step:\n\nStep 1: Calculate the cost of the popsicles.  \nPeter bought 20 popsicles at $0.25 each.  \nSo, cost of popsicles = 20 × $0.25 = $5.00\n\nStep 2: Calculate the cost of the ice cream bars.  \nHe bought 4 ice cream bars at $0.50 each.  \nSo, cost of ice cream bars = 4 × $0.50 = $2.00\n\nStep 3: Add both amounts to get the total cost.  \nTotal cost = $5.00 + $2.00 = $7.00\n\n#### 7.00"
+  },
+  {
+   "i": 281,
+   "exp": "2450",
+   "got": "2100",
+   "pass": false,
+   "text": "Let's solve this step by step.\n\nWe are given:\n\n- A cobra has **70 spots**.\n- A cobra has **twice as many spots as a mamba**.\n\nSo, if a cobra has 70 spots, then a mamba has:\n\n> 70 ÷ 2 = 35 spots\n\nSo each mamba has 35 spots.\n\nNow, we are told:\n\n- There are **40 cobras**\n- There are **60 mambas**\n\nWe need to find: **Half the total number of spots** all the snakes have combined.\n\n---\n\n**Step 1: Total spots from cobras**\n\nEach cobra has 70 spots.\n\nSo, 40 cobras × 70 spots =  \n= 40 × 70 = **2,800 spots**\n\n**Step 2: Total spots from mambas**\n\nEach mamba has 35 spots.\n\nSo, 60 mambas × 35 spots =  \n= 60 × 35 = 2,100 spots\n\n**Step 3: Total spots combined**\n\n2,800 (cobras) + 2,100"
+  },
+  {
+   "i": 282,
+   "exp": "195",
+   "got": "195",
+   "pass": true,
+   "text": "Let's solve this step by step:\n\n1. **Total number of people:**\n   - Team members: 12\n   - Coaches: 3\n   - Each team member brings 2 guests → 12 × 2 = 24 guests\n\n   So total people = 12 (team members) + 3 (coaches) + 24 (guests)  \n   = 12 + 3 + 24 = **39 people**\n\n2. **Pizza serving capacity:**\n   - Each pizza serves 3 people\n\n3. **Number of pizzas needed:**\n   - 39 people ÷ 3 people per pizza = **13 pizzas**\n\n4. **Cost per pizza: $15**\n   - Total cost = 13 × $15 = **$195**\n\n#### 195"
+  },
+  {
+   "i": 283,
+   "exp": "68",
+   "got": "68",
+   "pass": true,
+   "text": "Let's solve this step by step.\n\nWe are given:\n\n- Each **topaz gemstone** is **1 inch long**.\n- Katerina uses **8 topaz gemstones per necklace**.\n- Each **sterling silver bead** is **1/4 inch long**.\n- The **total length** of the necklace is **25 inches**.\n\nWe are to find: **How many sterling silver beads** does Katerina use per necklace?\n\n---\n\n### Step 1: Total length taken by topaz gemstones\n\nEach topaz gemstone is 1 inch long, and there are 8 of them:\n\n→ Total length from topaz = 8 × 1 = **8 inches**\n\n---\n\n### Step 2: Remaining length for silver beads\n\nTotal necklace length = 25 inches  \nSo, the remaining length for silver beads =  \n25 − 8 = **17 inches**\n\n---\n\n### Step 3: Each silver bead is 1/4 inch long\n\nSo, number of silver beads = total silver length ÷ length per bead  \n= 17 ÷ (1/4)  \n= 17 × 4  \n= **68**\n\n---\n\n### Final Answer:\n\n#### 68"
+  },
+  {
+   "i": 284,
+   "exp": "360",
+   "got": "6",
+   "pass": false,
+   "text": "Let's solve this step by step.\n\n**Step 1: Determine how many stories each person wrote in the first week.**\n\n- Alani: 20 stories  \n- Braylen: 40 stories  \n- Margot: 60 stories  \n\n**Step 2: In the second week, each person doubled the number of stories they wrote in the first week.**\n\nSo:\n\n- Alani in second week: 20 × 2 = 40 stories  \n- Braylen in second week: 40 × 2 = 80 stories  \n- Margot in second week: 60 × 2 = 120 stories  \n\n**Step 3: Total stories written over both weeks**\n\nWe add the first week and second week stories for each person.\n\n- Alani: 20 (first week) + 40 (second week) = 60  \n- Braylen: 40 + 80 = 120  \n- Margot: 60 + 120 = 180  \n\nNow, total for all:\n\n60 (Alani) + 120 (Braylen) + 180 (Margot) = ?\n\n6"
+  },
+  {
+   "i": 285,
+   "exp": "21",
+   "got": "21",
+   "pass": true,
+   "text": "Let's solve this step by step:\n\n1. Ann is currently 9 years old.\n2. Her brother is twice her age, so:\n   - 2 × 9 = 18 years old.\n3. In 3 years, her brother will be:\n   - 18 + 3 = 21 years old.\n\n#### 21"
+  },
+  {
+   "i": 286,
+   "exp": "90",
+   "got": "90",
+   "pass": true,
+   "text": "Let's solve this step by step:\n\n1. First, find out how many cents Kelly has in total.\n\n- She has 5 quarters.  \n  Each quarter is worth 25 cents.  \n  So, 5 × 25 = 125 cents.\n\n- She has 2 dimes.  \n  Each dime is worth 10 cents.  \n  So, 2 × 10 = 20 cents.\n\n- Total cents Kelly has:  \n  125 + 20 = 145 cents.\n\n2. The can of pop costs 55 cents.\n\n3. Subtract the cost from her total:\n\n145 - 55 = 90 cents.\n\n#### 90"
+  },
+  {
+   "i": 287,
+   "exp": "8",
+   "got": "8",
+   "pass": true,
+   "text": "Let's solve this step by step.\n\nWe are told:\n\n- The flag has **76 stars** in total.\n- It has:\n  - **Three rows of 8 stars**\n  - **Two rows of 6 stars**\n  - The **rest** are **5-star rows**\n\nWe are to find **how many rows of 5 stars** there are.\n\n---\n\n**Step 1: Calculate total stars from the 8-star rows**\n\n3 rows × 8 stars = 24 stars\n\n**Step 2: Calculate total stars from the 6-star rows**\n\n2 rows × 6 stars = 12 stars\n\n**Step 3: Total stars accounted for so far**\n\n24 (from 8-star rows) + 12 (from 6-star rows) = 36 stars\n\n**Step 4: Remaining stars (which are in 5-star rows)**\n\n76 total stars − 36 = 40 stars\n\n**Step 5: How many 5-star rows?**\n\nEach 5-star row has 5 stars.\n\nSo, number of 5-star rows = 40 ÷ 5 = 8 rows\n\n---\n\n✅ Final answer: **8**\n\n#### 8"
+  },
+  {
+   "i": 288,
+   "exp": "3",
+   "got": "3",
+   "pass": true,
+   "text": "Let's solve this step by step:\n\n1. **Weight of one flagstone**: 75 pounds  \n2. **Total number of flagstones**: 80  \n3. **Total weight of 80 flagstones**:  \n   $ 80 \\times 75 = 6000 $ pounds  \n\n4. **Weight capacity of one truck**: 2000 pounds  \n\n5. **Number of trucks needed**:  \n   We divide the total weight by the truck capacity:  \n   $ 6000 \\div 2000 = 3 $  \n\n6. **Check if 3 trucks are enough**:  \n   - 3 trucks × 2000 pounds = 6000 pounds → exactly matches the total weight  \n   - So, 3 trucks can carry all 80 flagstones  \n\nTherefore, the number of trucks needed is **3**.\n\n#### 3"
+  },
+  {
+   "i": 289,
+   "exp": "16",
+   "got": "16",
+   "pass": true,
+   "text": "Let's solve this step by step.\n\nStep 1: Determine the speed of the car in the slow lane.\n\nThe fast lane car is traveling at 60 miles per hour.  \nThe slow lane car is traveling at half that speed:\n\n60 ÷ 2 = 30 miles per hour\n\nSo, the slow lane car is traveling at **30 mph**.\n\nStep 2: The fast lane car traveled 480 miles.  \nWe are to find out how long it took the **slow lane car** to travel the **same distance**, 480 miles, at 30 mph.\n\nStep 3: Use the formula for time:\n\nTime = Distance ÷ Speed\n\nTime = 480 miles ÷ 30 mph = 16 hours\n\nSo, the slow lane car took **16 hours** to travel 480 miles.\n\n#### 16"
+  },
+  {
+   "i": 290,
+   "exp": "390",
+   "got": "390",
+   "pass": true,
+   "text": "Let's solve this step by step.\n\nWe are given:\n\n- Ali has **22 medals**.\n- Izzy has **5 less** than Ali, so Izzy has:  \n  22 - 5 = **17 medals**\n- Together, Ali and Izzy have:  \n  22 + 17 = **39 medals**\n- The problem says: **Together they have 10 times less** than have been given out for counting.\n\nLet’s interpret \"10 times less\" carefully.\n\n\"10 times less\" is a bit ambiguous in English, but in math problems, when we say \"A has 10 times less than B\", it usually means:\n\n> A = B / 10\n\nSo, together, Ali and Izzy have **10 times less** than the total number of medals given out.\n\nThat means:\n\n> Their total = Total given out / 10\n\nSo:\n\n39 = Total / 10\n\nTherefore:\n\nTotal = 39 × 10 = **390**\n\n✅ So, the total number of medals given out for counting is **390**.\n\n#### 390"
+  },
+  {
+   "i": 291,
+   "exp": "2",
+   "got": "2",
+   "pass": true,
+   "text": "Let's solve this step by step:\n\n1. **Total number of chocolate bars:**\n   - There are 8 packets.\n   - Each packet has 5 chocolate bars.\n   - So, total chocolate bars = 8 × 5 = **40 chocolate bars**\n\n2. **Chocolate bars given to adults:**\n   - There are 4 adults.\n   - Each adult gets 6 chocolate bars.\n   - So, total for adults = 4 × 6 = **24 chocolate bars**\n\n3. **Remaining chocolate bars for children:**\n   - Total bars = 40\n   - Adults get 24\n   - So, remaining = 40 − 24 = **16 chocolate bars**\n\n4. **Number of children:**\n   - There are 8 children.\n\n5. **Chocolate bars per child:**\n   - 16 bars to be shared equally among 8 children.\n   - So, each child gets = 16 ÷ 8 = **2 chocolate bars**\n\n#### 2"
+  },
+  {
+   "i": 292,
+   "exp": "75",
+   "got": "75",
+   "pass": true,
+   "text": "Let's solve this step by step:\n\n1. **Susan earns $5 every 10 minutes.**  \n   So, her earning rate is $5 per 10 minutes.\n\n2. **She works between 8 a.m. and 11 a.m.**  \n   That’s a total of:  \n   11 a.m. − 8 a.m. = 3 hours = 180 minutes.\n\n3. **She pauses for half an hour in between.**  \n   So, she does not work for 30 minutes during that time.\n\n4. **Total time she actually works:**  \n   180 minutes (total time) − 30 minutes (pause) = 150 minutes.\n\n5. **How many 10-minute intervals in 150 minutes?**  \n   150 ÷ 10 = 15 intervals.\n\n6. **Earnings:**  \n   15 intervals × $5 = $75.\n\n#### 75"
+  },
+  {
+   "i": 293,
+   "exp": "83",
+   "got": "2",
+   "pass": false,
+   "text": "Let's solve this step by step.\n\n---\n\n**Step 1: Determine points after 3 rounds**\n\nWe are told:\n\n- Mike has **21 points** after 3 rounds.\n- Jim has **3 points less than Mike** → Jim = 21 - 3 = **18 points**\n- Tony has **2 times more than Mike** → This phrase can be ambiguous.\n\nBut \"2 times more than Mike\" is often interpreted as **twice as many as Mike**, i.e., 2 × 21 = **42 points**\n\n> Note: \"2 times more than\" is sometimes misused. \"2 times more\" could be interpreted as \"original + 2 times original\" = 3 times original. But in common usage, especially in such problems, \"2 times more than\" usually means \"twice as many\".\n\nLet’s verify both interpretations:\n\n- If \"2 times more than Mike\" means **Mike's points + 2×Mike's points** = 3×21 = 63 → that would be \"2 times more\" in a strict sense.\n- But in common language, \"2 times more\" is often incorrectly used to mean \"twice as much\".\n\nHowever, in math problems"
+  },
+  {
+   "i": 294,
+   "exp": "3",
+   "got": "3",
+   "pass": true,
+   "text": "Let's solve this step by step:\n\n1. **Total oranges bought**:  \n   Will buys 15 oranges.\n\n2. **Ages of the sons**:  \n   - Oldest son is 8 years old.  \n   - Youngest son is half as old as the oldest:  \n     Half of 8 = 4 years old.\n\n3. **How many oranges do they wash?**  \n   The problem says: \"he asks his 2 sons to wash as many oranges as they are years old.\"  \n   So, each son washes as many oranges as their age.\n\n   - Oldest son (8 years old) washes 8 oranges.  \n   - Youngest son (4 years old) washes 4 oranges.\n\n   Total washed = 8 + 4 = 12 oranges.\n\n4. **Oranges left unwashed**:  \n   Total oranges = 15  \n   Washed = 12  \n   Unwashed = 15 - 12 = 3\n\n#### 3"
+  },
+  {
+   "i": 295,
+   "exp": "370",
+   "got": "370",
+   "pass": true,
+   "text": "Let's solve this step by step.\n\n**Day 1:**\n- Pushups: 100  \n- Squats: 50  \n- Dumbbell presses: 20  \n\nTotal on Day 1 = 100 + 50 + 20 = **170**\n\n**Day 2:**\n- Pushups: 20 more than Day 1 → 100 + 20 = **120**\n- Squats: 10 fewer than Day 1 → 50 - 10 = **40**\n- Dumbbell presses: double the Day 1 amount → 20 × 2 = **40**\n\nTotal on Day 2 = 120 + 40 + 40 = **200**\n\n**Total over two days:**\n170 (Day 1) + 200 (Day 2) = **370**\n\n#### 370"
+  },
+  {
+   "i": 296,
+   "exp": "3",
+   "got": "3",
+   "pass": true,
+   "text": "Let's solve this step by step:\n\n**Step 1: Determine how much rice one person consumes per day.**\n\nEach person eats rice at lunch and dinner.\n\n- Rice per meal = 0.2 kg\n- Meals per day = 2 (lunch and dinner)\n\nSo, rice per person per day =  \n0.2 kg/meal × 2 meals = **0.4 kg/day**\n\n**Step 2: Total rice consumption per day for 5 members**\n\n5 members × 0.4 kg/day = **2.0 kg/day**\n\n**Step 3: How much rice is consumed per week?**\n\nThere are 7 days in a week.\n\nSo, weekly consumption =  \n2.0 kg/day × 7 days = **14.0 kg/week**\n\n**Step 4: How many weeks will a 42 kg bag last?**\n\nTotal rice ÷ weekly consumption =  \n42 kg ÷ 14 kg/week = **3 weeks**\n\n#### 3"
+  },
+  {
+   "i": 297,
+   "exp": "55",
+   "got": "55",
+   "pass": true,
+   "text": "Let's solve this step by step:\n\n1. Sam's weekly target is **120 crates**.\n\n2. He was closed on **Monday and Friday**, so he didn't sell anything on those days.\n\n3. Sales on other days:\n   - **Weekend (Saturday and Sunday)**: 20 crates\n   - **Tuesday**: 15 crates\n   - **Wednesday**: 12 crates\n   - **Thursday**: 18 crates\n\n4. Let's add up the actual sales:\n   - Weekend: 20\n   - Tuesday: 15\n   - Wednesday: 12\n   - Thursday: 18\n\n   Total sold = 20 + 15 + 12 + 18  \n   = 20 + 15 = 35  \n   35 + 12 = 47  \n   47 + 18 = **65 crates**\n\n5. Target = 120 crates  \n   Actual sales = 65 crates\n\n6. Difference = 120 - 65 = **55 crates**\n\nSo, Sam was **55 crates short** of his target.\n\n#### 55"
+  },
+  {
+   "i": 298,
+   "exp": "500",
+   "got": "3",
+   "pass": false,
+   "text": "Let's solve this step by step.\n\nWe are told:\n\n- The opening bid is **$200**.\n- Bids increase by **$50** each time.\n- **3 other people** each bid once.\n- Carmen bids **after each of these 3 people** and **eventually wins**.\n\nWe are to find out **how much the desk costs Carmen**.\n\n---\n\nStep 1: Understand the bidding sequence.\n\nThe bidding starts at $200 (opening bid). Then, each person (including the 3 others) places a bid, and the bid increases by $50 each time.\n\nSo, the bidding goes like this:\n\n- Opening bid: $200  \n- Person 1 bids: $200 + $50 = $250  \n- Person 2 bids: $250 + $50 = $300  \n- Person 3 bids: $300 + $50 = $350  \n- Carmen bids: $350 + $50 = $400  \n\nWait — is that correct?\n\nActually, the problem says:\n\n> \"Carmen bids after each of the 3 other people and eventually wins.\"\n\nSo, the"
+  },
+  {
+   "i": 299,
+   "exp": "31800",
+   "got": "6",
+   "pass": false,
+   "text": "Let's break this down step by step to find out how much John pays annually for driving.\n\n---\n\n**Step 1: Distance per day**\n\nJohn goes to work and back each day.\n\n- One way = 30 miles\n- Round trip = 30 × 2 = **60 miles per day**\n\n---\n\n**Step 2: Miles per week**\n\nHe goes 5 days a week.\n\n- Weekly miles = 60 miles/day × 5 days = **300 miles per week**\n\n---\n\n**Step 3: Miles per year**\n\nHe works 50 weeks a year.\n\n- Annual miles = 300 miles/week × 50 weeks = **15,000 miles per year**\n\n---\n\n**Step 4: Cost per mile**\n\nHe is charged $2 per mile.\n\n- Mileage cost per year = 15,000 × $2 = **$30,000**\n\n---\n\n**Step 5: Bonus per month**\n\nHe gives a $150 bonus per month.\n\n- Number of months in a year = 12\n- Annual bonus = 12 × $150 = **$1,800**\n\n---\n\n**Step 6"
+  },
+  {
+   "i": 300,
+   "exp": "78",
+   "got": "78",
+   "pass": true,
+   "text": "Let's solve this step by step:\n\n1. First, find out how much time Peter exercised on Monday and Sunday combined:\n   - Sunday: 23 minutes\n   - Monday: 16 minutes\n   - Combined: 23 + 16 = 39 minutes\n\n2. Peter wants to exercise on Tuesday for **twice** the amount of time he did on Monday and Sunday combined:\n   - Twice of 39 minutes = 2 × 39 = 78 minutes\n\nSo, Peter needs to exercise **78 minutes** on Tuesday to meet his goal.\n\n#### 78"
+  },
+  {
+   "i": 301,
+   "exp": "8",
+   "got": "31",
+   "pass": false,
+   "text": "Let's solve this step by step.\n\nWe are making a **32-page tabloid** newspaper, which is folded vertically (like a standard booklet).\n\nWhen you fold a sheet of paper in half vertically, you get **4 pages** (front and back of the sheet), because:\n\n- One sheet of paper, when folded in half, has two sides.\n- Each side has two pages (front and back), so total pages per sheet = 4.\n\nBut in a booklet, the pages are arranged in a specific way so that when you fold the paper, the pages are printed in a way that when folded, the pages are in correct order.\n\nIn a **folded booklet**, the total number of pages is always a multiple of 4, and the number of **sheets** (individual pieces of paper) needed is:\n\n> Number of sheets = Total pages / 4\n\nWhy?\n\nBecause each sheet of paper, when folded, contributes 4 pages:\n- For example, a single sheet folded in half gives:\n  - Front: page 1 (left back) and page 32 (right front)\n  - Back: page 2 (left front) and page 31 (right back)\n\nWait — actually, in a standard booklet,"
+  },
+  {
+   "i": 302,
+   "exp": "15",
+   "got": "15",
+   "pass": true,
+   "text": "Let's solve this step by step:\n\n1. Annika started with $50.\n\n2. She spent half of it on food and snacks:\n   - Half of $50 = $50 ÷ 2 = $25\n\n3. She spent an additional $10 on rides.\n\n4. Total amount spent = food and snacks + rides = $25 + $10 = $35\n\n5. Amount left = initial amount - total spent = $50 - $35 = $15\n\n#### 15"
+  },
+  {
+   "i": 303,
+   "exp": "1300",
+   "got": "3",
+   "pass": false,
+   "text": "Let's solve this step by step.\n\nWe are given:\n\n- Elise has sold her Dad's collection of **250 books** over three years.\n- Each book sells for **$20**.\n- She sold **twice as many books in the first year** as she has sold in the **current year**.\n- There are **50 unsold books** currently.\n- Her sales this year (current year) = **45 books**.\n\nWe are to find: **Total amount of money she earned in the second year**.\n\n---\n\n### Step 1: Determine total books sold over the three years\n\nTotal books = 250  \nCurrently, there are 50 unsold books → so books sold over the three years =  \n250 - 50 = **200 books sold** in total over 3 years.\n\n---\n\n### Step 2: Sales in current year (this year)\n\nGiven: Sales this year = **45 books**\n\nSo, books sold in first year = **twice** that of current year  \n→ First year sales = 2 × 45 = **90 books**\n\n---\n\n### Step 3: Total books sold in first and current years\n\nFirst year:"
+  },
+  {
+   "i": 304,
+   "exp": "3200",
+   "got": "2",
+   "pass": false,
+   "text": "Let's solve this step by step:\n\n1. **Watson's hourly wage**: $10 per hour  \n2. **Shift duration**: 10 hours per day  \n3. **Days worked per week**: 5 days  \n4. **Bonus**: $300 per week if the company performs well  \n5. **Month in question**: April  \n6. **April has 30 days**  \n\nFirst, calculate how many weeks are in April:  \nApril has 30 days → 30 ÷ 7 = 4 weeks and 2 extra days  \nSo, April has **4 full weeks** and **2 extra days** (which is 2 days of work, not a full week)\n\nBut Watson works **5 days a week**, so we need to know how many full work weeks and partial weeks he works.\n\nSince he works 5 days a week, and April has 30 days:\n\n- Number of weeks in April: 30 ÷ 7 ≈ 4.2857 weeks  \n- So, he works 4 full weeks and 2 extra days (since 4 weeks = 28 days, 30 - 28 = 2 days)\n\nBut does he"
+  },
+  {
+   "i": 305,
+   "exp": "4",
+   "got": "4",
+   "pass": true,
+   "text": "Let's solve this step by step:\n\n1. John arm-wrestles 20 people.\n2. He beats 80% of them.\n\nSo, first, calculate how many people he beats:\n\n80% of 20 = 0.80 × 20 = 16 people.\n\nSo, John beats 16 people.\n\nNow, since he only arm-wrestled 20 people, and he beat 16, the remaining people must be the ones he lost to.\n\nTotal people = 20  \nPeople he beat = 16  \nPeople he lost to = 20 - 16 = 4\n\n#### 4"
+  },
+  {
+   "i": 306,
+   "exp": "10",
+   "got": "5",
+   "pass": false,
+   "text": "Let's solve this step by step.\n\n1. **Total loaves produced each day**:  \n   The bakery produces **60 loaves** each day.\n\n2. **Loaves sold in the morning**:  \n   Two-thirds of the loaves are sold in the morning.  \n   So, morning sales = (2/3) × 60 = **40 loaves**\n\n3. **Loaves remaining after morning**:  \n   60 - 40 = **20 loaves** left\n\n4. **Half of what is left is sold in the afternoon and evening**:  \n   Half of the remaining 20 loaves is sold equally in the afternoon and evening.  \n   So, half of 20 = (1/2) × 20 = **10 loaves**  \n   This 10 loaves is **split equally** between afternoon and evening.\n\n5. **Loaves sold in the afternoon**:  \n   10 ÷ 2 = **5 loaves**\n\n#### 5"
+  },
+  {
+   "i": 307,
+   "exp": "16",
+   "got": "8",
+   "pass": false,
+   "text": "Let's solve this step by step.\n\nWe are told:\n\n- Joey loses 8 pounds in 4 weeks.\n- Sandy wants to lose **the same amount of weight** as Joey does, but **it takes Sandy 4 weeks to lose the same amount that Joey loses in one week**.\n\nWe are to find: **How many weeks will it take Sandy to lose the same total amount of weight that Joey loses in 4 weeks?**\n\n---\n\nStep 1: Find how much weight Joey loses per week.\n\nJoey loses 8 pounds in 4 weeks.\n\nSo, per week:  \n8 pounds ÷ 4 weeks = **2 pounds per week**\n\n---\n\nStep 2: How much weight does Sandy lose per week?\n\nWe are told:  \nSandy needs **4 weeks** to lose the **same amount** that Joey loses in **one week**.\n\nJoey loses 2 pounds per week → So, in one week, Joey loses 2 pounds.\n\nSo, Sandy loses 2 pounds in 4 weeks.\n\nTherefore, Sandy's weekly loss =  \n2 pounds ÷ 4 weeks = **0.5 pounds per week**\n\n---\n\nStep 3: How much total weight does Joey lose in 4 weeks?\n\nJoey loses 8"
+  },
+  {
+   "i": 308,
+   "exp": "6",
+   "got": "6",
+   "pass": true,
+   "text": "Let's solve this step by step:\n\n1. **Original price of one tub of ice cream:** $13  \n   **Discounted price:** $11  \n   **Savings per tub of ice cream:**  \n   $13 - $11 = **$2**\n\n2. **Savings for 2 tubs of ice cream:**  \n   2 × $2 = **$4**\n\n3. **Packet of milk:**  \n   Original price not given, but it was sold at a discount of $0.5  \n   So, **savings per packet of milk:** $0.5\n\n4. **Savings for 4 packets of milk:**  \n   4 × $0.5 = **$2**\n\n5. **Total savings:**  \n   $4 (from ice cream) + $2 (from milk) = **$6**\n\n#### 6"
+  },
+  {
+   "i": 309,
+   "exp": "8",
+   "got": "8",
+   "pass": true,
+   "text": "Let's solve this step by step.\n\nWe are told:\n\n- The **Lots-of-Limbs Serum** makes a person grow:\n  - **An extra arm every 3 days**\n  - **An extra leg every 5 days**\n\nWe need to find out **how many new limbs** a person will grow after **15 days**.\n\n---\n\n### Step 1: Count how many times the person gets an arm\n- An arm is added every 3 days.\n- In 15 days, the number of times this happens is:\n  - 15 ÷ 3 = **5 times**\n\nSo, **5 extra arms** are added.\n\n---\n\n### Step 2: Count how many times the person gets a leg\n- A leg is added every 5 days.\n- In 15 days, the number of times this happens is:\n  - 15 ÷ 5 = **3 times**\n\nSo, **3 extra legs** are added.\n\n---\n\n### Step 3: Total new limbs\n- Arms: 5\n- Legs: 3\n- Total limbs = 5 + 3 = **8**\n\nNote: The question asks for **how many new limbs**, and since arms and legs are both limbs"
+  },
+  {
+   "i": 310,
+   "exp": "2050",
+   "got": "2000",
+   "pass": false,
+   "text": "Let's solve this step by step.\n\nStep 1: Determine how much Theo spends on business suits.\n\nHe buys 6 business suits at $100 each:\n\n6 × $100 = $600\n\nStep 2: Determine how much he spends on suitcases.\n\n3 suitcases at $50 each:\n\n3 × $50 = $150\n\nStep 3: Determine the cost of the flight ticket.\n\nThe flight ticket costs $700 more than 5 times the cost of a business suit.\n\nCost of one business suit = $100  \n5 times that = 5 × $100 = $500  \nFlight ticket = $500 + $700 = $1200\n\nStep 4: Add up all the expenses so far:\n\n- Business suits: $600  \n- Suitcases: $150  \n- Flight ticket: $1200  \n\nTotal spent on these items:  \n$600 + $150 + $1200 = $1950\n\nStep 5: Theo wants to **save $2000** for the trip.\n\nSo, the total amount he can spend (including"
+  },
+  {
+   "i": 311,
+   "exp": "91",
+   "got": "91",
+   "pass": true,
+   "text": "Let's solve this step by step:\n\n1. **Total family members**: 5  \n2. **Three people eat 3 eggs each day**:  \n   So, 3 people × 3 eggs = 9 eggs per day  \n3. **The remaining 2 people eat 2 eggs each day**:  \n   5 - 3 = 2 people  \n   2 people × 2 eggs = 4 eggs per day  \n4. **Total eggs per day**:  \n   9 (from 3 people) + 4 (from 2 people) = 13 eggs per day  \n5. **Eggs per week (7 days)**:  \n   13 eggs/day × 7 days = 91 eggs  \n\n#### 91"
+  },
+  {
+   "i": 312,
+   "exp": "32",
+   "got": "32",
+   "pass": true,
+   "text": "Let's solve this step by step:\n\n1. We are told that **Quinn is 30 years old**.\n\n2. Jane is **3 years younger than Quinn**.  \n   So, Jane's age = Quinn's age - 3  \n   Jane = 30 - 3 = **27 years old**\n\n3. Trent is **5 years older than Jane**.  \n   So, Trent's age = Jane's age + 5  \n   Trent = 27 + 5 = **32 years old**\n\n#### 32"
+  },
+  {
+   "i": 313,
+   "exp": "120000",
+   "got": "26",
+   "pass": false,
+   "text": "Let's solve this step by step.\n\nWe are given:\n\n- Currently, Cera is 46 years old.\n- Six years ago, Noah was half as old as Cera was at that time.\n- Six years ago, the population of Chile was half what it is now.\n- Six years ago, the population of Chile was 3000 times the age of Noah at that time.\n- We are to find the current population of Chile.\n\n---\n\n**Step 1: Find Cera's age six years ago**\n\nCera is currently 46, so six years ago:\n\n> Cera's age = 46 - 6 = 40 years old\n\n---\n\n**Step 2: Find Noah's age six years ago**\n\nWe are told: *Six years ago, when Noah was half as old as Cera was at that time.*\n\nCera was 40 six years ago, so half of that is:\n\n> Noah's age six years ago = 40 / 2 = 20 years old\n\n---\n\n**Step 3: Find Noah's current age**\n\nNoah was 20 six years ago, so now:\n\n> Noah's current age = 20 + 6 = 26 years"
+  },
+  {
+   "i": 314,
+   "exp": "30",
+   "got": "30",
+   "pass": true,
+   "text": "Let's solve this step by step.\n\nWe are told:\n\n- The total number of team members is 105.\n- There are twice as many players on the offense as on the defense.\n- There are half as many players on special teams as on the defense.\n\nLet’s define variables:\n\nLet **D** = number of players on defense.\n\nThen:\n\n- Offense = 2D (twice as many as defense)\n- Special teams = D/2 (half the number of defense)\n\nTotal players = Offense + Defense + Special teams\n\nSo:\n\nTotal = 2D + D + (D/2) = 105\n\nNow combine the terms:\n\n2D + D = 3D  \n3D + D/2 = (6D/2 + D/2) = 7D/2\n\nSo:\n\n7D/2 = 105\n\nNow solve for D:\n\nMultiply both sides by 2:\n\n7D = 210\n\nDivide by 7:\n\nD = 30\n\n✅ So, there are **30 players on defense**.\n\n#### 30"
+  },
+  {
+   "i": 315,
+   "exp": "14",
+   "got": "2",
+   "pass": false,
+   "text": "Let's solve this step by step:\n\n1. **Calculate total number of people invited:**\n\n   - 2 families with 6 people each:  \n     2 × 6 = 12 people  \n   - 3 families with 4 people each:  \n     3 × 4 = 12 people  \n\n   Total invited = 12 + 12 = **24 people**\n\n2. **8 people couldn't come due to illness.**  \n   So, 24 - 8 = **16 people remaining** who might attend.\n\n3. **1/4 of that number had previous commitments.**  \n   \"That number\" refers to the 8 who were ill.  \n   So, 1/4 of 8 = 8 ÷ 4 = **2 people** had previous commitments.\n\n   These 2 people also can't attend.\n\n4. **So, total who can't attend:**  \n   - 8 due to illness  \n   - 2 due to previous commitments  \n   Total no-shows = 8 + 2 = 10\n\n5. **People who show up:**  \n   Total invited = 24  \n   Subtract those who can't come = 2"
+  },
+  {
+   "i": 316,
+   "exp": "156",
+   "got": "156",
+   "pass": true,
+   "text": "Let's solve this step by step:\n\n1. **Marbles bought from Johanna**:  \n   Solomon bought **20 marbles** from Johanna.\n\n2. **Marbles already in the store**:  \n   The store originally had **50 marbles**.\n\n3. **Marbles given by his father**:  \n   His father gave him **2/5 times** as many marbles as he bought from Johanna.  \n   So, marbles from father = (2/5) × 20 = 8 marbles.\n\n4. **Total marbles Solomon now has**:  \n   = marbles from Johanna + original store marbles + marbles from father  \n   = 20 + 50 + 8 = **78 marbles**\n\n5. **Weight of each marble**:  \n   Each marble weighs **2 kg**.\n\n6. **Total weight**:  \n   Total weight = 78 marbles × 2 kg = **156 kg**\n\n#### 156"
+  },
+  {
+   "i": 317,
+   "exp": "12",
+   "got": "12",
+   "pass": true,
+   "text": "Let's solve this step by step:\n\n1. **Find the volume of the pool**  \n   The pool is a rectangular prism, so volume = length × width × depth  \n   Given:  \n   - Length = 6 feet  \n   - Width = 4 feet  \n   - Depth = 5 feet  \n\n   Volume = 6 × 4 × 5 = 120 cubic feet\n\n2. **Find the cost to fill**  \n   It costs $0.10 per cubic foot.  \n   Total cost = volume × cost per cubic foot  \n   = 120 × $0.10 = $12.00\n\n#### 12"
+  },
+  {
+   "i": 318,
+   "exp": "123",
+   "got": "123",
+   "pass": true,
+   "text": "Let's solve this step by step.\n\nWe are given:\n\n- The classroom has **30 boys**.\n- There are **3 times as many girls as boys**.\n- There are **1/10 as many nongendered children as there are boys**.\n- We need to find the **total number of children** in the classroom.\n\n---\n\n**Step 1: Number of girls**\n\nIt says there are 3 times as many girls as boys.\n\nBoys = 30  \nSo, girls = 3 × 30 = **90**\n\n---\n\n**Step 2: Number of nongendered children**\n\nIt says there are 1/10 as many nongendered children as there are boys.\n\nBoys = 30  \nSo, nongendered children = 1/10 × 30 = **3**\n\n---\n\n**Step 3: Total children**\n\nTotal = boys + girls + nongendered children  \n= 30 + 90 + 3  \n= **123**\n\n---\n\n#### 123"
+  },
+  {
+   "i": 319,
+   "exp": "15",
+   "got": "15",
+   "pass": true,
+   "text": "We are given:\n\n- The ratio of electric poles to electric wires is **1:3**.\n- The total number of electric wires needed is **45**.\n- We are to find the total number of electric poles required.\n\n---\n\n**Step 1: Understand the ratio**\n\nThe ratio of poles : wires = 1 : 3  \nThis means for every **1 pole**, there are **3 wires**.\n\n---\n\n**Step 2: Set up a proportion**\n\nLet the number of poles be **x**.\n\nAccording to the ratio:\n\n> x : 45 = 1 : 3\n\nThis can be written as:\n\n> x / 45 = 1 / 3\n\n---\n\n**Step 3: Solve for x**\n\nMultiply both sides by 45:\n\n> x = (1 / 3) × 45  \n> x = 15\n\n---\n\n**Step 4: Conclusion**\n\nThe total number of electric poles required is **15**.\n\n#### 15"
+  },
+  {
+   "i": 320,
+   "exp": "8",
+   "got": "7",
+   "pass": false,
+   "text": "Let's solve this step by step.\n\n**Step 1: Find the total number of people at the beginning.**\n\nThere were:\n- 25 men\n- 15 women\n\nTotal people = 25 + 15 = **40**\n\n**Step 2: Find how many people left after an hour.**\n\n1/4 of the total number of people left:\n\n1/4 × 40 = **10 people left**\n\nSo, 10 people left the party.\n\n**Step 3: We are told that 22 men stayed at the party.**\n\nSo, number of men who left = total men - men who stayed  \n= 25 - 22 = **3 men left**\n\n**Step 4: Total people who left = 10**\n\nWe now know:\n- 3 men left\n- So, the rest of the people who left must be women\n\nNumber of women who left = total who left - men who left  \n= 10 - 3 = **7 women left**\n\n**Step 5: Find how many women are left**\n\nOriginal women = 15  \nWomen who left = 7  \nSo, women remaining = 15 - 7 = **"
+  },
+  {
+   "i": 321,
+   "exp": "1",
+   "got": "1",
+   "pass": true,
+   "text": "Let's solve this step by step:\n\n1. We are told that a **book costs $4**.\n\n2. A **magazine costs half as much as a book**.  \n   So, magazine cost = $ \\frac{1}{2} \\times 4 = $2 $\n\n3. A **pen costs $1 less than a magazine**.  \n   So, pen cost = magazine cost - $1 = $2 - $1 = $1\n\n#### 1"
+  },
+  {
+   "i": 322,
+   "exp": "9",
+   "got": "46",
+   "pass": false,
+   "text": "Let's solve this step by step.\n\nWe are told:\n\n- Jam has **three boxes full of pencils** and **2 loose pencils**, which gives a total of **26 pencils**.\n- Meg has **46 pencils**.\n- We are to find out **how many boxes** Jam and Meg need to store **all their pencils**.\n\nBut we need to clarify: **Are the boxes used to store pencils, and how many pencils per box?**\n\nWe know:\n\n- Jam has 3 boxes and 2 loose pencils, totaling 26 pencils.\n\nSo, the 3 boxes contain (26 - 2) = 24 pencils.\n\nSo, 3 boxes hold 24 pencils → each box holds 24 ÷ 3 = 8 pencils.\n\nSo, each box holds **8 pencils**.\n\nNow, Jam has 26 pencils in total (3 boxes + 2 loose).\n\nMeg has 46 pencils.\n\nWe are to find how many boxes are needed to store **all** their pencils.\n\nBut the question is: **How many boxes do Jam and Meg need to store all their pencils?**\n\nWe assume that:\n\n- The boxes can only store pencils (not loose ones), and\n- The loose pencils"
+  },
+  {
+   "i": 323,
+   "exp": "75",
+   "got": "60",
+   "pass": false,
+   "text": "Let's solve this step by step.\n\nWe are told:\n\n- Each **ice cube** cools the coffee by **13 degrees** and makes it **12 milliliters weaker**.\n- Any **added liquid** (like cream) also weakens the coffee.\n- Shannon's coffee is cooled by **65 degrees** and she adds **15 milliliters of cream**.\n\nWe are to find: **How many milliliters weaker is the coffee?**\n\n---\n\n### Step 1: Determine how many ice cubes are needed to cool by 65 degrees\n\nEach ice cube cools by 13 degrees.\n\nSo, number of ice cubes = 65 ÷ 13 = **5 ice cubes**\n\nEach ice cube makes the coffee **12 mL weaker**, so:\n\n5 ice cubes → 5 × 12 = **60 mL weaker** from ice cubes.\n\n---\n\n### Step 2: Add 15 mL of cream\n\nWe are told: **Any added liquid also weakens the coffee.**\n\nSo, adding 15 mL of cream → **15 mL weaker**\n\n---\n\n### Step 3: Total weakening\n\nTotal weakness = weakness from ice cubes + weakness from cream  \n= 60"
+  },
+  {
+   "i": 324,
+   "exp": "14",
+   "got": "7",
+   "pass": false,
+   "text": "Let's solve this step by step.\n\nWe are told:\n\n- People can trade **2 old records** for **1 new record**.\n- 5 people come in and **leave with 7 new records** in total.\n- We need to find out **how many old records** the 5 people brought in.\n\nLet’s denote:\n\n- Let **x** be the total number of old records brought in by the 5 people.\n\nEach trade gives 1 new record for every 2 old records traded.\n\nSo, for every 2 old records traded, you get 1 new record.\n\nTherefore, the number of new records obtained = **x / 2**\n\nBut wait — the people are not necessarily trading all their records. They might trade some, and get new ones, and then possibly trade again with the new ones? But the problem says:\n\n> People can trade 2 old records for 1 new one.\n\nAnd the final result is that **5 people leave with 7 new records**.\n\nSo, the 7 new records are the result of the trading process.\n\nBut here's the key: **the new records are not old records** — they are the ones you get from trading old ones.\n\nSo, the 7 new records were obtained"
+  },
+  {
+   "i": 325,
+   "exp": "224000",
+   "got": "60",
+   "pass": false,
+   "text": "Let's solve this step by step.\n\nWe are given:\n\n- Total number of employees = 100\n- Junior programmers are paid $2000 per month\n- Senior programmers are paid $400 more than junior programmers\n- Number of junior programmers = 2/5 of total employees\n- We need to find the total amount the company pays to all programmers per month\n\n---\n\n**Step 1: Find the number of junior programmers**\n\nJunior programmers = (2/5) × 100 = 40\n\nSo, there are 40 junior programmers.\n\n---\n\n**Step 2: Find the number of senior programmers**\n\nTotal employees = 100  \nJunior = 40  \nSo, senior = 100 - 40 = 60\n\n---\n\n**Step 3: Find the monthly salary of senior programmers**\n\nJunior salary = $2000  \nSenior salary = $2000 + $400 = $2400\n\n---\n\n**Step 4: Calculate total payment to junior programmers**\n\n40 juniors × $2000 = $80,000\n\n---\n\n**Step 5: Calculate total payment to senior programmers**\n\n60"
+  },
+  {
+   "i": 326,
+   "exp": "14",
+   "got": "14",
+   "pass": true,
+   "text": "Let's solve this step by step.\n\nWe are told:\n\n- Some people got on the bus at the terminal.\n- At the first bus stop, 5 more people got on.\n- At the second bus stop, 7 people got off and 8 more got on.\n- At the end, there are 20 people heading to the third stop.\n\nWe are to find: **How many people got on the bus at the terminal?**\n\n---\n\nLet’s define:\n\nLet **x** be the number of people who got on the bus at the terminal.\n\nNow, follow the sequence of events:\n\n1. Start: x people on the bus.\n2. First stop: 5 more get on → total = x + 5\n3. Second stop: 7 people get off, 8 get on →  \n   So, new total = (x + 5) - 7 + 8 = x + 5 - 7 + 8 = x + 6\n\nWe are told that at the end (before the third stop), there are **20 people** on the bus.\n\nSo:\n\nx + 6 = 20\n\nSolve for x:\n\nx = 20 - 6 = 14\n\n---\n\n"
+  },
+  {
+   "i": 327,
+   "exp": "31",
+   "got": "31",
+   "pass": true,
+   "text": "Let's solve this step by step:\n\n1. **Oscar starts with 24 lollipops.**\n\n2. **He eats 2 on his way to school.**  \n   So, lollipops left:  \n   24 - 2 = 22\n\n3. **He passes 14 out to his friends.**  \n   So, lollipops left:  \n   22 - 14 = 8\n\n4. **He buys twice as many lollipops on his way home as he gave to his friends.**  \n   He gave 14 to friends, so he buys:  \n   2 × 14 = 28 lollipops  \n   Now total lollipops:  \n   8 + 28 = 36\n\n5. **He eats 3 more that night and 2 more in the morning.**  \n   Total eaten after returning:  \n   3 + 2 = 5  \n   So, lollipops left:  \n   36 - 5 = 31\n\n#### 31"
+  },
+  {
+   "i": 328,
+   "exp": "2",
+   "got": "2",
+   "pass": true,
+   "text": "We are given:\n\n- The phone recharges at a rate of **1 percentage-point per 3 minutes**.\n- Current charge: **60%**\n- We want to know how long it will take to **fully charge (100%)**.\n\n---\n\n### Step 1: Determine how much charge is left\nFrom 60% to 100% is:\n\n100% - 60% = **40 percentage points**\n\n---\n\n### Step 2: Charging rate\n1 percentage point per 3 minutes  \nSo, for 40 percentage points:\n\nTime = 40 × 3 = **120 minutes**\n\n---\n\n### Step 3: Convert minutes to hours\n120 minutes ÷ 60 = **2 hours**\n\n---\n\n#### 2"
+  },
+  {
+   "i": 329,
+   "exp": "14",
+   "got": "14",
+   "pass": true,
+   "text": "Let's solve this step by step:\n\n1. Erin starts with 7 lollipops.  \n2. Her mother gives her another 10 lollipops.  \n   So, total lollipops now = 7 + 10 = 17  \n3. Erin gives 3 lollipops to Ella.  \n   So, lollipops left = 17 - 3 = 14  \n\n#### 14"
+  },
+  {
+   "i": 330,
+   "exp": "31",
+   "got": "8",
+   "pass": false,
+   "text": "Let's solve this step by step.\n\n**Step 1: Determine the rewards from the loyalty card**\n\nThe customer gets **$1 off for every $20 spent**.\n\nThey spent $80 on their last trip.\n\nSo, rewards earned = $80 ÷ $20 = 4 rewards → **$4 off** (since $1 off per $20)\n\nSo, they have **$4 in rewards** available for this trip.\n\n**Step 2: Apply the rewards**\n\nOn this shopping trip, they spent $43.\n\nThey used their **rewards** of $4 off.\n\nSo, after applying the rewards, the price becomes:  \n$43 − $4 = $39\n\n**Step 3: Apply the coupon**\n\nThe customer applied a **coupon that took twice the amount of rewards off the price**.\n\n\"Twice the amount of rewards\" → twice $4 = $8\n\nSo, the coupon takes **$8 off** the price.\n\nBut note: the coupon is applied **after** the rewards are used?\n\nLet’s read the problem again:\n\n> \"used their rewards, and applied a coupon that took twice the amount of rewards off the price.\"\n\nSo, the sequence is:\n\n- First"
+  },
+  {
+   "i": 331,
+   "exp": "8400",
+   "got": "10",
+   "pass": false,
+   "text": "Let's break this down step by step to compare the **net pay** for each job, then find the difference.\n\n---\n\n### **Job A:**\n- Hourly wage: $15/hour  \n- Hours per year: 2000  \n- Total gross income:  \n  $15 × 2000 = $30,000  \n- State tax rate: 20% on gross income  \n- Net income after tax:  \n  $30,000 × (1 - 0.20) = $30,000 × 0.80 = **$24,000**\n\n---\n\n### **Job B:**\n- Annual salary: $42,000  \n- Property tax: $6,000 (this is a flat property tax, not a percentage)  \n- Tax on net income after property tax: 10%  \n- So, first subtract property tax from gross income to get \"net income\" before income tax:  \n  $42,000 - $6,000 = $36,000  \n- Then, 10% tax on this net income:  \n "
+  },
+  {
+   "i": 332,
+   "exp": "44",
+   "got": "44",
+   "pass": true,
+   "text": "Let's solve this step by step:\n\n1. Total number of castles in Scotland = 220\n\n2. 40 percent of them are ruins:\n   - 40% of 220 = (40/100) × 220 = 0.4 × 220 = 88 ruins\n\n3. Half of the ruined castles are unmanned:\n   - Half of 88 = 88 ÷ 2 = 44\n\nSo, there are 44 unmanned ruined castles in Scotland.\n\n#### 44"
+  },
+  {
+   "i": 333,
+   "exp": "100",
+   "got": "100",
+   "pass": true,
+   "text": "Let's break this down step by step to find the **total cost** of each offer, then compute the **difference** between them.\n\n---\n\n### Step 1: Calculate total cost for Furniture United\n\n- Advance payment: $1,350  \n- 6 monthly installments of $350 each:  \n  6 × $350 = $2,100  \n\n**Total cost for Furniture United** = $1,350 + $2,100 = **$3,450**\n\n---\n\n### Step 2: Calculate total cost for Cozy Homes\n\n- Advance payment: $1,100  \n- 9 monthly installments of $250 each:  \n  9 × $250 = $2,250  \n\n**Total cost for Cozy Homes** = $1,100 + $2,250 = **$3,350**\n\n---\n\n### Step 3: Find the cost difference\n\nDifference = Cost of Furniture United – Cost of Cozy Homes  \n= $3,450 – $3,350 = **$100**\n\nSo, Furniture United's offer is **$100 more"
+  },
+  {
+   "i": 334,
+   "exp": "6",
+   "got": "1",
+   "pass": false,
+   "text": "Let's solve this step by step:\n\n1. First, identify how many paintball guns each person has:\n   - DJ has 8 guns\n   - Nick has 10 guns\n   - RJ has 1 gun\n   - Richard has 5 guns\n\nNote: The names are a bit confusing — we have \"DJ\", \"Nick\", \"Jason\", and \"Richard\" mentioned, but only DJ, Nick, RJ, and Richard are listed with numbers.\n\nWait — the problem says:  \n\"Nick, Richard, Jason and DJ each have paintball guns. DJ has 8 guns, Nick has 10 guns, RJ has 1 gun and Richard has 5 guns.\"\n\nThere's a typo or inconsistency: It says \"RJ\" but earlier it says \"Richard\". Probably a typo — likely meant to say \"Jason\" instead of \"RJ\".\n\nLet’s check:  \n- DJ → 8  \n- Nick → 10  \n- Jason → ?  \n- Richard → 5  \n\nBut the text says: \"RJ has 1 gun\" — that's likely a typo. Since the list is: Nick, Richard, Jason, DJ — and the names given are: DJ, Nick, RJ, Richard.\n\nPoss"
+  },
+  {
+   "i": 335,
+   "exp": "310",
+   "got": "310",
+   "pass": true,
+   "text": "Let's solve this step by step:\n\n1. **Sugar needed for one batch of suckers**: 30 ounces  \n   So, for **8 batches of suckers**:  \n   $ 8 \\times 30 = 240 $ ounces\n\n2. **Sugar needed for one batch of fudge**: 70 ounces  \n   So, for **1 batch of fudge**:  \n   $ 1 \\times 70 = 70 $ ounces\n\n3. **Total sugar needed**:  \n   $ 240 + 70 = 310 $ ounces\n\n#### 310"
+  },
+  {
+   "i": 336,
+   "exp": "72",
+   "got": "9",
+   "pass": false,
+   "text": "Let's solve this step by step.\n\n**Step 1: Find the initial total cost of the shares**\n\nMaria buys 8 shares at $8 each:\n\n$$\n8 \\text{ shares} \\times \\$8 = \\$64\n$$\n\nSo, she initially spends $64.\n\nBut we are not asked for the cost — we are asked for the **final value** of all her shares after the price changes.\n\nSo we need to track the **stock price** over time, not the cost.\n\n**Step 2: First year — price increases by 50%**\n\nOriginal price per share: $8\n\nIncrease of 50%:\n\n$$\n8 \\times 0.50 = 4\n$$\n\nNew price per share:\n\n$$\n8 + 4 = \\$12\n$$\n\nSo after the first year, each share is worth $12.\n\n**Step 3: Second year — price decreases by 25%**\n\nNew price: $12\n\nDecrease of 25%:\n\n$$\n12 \\times 0.25 = 3\n$$\n\nNew price after decrease:\n\n$$\n12 - 3 = \\$9\n$$\n\nSo after the second year, each"
+  },
+  {
+   "i": 337,
+   "exp": "1",
+   "got": "1",
+   "pass": true,
+   "text": "Let's solve this step by step:\n\n1. Luke ate 2 hot dogs.\n\n2. Thomas ate three times more hot dogs than Luke.  \nSo, Thomas ate:  \n3 × 2 = 6 hot dogs.\n\n3. John ate half the amount Thomas ate.  \nSo, John ate:  \n6 ÷ 2 = 3 hot dogs.\n\n4. We are asked: How many more hot dogs did John eat than Luke?  \nJohn ate 3, Luke ate 2.  \nDifference:  \n3 − 2 = 1\n\n#### 1"
+  },
+  {
+   "i": 338,
+   "exp": "60",
+   "got": "70",
+   "pass": false,
+   "text": "Let's solve this step by step.\n\nWe are told:\n\n- There are 200 students in total.\n- The class is split into 3 groups.\n- Two of the groups are equal in size.\n- The third group is the smallest and is **10 less than each of the other two groups**.\n- We are to find the number of students in the smallest group.\n\n---\n\nLet’s define variables:\n\nLet the size of each of the two equal groups be **x**.\n\nThen, the smallest group is **x - 10**.\n\nTotal number of students:\n\n> x + x + (x - 10) = 200\n\nSimplify:\n\n> 3x - 10 = 200\n\nAdd 10 to both sides:\n\n> 3x = 210\n\nDivide by 3:\n\n> x = 70\n\nSo, each of the two larger groups has 70 students.\n\nThen, the smallest group has:\n\n> 70 - 10 = 60 students.\n\nCheck:  \n70 + 70 + 60 = 200 → Correct.\n\nAlso, 60 is indeed 10 less than 70"
+  },
+  {
+   "i": 339,
+   "exp": "160",
+   "got": "2",
+   "pass": false,
+   "text": "Let's solve this step by step.\n\nWe are told:\n\n- Farmer Brown has 60 animals in total.\n- All animals are either chickens or cows.\n- He has **twice as many chickens as cows**.\n- We need to find the **total number of legs** all the animals have.\n\n---\n\n**Step 1: Define variables**\n\nLet:\n- $ c $ = number of cows\n- $ h $ = number of chickens\n\nWe are told:\n- $ h = 2c $ (twice as many chickens as cows)\n- Total animals: $ h + c = 60 $\n\n---\n\n**Step 2: Substitute into the total**\n\nSubstitute $ h = 2c $ into the total:\n\n$$\n2c + c = 60\n$$\n$$\n3c = 60\n$$\n$$\nc = 20\n$$\n\nThen:\n$$\nh = 2c = 40\n$$\n\nSo, there are:\n- 20 cows\n- 40 chickens\n\n---\n\n**Step 3: Count the legs**\n\n- Each cow has 4 legs → $ 20 \\times 4 = 80 $ legs\n- Each chicken has 2 legs"
+  },
+  {
+   "i": 340,
+   "exp": "4",
+   "got": "1",
+   "pass": false,
+   "text": "Let's solve this step by step:\n\n1. **Initial setup**: Josh starts practicing juggling 3 balls.\n\n2. **Weekly progression**: He adds 1 ball each week.\n\n   - Week 0 (start): 3 balls\n   - Week 1: 3 + 1 = 4 balls\n   - Week 2: 4 + 1 = 5 balls\n   - Week 3: 5 + 1 = 6 balls\n   - Week 4: 6 + 1 = 7 balls\n\n   So, at the end of the fourth week, he is juggling **7 balls**.\n\n3. **Talent show time**: The show begins after the end of the fourth week, so he is juggling 7 balls when he walks on stage.\n\n4. **What happens on stage**: He slips and drops **three** balls.\n\n   - 2 are caught by people in the crowd.\n   - 1 gets lost (in the dark).\n\n   So, **only one ball is lost completely**, and two are caught.\n\n   But the question is: **With a sigh, Josh starts to juggle on stage with how many balls?**\n\n   This means: How many balls does he *"
+  },
+  {
+   "i": 341,
+   "exp": "260",
+   "got": "20",
+   "pass": false,
+   "text": "We are given information about the weights of various animals, and we are to find the total weight of a container carrying one of each animal, plus the container itself.\n\nLet’s go step by step.\n\n---\n\n**Given:**\n\n- A pink frog weighs the same as:\n  - a blue beetle\n  - a green toad\n  - 10 pounds less than a yellow snake\n  - 20 pounds more than a red bird\n\n- The pink frog weighs **50 pounds**\n\n---\n\n### Step 1: Use the frog's weight\n\nWe are told:\n> The pink frog weighs 50 pounds.\n\nSo:\n- Pink frog = 50 pounds\n\n---\n\n### Step 2: Use the relationships\n\n#### (a) Pink frog = blue beetle  \n→ Blue beetle = 50 pounds\n\n#### (b) Pink frog = green toad  \n→ Green toad = 50 pounds\n\n#### (c) Pink frog is 10 pounds less than a yellow snake  \nSo:\nYellow snake = pink frog + 10 = 50 + 10 = **60 pounds**\n\n#### (d) Pink frog is 20 pounds more than a red bird  \nSo:\nRed bird = pink frog – "
+  },
+  {
+   "i": 342,
+   "exp": "87",
+   "got": "87",
+   "pass": true,
+   "text": "Let's solve this step by step:\n\n1. **Laurel's friend gave her 24 baby outfits.**  \n   → So, she starts with 24 outfits.\n\n2. **At her baby shower, she received twice the amount of new baby outfits.**  \n   → \"Twice the amount\" means twice the amount her friend gave her.  \n   → Twice of 24 = 2 × 24 = 48 outfits.\n\n   So, she gets 48 more outfits at the baby shower.\n\n3. **Laurel's mom gifted her with another 15 baby outfits.**  \n   → She gets 15 more.\n\nNow, let's add all the outfits:\n\n- From friend: 24  \n- From baby shower: 48  \n- From mom: 15  \n\nTotal = 24 + 48 + 15 = **87**\n\n#### 87"
+  },
+  {
+   "i": 343,
+   "exp": "180000",
+   "got": "180000",
+   "pass": true,
+   "text": "Let's solve this step by step:\n\n1. **Original distance per day**: Tyson runs 5000 meters every day.\n\n2. **Coach's advice**: He should run **1/5 times more** than 5000 meters.\n\n   - \"1/5 times more\" means he runs the original amount plus 1/5 of that amount.\n   - So, additional distance = (1/5) × 5000 = 1000 meters\n   - New daily distance = 5000 + 1000 = **6000 meters per day**\n\n3. **Duration**: He trained for a month. The question asks about **June**.\n\n   - June has **30 days**.\n\n4. **Total distance in June**:\n   - Daily distance = 6000 meters\n   - Days in June = 30\n   - Total = 6000 × 30 = **180,000 meters**\n\n#### 180000"
+  },
+  {
+   "i": 344,
+   "exp": "2",
+   "got": "2",
+   "pass": true,
+   "text": "Let's solve this step by step:\n\n1. Juice Box A costs $4.\n\n2. Juice Box B is $5 more than Juice Box A:\n   - So, Juice Box B = $4 + $5 = $9\n\n3. Juice Box C is $7 more than Juice Box A:\n   - So, Juice Box C = $4 + $7 = $11\n\n4. Now, we want to know how much more Juice Box C is than Juice Box B:\n   - Difference = Juice Box C - Juice Box B\n   - Difference = $11 - $9 = $2\n\n#### 2"
+  },
+  {
+   "i": 345,
+   "exp": "310",
+   "got": "310",
+   "pass": true,
+   "text": "Let's solve this step by step:\n\n1. First, find the total number of legs from the 40 tables that have 4 legs each:\n   - 40 tables × 4 legs = 160 legs\n\n2. Next, find the total number of legs from the 50 tables that have 3 legs each:\n   - 50 tables × 3 legs = 150 legs\n\n3. Add both amounts together to get the total number of legs:\n   - 160 + 150 = 310 legs\n\n#### 310"
+  },
+  {
+   "i": 346,
+   "exp": "9",
+   "got": "9",
+   "pass": true,
+   "text": "Let's solve this step by step:\n\n1. **Total cookies in the bag**:  \n   Jenny buys 1 bag with **36 cookies**.\n\n2. **Cookies for her son**:  \n   She puts **4 cookies in her son's lunch box each day**, for **5 days a week**.  \n   So, cookies for son = 4 × 5 = **20 cookies**\n\n3. **Cookies eaten by her husband**:  \n   He eats **1 cookie per day** for **7 days**.  \n   So, cookies for husband = 1 × 7 = **7 cookies**\n\n4. **Cookies eaten by Jenny**:  \n   Total cookies = 36  \n   Subtract cookies for son and husband:  \n   36 − 20 − 7 = **9 cookies**\n\n✅ So, Jenny eats **9 cookies**.\n\n#### 9"
+  },
+  {
+   "i": 347,
+   "exp": "36",
+   "got": "36",
+   "pass": true,
+   "text": "Let's solve this step by step:\n\n1. **Original price of one shirt**: $30  \n2. **Davos bought 2 shirts**, so total original cost = 2 × $30 = $60  \n3. He got a **40% discount** on the total.  \n   - 40% of $60 = 0.40 × 60 = $24  \n4. So, the amount he **paid** = original total − discount = $60 − $24 = $36\n\n#### 36"
+  },
+  {
+   "i": 348,
+   "exp": "10",
+   "got": "100",
+   "pass": false,
+   "text": "Let's solve this step by step.\n\n**Step 1: Calculate daily revenue when making tractors**\n\n- They sold 10 tractors per day\n- Each tractor made $100\n\nSo, daily revenue from tractors:\n= 10 tractors/day × $100 = **$1000 per day**\n\n**Step 2: Calculate daily revenue now (making silos)**\n\n- They sell 5 silos per day\n- Each silo makes $220\n\nSo, daily revenue from silos:\n= 5 silos/day × $220 = **$1100 per day**\n\n**Step 3: Find the difference in daily revenue**\n\n= $1100 - $1000 = **$100 more per day**\n\n**Step 4: Find what percentage more this is compared to the original revenue**\n\nWe want to find what percentage $100 is of $1000.\n\nFormula:\n$$\n\\text{Percentage increase} = \\left( \\frac{\\text{New} - \\text{Old}}{\\text{Old}} \\right) \\times 100\n$$\n\n$$\n= \\left( \\frac"
+  },
+  {
+   "i": 349,
+   "exp": "2640",
+   "got": "2640",
+   "pass": true,
+   "text": "Let's break this down step by step:\n\n1. **Food cost per week**: $25  \n   There are 4 weeks in a month, so food per month =  \n   $25/week × 4 weeks = $100 per month\n\n2. **Treats cost**: $20 per month  \n   So, treats per year = $20 × 12 = $240\n\n3. **Medicine cost**: $100 per month  \n   So, medicine per year = $100 × 12 = $1,200\n\n4. **Total cost per month**:  \n   Food: $100  \n   Treats: $20  \n   Medicine: $100  \n   → Total per month = $100 + $20 + $100 = $220\n\n5. **Total per year**:  \n   $220/month × 12 months = $2,640\n\n#### 2640"
+  },
+  {
+   "i": 350,
+   "exp": "8",
+   "got": "2",
+   "pass": false,
+   "text": "Let's break down Peyton's after-work activities step by step and calculate the total time.\n\n1. **Monday – Yoga class**:  \n   Duration = 1 hour\n\n2. **Tuesday – Cooking class**:  \n   It lasts **three times as long** as Monday’s yoga.  \n   So, 3 × 1 hour = **3 hours**\n\n3. **Wednesday – Cheese-tasting event**:  \n   Duration = **0.5 hours** (half-hour)\n\n4. **Thursday – Museum tour**:  \n   Takes **half as long** as the cooking class.  \n   Cooking class = 3 hours → half of that = 3 ÷ 2 = **1.5 hours**\n\n5. **Friday – Errands**:  \n   Duration = **2 hours**\n\nNow, add all the durations:\n\n- Monday: 1 hour  \n- Tuesday: 3 hours  \n- Wednesday: 0.5 hours  \n- Thursday: 1.5 hours  \n- Friday: 2 hours  \n\nTotal = 1 + 3 + 0.5 + 1.5 + 2 =  \n= (1 + 3 + 2) + (0.5 + 1.5) = 6 + 2 = **"
+  },
+  {
+   "i": 351,
+   "exp": "10",
+   "got": "10",
+   "pass": true,
+   "text": "Let's solve this step by step:\n\n1. April is donating:\n   - 30 plant pots for the daisies.\n   - Twice as many for the roses.\n\n2. So, number of pots for roses = 2 × 30 = 60 pots.\n\n3. Total pots needed = daisies + roses = 30 + 60 = 90 pots.\n\n4. April originally bought 100 plant pots.\n\n5. Pots left over = total bought − total needed = 100 − 90 = 10.\n\n#### 10"
+  },
+  {
+   "i": 352,
+   "exp": "21",
+   "got": "21",
+   "pass": true,
+   "text": "Let's solve this step by step.\n\nWe are told:\n\n- Andrea started with $36.\n- She spent $11 on a sweater.\n- She gave her brother $4.\n- We are to find out how much she **saved**.\n\nAssume that \"saved\" means the amount she kept for herself, not spent or given away.\n\nSo, total money spent or given away:\n\n- $11 on sweater\n- $4 to her brother\n\nTotal spent = $11 + $4 = $15\n\nShe started with $36.\n\nSo, amount she saved = $36 - $15 = $21\n\n#### 21"
+  },
+  {
+   "i": 353,
+   "exp": "20",
+   "got": "0.20",
+   "pass": false,
+   "text": "Let's solve this step by step.\n\nWe are given:\n\n- John spends 6 hours boating.\n- He spends half that time swimming → half of 6 hours = 3 hours swimming.\n- He watches 3 shows, each 2 hours → 3 × 2 = 6 hours watching shows.\n- The time spent watching shows (6 hours) is **30%** of the total time he spent on vacation.\n- He spends **40%** of his time sightseeing.\n- We are to find **how much time he spent sightseeing**.\n\n---\n\n**Step 1: Use the show time to find total vacation time**\n\nWe are told that 6 hours (watching shows) is 30% of the total vacation time.\n\nLet total vacation time = T\n\nSo:\n\n6 = 0.30 × T\n\nSolve for T:\n\nT = 6 / 0.30 = 20 hours\n\nSo, John spent **20 hours** on vacation.\n\n---\n\n**Step 2: Find how much time he spent sightseeing**\n\nHe spent 40% of his time sightseeing.\n\n40% of 20 hours = 0.40 × 0.20"
+  },
+  {
+   "i": 354,
+   "exp": "45",
+   "got": "45",
+   "pass": true,
+   "text": "Let's solve this step by step:\n\n1. **Cost of the phone**: $400  \n2. **Money Annabelle already has**: $80  \n\n3. **First job**:  \n   - $10 per hour  \n   - 20 hours  \n   - Earnings = 20 × $10 = $200  \n\n4. **Second job**:  \n   - $5 per hour  \n   - 15 hours  \n   - Earnings = 15 × $5 = $75  \n\n5. **Total earnings from both jobs**:  \n   $200 + $75 = $275  \n\n6. **Total money Annabelle has now**:  \n   $80 (savings) + $275 (earnings) = $355  \n\n7. **Amount still needed**:  \n   $400 - $355 = $45  \n\n#### 45"
+  },
+  {
+   "i": 355,
+   "exp": "34",
+   "got": "34",
+   "pass": true,
+   "text": "Let's solve this step by step:\n\n1. The shortest tree is **6 feet** tall.\n\n2. The second tree is **5 feet more** than the shortest tree:\n   - So, second tree height = 6 + 5 = **11 feet**\n\n3. Now, the combined height of the two trees (shortest and second):\n   - 6 + 11 = **17 feet**\n\n4. The tallest tree is **twice** the height of the two trees combined:\n   - So, tallest tree = 2 × 17 = **34 feet**\n\n✅ Final answer:  \n#### 34"
+  },
+  {
+   "i": 356,
+   "exp": "21",
+   "got": "21",
+   "pass": true,
+   "text": "Let's solve this step by step:\n\n1. **Initial money given by mother**:  \n   Dean starts with $28.\n\n2. **Cost of toy cars**:  \n   He buys 6 toy cars, each costing $2.  \n   Cost of toy cars = 6 × $2 = $12\n\n3. **Cost of teddy bears**:  \n   He buys 5 teddy bears, each costing $1.  \n   Cost of teddy bears = 5 × $1 = $5\n\n4. **Total spent**:  \n   $12 (cars) + $5 (bears) = $17\n\n5. **Money left after purchases**:  \n   $28 − $17 = $11\n\n6. **Extra money given by mother**:  \n   His mother gives him an extra $10.  \n   So, add $10 to the remaining $11.\n\n7. **Final amount**:  \n   $11 + $10 = $21\n\n#### 21"
+  },
+  {
+   "i": 357,
+   "exp": "2",
+   "got": "25",
+   "pass": false,
+   "text": "Let's solve this step by step.\n\nWe know:\n\n- Morgan has **$90** budgeted.\n- She wants to:\n  - Play **one round of mini-golf** (cost: $5 per round)\n  - Have **$5 in arcade tokens** (this is a fixed cost)\n  - Ride **go-karts twice** (each ride costs $10)\n\nWe need to find out **how many friends** she can invite, meaning how many people (including Morgan) can be part of the activity.\n\nLet’s define:\n- Let **n** be the total number of people (Morgan + her friends).\n- So, the number of friends = **n - 1**\n\nNow, calculate total cost:\n\n1. **Mini-golf**: $5 per person (since everyone plays one round)\n2. **Arcade tokens**: $5 (shared by everyone)\n3. **Go-karts**: $10 per ride, and each person rides twice → $10 × 2 = $20 per person\n\nSo, cost per person:\n- Mini-golf: $5\n- Go-karts: $20\n- Total per person: $5 + $20 = $25\n- Plus"
+  },
+  {
+   "i": 358,
+   "exp": "20",
+   "got": "20",
+   "pass": true,
+   "text": "Let's solve this step by step:\n\n1. **Daily pocket money**: Marisa gets $5 every day.\n\n2. **Cost of lollipops**: She buys 4 lollipops each day, and each lollipop costs 25 cents.\n\n   - So, total cost per day = 4 × 25 cents = 100 cents = $1.00\n\n3. **Daily change saved**:  \n   She gets $5, spends $1, so she saves:  \n   $5.00 - $1.00 = $4.00 per day\n\n4. **Total saved over 5 days**:  \n   $4.00/day × 5 days = $20.00\n\n#### 20"
+  },
+  {
+   "i": 359,
+   "exp": "4",
+   "got": "1.50",
+   "pass": false,
+   "text": "Let's solve this step by step.\n\nWe are given:\n\n- Billy starts with $10.\n- Candy costs $1.50 per pound.\n- After buying candy, he spends **half his change** on gumballs.\n- Gumballs cost $0.05 each.\n- He buys 40 gumballs.\n\nWe are to find: **How many pounds of candy did he buy?**\n\n---\n\n**Step 1: Find total cost of gumballs**\n\nEach gumball costs $0.05, and he buys 40:\n\n$$\n40 \\times 0.05 = 2.00\n$$\n\nSo, he spends $2.00 on gumballs.\n\n---\n\n**Step 2: Understand that this $2.00 is half of his change after buying candy**\n\nLet’s define:\n\n- Let $ x $ = pounds of candy he bought.\n- Cost of candy = $1.50 per pound → total candy cost = $1.50x\n\nHe starts with $10.\n\nSo, money left after buying candy = $10 - 1.50x\n\nThen, he spends **half of that change** on gumballs.\n\n"
+  },
+  {
+   "i": 360,
+   "exp": "25",
+   "got": "45.",
+   "pass": false,
+   "text": "Let's solve this step by step.\n\nWe are told:\n\n- Carver just turned 45 years old.\n- Carver is 5 years less than twice the age of his son.\n\nLet’s let the son’s age be **x** years.\n\nAccording to the problem:\n\n> Carver’s age = 5 years less than twice the son’s age\n\nSo we can write the equation:\n\n45 = 2x − 5\n\nNow solve for x:\n\nAdd 5 to both sides:\n\n45 + 5 = 2x  \n50 = 2x\n\nDivide both sides by 2:\n\nx = 25\n\nSo, the son is **25 years old**.\n\nWait — that can’t be right. A 45-year-old father having a 25-year-old son? That would make the son 20 years older than the father? No — actually, 45 and 25: the son is 20 years younger, which is possible, but let's double-check the logic.\n\nWait — if the son is 25, then twice the son’s age is 50. Five years less than that is 50 − 5 = 45. That"
+  },
+  {
+   "i": 361,
+   "exp": "20",
+   "got": "180",
+   "pass": false,
+   "text": "Let's solve this step by step.\n\n---\n\n**Step 1: Determine the one-way distance from the third city to the first city.**\n\nWe are told:\n\n- From first to second city: 75 miles  \n- From second to third city: 100 miles  \n- From third to first city: **50 miles less than the combined distance** of the first two legs.\n\nSo, combined distance of first two legs:  \n75 + 100 = 175 miles\n\nThen, third leg (third to first):  \n175 - 50 = **125 miles**\n\n---\n\n**Step 2: Total distance for one full round trip (first → second → third → first)**\n\n= 75 + 100 + 125 = **300 miles**\n\n---\n\n**Step 3: The train does this trip 3 times a day**\n\nSo, daily distance traveled = 3 × 300 = **900 miles per day**\n\n---\n\n**Step 4: Train needs service every 18,000 miles**\n\nSo, how many days between services?\n\n= Total miles between services ÷ miles per day  \n= 18,0"
+  },
+  {
+   "i": 362,
+   "exp": "23",
+   "got": "15",
+   "pass": false,
+   "text": "Let's solve this step by step.\n\nWe are given:\n\n- A Rottweiler bed takes **8 pounds** of stuffing.\n- A Chihuahua bed takes **2 pounds** of stuffing.\n- A Collie bed takes the **average** amount of stuffing between a Rottweiler and a Chihuahua bed.\n\n### Step 1: Find the amount of stuffing for a collie bed\n\nAverage of Rottweiler (8 lbs) and Chihuahua (2 lbs):\n\n$$\n\\text{Average} = \\frac{8 + 2}{2} = \\frac{10}{2} = 5 \\text{ pounds}\n$$\n\nSo, a collie bed takes **5 pounds** of stuffing.\n\n---\n\n### Step 2: Calculate total stuffing for 4 chihuahua beds\n\nEach chihuahua bed: 2 pounds  \n4 beds:  \n$$\n4 \\times 2 = 8 \\text{ pounds}\n$$\n\n---\n\n### Step 3: Calculate total stuffing for 3 collie beds\n\nEach collie bed: 5 pounds  \n3 beds:  \n$$\n3 \\times 5 = 15 \\text{ pounds}\n$$\n\n---\n\n### Step "
+  },
+  {
+   "i": 363,
+   "exp": "6",
+   "got": "6",
+   "pass": true,
+   "text": "Let's solve this step by step.\n\n**Step 1: Determine the distance and speed for the trip to the friend's house.**\n\n- Original distance: 200 miles\n- Detour adds 10 miles → total distance to friend's house = 200 + 10 = 210 miles\n- Speed: 70 mph\n\nTime to get there = distance ÷ speed = 210 ÷ 70 = **3 hours**\n\n**Step 2: Determine the distance and speed for the return trip.**\n\n- Distance home: 240 miles\n- Speed: 80 mph\n\nTime to return = 240 ÷ 80 = **3 hours**\n\n**Step 3: Total trip time**\n\nTotal time = time to friend's house + time back home  \n= 3 hours + 3 hours = **6 hours**\n\n#### 6"
+  },
+  {
+   "i": 364,
+   "exp": "49",
+   "got": "49",
+   "pass": true,
+   "text": "Let's solve this step by step:\n\n1. We know the total number of fourth-graders at Small Tree School is **96**.\n2. The number of girls is **43**.\n3. So, the number of boys is:\n   $$\n   96 - 43 = 53\n   $$\n   So, there are **53 boys** in total.\n\n4. On Friday, **5 girls** and **4 boys** were absent.\n\n5. We are asked: **How many fourth-grade boys were at school on Friday?**\n\n   That means: total boys minus the absent boys:\n   $$\n   53 - 4 = 49\n   $$\n\n#### 49"
+  },
+  {
+   "i": 365,
+   "exp": "18",
+   "got": "18",
+   "pass": true,
+   "text": "Let's solve this step by step:\n\n1. We are told there are 6 girls in the park.\n2. The number of boys is twice the number of girls.\n   - So, number of boys = 2 × 6 = 12 boys.\n3. Total number of kids = number of girls + number of boys\n   - Total = 6 + 12 = 18\n\n#### 18"
+  },
+  {
+   "i": 366,
+   "exp": "9",
+   "got": "9",
+   "pass": true,
+   "text": "Let's solve this step by step:\n\n1. Jane needs a total of **at least 42 points** across 3 tests to pass.\n\n2. She scored:\n   - First test: 15 points\n   - Second test: 18 points\n\n3. So, the total from the first two tests is:\n   15 + 18 = 33 points\n\n4. To find out how many points she needs on the third test, subtract the points she already has from the required total:\n   42 - 33 = 9 points\n\n5. Therefore, Jane must score **at least 9 points** on the third test to pass.\n\n#### 9"
+  },
+  {
+   "i": 367,
+   "exp": "19",
+   "got": "5",
+   "pass": false,
+   "text": "Let's solve this step by step.\n\nWe are told:\n\n- 3 customers were kicked out for **refusing to wear masks**.\n- A number equal to **four times that many minus 5** were kicked out for **shoplifting**.\n- **Three times** the number of shoplifters were kicked out for **physical violence over goods on sale**.\n- The **total** number of people kicked out is **50**.\n- We are to find how many were kicked out for **other reasons**.\n\n---\n\n**Step 1: Define variables**\n\nLet:\n- M = number kicked out for refusing masks = 3 (given)\n- S = number kicked out for shoplifting\n- V = number kicked out for physical violence\n- O = number kicked out for other reasons (what we want to find)\n\nTotal = M + S + V + O = 50\n\n---\n\n**Step 2: Express S and V in terms of known values**\n\nWe are told:\n> \"A number equals to four times that many minus 5 were kicked out for shoplifting.\"\n\n\"that many\" refers to the number who refused to wear masks → that's 3.\n\nSo:\nS = 4 × 3 − 5 = "
+  },
+  {
+   "i": 368,
+   "exp": "18",
+   "got": "14",
+   "pass": false,
+   "text": "Let's solve this step by step.\n\nWe are told:\n\n- After scoring 14 points, Erin now has **three times more points than Sara**, who scored 8.\n\nWait — let's be careful with the wording: \"**three times more**\" can be ambiguous.\n\nBut let's analyze:\n\nSara scored 8 points.\n\nIf Erin now has **three times more** than Sara, does that mean:\n\n- 3 × 8 = 24?  \n  → That would be \"three times as many\"\n\nOr does \"three times more\" mean 8 + 3×8 = 8 + 24 = 32?\n\nThis is a common ambiguity in language.\n\nBut in standard mathematical usage, \"three times more\" is often misused. The correct interpretation depends on context.\n\nLet’s clarify:\n\n- \"Three times as many\" = 3 × 8 = 24\n- \"Three times more\" is often incorrectly interpreted as 8 + 3×8 = 32\n\nBut in most math problems, especially in logic puzzles, \"three times more\" is intended to mean \"three times as many\", unless otherwise specified.\n\nBut let's double-check the actual statement:\n\n> \"After scoring 14"
+  },
+  {
+   "i": 369,
+   "exp": "1198",
+   "got": "132",
+   "pass": false,
+   "text": "Let's break this down step by step to find the total cost of the senior gifts.\n\n---\n\n**Step 1: Cost of picture frames**\n\n- 44 seniors receive picture frames.\n- Each frame costs $20.\n\nSo, cost for frames =  \n44 × $20 = **$880**\n\n---\n\n**Step 2: Etching cost (20% additional per frame)**\n\n- Etching adds 20% of the frame cost per frame.\n- 20% of $20 = 0.20 × 20 = $4 per frame.\n\nSo, etching cost for all 44 frames =  \n44 × $4 = **$176**\n\n---\n\n**Step 3: Pins for 2 seniors**\n\n- 2 seniors get pins at $5 each.\n\nCost = 2 × $5 = **$10**\n\n---\n\n**Step 4: Cords for officers**\n\n- 1/4 of the seniors are officers.\n\nNumber of officers = (1/4) × 44 = 11 officers.\n\nEach officer gets a cord at $12.\n\nCost = 11 × $12 = **$132**\n\n---\n\n**Step "
+  },
+  {
+   "i": 370,
+   "exp": "320",
+   "got": "320",
+   "pass": true,
+   "text": "Let's solve this step by step:\n\n1. The original cost of hand-painted wallpaper at the market is $400.\n\n2. Ethan made his own (DIY), which saves 20% after considering material costs.\n\n3. This means he pays only 80% of the original price (since 100% - 20% = 80%).\n\n4. So, we calculate 80% of $400:\n\n   $$\n   0.80 \\times 400 = 320\n   $$\n\n5. Therefore, the total cost for Ethan to make his own hand-painted wallpaper is $320.\n\n#### 320"
+  },
+  {
+   "i": 371,
+   "exp": "50",
+   "got": "50.",
+   "pass": false,
+   "text": "Let's solve this step by step:\n\n1. **Friday**: The store sold 14 pairs of tennis shoes.  \n   → So, 14 pairs sold on Friday.\n\n2. **Saturday**: They sold double the number of shoes sold on Friday.  \n   → Double of 14 = 2 × 14 = 28 pairs sold on Saturday.\n\n3. **Sunday**: They sold one-half the amount that they did the day before (i.e., half of Saturday's sales).  \n   → Half of 28 = 28 ÷ 2 = 14 pairs sold on Sunday.\n\n   BUT: \"Six people returned their pairs because they didn't fit.\"  \n   → So, 6 pairs were returned.  \n   → These are **not** sold, so we must **subtract** them from the Sunday sales.\n\n   So, net shoes sold on Sunday = 14 − 6 = 8 pairs.\n\n4. **Total shoes sold** = Friday + Saturday + Sunday (net)  \n   = 14 + 28 + 8 = 50 pairs.\n\nEach pair is one pair of shoes, so total **pairs** sold = 50.\n\nBut the question asks:"
+  },
+  {
+   "i": 372,
+   "exp": "5",
+   "got": "5",
+   "pass": true,
+   "text": "Let's solve this step by step:\n\n1. **Tuesday practice**: Hallie had dance practice for **1 hour** on Tuesdays.\n\n2. **Thursday practice**: She had **2 hours** on Thursdays.\n\n3. **Saturday practice**: It lasted **twice as long as Tuesday's** night class.  \n   Tuesday's class was 1 hour, so Saturday's class = 2 × 1 = **2 hours**.\n\n4. Now, add up all the practice hours:\n   - Tuesday: 1 hour  \n   - Thursday: 2 hours  \n   - Saturday: 2 hours  \n\n   Total = 1 + 2 + 2 = **5 hours**\n\n#### 5"
+  },
+  {
+   "i": 373,
+   "exp": "240000",
+   "got": "400000.",
+   "pass": false,
+   "text": "Let's solve this step by step.\n\nStep 1: Understand the total amount spent  \nThe company bought equipment worth **$400,000**.\n\nStep 2: Determine how much of the equipment was faulty  \nIt says that **40% of the total number** of pieces were faulty.  \nBut the question is about **money spent**, not number of pieces.  \nWe need to interpret: does \"40% of the total number\" mean 40% of the value?\n\nWait — the problem says:  \n> \"pieces of equipment worth 40% of the total number were faulty\"\n\nThis is ambiguous. Let's re-read:\n\n> \"pieces of equipment worth 40% of the total number were faulty\"\n\nThis seems to be a misphrasing. It says \"pieces of equipment worth 40% of the total number\" — that doesn't make sense because \"worth\" is about value, not number.\n\nBetter interpretation:  \nIt likely means **40% of the pieces** were faulty.  \nBut we don't have the number of pieces.  \nWe only have the total value: $400,000.\n\nSo unless we assume that the value is uniformly distributed across the pieces,"
+  },
+  {
+   "i": 374,
+   "exp": "45",
+   "got": "45",
+   "pass": true,
+   "text": "Let's solve this step by step:\n\n1. Mary has 30 sheep.\n\n2. She gets milk from half of them and the other half:\n   - Half of 30 = 30 ÷ 2 = 15 sheep\n\n3. From half of the sheep (15 sheep), she gets 1 kg of milk each day.\n   - So, 15 sheep × 1 kg = 15 kg\n\n4. From the other half (15 sheep), she gets 2 kg of milk each day.\n   - So, 15 sheep × 2 kg = 30 kg\n\n5. Total milk collected per day = 15 kg + 30 kg = 45 kg\n\n#### 45"
+  },
+  {
+   "i": 375,
+   "exp": "48",
+   "got": "48",
+   "pass": true,
+   "text": "Let's solve this step by step:\n\n1. Mrs. Sherman made a **dozen** bread rolls.  \n   - A dozen = 12 rolls.\n\n2. She fed her **6 children**, one each.  \n   - So, 6 rolls were given to the children.  \n   - Remaining rolls = 12 - 6 = 6 rolls.\n\n3. She broke **each of the remaining rolls** into **8 pieces**.  \n   - So, for 6 rolls, each broken into 8 pieces:  \n     6 × 8 = 48 pieces.\n\n4. These 48 pieces were fed to the chickens.\n\n#### 48"
+  },
+  {
+   "i": 376,
+   "exp": "15",
+   "got": "15",
+   "pass": true,
+   "text": "Let's solve this step by step:\n\n1. Total number of pupils = 40\n\n2. Half of the class likes blue:\n   - Half of 40 = 40 ÷ 2 = 20 pupils like blue.\n\n3. Remaining pupils after those who like blue:\n   - 40 - 20 = 20 pupils remain.\n\n4. One-fourth of the remaining likes green:\n   - One-fourth of 20 = 20 ÷ 4 = 5 pupils like green.\n\n5. The rest like yellow:\n   - Remaining pupils = total remaining - those who like green\n   - 20 - 5 = 15 pupils like yellow.\n\n#### 15"
+  },
+  {
+   "i": 377,
+   "exp": "50",
+   "got": "4",
+   "pass": false,
+   "text": "Let's solve this step by step.\n\nWe are given:\n\n- Lucy sells apples at **$4 per apple**.\n- On **Monday**, she sold **all the apples picked** and got **$56**.\n- On **Tuesday**, she picked **12 apples**.\n- On **Wednesday**, she picked **double** the number she picked on Tuesday.\n\nWe are to find the **total number of apples she picked over the three days**.\n\n---\n\n**Step 1: Find how many apples she sold on Monday**\n\nShe sold apples at $4 per apple and earned $56.\n\nSo, number of apples sold on Monday =  \n$ \\frac{56}{4} = 14 $ apples.\n\nSo, on Monday, she picked **14 apples**.\n\n---\n\n**Step 2: Tuesday**\n\nShe picked **12 apples**.\n\n---\n\n**Step 3: Wednesday**\n\nShe picked **double** the number she picked on Tuesday.  \nSo, $ 2 \\times 6 = 12 $? Wait — Tuesday was 12, so double of that is:\n\n$ 2 \\times 12 = 24 $ apples.\n\n---\n\n**Step 4: Total apples picked over three days**\n\nMonday:"
+  },
+  {
+   "i": 378,
+   "exp": "15",
+   "got": "15",
+   "pass": true,
+   "text": "Let's solve this step by step.\n\nWe are told:\n\n- There are **50 socks** that need washing.\n- Lindsay washes:\n  - **10 pairs of socks**\n  - **15 loose socks**\n\nWe need to find out **how many socks she has missed**.\n\n---\n\nStep 1: Understand what a \"pair\" of socks means.\n\n- 1 pair = 2 socks\n\nSo, 10 pairs = 10 × 2 = **20 socks**\n\nStep 2: Add the 15 loose socks.\n\nSo, total socks Lindsay washed = 20 (from pairs) + 15 (loose) = **35 socks**\n\nStep 3: Total socks that need washing = 50\n\nSo, socks missed = 50 - 35 = **15 socks**\n\n---\n\n#### 15"
+  },
+  {
+   "i": 379,
+   "exp": "21",
+   "got": "21",
+   "pass": true,
+   "text": "Let's solve this step by step:\n\n1. Rachel originally bought 23 cookies.  \n2. Janet gave her 42 more cookies.  \n   So, total cookies Rachel has now:  \n   23 + 42 = 65 cookies  \n3. Her brother ate 44 of those cookies.  \n   So, we subtract 44 from the total:  \n   65 - 44 = 21 cookies  \n\nTherefore, the number of cookies left for Rachel is:\n\n#### 21"
+  },
+  {
+   "i": 380,
+   "exp": "803",
+   "got": "0.04167",
+   "pass": false,
+   "text": "Let's solve this step by step.\n\nStep 1: Understand what's given  \n- Principal (P) = $3,650  \n- Time (t) = 5 months  \n- Interest rate = 10% per year  \n- Karan pays an equal amount every month  \n- We need to find the monthly payment  \n\nStep 2: Determine the type of interest  \nThe problem says \"interest rate of 10%\" and doesn't specify compound or simple, but since it's a short-term loan and payments are equal monthly, and no mention of compounding, we assume **simple interest**.\n\nStep 3: Calculate total interest  \nSimple interest formula:  \nI = P × r × t  \n\nWhere:  \n- P = $3,650  \n- r = 10% per year = 0.10  \n- t = 5 months = 5/12 years  \n\nSo:  \nI = 3650 × 0.10 × (5/12)  \nI = 3650 × 0.10 × 0.4167  \nI = 3650 × 0.04167 ≈ "
+  },
+  {
+   "i": 381,
+   "exp": "67",
+   "got": "67",
+   "pass": true,
+   "text": "Let's solve this step by step.\n\n**Step 1: Find how far Cho hiked.**\n\nCho hiked at 14 kilometers per hour for 8 hours.\n\nDistance = Speed × Time  \nSo, Cho's distance = 14 km/h × 8 h = **112 kilometers**\n\n**Step 2: Find how far Chloe hiked.**\n\nChloe hiked at 9 kilometers per hour for 5 hours.\n\nDistance = 9 km/h × 5 h = **45 kilometers**\n\n**Step 3: Find the difference in distance.**\n\nHow many kilometers farther did Cho hike?\n\n= Cho's distance − Chloe's distance  \n= 112 km − 45 km = **67 kilometers**\n\n#### 67"
+  },
+  {
+   "i": 382,
+   "exp": "350",
+   "got": "350",
+   "pass": true,
+   "text": "Let's solve this step by step.\n\nWe are given:\n\n- Axel has:\n  - 50 silver pesos\n  - 80 gold pesos\n\n- Anna has:\n  - Twice as many silver pesos as Axel\n  - 40 more gold pesos than Axel\n\n---\n\nStep 1: Find how many silver pesos Anna has.\n\nAxel has 50 silver pesos.\n\nAnna has twice as many →  \n2 × 50 = 100 silver pesos\n\n---\n\nStep 2: Find how many gold pesos Anna has.\n\nAxel has 80 gold pesos.\n\nAnna has 40 more →  \n80 + 40 = 120 gold pesos\n\n---\n\nStep 3: Total pesos they have together.\n\nSilver pesos together:  \nAxel's 50 + Anna's 100 = 150 silver pesos\n\nGold pesos together:  \nAxel's 80 + Anna's 120 = 200 gold pesos\n\nTotal pesos = 150 + 200 = 350\n\n---\n\n#### 350"
+  },
+  {
+   "i": 383,
+   "exp": "2",
+   "got": "2",
+   "pass": true,
+   "text": "Let's solve this step by step.\n\n**Step 1: Determine total amount of lemonade produced**\n\n- Millie makes 3 pitchers.\n- Each pitcher holds 12 cups.\n- So total cups = 3 × 12 = **36 cups**\n\n**Step 2: Total revenue from selling all lemonade**\n\n- Each cup sells for $1.\n- So total revenue = 36 cups × $1 = **$36**\n\n**Step 3: Total cost**\n\n- She spent $18 to make the lemonade.\n- So total cost = **$18**\n\n**Step 4: Total profit**\n\n- Profit = Revenue - Cost = $36 - $18 = **$18**\n\n**Step 5: How long is the lemonade stand open?**\n\n- She sells 4 cups per hour.\n- Total cups = 36\n- So total hours = 36 cups ÷ 4 cups/hour = **9 hours**\n\n**Step 6: Profit per hour**\n\n- Total profit = $18\n- Over 9 hours\n- Profit per hour = $18 ÷ 9 = **$2**\n\n#### 2"
+  },
+  {
+   "i": 384,
+   "exp": "32",
+   "got": "32",
+   "pass": true,
+   "text": "Let's solve this step by step.\n\nWe are told that Mr. Ruther sold **3/5** of his land and had **12.8 hectares** left.\n\nThat means the remaining land is **2/5** of the original land, because:\n\n- If he sold 3/5, then what's left is 1 - 3/5 = 2/5.\n\nSo:\n\n> 2/5 of original land = 12.8 hectares\n\nWe can set up the equation:\n\n$$\n\\frac{2}{5} \\times x = 12.8\n$$\n\nwhere $ x $ is the original amount of land.\n\nNow, solve for $ x $:\n\nMultiply both sides by 5:\n\n$$\n2x = 12.8 \\times 5 = 64\n$$\n\nNow divide by 2:\n\n$$\nx = \\frac{64}{2} = 32\n$$\n\nSo, Mr. Ruther originally had **32 hectares** of land.\n\n#### 32"
+  },
+  {
+   "i": 385,
+   "exp": "16",
+   "got": "16",
+   "pass": true,
+   "text": "Let's solve this step by step:\n\n1. The choir has **52 members** in total.  \n   - 50% are boys, 50% are girls.  \n   So, number of girls = 50% of 52 =  \n   $ 0.5 \\times 52 = 26 $ girls.\n\n2. The choir decides to perform with **just its female members**, so initially, **26 girls** are performing.\n\n3. On the day of the performance, **half the people performing can't make it** because their bus breaks down.  \n   So, half of the 26 girls can't make it:  \n   $ \\frac{1}{2} \\times 6 = 13 $ girls miss the performance.\n\n   So, number of girls who **do** make it = $ 26 - 13 = 13 $.\n\n4. The choir's **3 teachers** then decide to sing with them.  \n   So, they join the 13 girls who made it.\n\n5. Total people who sang = 13 girls + 3 teachers = **16 people**.\n\n#### 16"
+  },
+  {
+   "i": 386,
+   "exp": "80",
+   "got": "80",
+   "pass": true,
+   "text": "Let's solve this step by step:\n\n1. Wilson has 5 test scores:  \n   65, 94, 81, 86, and 74.\n\n2. To find his math grade, we take the average of these 5 scores.  \n   Average = (sum of all scores) ÷ (number of scores)\n\n3. First, add the scores:  \n   65 + 94 = 159  \n   159 + 81 = 240  \n   240 + 86 = 326  \n   326 + 74 = 400\n\n   Total sum = 400\n\n4. Now divide by 5:  \n   400 ÷ 5 = 80\n\nSo, Wilson's current math grade is 80.\n\nSince the requirement is 80 or higher to get the car, he meets the requirement.\n\n#### 80"
+  },
+  {
+   "i": 387,
+   "exp": "36",
+   "got": "36",
+   "pass": true,
+   "text": "Step 1: Find the cost of 6 erasers.  \nEach eraser costs $2.  \nSo, 6 erasers cost:  \n6 × $2 = $12\n\nStep 2: Find the cost of 8 pencils.  \nEach pencil costs $3.  \nSo, 8 pencils cost:  \n8 × $3 = $24\n\nStep 3: Add the two amounts together.  \n$12 (erasers) + $24 (pencils) = $36\n\n#### 36"
+  },
+  {
+   "i": 388,
+   "exp": "88",
+   "got": "88",
+   "pass": true,
+   "text": "Let's solve this step by step:\n\n1. James delivers **66 messages to Ms. Thompson**.\n\n2. He delivers **1/3 as many messages to Mr. Yu** as he does to Ms. Thompson.\n\n   So, messages to Mr. Yu = (1/3) × 66 = 22 messages.\n\n3. Total messages delivered = messages to Ms. Thompson + messages to Mr. Yu  \n   = 66 + 22 = **88**\n\n#### 88"
+  },
+  {
+   "i": 389,
+   "exp": "6",
+   "got": "30",
+   "pass": false,
+   "text": "Let's solve this step by step.\n\n### Step 1: Understand the options\n- There are **9 rides** total.\n- Each **ride ticket** costs **$2 per ticket**, and each ride requires **2 tickets**.\n  - So, for one ride: 2 tickets × $2 = $4 per ride.\n- A **ride bracelet** costs **$30** and gives **9 rides** (all rides).\n\n### Step 2: Determine how much Dasha spends\nDasha buys **tickets** for all 9 rides.\n\nEach ride requires **2 tickets**, so:\n- Total tickets needed = 9 rides × 2 tickets = **18 tickets**\n- Cost per ticket = $2\n- Total cost for Dasha = 18 × $2 = **$36**\n\n### Step 3: Determine how much David spends\nDavid buys a **ride bracelet** for **$30**, which gives him 9 rides.\n\nSo David spends **$30**\n\n### Step 4: Compare costs\n- Dasha's cost: $36\n- David's cost: $30\n\nSo, **David saves** the difference:\n- $36 (Dasha) - $30 ("
+  },
+  {
+   "i": 390,
+   "exp": "12",
+   "got": "12",
+   "pass": true,
+   "text": "Let's solve this step by step:\n\n1. **Total number of gifts:**\n   - For family: 6\n   - For friends: 4\n   - For teachers: 2  \n   Total gifts = 6 + 4 + 2 = **12 gifts**\n\n2. **Total ribbon available:** 144 inches\n\n3. **She wants to make one bow for each gift**, so she needs to divide the total ribbon equally among the 12 gifts.\n\n4. **Ribbon per gift bow:**\n   144 inches ÷ 12 gifts = **12 inches per gift**\n\n✅ So, Monica can use **12 inches** of ribbon for each gift bow.\n\n#### 12"
+  },
+  {
+   "i": 391,
+   "exp": "15",
+   "got": "15",
+   "pass": true,
+   "text": "We are given:\n\n- The ratio of popsicles that Betty and Sam have is **5:6**\n- The total number of popsicles they have together is **165**\n- We are to find **how many more popsicles Sam has than Betty**\n\n---\n\n### Step 1: Understand the ratio\nThe ratio 5:6 means:\n- Betty has 5 parts\n- Sam has 6 parts\n\nSo, total parts = 5 + 6 = **11 parts**\n\n---\n\n### Step 2: Find the value of one part\nTotal popsicles = 165  \nSo, one part = 165 ÷ 11 = **15**\n\n---\n\n### Step 3: Find how many popsicles each has\n- Betty: 5 × 15 = **75**\n- Sam: 6 × 15 = **90**\n\n---\n\n### Step 4: Find the difference\nSam has more than Betty by:  \n90 - 75 = **15**\n\n---\n\n#### 15"
+  },
+  {
+   "i": 392,
+   "exp": "34",
+   "got": "34",
+   "pass": true,
+   "text": "Let's break this down step by step:\n\n1. **Original cable cost**:  \n   Tim's cable subscription costs **$60 per month**.\n\n2. **New streaming costs**:\n   - Netflix: $10/month  \n   - Hulu and Disney+ normally $10 each, but he gets a **20% discount for bundling**.\n\n   So, for Hulu and Disney+:\n   - Normally: $10 + $10 = $20  \n   - 20% off: 20% of $20 = 0.20 × $20 = $4  \n   - Discounted cost: $20 − $4 = **$16 per month**\n\n   Total streaming cost:\n   - Netflix: $10  \n   - Hulu + Disney+: $16  \n   - Total: $10 + $16 = **$26 per month**\n\n3. **Savings**:\n   - Original cable: $60  \n   - New streaming: $26  \n   - Savings: $60 − $26 = **$34**\n\n#### 34"
+  },
+  {
+   "i": 393,
+   "exp": "20",
+   "got": "20",
+   "pass": true,
+   "text": "Let's break this down step by step:\n\n1. **Time spent writing**:  \n   Carol spends 4 hours writing.  \n   Convert to minutes:  \n   4 hours = 4 × 60 = 240 minutes\n\n2. **Time spent recording**:  \n   Half that much time:  \n   Half of 240 minutes = 120 minutes\n\n3. **Time spent editing**:  \n   Given as 90 minutes\n\n4. **Total work time**:  \n   Writing + Recording + Editing  \n   = 240 + 120 + 90 = 450 minutes\n\n5. **Percentage spent editing**:  \n   (Editing time / Total time) × 100  \n   = (90 / 450) × 100  \n   = 0.2 × 100  \n   = 20%\n\n#### 20"
+  },
+  {
+   "i": 394,
+   "exp": "92",
+   "got": "20",
+   "pass": false,
+   "text": "Let's solve this step by step.\n\nWe are told:\n\n- Wendy wants to place **20 more than double** the number of books in a shelving system with **6 rows and 6 columns**.\n\nFirst, find the total number of positions in the shelving system:\n\n- 6 rows × 6 columns = 36 positions\n\nNow, interpret the phrase: \"**20 more than double** the number of books\"\n\nLet’s define:\n\n- Let the number of books be **x**\n- \"Double the number of books\" = 2x\n- \"20 more than double\" = 2x + 20\n\nBut the problem says she wants to place **that many books** in the shelving system — which has 36 positions.\n\nSo, does that mean she wants to place **20 more than double** the number of positions?\n\nWait — let's re-read:\n\n> \"Wendy wants to place 20 more than double the number of books in a shelving system with 6 rows and 6 columns.\"\n\nThis is a bit ambiguous. But the phrasing \"place 20 more than double the number of books\" suggests that the **number of books** she wants to place is **"
+  },
+  {
+   "i": 395,
+   "exp": "38",
+   "got": "30",
+   "pass": false,
+   "text": "Let's solve this step by step:\n\n1. **Erica originally made 20 Valentine's cards.**  \n   → So, she starts with 20 cards.\n\n2. **Her dad brought her 2 boxes of pre-made cards, 15 cards each.**  \n   → 2 boxes × 15 cards = 30 cards  \n   → So, she gains 30 more cards from her dad.\n\n   Total cards now:  \n   20 (her own) + 30 (from dad) = **50 cards**\n\n3. **She passed out 24 to her classmates.**  \n   → Subtract 24 from total:  \n   50 - 24 = 26 cards left\n\n4. **She gave 5 to her family.**  \n   → Subtract 5:  \n   26 - 5 = 21 cards left\n\n5. **She received 17 from family and friends.**  \n   → Add 17:  \n   21 + 17 = **38 cards**\n\nNow, let's verify:\n\n- Started with: 20 (her own)  \n- Added: 30 (from dad"
+  },
+  {
+   "i": 396,
+   "exp": "3",
+   "got": "3",
+   "pass": true,
+   "text": "Let's solve this step by step:\n\n1. The pizza has **12 slices** total.\n\n2. Jenny gives **1/3 to Bill**:\n   - 1/3 of 12 = (1/3) × 12 = **4 slices**\n\n3. Jenny gives **1/4 to Mark**:\n   - 1/4 of 12 = (1/4) × 12 = **3 slices**\n\n4. Jenny eats **2 slices**\n\n5. Now, let's add up what's been taken:\n   - Bill: 4 slices\n   - Mark: 3 slices\n   - Jenny: 2 slices\n   - Total given away = 4 + 3 + 2 = **9 slices**\n\n6. So, slices left = Total slices - slices given away\n   - 12 - 9 = **3 slices**\n\n#### 3"
+  },
+  {
+   "i": 397,
+   "exp": "25",
+   "got": "25",
+   "pass": true,
+   "text": "Let's solve this step by step:\n\n1. Mark currently has $50 in his bank account.\n2. He earns $10 per day at work.\n3. He wants to buy a bike that costs $300.\n\nWe need to find out how many days he needs to work to save enough money to buy the bike.\n\nFirst, calculate how much more money he needs:\n\n$300 (cost of bike) - $50 (current money) = $250 needed.\n\nHe earns $10 per day, so we divide the amount needed by his daily earnings:\n\n$250 ÷ $10 per day = 25 days.\n\nSo, Mark needs to work for 25 days to save enough money.\n\n#### 25"
+  },
+  {
+   "i": 398,
+   "exp": "168",
+   "got": "168",
+   "pass": true,
+   "text": "Let's solve this step by step.\n\nWe are told:\n\n- Nancy saw **90 spiders**.\n- She saw **1/3 as many millipedes as spiders**.\n- She saw a number of **stink bugs equal to twice the number of millipedes minus 12**.\n\nWe need to find the **total number of bugs** she counted.\n\n---\n\n**Step 1: Number of spiders**\n\nGiven:  \nSpiders = 90\n\n---\n\n**Step 2: Number of millipedes**\n\nMillipedes = (1/3) × number of spiders  \n= (1/3) × 90  \n= 30\n\n---\n\n**Step 3: Number of stink bugs**\n\nStink bugs = 2 × (number of millipedes) − 12  \n= 2 × 30 − 12  \n= 60 − 12  \n= 48\n\n---\n\n**Step 4: Total bugs**\n\nTotal bugs = spiders + millipedes + stink bugs  \n= 90 + 30 + 48  \n= 168\n\n---\n\n#### 168"
+  },
+  {
+   "i": 399,
+   "exp": "12",
+   "got": "12",
+   "pass": true,
+   "text": "Let's solve this step by step:\n\n1. We are given:\n   - Erica is 30 years old.\n   - Beth is 5 years older than Erica.\n   - Alice is 7 years older than Beth.\n\n2. First, find Beth's age:\n   - Beth = Erica's age + 5\n   - Beth = 30 + 5 = 35 years old\n\n3. Now find Alice's age:\n   - Alice = Beth's age + 7\n   - Alice = 35 + 7 = 42 years old\n\n4. Now find the difference between Alice and Erica:\n   - Difference = Alice's age - Erica's age\n   - Difference = 42 - 30 = 12 years\n\n#### 12"
+  }
+ ]
+}

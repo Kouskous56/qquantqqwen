@@ -1,6 +1,6 @@
 {
- "conform": 48,
- "total": 48,
+ "conform": 54,
+ "total": 54,
  "rows": [
   {
    "name": "RUN_GSM400_Q2Ki.json",
@@ -17,6 +17,26 @@
    "run_id": "408e3ab345ed3775",
    "scorer_status": "verified-on-disk",
    "gguf": "sweep-Q3_K_M.gguf",
+   "gguf_verified": true,
+   "gguf_via": "ollama-modelfile-FROM-blob",
+   "gguf_matches_original": null,
+   "dataset_sha256": "3260aa13c3f0"
+  },
+  {
+   "name": "RUN_GSM400_Q40.json",
+   "run_id": "28228b35b9d18620",
+   "scorer_status": "verified-on-disk",
+   "gguf": "sweep-Q4_0.gguf",
+   "gguf_verified": true,
+   "gguf_via": "ollama-modelfile-FROM-blob",
+   "gguf_matches_original": null,
+   "dataset_sha256": "3260aa13c3f0"
+  },
+  {
+   "name": "RUN_GSM400_Q4KS.json",
+   "run_id": "c7a9935ec27e7ed0",
+   "scorer_status": "verified-on-disk",
+   "gguf": "sweep-Q4_K_S.gguf",
    "gguf_verified": true,
    "gguf_via": "ollama-modelfile-FROM-blob",
    "gguf_matches_original": null,
@@ -77,6 +97,46 @@
    "run_id": "d2e0f415f834c444",
    "scorer_status": "verified-on-disk",
    "gguf": "sweep-Q3_K_M.gguf",
+   "gguf_verified": true,
+   "gguf_via": "ollama-modelfile-FROM-blob",
+   "gguf_matches_original": null,
+   "dataset_sha256": "3182ab056d51"
+  },
+  {
+   "name": "RUN_GSMSWEEP_Q40_0.json",
+   "run_id": "b0c86e1de173dfc3",
+   "scorer_status": "verified-on-disk",
+   "gguf": "sweep-Q4_0.gguf",
+   "gguf_verified": true,
+   "gguf_via": "ollama-modelfile-FROM-blob",
+   "gguf_matches_original": null,
+   "dataset_sha256": "dd91b1271e1d"
+  },
+  {
+   "name": "RUN_GSMSWEEP_Q40_200.json",
+   "run_id": "74cf2500d6342e89",
+   "scorer_status": "verified-on-disk",
+   "gguf": "sweep-Q4_0.gguf",
+   "gguf_verified": true,
+   "gguf_via": "ollama-modelfile-FROM-blob",
+   "gguf_matches_original": null,
+   "dataset_sha256": "3182ab056d51"
+  },
+  {
+   "name": "RUN_GSMSWEEP_Q4KS_0.json",
+   "run_id": "785e85c5b120b96d",
+   "scorer_status": "verified-on-disk",
+   "gguf": "sweep-Q4_K_S.gguf",
+   "gguf_verified": true,
+   "gguf_via": "ollama-modelfile-FROM-blob",
+   "gguf_matches_original": null,
+   "dataset_sha256": "dd91b1271e1d"
+  },
+  {
+   "name": "RUN_GSMSWEEP_Q4KS_200.json",
+   "run_id": "600280f02d58f532",
+   "scorer_status": "verified-on-disk",
+   "gguf": "sweep-Q4_K_S.gguf",
    "gguf_verified": true,
    "gguf_via": "ollama-modelfile-FROM-blob",
    "gguf_matches_original": null,
