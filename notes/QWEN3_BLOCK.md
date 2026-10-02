@@ -23,16 +23,16 @@ same one — so the sweep varies bit width and nothing else.
 | Q6_K | 6.5625 | 6.564 | 260/400 = 65.0% | 153/200 = 76.5% | p = 0.728 |
 | Q5_K_M | 5.5 | 5.735 | **268/400 = 67.0%** | 149/200 = 74.5% | p = 0.533 |
 | Q4_K_M | 4.5 | 4.955 | **247/400 = 61.8%** | 148/200 = 74.0% | **p = 0.0226** |
-| Q3_K_M | 3.986 | 4.377 | **220/400 = 55.0%** | 151/200 = 75.5% | **p < 0.0001** |
-| Q2_K | 2.807 | 3.320 | **230/400 = 57.5%** | (not run) | **p = 0.0001** |
+| Q3_K_M | 3.589 | 4.116 | **220/400 = 55.0%** | 151/200 = 75.5% | **p < 0.0001** |
+| Q2_K | 2.688 | 3.272 | **230/400 = 57.5%** | (not run) | **p = 0.0001** |
 
 **The threshold is real, and it is now bracketed on both sides.**
-Q3_K_M (3.986 body bits) scores 220/400, below Q4 by 27 items with
+Q3_K_M (3.589 body bits) scores 220/400, below Q4 by 27 items with
 McNemar p = 0.0004, in the same direction in both blocks (A: 111 vs 122,
 B: 109 vs 125). Against F16 the gap is 43 items, p < 0.0001.
 
 So the damage curve across body precision is: nothing measurable at 5.5
-and 6.5625, −4.00pp at 4.5, −10.75pp at 3.986, and −8.25pp at 2.807.
+and 6.5625, −4.00pp at 4.5, −10.75pp at 3.589, and −8.25pp at 2.688.
 Below the threshold the damage does not keep falling: Q2_K (230/400)
 is indistinguishable from Q3_K_M (220/400), McNemar p = 0.275, same
 direction in both blocks (A: 112 vs 111; B: 118 vs 109). The threshold
@@ -62,8 +62,8 @@ type of the 180 body tensors.
 
 | artifact | 180 body tensors | body bpw | `token_embd` |
 |---|---|---|---|
-| Q2_K | Q2_K × 144 + Q3_K × 36 (mixed) | 2.807 | Q6_K |
-| Q3_K_M | Q3_K × 144 + Q4_K × 36 (mixed) | 3.986 | Q6_K |
+| Q2_K | Q2_K × 144 + Q3_K × 36 (mixed) | 2.688 | Q6_K |
+| Q3_K_M | Q3_K × 144 + Q4_K × 36 (mixed) | 3.589 | Q6_K |
 | Q4_K_M | Q4_K × 180 | 4.5 | Q6_K |
 | Q5_K_M | Q5_K × 180 | 5.5 | Q6_K |
 | Q6_K | Q6_K × 180 | 6.5625 | Q6_K |
@@ -87,7 +87,7 @@ we did not detect damage to knowledge, but at n=200 we could not have detected
 reading is available and better supported: MMLU in forced-single-letter format
 is simply insensitive, so the asymmetry may be a property of the instrument.
 
-**2. The threshold is bracketed, not located.** (3.986, 4.5) body bits. Nothing
+**2. The threshold is bracketed, not located.** (3.589, 4.5) body bits. Nothing
 in this sweep measures inside that interval. Do not quote 4.5 as the threshold.
 
 **3. Q6-vs-Q4 gives p = 0.079 and that is a power limit, not a finding.**
