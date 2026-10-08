@@ -2,12 +2,12 @@
   "kind": "historical-scorer-migration-only",
   "is_v4_experiment": false,
   "input_sha256": {
-    "manifests/RUN_V31_05B_S0.json": "9c6c60cd90b8267df601fc884f4fee58780572fa304914fe3909af8ded3a3224",
-    "manifests/RUN_V31_05B_S30.json": "fbed0a24b0af8b5665c5d8f7cc58014a465b0da54a2c7d87c353f9a1a503fa6f",
-    "manifests/RUN_V31_15B_S0.json": "5c85d393cd18f8b57bbabe1433e0d1ed564ddc4d3ab4e95b63a94a87d233b2d2",
-    "manifests/RUN_V31_15B_S30.json": "99b5002c03f71ece6ce6429b9ced37a10d3feb81f1ea6706662e93c134509b0a",
-    "manifests/RUN_V31_3B_S0.json": "60a615f8daac8b575dda5083179083605e8b30a4fc2d2b6a37cf7d1b164dbc13",
-    "manifests/RUN_V31_3B_S30.json": "9890f3f983616e6d2d68a5114b2a27834e923a6d8c6e87843493a163d56c623c",
+    "manifests/RUN_V31_05B_S0.json": "7670e1ce510d4e530fb398056036770ac6c48dac0d4e97089037366625942607",
+    "manifests/RUN_V31_05B_S30.json": "c63f02a1058749281208b4dab053268f15c0ce3b2eff07096fbe820997cad5e6",
+    "manifests/RUN_V31_15B_S0.json": "5ec5aed80c4a642a1d55eb6dcf62c8c492f1a7a51a23b6308642796732a7effc",
+    "manifests/RUN_V31_15B_S30.json": "9bb2508f027df470e9723e9c46f9f5dec58b485f95cb8974959f8d1d5032f2c7",
+    "manifests/RUN_V31_3B_S0.json": "7d85aa94b0a54a74c6e800870cdfce9a21e8d3e1e080ea3867ba6495e99798e3",
+    "manifests/RUN_V31_3B_S30.json": "7afcd641d9e31a26601090dff837e0116c9b83313bc32986959f277af21c5ec9",
     "manifests_qwen3/RUN_QWEN3_TYPED_DENSE2.json": "fd02185b6ab74fc02ce89c542e2687683c71b29a9cb883b916ba5c3251e6ae74",
     "manifests_qwen3/RUN_QWEN3_TYPED_EORA.json": "4b1015c663a1309567c5d1ca697de270d3550ad78f293d7a3b444abf12e707c9",
     "manifests_qwen3/RUN_QWEN3_TYPED_S20C4.json": "bf2bae4ba74721cf59a036570bff07561d346325a38ed5c01a4b4f2bf3f74906",
@@ -15,8 +15,8 @@
     "manifests_qwen3/RUN_QWEN3_TYPED_S30C4.json": "506f79b5bbe5370a2ed69fa6c65361e9d3952d93ad9d2ce3750c31b8bebd9f96",
     "manifests_qwen3/RUN_QWEN3_TYPED_S30MIXED.json": "8638f08c3de4c740358f41f3f908003d4f71a4e06c59963d7a5d71f785443688"
   },
-  "legacy_dataset_sha256": "157738b92dd1ec4933d1953f743893fcc7ad333bc22e1c9833f0b5744afb664d",
-  "legacy_scorer_sha256": "03abfb57c123630c596e19f93687f4724ab2400d33286b958eb8749af7e3eb14",
+  "legacy_dataset_sha256": "49af66020555824f01db7bf0e94e81a5161d605ecd6f78ece6babb2279d69ec1",
+  "legacy_scorer_sha256": "5b0fa99300e65a85fbc03e0771887ffc532d04efc0aff4798a816d3cc036c645",
   "release": {
     "release_id": "math50-release-4.0.0",
     "files": {

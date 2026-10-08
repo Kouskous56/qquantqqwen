@@ -10,7 +10,7 @@ tests/*.py          text eol=lf
 data/v4/*           text eol=lf
 reproduce/*v4.py    text eol=lf
 results/v4_migration/* text eol=lf
-# Preserve historical blob bytes, including their original CRLF line endings.
+# Preserve historical Git blob bytes without platform checkout conversion.
 manifests/RUN_V31_*.json -text
 data/v2/questions.json -text
 reproduce/scoring.py -text
