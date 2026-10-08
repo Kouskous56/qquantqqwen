@@ -41,6 +41,11 @@ false`. Start with `notes/QWEN3_BLOCK.md`; it also records two hypotheses that
 were measured and refuted.
 
 ## Reproduction
+For new mathematics evaluations, use [Math50 V4](data/v4/README.md): all 50 items
+reviewed, 18 stems clarified, exact typed scoring, balanced MCQ rotations and
+hash-bound resumable GGUF evaluation. Its [migration audit](results/v4_migration/MIGRATION.md)
+does not replace the frozen V3.3 results above or represent fresh V4 generations.
+
 See `REPRODUCIBILITY.md` for the claim → script → manifest → output map.
 Model weights are NOT included. Only the about 10 GB upstream base checkpoints are needed (see reproduce/download_weights.py); the 72 GB figure was the full local workspace with derived artifacts. Download Qwen2.5-0.5B/1.5B/3B-Instruct
 from Hugging Face and point the scripts at them. Key commands are listed per claim.

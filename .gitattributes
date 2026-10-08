@@ -7,6 +7,9 @@ bench/qwen3/frozen/*.py text eol=lf
 schemas/*.json      text eol=lf
 manifests_qwen3/*.json text eol=lf
 tests/*.py          text eol=lf
+data/v4/*           text eol=lf
+reproduce/*v4.py    text eol=lf
+results/v4_migration/* text eol=lf
 
 # Binary-ish or generated: never touch
 *.gguf   binary

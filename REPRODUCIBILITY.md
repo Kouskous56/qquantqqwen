@@ -5,6 +5,13 @@ unless a CPU option is specified; rescoring and integrity tests need no GPU.
 
 ## Installation and offline checks
 
+New mathematics runs use the separately frozen [Math50 V4 protocol](data/v4/README.md).
+Export its 50 free or 200 rotated MCQ prompts with `python -m reproduce.eval_suite_v4
+--mode free --prepare-only --out runs/v4/prompts.json`. Historical commands below
+retain their original evidentiary meaning; V4 scores must not be substituted into
+the frozen tables. [The migration report](results/v4_migration/MIGRATION.md) explains
+scorer-only differences and excludes changed stems from answer-key migration.
+
 Use Python 3.11 in a virtual environment. For integrity checks only:
 
 ```bash

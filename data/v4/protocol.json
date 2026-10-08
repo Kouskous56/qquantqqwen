@@ -1,0 +1,45 @@
+{
+  "protocol_id": "math50-protocol-4.0.0",
+  "suite_id": "math50-4.0.0",
+  "scorer_version": "math50-scorer-4.0.0",
+  "modes": {
+    "free": {
+      "max_new_tokens": 64,
+      "repetitions": 1
+    },
+    "mcq": {
+      "max_new_tokens": 8,
+      "repetitions": 1,
+      "rotations": [
+        0,
+        1,
+        2,
+        3
+      ]
+    }
+  },
+  "generation": {
+    "seed": 0,
+    "temperature": 0,
+    "do_sample": false,
+    "num_beams": 1,
+    "repetition_penalty": 1.0,
+    "num_ctx": 2048,
+    "thinking": false
+  },
+  "free_instructions": {
+    "numeric_scalar": "Answer with only one exact number. A fraction or decimal is allowed. Do not include units or an explanation.",
+    "unordered_numeric_multiset": "Answer with only the requested numbers, separated by commas. Preserve repeated values when multiplicity is requested. Do not explain.",
+    "ordered_numeric_tuple": "Answer with only the ordered pair (x,y). Do not explain.",
+    "symbolic_alias": "Answer with only the exact mathematical expression. Use pi for pi and C for an integration constant. Do not explain.",
+    "text_label": "Answer with only the mathematical term. Do not explain."
+  },
+  "mcq_instruction": "Answer with exactly one letter: A, B, C or D. Do not explain.",
+  "mcq_rotation": "left cyclic rotation; new gold index = (old index - rotation) mod 4",
+  "metrics": {
+    "free": "correct/50 with incorrect, unparseable, empty and termination counts",
+    "mcq": "correct/200 plus all-four-rotations-correct/50 and answer-letter histogram; 200 responses are not 200 independent questions"
+  },
+  "comparison_rule": "Compare only runs with identical suite, protocol, prompt plan, scorer, mode and backend policy. Declare intentionally varied model artifacts. Repeat greedy runs are stability checks, not additional independent items.",
+  "symbolic_policy": "Finite declared aliases; not general algebraic equivalence. No extraction of a last number from prose."
+}
