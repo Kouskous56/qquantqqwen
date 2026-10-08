@@ -10,6 +10,10 @@ tests/*.py          text eol=lf
 data/v4/*           text eol=lf
 reproduce/*v4.py    text eol=lf
 results/v4_migration/* text eol=lf
+# Historical inputs whose exact bytes are recorded by the V4 migration audit.
+manifests/RUN_V31_*.json text eol=lf
+data/v2/questions.json text eol=lf
+reproduce/scoring.py text eol=lf
 
 # Binary-ish or generated: never touch
 *.gguf   binary
