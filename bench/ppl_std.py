@@ -1,48 +1,64 @@
-"""Standardized PPL: 9 checkpoints, 1 evaluator (512/256, token-weighted, no template)."""
-import torch, json, time, hashlib
-from transformers import AutoModelForCausalLM, AutoTokenizer
+"""Standardized PPL for historical checkpoint names, using corrected token counts."""
+import argparse
+import hashlib
+import json
+from pathlib import Path
+import sys
+import time
+
+sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
+from reproduce.eval_ppl import PROTOCOL, evaluate_perplexity
 
 B = "D:/qwen/models/"
-MODELS = [
-    ("05B-s0", B + "Qwen2.5-0.5B-FP16", B + "Qwen2.5-0.5B-FP16"),
-    ("05B-s30", B + "Qwen2.5-0.5B-pruned-s30", B + "Qwen2.5-0.5B-FP16"),
-    ("15B-s0", B + "Qwen2.5-1.5B-FP16", B + "Qwen2.5-1.5B-FP16"),
-    ("15B-s30", B + "Qwen2.5-1.5B-FP16-pruned-s30", B + "Qwen2.5-1.5B-FP16"),
-    ("3B-s0", B + "Qwen2.5-3B-FP16", B + "Qwen2.5-3B-FP16"),
-    ("3B-s30", B + "Qwen2.5-3B-FP16-pruned-s30", B + "Qwen2.5-3B-FP16"),
-    ("3B-s40", B + "Qwen2.5-3B-FP16-pruned-s40", B + "Qwen2.5-3B-FP16"),
-    ("3B-s50", B + "Qwen2.5-3B-FP16-pruned-s50", B + "Qwen2.5-3B-FP16"),
-    ("3B-sgpt24", B + "Qwen2.5-3B-sparsegpt-24", B + "Qwen2.5-3B-FP16"),
+MODEL_NAMES = [
+    ("05B-s0", "Qwen2.5-0.5B-FP16", "Qwen2.5-0.5B-FP16"),
+    ("05B-s30", "Qwen2.5-0.5B-pruned-s30", "Qwen2.5-0.5B-FP16"),
+    ("15B-s0", "Qwen2.5-1.5B-FP16", "Qwen2.5-1.5B-FP16"),
+    ("15B-s30", "Qwen2.5-1.5B-FP16-pruned-s30", "Qwen2.5-1.5B-FP16"),
+    ("3B-s0", "Qwen2.5-3B-FP16", "Qwen2.5-3B-FP16"),
+    ("3B-s30", "Qwen2.5-3B-FP16-pruned-s30", "Qwen2.5-3B-FP16"),
+    ("3B-s40", "Qwen2.5-3B-FP16-pruned-s40", "Qwen2.5-3B-FP16"),
+    ("3B-s50", "Qwen2.5-3B-FP16-pruned-s50", "Qwen2.5-3B-FP16"),
+    ("3B-sgpt24", "Qwen2.5-3B-sparsegpt-24", "Qwen2.5-3B-FP16"),
 ]
-text = open("D:/qwen/bench/wikitext_test.txt", encoding="utf-8").read()
-print("corpus sha:", hashlib.sha256(text.encode()).hexdigest()[:12], flush=True)
-R = {}
-for name, mp, tp in MODELS:
-    t0 = time.time()
-    tok = AutoTokenizer.from_pretrained(tp)
-    m = AutoModelForCausalLM.from_pretrained(mp, dtype=torch.float16,
-                                             device_map="cuda",
-                                             low_cpu_mem_usage=True).eval()
-    enc = tok(text, return_tensors="pt")
-    seq, stride, mx = enc.input_ids.size(1), 256, 512
-    nlls, nt = [], 0
-    with torch.no_grad():
-        for i in range(0, seq, stride):
-            b = max(i + stride - mx, 0)
-            e = min(i + stride, seq)
-            ids = enc.input_ids[:, b:e].cuda()
-            tgt = ids.clone()
-            tgt[:, :-stride] = -100
-            out = m(ids, labels=tgt)
-            nlls.append(out.loss * (e - max(b, e - stride)))
-            nt += e - max(b, e - stride)
-    pp = torch.exp(torch.stack(nlls).sum() / nt).item()
-    R[name] = {"ppl": round(pp, 2), "tokens": nt,
-               "runtime_s": round(time.time() - t0, 1)}
-    print(f"{name}: PPL {pp:.2f} ({nt} tok, {R[name]['runtime_s']}s)", flush=True)
-    del m, tok
-    torch.cuda.empty_cache()
-json.dump({"config": "512/256 token-weighted no-template fp16",
-           "results": R},
-          open("D:/qwen/notes/RUN_PPL_STD.json", "w"), indent=1)
-print("saved RUN_PPL_STD.json")
+
+
+def main(argv=None):
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--models-dir", default=B)
+    parser.add_argument("--corpus", default="D:/qwen/bench/wikitext_test.txt")
+    parser.add_argument("--out", default="D:/qwen/notes/RUN_PPL_STD_V2.json")
+    parser.add_argument("--device", choices=["cuda", "cpu"], default="cuda")
+    args = parser.parse_args(argv)
+    import torch
+    from transformers import AutoModelForCausalLM, AutoTokenizer
+    text = Path(args.corpus).read_text(encoding="utf-8")
+    digest = hashlib.sha256(text.encode()).hexdigest()[:12]
+    dtype = torch.float16 if args.device == "cuda" else torch.float32
+    results = {}
+    for name, model_name, tokenizer_name in MODEL_NAMES:
+        started = time.time()
+        tok = AutoTokenizer.from_pretrained(str(Path(args.models_dir) / tokenizer_name))
+        model = AutoModelForCausalLM.from_pretrained(
+            str(Path(args.models_dir) / model_name), dtype=dtype,
+            device_map=args.device, low_cpu_mem_usage=True).eval()
+        encoded = tok(text, return_tensors="pt")
+        ppl, tokens = evaluate_perplexity(model, encoded.input_ids, device=args.device)
+        results[name] = {"ppl": round(ppl, 2), "tokens": tokens,
+                         "input_tokens": encoded.input_ids.shape[1],
+                         "runtime_s": round(time.time() - started, 1)}
+        print(f"{name}: PPL {ppl:.2f} ({tokens} predicted tokens)", flush=True)
+        del model, tok
+        if args.device == "cuda":
+            torch.cuda.empty_cache()
+    output = Path(args.out)
+    output.parent.mkdir(parents=True, exist_ok=True)
+    output.write_text(json.dumps({"protocol": PROTOCOL, "corpus_sha": digest,
+                                 "max_len": 512, "stride": 256,
+                                 "dtype": str(dtype), "device": args.device,
+                                 "results": results}, indent=1, allow_nan=False), encoding="utf-8")
+    print("saved", output)
+
+
+if __name__ == "__main__":
+    main()

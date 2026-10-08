@@ -1,28 +1,24 @@
-import torch, sys
-from transformers import AutoModelForCausalLM, AutoTokenizer
+"""Single-checkpoint WikiText PPL with corrected causal token accounting."""
+import argparse
+from pathlib import Path
+import sys
 
-MODEL = sys.argv[1] if len(sys.argv) > 1 else "D:/qwen/models/Qwen2.5-0.5B-FP16"
-tok = AutoTokenizer.from_pretrained(MODEL)
-model = AutoModelForCausalLM.from_pretrained(
-    MODEL, torch_dtype=torch.float16, device_map="cuda").eval()
+sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
+from reproduce.eval_ppl import main as evaluate
 
-text = open("D:/qwen/bench/wikitext_test.txt", encoding="utf-8").read()
-enc = tok(text, return_tensors="pt")
-seq_len = enc.input_ids.size(1)
-stride, max_len = 512, 1024
-nlls, n_tokens = [], 0
-with torch.no_grad():
-    for i in range(0, seq_len, stride):
-        begin = max(i + stride - max_len, 0)
-        end = min(i + stride, seq_len)
-        ids = enc.input_ids[:, begin:end].cuda()
-        tgt = ids.clone()
-        tgt[:, :-stride] = -100
-        out = model(ids, labels=tgt)
-        nlls.append(out.loss * (end - max(begin, end - stride)))
-        n_tokens += end - max(begin, end - stride)
-        if i % 2048 == 0:
-            print(f"pos {i}/{seq_len}", flush=True)
-ppl = torch.exp(torch.stack(nlls).sum() / n_tokens)
-print(f"PPL {MODEL} wikitext-test(200 lines): {ppl.item():.2f}")
-open("D:/qwen/notes/PPL_BASELINE.md", "a").write(f"PPL {MODEL}: {ppl.item():.2f}\n")
+
+def main(argv=None):
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("model", nargs="?", default="D:/qwen/models/Qwen2.5-0.5B-FP16")
+    parser.add_argument("--tok")
+    parser.add_argument("--corpus", default="D:/qwen/bench/wikitext_test.txt")
+    parser.add_argument("--out", default="D:/qwen/notes/PPL_BASELINE_V2.json")
+    parser.add_argument("--device", choices=["cuda", "cpu"], default="cuda")
+    args = parser.parse_args(argv)
+    evaluate(["--model", args.model, "--tok", args.tok or args.model,
+              "--corpus", args.corpus, "--out", args.out,
+              "--device", args.device, "--max-len", "1024", "--stride", "512"])
+
+
+if __name__ == "__main__":
+    main()

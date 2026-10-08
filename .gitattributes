@@ -3,9 +3,21 @@
 # CRLF, the SHA-256 changes, and test_scorer_hashes_match_repo_scripts fails on a
 # correct tree. Pin to LF everywhere.
 bench/qwen3/*.py    text eol=lf
+bench/qwen3/frozen/*.py text eol=lf
 schemas/*.json      text eol=lf
 manifests_qwen3/*.json text eol=lf
 tests/*.py          text eol=lf
+data/v4/*           text eol=lf
+reproduce/*v4.py    text eol=lf
+reproduce/*v401.py text eol=lf
+reproduce/eval_gsm.py text eol=lf
+data/v4_0_1/* text eol=lf
+results/v4_0_1_migration/* text eol=lf
+results/v4_migration/* text eol=lf
+# Preserve historical Git blob bytes without platform checkout conversion.
+manifests/RUN_V31_*.json -text
+data/v2/questions.json -text
+reproduce/scoring.py -text
 
 # Binary-ish or generated: never touch
 *.gguf   binary

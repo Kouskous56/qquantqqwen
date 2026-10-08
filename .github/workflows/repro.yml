@@ -12,6 +12,22 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
+  cpu-runtime:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+      - run: python -m pip install torch --index-url https://download.pytorch.org/whl/cpu
+      - run: python -m pip install -r requirements-dev.txt 'transformers>=4.55'
+      - run: python -m pytest tests/test_pruning_runtime.py -q
+        env:
+          HF_HUB_OFFLINE: "1"
+          TRANSFORMERS_OFFLINE: "1"
+
   golden:
     runs-on: ubuntu-latest
     timeout-minutes: 10
@@ -33,6 +49,16 @@ jobs:
             --out-results /tmp/v3_recomputed.csv \
             --out-manifest /tmp/v33_recomputed.json
           diff /tmp/v3_recomputed.csv results/v3_cross_scale.csv
+      - name: Frozen Math50 V4 migration matches recomputation
+        run: |
+          python -m reproduce.rescore_suite_v4 --out-dir /tmp/math50-v4-audit
+          diff /tmp/math50-v4-audit/migration.json results/v4_migration/migration.json
+          diff /tmp/math50-v4-audit/MIGRATION.md results/v4_migration/MIGRATION.md
+      - name: Math50 4.0.1 migration matches recomputation
+        run: |
+          python -m reproduce.rescore_suite_v401 --out-dir /tmp/math50-v401-audit
+          diff /tmp/math50-v401-audit/migration.json results/v4_0_1_migration/migration.json
+          diff /tmp/math50-v401-audit/MIGRATION.md results/v4_0_1_migration/MIGRATION.md
       - uses: actions/upload-artifact@v4
         if: failure()
         with:

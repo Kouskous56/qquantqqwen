@@ -1,0 +1,11 @@
+{
+  "release_id": "math50-release-4.0.0",
+  "files": {
+    "data/v4/questions.json": "4299af56c8ed1267c2e021dc717a892b71f64d370101f14d67c8675b3c8412a1",
+    "data/v4/protocol.json": "3315e3651c0503d23f29e913fe13518ae83f8755cf20b7a659c6308ff8fb10bc",
+    "reproduce/scoring_v4.py": "4986d148ccd7561afa131447267a517cd4512da3b66c106a9cc55a26302132d7",
+    "reproduce/suite_v4.py": "6f241497a995475e1bc930bc88257542d0044845fbdcdee7574982c3e824fc77",
+    "reproduce/eval_suite_v4.py": "61cfac06b0138c98dc1d679283b59d3a1ba81701f68a104ab7faaa62d8f68fd5",
+    "reproduce/rescore_suite_v4.py": "620f3ba9e7225566564c5d5ec7aa9c53464c9ba1238765525a33ed1375f8c3d7"
+  }
+}

@@ -2,7 +2,11 @@
 Typed semantics: numeric_scalar / unordered_numeric_set /
 ordered_numeric_tuple / symbolic_exact.
 """
+import math
 import re
+
+
+NUMBER_PATTERN = r"-?\d+(?:\.\d+)?(?:/-?\d+(?:\.\d+)?)?"
 
 
 def norm(s):
@@ -23,10 +27,11 @@ def final_number(text):
     m = re.search(r"\\boxed\{([^}]+)\}", text)
     if m:
         return norm(m.group(1)), True
-    m = re.search(r"####\s*(-?\d+(?:\.\d+)?(?:/-?\d+(?:\.\d+)?)?)", text)
+    m = re.search(r"####\s*(" + NUMBER_PATTERN + r")", text)
     if m:
-        return norm(m.group(1)), True
-    mg = list(re.finditer(r"-?\d+(?:\.\d+)?(?:/-?\d+(?:\.\d+)?)?", text))
+        glued = m.end() < len(text) and text[m.end()].isalpha()
+        return norm(m.group(1)), not glued
+    mg = list(re.finditer(NUMBER_PATTERN, text))
     if not mg:
         return None, False
     last = mg[-1]
@@ -37,32 +42,32 @@ def final_number(text):
 def to_number(s):
     s = norm(s)
     try:
-        return float(s)
-    except Exception:
+        value = float(s)
+        return value if math.isfinite(value) else None
+    except ValueError:
         pass
     m = re.match(r"^(-?\d+(?:\.\d+)?)/(-?\d+(?:\.\d+)?)$", s)
     if m and float(m.group(2)) != 0:
-        return float(m.group(1)) / float(m.group(2))
+        value = float(m.group(1)) / float(m.group(2))
+        return value if math.isfinite(value) else None
     return None
 
 
 def num_set(text):
     """Parse ALL numbers in text into a sorted tuple, or None if none."""
-    nums = []
-    for m in re.findall(r"-?\d+(?:\.\d+)?(?:/-?\d+(?:\.\d+)?)?", text):
-        v = to_number(m)
-        if v is not None:
-            nums.append(v)
-    return tuple(sorted(nums)) if nums else None
+    values = num_seq(text)
+    return tuple(sorted(values)) if values is not None else None
 
 
 def num_seq(text):
     """Parse ALL numbers in text preserving order, or None if none."""
     nums = []
-    for m in re.findall(r"-?\d+(?:\.\d+)?(?:/-?\d+(?:\.\d+)?)?", text):
-        v = to_number(m)
-        if v is not None:
-            nums.append(v)
+    for m in re.finditer(NUMBER_PATTERN, text):
+        v = to_number(m.group())
+        # Invalid numbers must not vanish and turn a longer answer into a match.
+        if v is None or (m.end() < len(text) and text[m.end()].isalpha()):
+            return None
+        nums.append(v)
     return tuple(nums) if nums else None
 
 
@@ -82,9 +87,8 @@ def match(q, out):
         if got is None:
             return False
         for a in q["accepted"]:
-            am = re.findall(r"-?\d+(?:\.\d+)?", a)
-            av = sorted(float(x) for x in am)
-            if len(av) == len(got) and all(abs(x - y) < 1e-9
+            av = num_set(a)
+            if av is not None and len(av) == len(got) and all(abs(x - y) < 1e-9
                                            for x, y in zip(av, got)):
                 return True
         return False
@@ -93,9 +97,8 @@ def match(q, out):
         if got is None:
             return False
         for a in q["accepted"]:
-            am = re.findall(r"-?\d+(?:\.\d+)?", a)
-            av = tuple(float(x) for x in am)
-            if len(av) == len(got) and all(abs(x - y) < 1e-9
+            av = num_seq(a)
+            if av is not None and len(av) == len(got) and all(abs(x - y) < 1e-9
                                            for x, y in zip(av, got)):
                 return True
         return False

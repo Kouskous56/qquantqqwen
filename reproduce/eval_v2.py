@@ -1,14 +1,18 @@
-"""Canonical V2 evaluator: 4-way option permutation + free-response.
+"""Historical V2 evaluator: 4-way option permutation + substring free-response.
+The permissive letter/substring scoring is preserved for historical comparison;
+use eval_v3b.py for canonical typed free-response scores.
 Usage:
   python reproduce/eval_v2.py --model <gguf> --questions data/v2/questions.json --out out.json
 """
 import argparse
-import json
 import re
 import time
 from collections import Counter
 
-from llama_cpp import Llama
+if __package__:
+    from .evaluation_io import load_questions, positive_int, write_json
+else:
+    from evaluation_io import load_questions, positive_int, write_json
 
 
 def letter(t):
@@ -25,14 +29,16 @@ def main():
     ap.add_argument("--model", required=True)
     ap.add_argument("--questions", required=True)
     ap.add_argument("--out", required=True)
-    ap.add_argument("--n-ctx", type=int, default=1024)
-    ap.add_argument("--max-tokens", type=int, default=30)
+    ap.add_argument("--n-ctx", type=positive_int, default=1024)
+    ap.add_argument("--max-tokens", type=positive_int, default=30)
     ap.add_argument("--use-template", action=argparse.BooleanOptionalAction,
                     default=True,
                     help="wrap prompts with the model chat template (raw mode is legacy)")
     a = ap.parse_args()
 
-    Qs = json.load(open(a.questions, encoding="utf-8"))
+    Qs = load_questions(a.questions)
+    from llama_cpp import Llama
+
     llm = Llama(model_path=a.model, n_ctx=a.n_ctx, verbose=False)
 
     def ask(body, mx):
@@ -55,25 +61,27 @@ def main():
             got = letter(t)
             letters.append(got)
             perq.setdefault(q["id"], {})[r] = {"got": got, "exp": exp,
-                                               "out": t[:200]}
+                                               "out": t}
         fp = f"{q['question']} Answer with only the value, no explanation:"
         expv = norm(opts[cidx])
         tf = ask(fp, a.max_tokens)
         free += (bool(expv) and expv in norm(tf))
-        raws[q["id"]] = {"free_out": tf[:200]}
+        raws[q["id"]] = {"free_out": tf}
     c = Counter(letters)
     ok = lambda cid, r: perq[cid][r]["got"] == perq[cid][r]["exp"]
     perm = sum(1 for cid in perq for r in range(4) if ok(cid, r))
     cons = sum(1 for cid in perq if all(ok(cid, r) for r in range(4)))
     res = {"model": a.model, "use_template": a.use_template,
+           "protocol": "v2-historical-letter-substring",
            "perm": perm, "perm_total": len(letters),
            "b_rate": round(c["B"] / len(letters), 3),
            "consistent_4of4": cons, "free": free,
            "free_total": len(Qs), "dist": dict(c),
            "per_question": perq, "free_raw": raws,
            "timestamp": time.strftime("%Y-%m-%dT%H:%M")}
-    json.dump(res, open(a.out, "w"), indent=1)
+    write_json(a.out, res)
     print(f"perm {perm}/{len(letters)} cons {cons} free {free}/{len(Qs)} B-rate {res['b_rate']}")
 
 
-main()
+if __name__ == "__main__":
+    main()

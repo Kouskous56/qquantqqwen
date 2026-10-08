@@ -6,12 +6,21 @@ Khong tauch hash, khong tauch timestamp, khong gan scorer khi khong biet.
 Sinh ra D:/qwen_release/manifests_qwen3/ voi ban sao conform.
 File goc trong notes/ khong bi dong vao.
 """
+import argparse
 import hashlib
 import json
 import re
 import shutil
 from datetime import datetime, timezone
 from pathlib import Path
+
+if __package__:
+    from .common import atomic_json
+else:
+    from common import atomic_json
+
+ROOT = Path(__file__).resolve().parents[2]
+FALLBACK_FILE = ROOT / "manifests_qwen3" / "_MODEL_FILE_FALLBACK.json"
 
 NOTES = Path("D:/qwen/notes")
 MODELS = Path("D:/qwen/models")
@@ -119,6 +128,8 @@ def detail_schema(det):
       typed   : id, type, raw, pass    -- rescore, khong co i
       harness : i, pass                -- CHI co chi so, KHONG luu dap an
     """
+    if not det or not all(isinstance(row, dict) for row in det):
+        raise ValueError("details must be a nonempty list of objects")
     k = set(det[0].keys())
     if "subj" in k and "gold" in k:
         return "mmlu"
@@ -240,7 +251,7 @@ def attribute(name, d, kind, det0):
                 "E2: model la thu muc FP16, khop dau vao transformers")
 
     # --- harness probe ---
-    if name.startswith("RUN_HARNESS_") or kind == "harness":
+    if name.startswith("RUN_HARNESS_") and kind in ("harness", "gsm"):
         return ("gsm_harness", None,
                 "E1: details {i,pass} khop harness_probe.py; "
                 "E2: ten file RUN_HARNESS_*")
@@ -265,16 +276,19 @@ def ollama_blob_sha(model):
     cua file GGUF. Chuoi bang chung: model -> blob -> sha256 -> file dia.
     """
     import subprocess
-    if not model or not OLLAMA.exists():
+    if not model or not OLLAMA:
         return None
     try:
-        out = subprocess.run([str(OLLAMA), "show", "--modelfile", model],
-                             capture_output=True, text=True, timeout=60).stdout
-    except Exception:
+        result = subprocess.run([str(OLLAMA), "show", "--modelfile", model],
+                                capture_output=True, text=True, timeout=60)
+    except (OSError, subprocess.SubprocessError):
         return None
-    for line in out.splitlines():
-        if line.strip().upper().startswith("FROM") and "sha256-" in line:
-            return line.strip().split("sha256-")[-1].strip()
+    if result.returncode:
+        return None
+    for line in result.stdout.splitlines():
+        match = re.fullmatch(r'\s*FROM\s+.*sha256-([0-9a-fA-F]{64})"?\s*', line, re.I)
+        if match:
+            return match.group(1).lower()
     return None
 
 
@@ -291,13 +305,15 @@ def build_disk_index(cache):
 # bang `ollama show --modelfile` (blob sha256 trung hash file) truoc khi
 # model bi xoa. Hash van duoc tinh lai tu file that tren dia moi lan chay,
 # nen bang chung khong yeu di -- chi duong di doi tu blob sang ten file.
-R1_MODEL_FILES = {
-    "qwen3-dense": "DENSE-Q4KM.gguf",
-    "qwen3-s20c4": "Qwen3-4B-s20-c4-Q4KM.gguf",
-    "qwen3-s20mix": "S20MIX-Q4KM.gguf",
-    "qwen3-s30mix": "S30MIX-Q4KM.gguf",
-    "qwen3-eora": "Qwen3-4B-s20-c4-eora128-Q4KM.gguf",
-}
+def model_file_fallback():
+    """Read the published single source of truth, rejecting path traversal."""
+    data = json.loads(FALLBACK_FILE.read_text(encoding="utf-8"))
+    mapping = {key: value for key, value in data.items() if not key.startswith("_")}
+    for key, value in mapping.items():
+        if (not isinstance(value, str) or not value.lower().endswith(".gguf")
+                or "/" in value or "\\" in value or ":" in value):
+            raise ValueError(f"Invalid GGUF fallback for {key}: {value!r}")
+    return mapping
 
 
 def resolve_gguf(d, disk_idx):
@@ -307,11 +323,14 @@ def resolve_gguf(d, disk_idx):
     for c in (pr.get("gguf"), d.get("gguf")):
         if not c:
             continue
-        f = Path(c)
+        # A Windows absolute path is not absolute to pathlib on Linux.
+        normalized = str(c).replace("\\", "/")
+        f = Path(normalized)
+        if re.match(r"^[A-Za-z]:/", normalized) and not f.is_absolute():
+            f = MODELS / normalized.rsplit("/", 1)[-1]
         if not f.is_absolute():
             f = MODELS / f.name
-        if f.exists() and f.suffix == ".gguf":
-            h = f.sha if hasattr(f, "sha") else None
+        if f.is_file() and f.suffix.lower() == ".gguf":
             return f.name, f, None, "manifest.provenance.gguf"
     # 2. truy nguoc qua blob Ollama
     h = ollama_blob_sha(d.get("model"))
@@ -319,15 +338,60 @@ def resolve_gguf(d, disk_idx):
         f = disk_idx[h]
         return f.name, f, h, "ollama-modelfile-FROM-blob"
     # 3. anh xa legacy cho model R1 da xoa (file con, hash tinh lai)
-    legacy = R1_MODEL_FILES.get(d.get("model") or "")
+    legacy = model_file_fallback().get(d.get("model") or "")
     if legacy:
         f = MODELS / legacy
-        if f.exists():
+        if f.is_file():
             return f.name, f, None, "legacy-model-to-file-map"
     return None, None, h, None
 
 
-def main():
+def recorded_scorer(data):
+    """Use explicit new-run source identity instead of historical heuristics."""
+    identities = data.get("run_identities") or [data.get("run_identity")]
+    if not isinstance(identities, list):
+        raise ValueError("run_identities must be a list")
+    sources = [item.get("sources") for item in identities if isinstance(item, dict)]
+    if not sources:
+        return None
+    if any(item != sources[0] for item in sources):
+        raise ValueError("Run blocks were generated by different sources")
+    sources = sources[0]
+    if not isinstance(sources, dict) or not all(
+            isinstance(value, str) and re.fullmatch(r"[0-9a-f]{64}", value)
+            for value in sources.values()):
+        raise ValueError("Invalid recorded source digest")
+    runners = {Path(rel).name: rel for rel, _ in SCORERS.values()}
+    names = set(sources) & set(runners)
+    if len(names) != 1 or set(sources) != names | {"common.py"}:
+        raise ValueError("Unknown runner or missing shared source in run identity")
+    name = names.pop()
+    rel, digest = runners[name], sources[name]
+    verified = all(sha(ROOT / "bench" / "qwen3" / filename) == value
+                   for filename, value in sources.items())
+    return {"script": rel, "sha256": digest,
+            "status": "verified-on-disk" if verified else "source-digest-recorded",
+            "generator_evidence": "Explicit source hashes recorded by the new-run identity",
+            "dependencies": {"bench/qwen3/common.py": sources["common.py"]}}
+
+
+def main(argv=None):
+    global NOTES, MODELS, OUT, OLLAMA, FALLBACK_FILE
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--notes-dir", type=Path, default=NOTES)
+    parser.add_argument("--models-dir", type=Path, default=MODELS)
+    parser.add_argument("--output-dir", type=Path, default=OUT)
+    parser.add_argument("--fallback-file", type=Path, default=FALLBACK_FILE)
+    parser.add_argument("--ollama", default=shutil.which("ollama") or str(OLLAMA))
+    args = parser.parse_args(argv)
+    NOTES, MODELS, OUT = args.notes_dir, args.models_dir, args.output_dir
+    OLLAMA, FALLBACK_FILE = args.ollama, args.fallback_file
+    if not NOTES.is_dir():
+        parser.error(f"notes directory does not exist: {NOTES}")
+    if NOTES.resolve() == OUT.resolve():
+        parser.error("output directory must differ from the source notes directory")
+    if OUT.resolve() == (ROOT / "manifests_qwen3").resolve():
+        parser.error("published manifests are frozen; choose a separate --output-dir")
     OUT.mkdir(parents=True, exist_ok=True)
     cache = {}
     disk_idx = build_disk_index(cache)
@@ -350,12 +414,14 @@ def main():
             pr["llama_cpp"] = Path(str(pr["llama_cpp"])).name
         if gpath is not None:
             h = sha_cached(gpath, cache)
+            old = (d.get("provenance") or {}).get("gguf_sha256")
+            if old and old != h:
+                raise ValueError(f"{p.name}: GGUF differs from recorded SHA-256; refusing to reattribute scores")
             pr["gguf"] = gname
             pr["gguf_sha256"] = h
             pr["gguf_bytes"] = gpath.stat().st_size
             pr["gguf_resolved_via"] = gsrc
             # doi chieu voi hash ghi san trong manifest goc
-            old = (d.get("provenance") or {}).get("gguf_sha256")
             if old:
                 pr["gguf_sha256_matches_original"] = (old == h)
         elif gsha:
@@ -379,8 +445,8 @@ def main():
                 try:
                     _ppr = json.loads(_prev.read_text(encoding="utf-8"))
                     _pprov = _ppr.get("provenance") or {}
-                except Exception:
-                    _pprov = {}
+                except (ValueError, OSError) as exc:
+                    raise ValueError(f"Cannot preserve prior provenance from {_prev}") from exc
                 if _pprov.get("gguf_sha256"):
                     pr["gguf"] = _pprov.get("gguf", pr.get("gguf"))
                     pr["gguf_sha256"] = _pprov["gguf_sha256"]
@@ -447,6 +513,9 @@ def main():
             scorer_block["status"] = "script-khong-ton-tai"
         else:
             scorer_block["status"] = "khong-xac-dinh-duoc"
+        explicit_scorer = recorded_scorer(d)
+        if explicit_scorer:
+            scorer_block = explicit_scorer
 
         mtime = datetime.fromtimestamp(p.stat().st_mtime, timezone.utc)
         # Khong dua duong dan may-lab len repo public. Giu basename, va
@@ -455,9 +524,9 @@ def main():
         if not raw_model:
             model, mkind = None, None
         elif re.match(r"^[A-Za-z]:[\\/]", raw_model):
-            model, mkind = Path(raw_model).name, "local-directory"
+            model, mkind = raw_model.replace("\\", "/").rsplit("/", 1)[-1], "local-directory"
         elif "/" in raw_model or "\\" in raw_model:
-            model, mkind = Path(raw_model).name, "path"
+            model, mkind = raw_model.replace("\\", "/").rsplit("/", 1)[-1], "path"
         else:
             model, mkind = raw_model, "registry-name"
         out = {
@@ -479,6 +548,7 @@ def main():
             "generator_version": scorer_block.get("generator_version"),
             "generator_features": scorer_block.get("generator_features"),
             "version_note": scorer_block.get("version_note"),
+            "scorer_dependencies": scorer_block.get("dependencies"),
             "timestamp": mtime.isoformat().replace("+00:00", "Z"),
             "timestamp_source": "file-mtime-cua-manifest, KHONG phai gio chay thoi",
             "provenance": pr,
@@ -495,9 +565,11 @@ def main():
             out["scores"]["precision"] = d["precision"]
         if "note" in d:
             out["note"] = d["note"]
+        for key in ("run_identity", "run_identities"):
+            if key in d:
+                out[key] = d[key]
 
-        (OUT / p.name).write_text(
-            json.dumps(out, ensure_ascii=False, indent=1), encoding="utf-8")
+        atomic_json(OUT / p.name, out)
         report["conform"] += 1
         report["rows"].append({
             "name": p.name,
@@ -510,8 +582,7 @@ def main():
             "dataset_sha256": ch[:12],
         })
 
-    (OUT / "_PATCH_REPORT.json").write_text(
-        json.dumps(report, ensure_ascii=False, indent=1), encoding="utf-8")
+    atomic_json(OUT / "_PATCH_REPORT.json", report)
     print("Da patch %d manifest -> %s" % (report["conform"], OUT))
     rows = report["rows"]
     bad = [r for r in rows if not r["gguf_verified"]]
@@ -523,7 +594,8 @@ def main():
         n = sum(1 for r in rows if r["gguf_via"] == k)
         print("     %-32s %d" % (lab or "khong xac dinh", n))
     print("  hash khop voi ban goc: %d/%d (lech: %d)" % (
-        len(rows) - len(mm), sum(1 for r in rows if r["gguf_matches_original"] is not None),
+        sum(r["gguf_matches_original"] is True for r in rows),
+        sum(1 for r in rows if r["gguf_matches_original"] is not None),
         len(mm)))
     print("  scorer xac minh tren dia: %d / %d" % (len(rows) - len(ns), len(rows)))
     for r in ns:

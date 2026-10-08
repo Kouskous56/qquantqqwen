@@ -17,15 +17,14 @@ degradation across Qwen2.5 model scales**.
 
 **Read the absolute counts, not the percentages.** Retention 61% / 82.5% / 95%
 suggests "larger models hold up better", but 0.5B and 1.5B lose the *same*
-number of items (7) — the percentage difference is a denominator effect, because
-0.5B starts from a much smaller ceiling (18 vs 40 items correct). In absolute
-points the trend is 7 / 7 / 2, and the significant step is 0.5B→1.5B
-(Fisher p = 0.0053); 1.5B↔3B is not significant (p = 0.189). Over the three
-scales, Cochran–Armitage χ² = 17.6, p = 0.00003. The 0.5B figure additionally
-moves in both directions: 3 items that dense answered *wrong* were answered
-*right* after pruning, so its retention number is two-sided noise rather than a
-clean degradation signal. See `notes/SCALE_STATS.md` for the
-full 2×2 tables.
+number of items **net** (7), with different dense baselines (18 vs 40 correct).
+The net drops are 14 / 14 / 4 percentage points on the same 50 questions.
+Losses and gains must also be reported separately: 0.5B loses 10 items and gains
+3, 1.5B loses 7 and gains 0, and 3B loses 3 and gains 1. The ratio of total
+scores is therefore not the fraction of dense-correct items retained.
+These small, paired measurements describe this suite; they do not establish a
+general scaling law. See `notes/SCALE_STATS.md` for the full 2×2 tables and
+statistical limitations.
 
 ## Repository map
 
@@ -42,9 +41,27 @@ false`. Start with `notes/QWEN3_BLOCK.md`; it also records two hypotheses that
 were measured and refuted.
 
 ## Reproduction
+For new mathematics evaluations, use [Math50 V4](data/v4_0_1/README.md): all 50 items
+reviewed, 18 stems clarified, exact typed scoring, balanced MCQ rotations and
+hash-bound resumable GGUF evaluation. Its [migration audit](results/v4_0_1_migration/MIGRATION.md)
+does not replace the frozen V3.3 results above or represent fresh V4 generations.
+
 See `REPRODUCIBILITY.md` for the claim → script → manifest → output map.
 Model weights are NOT included. Only the about 10 GB upstream base checkpoints are needed (see reproduce/download_weights.py); the 72 GB figure was the full local workspace with derived artifacts. Download Qwen2.5-0.5B/1.5B/3B-Instruct
 from Hugging Face and point the scripts at them. Key commands are listed per claim.
+
+For the CPU-only integrity checks:
+
+```bash
+python -m pip install -r requirements-dev.txt
+python -m pytest
+```
+
+The corrected runnable tools are distinct from frozen historical measurements.
+In particular, new PPL runs use corrected causal-token accounting, and Qwen3
+checkpoints validate model, dataset and generation settings before resuming.
+See `REPRODUCIBILITY.md` for compatibility details and `notes/REPO_AUDIT.md`
+for the audit scope, local-data cross-checks and remaining limitations.
 
 ## Citation
 See `CITATION.cff`.
