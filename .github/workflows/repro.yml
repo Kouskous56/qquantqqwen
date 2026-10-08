@@ -54,6 +54,11 @@ jobs:
           python -m reproduce.rescore_suite_v4 --out-dir /tmp/math50-v4-audit
           diff /tmp/math50-v4-audit/migration.json results/v4_migration/migration.json
           diff /tmp/math50-v4-audit/MIGRATION.md results/v4_migration/MIGRATION.md
+      - name: Math50 4.0.1 migration matches recomputation
+        run: |
+          python -m reproduce.rescore_suite_v401 --out-dir /tmp/math50-v401-audit
+          diff /tmp/math50-v401-audit/migration.json results/v4_0_1_migration/migration.json
+          diff /tmp/math50-v401-audit/MIGRATION.md results/v4_0_1_migration/MIGRATION.md
       - uses: actions/upload-artifact@v4
         if: failure()
         with:

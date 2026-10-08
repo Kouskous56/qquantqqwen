@@ -12,6 +12,7 @@ import re
 import tempfile
 import time
 import urllib.request
+from urllib.parse import urlparse
 
 LET = "ABCD"
 GSM_PROMPT = "\nThink step by step, then end with: #### <number>"
@@ -115,10 +116,61 @@ def chat(endpoint, model, content, num_predict):
     return content
 
 
+def model_api(endpoint, route, payload=None):
+    request = urllib.request.Request(endpoint.rstrip('/') + '/api/' + route,
+        data=None if payload is None else json.dumps(payload).encode(),
+        headers={'Content-Type': 'application/json'})
+    with urllib.request.urlopen(request, timeout=60) as response:
+        result = json.load(response)
+    if result.get('error'):
+        raise ValueError('Ollama identity error: ' + str(result['error']))
+    return result
+
+
+def model_binding(args, hash_artifact=True):
+    """Resolve a mutable alias to content; never trust a supplied GGUF alone."""
+    name = args.model if ':' in args.model.rsplit('/', 1)[-1] else args.model + ':latest'
+    def manifest():
+        matches = [m for m in model_api(args.endpoint, 'tags')['models'] if m['name'] == name]
+        if len(matches) != 1 or not re.fullmatch(r'(?:sha256:)?[a-f0-9]{64}', matches[0].get('digest', '')):
+            raise ValueError('Require an exact local tag with a valid manifest digest: ' + name)
+        return matches[0]['digest'].removeprefix('sha256:')
+    before = manifest()
+    info = model_api(args.endpoint, 'show', {'model': args.model})
+    if before != manifest():
+        raise ValueError('Model changed while resolving identity')
+    modelfile = info.get('modelfile', '')
+    if re.search(r'^ADAPTER\s', modelfile, re.M):
+        raise ValueError('Adapter layers are not supported by this GGUF identity policy')
+    sources = re.findall(r'^FROM\s+(.+)$', modelfile, re.M)
+    if len(sources) != 1:
+        raise ValueError('Require exactly one GGUF FROM blob')
+    source = sources[0].strip().strip('"')
+    match = re.search(r'sha256[-:]([a-f0-9]{64})$', source)
+    if not match:
+        raise ValueError('FROM must identify a content-addressed GGUF blob')
+    gguf_hash = match[1]
+    path = getattr(args, 'gguf', None)
+    if not path:
+        if urlparse(args.endpoint).hostname not in {'localhost', '127.0.0.1', '::1'}:
+            raise ValueError('Remote endpoint requires --gguf for artifact verification')
+        path = source
+    path = Path(path).resolve(strict=True)
+    stat = path.stat()
+    if hash_artifact and sha256(path) != gguf_hash:
+        raise ValueError('GGUF bytes do not match model FROM digest')
+    stable = {k: info.get(k) for k in ('template', 'system', 'parameters', 'model_info', 'capabilities', 'modelfile')}
+    return {'manifest_sha256': before, 'gguf_sha256': gguf_hash,
+            'artifact_stat': {'bytes': stat.st_size, 'mtime_ns': stat.st_mtime_ns},
+            'configuration_sha256': hashlib.sha256(json.dumps(stable, sort_keys=True, separators=(',', ':')).encode()).hexdigest(),
+            'ollama_version': model_api(args.endpoint, 'version')['version']}
+
+
 def run_identity(args, items, task, runner, **extra):
     payload = json.dumps(items, sort_keys=True, ensure_ascii=False,
                          separators=(",", ":")).encode("utf-8")
-    return {"version": 1, "task": task, "model": args.model,
+    return {"version": 2, "task": task, "model": args.model,
+            "model_binding": model_binding(args),
             "endpoint": args.endpoint.rstrip("/"), "tag": args.tag,
             "dataset_sha256": hashlib.sha256(payload).hexdigest(),
             "indices": [i for i, _ in items],
@@ -197,9 +249,14 @@ def mmlu_choices(row, position):
 
 def evaluate(args, items, task, checkpoint, runner, num_predict, **extra):
     identity = run_identity(args, items, task, runner, num_predict=num_predict, **extra)
+    provenance = extra.get('provenance', {})
+    if provenance.get('gguf_sha256', identity['model_binding']['gguf_sha256']) != identity['model_binding']['gguf_sha256']:
+        raise ValueError('Declared provenance does not match served model')
     details, previous_elapsed = load_checkpoint(checkpoint, identity, items, task)
     started = time.monotonic()
     for position in range(len(details), len(items)):
+        if model_binding(args, hash_artifact=False) != identity['model_binding']:
+            raise ValueError('Model artifact/configuration changed before generation')
         index, row = items[position]
         if task == "gsm":
             expected = gold_answer(row["answer"])
@@ -216,16 +273,22 @@ def evaluate(args, items, task, checkpoint, runner, num_predict, **extra):
             pick = parse_mc(text, choices)
             detail = {"i": index, "subj": row["subject"], "pass": pick == target,
                       "pick": pick, "gold": target, "unparsed": pick < 0, "text": text}
+        if model_binding(args, hash_artifact=False) != identity['model_binding']:
+            raise ValueError('Model artifact/configuration changed during generation')
         details.append(detail)
         atomic_json(checkpoint, {"identity": identity, "done": len(details), "details": details,
                                  "elapsed_s": previous_elapsed + time.monotonic() - started})
         print(f"{task} {len(details)}/{len(items)} idx={index}: {detail['pass']}", flush=True)
+    if model_binding(args) != identity['model_binding']:
+        raise ValueError('Model artifact/configuration changed at completion')
     return details, identity, previous_elapsed + time.monotonic() - started
 
 
 def add_ollama_args(parser):
     parser.add_argument("--notes-dir", default="D:/qwen/notes")
     parser.add_argument("--endpoint", default="http://127.0.0.1:11434")
+    if '--gguf' not in parser._option_string_actions:
+        parser.add_argument('--gguf', help='Local GGUF matching the served FROM blob; required for remote servers')
 
 
 def gsm_main(mode, runner, argv=None):

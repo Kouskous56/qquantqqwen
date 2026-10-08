@@ -1,9 +1,11 @@
-# Math50 V4 (4.0.0)
+# Math50 V4 (4.0.1)
 
-**Superseded: do not use for new experiments.** Symbolic normalization can
-incorrectly accept `x^23` for the derivative of `x^3`. Use
-[4.0.1](../v4_0_1/README.md). Frozen sources and historical migration below
-remain unchanged for audit.
+This release fixes a false-positive symbolic normalization in 4.0.0: `x^2*3`
+was collapsed to `x^23`. Multiplication now remains an explicit token and
+implicit multiplication is inserted at token boundaries. Thus `3x^2` and
+`3*x^2` match, while `x^23` fails. Dataset mathematics and prompts are unchanged;
+release/suite/protocol/scorer IDs and hashes are new. Old checkpoints are not
+resumable under this release. Keep 4.0.0 for audit only.
 
 
 This is a separately versioned, authored **mathematics diagnostic**, not a general
@@ -59,17 +61,17 @@ Ollama must already serve the desired local GGUF model.
 
 ```bash
 # Inspect every exact prompt without loading or querying a model.
-python -m reproduce.eval_suite_v4 --mode free --prepare-only --out runs/v4/free-prompts.json
-python -m reproduce.eval_suite_v4 --mode mcq --prepare-only --out runs/v4/mcq-prompts.json
+python -m reproduce.eval_suite_v401 --mode free --prepare-only --out runs/v4/free-prompts.json
+python -m reproduce.eval_suite_v401 --mode mcq --prepare-only --out runs/v4/mcq-prompts.json
 
 # Replace model name and GGUF path with the same local artifact.
-python -m reproduce.eval_suite_v4 --mode free --model MODEL_NAME --gguf /path/model.gguf --out runs/v4/free.json
-python -m reproduce.eval_suite_v4 --mode mcq --model MODEL_NAME --gguf /path/model.gguf --out runs/v4/mcq.json
+python -m reproduce.eval_suite_v401 --mode free --model MODEL_NAME --gguf /path/model.gguf --out runs/v4/free.json
+python -m reproduce.eval_suite_v401 --mode mcq --model MODEL_NAME --gguf /path/model.gguf --out runs/v4/mcq.json
 # To resume, repeat exactly the same command and append --resume.
 
 # Audit public historical outputs without generating new answers.
-python -m reproduce.rescore_suite_v4 --out-dir runs/v4/migration-audit
-python -m pytest tests/test_suite_v4.py -q
+python -m reproduce.rescore_suite_v401 --out-dir runs/v4/migration-audit
+python -m pytest tests/test_suite_v401.py -q
 ```
 
 Outputs must use new paths. Historical source/evidence directories are protected
@@ -101,7 +103,7 @@ and losses, per-band scores, parse failures and truncation. The old easy/hard ba
 names are inherited labels, not empirically calibrated difficulty levels.
 Repeated greedy outputs are stability checks, not extra independent observations.
 
-The [migration audit](../../results/v4_migration/MIGRATION.md) separates stored
+The [migration audit](../../results/v4_0_1_migration/MIGRATION.md) separates stored
 labels, recomputed V3 scores, V4 rules on **old answer keys**, and the 32 unchanged
 stems with new aliases. None is a fresh V4 benchmark: all original prompts and
 generation budgets were historical. Qwen3's original scorer provenance remains

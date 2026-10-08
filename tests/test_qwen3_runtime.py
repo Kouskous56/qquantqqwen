@@ -14,6 +14,7 @@ def test_mmlu_parser(text, expected):
 def test_resume_after_interruption_and_reject_changed_run(tmp_path, monkeypatch):
     args = argparse.Namespace(model="test", endpoint="http://localhost:11434", tag="test")
     items = [(i, {"question": f"Question {i}", "answer": "#### 42"}) for i in range(3)]
+    monkeypatch.setattr(common, "model_binding", lambda *a, **k: {"gguf_sha256": "a" * 64})
     calls = []
     def interrupted(*params):
         calls.append(params)

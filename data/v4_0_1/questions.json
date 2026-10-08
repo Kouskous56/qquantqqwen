@@ -1,0 +1,1069 @@
+{
+  "suite_id": "math50-4.0.1",
+  "language": "en",
+  "license": "CC-BY-4.0",
+  "purpose": "Small authored mathematics diagnostic suite; not a general knowledge benchmark.",
+  "source_suite": "data/v2/questions.json",
+  "questions": [
+    {
+      "id": "b01",
+      "band": "basic",
+      "question": "7 + 8 = ?",
+      "choices": [
+        "13",
+        "14",
+        "15",
+        "16"
+      ],
+      "answer": "C",
+      "answer_type": "numeric_scalar",
+      "accepted": [
+        "15"
+      ],
+      "review": {
+        "legacy_question_unchanged": true,
+        "decision": "Retain mathematical stem/key; apply versioned whole-answer scoring.",
+        "mathematical_check": "7+8=15."
+      }
+    },
+    {
+      "id": "b02",
+      "band": "basic",
+      "question": "12 x 6 = ?",
+      "choices": [
+        "66",
+        "70",
+        "72",
+        "76"
+      ],
+      "answer": "C",
+      "answer_type": "numeric_scalar",
+      "accepted": [
+        "72"
+      ],
+      "review": {
+        "legacy_question_unchanged": true,
+        "decision": "Retain mathematical stem/key; apply versioned whole-answer scoring.",
+        "mathematical_check": "12*6=72."
+      }
+    },
+    {
+      "id": "b03",
+      "band": "basic",
+      "question": "100 - 45 = ?",
+      "choices": [
+        "45",
+        "50",
+        "55",
+        "65"
+      ],
+      "answer": "C",
+      "answer_type": "numeric_scalar",
+      "accepted": [
+        "55"
+      ],
+      "review": {
+        "legacy_question_unchanged": true,
+        "decision": "Retain mathematical stem/key; apply versioned whole-answer scoring.",
+        "mathematical_check": "100-45=55."
+      }
+    },
+    {
+      "id": "b04",
+      "band": "basic",
+      "question": "9 x 9 = ?",
+      "choices": [
+        "72",
+        "79",
+        "81",
+        "89"
+      ],
+      "answer": "C",
+      "answer_type": "numeric_scalar",
+      "accepted": [
+        "81"
+      ],
+      "review": {
+        "legacy_question_unchanged": true,
+        "decision": "Retain mathematical stem/key; apply versioned whole-answer scoring.",
+        "mathematical_check": "9*9=81."
+      }
+    },
+    {
+      "id": "b05",
+      "band": "basic",
+      "question": "Half of 50 is?",
+      "choices": [
+        "20",
+        "22",
+        "25",
+        "30"
+      ],
+      "answer": "C",
+      "answer_type": "numeric_scalar",
+      "accepted": [
+        "25"
+      ],
+      "review": {
+        "legacy_question_unchanged": true,
+        "decision": "Retain mathematical stem/key; apply versioned whole-answer scoring.",
+        "mathematical_check": "50/2=25."
+      }
+    },
+    {
+      "id": "b06",
+      "band": "basic",
+      "question": "3 squared plus 4 squared = ?",
+      "choices": [
+        "12",
+        "25",
+        "7",
+        "14"
+      ],
+      "answer": "B",
+      "answer_type": "numeric_scalar",
+      "accepted": [
+        "25"
+      ],
+      "review": {
+        "legacy_question_unchanged": true,
+        "decision": "Retain mathematical stem/key; apply versioned whole-answer scoring.",
+        "mathematical_check": "3^2+4^2=9+16=25."
+      }
+    },
+    {
+      "id": "b07",
+      "band": "basic",
+      "question": "144 / 12 = ?",
+      "choices": [
+        "10",
+        "11",
+        "12",
+        "14"
+      ],
+      "answer": "C",
+      "answer_type": "numeric_scalar",
+      "accepted": [
+        "12"
+      ],
+      "review": {
+        "legacy_question_unchanged": true,
+        "decision": "Retain mathematical stem/key; apply versioned whole-answer scoring.",
+        "mathematical_check": "144/12=12."
+      }
+    },
+    {
+      "id": "b08",
+      "band": "basic",
+      "question": "2 to the power 3 = ?",
+      "choices": [
+        "6",
+        "8",
+        "9",
+        "12"
+      ],
+      "answer": "B",
+      "answer_type": "numeric_scalar",
+      "accepted": [
+        "8"
+      ],
+      "review": {
+        "legacy_question_unchanged": true,
+        "decision": "Retain mathematical stem/key; apply versioned whole-answer scoring.",
+        "mathematical_check": "2^3=8."
+      }
+    },
+    {
+      "id": "b09",
+      "band": "basic",
+      "question": "15 percent of 200 = ?",
+      "choices": [
+        "15",
+        "25",
+        "30",
+        "35"
+      ],
+      "answer": "C",
+      "answer_type": "numeric_scalar",
+      "accepted": [
+        "30"
+      ],
+      "review": {
+        "legacy_question_unchanged": true,
+        "decision": "Retain mathematical stem/key; apply versioned whole-answer scoring.",
+        "mathematical_check": "200*15/100=30."
+      }
+    },
+    {
+      "id": "b10",
+      "band": "basic",
+      "question": "Perimeter of a square with side 9?",
+      "choices": [
+        "18",
+        "27",
+        "32",
+        "36"
+      ],
+      "answer": "D",
+      "answer_type": "numeric_scalar",
+      "accepted": [
+        "36"
+      ],
+      "review": {
+        "legacy_question_unchanged": true,
+        "decision": "Retain mathematical stem/key; apply versioned whole-answer scoring.",
+        "mathematical_check": "A square has four equal sides: 4*9=36."
+      }
+    },
+    {
+      "id": "b11",
+      "band": "basic",
+      "question": "7 x 8 - 10 = ?",
+      "choices": [
+        "46",
+        "48",
+        "56",
+        "66"
+      ],
+      "answer": "A",
+      "answer_type": "numeric_scalar",
+      "accepted": [
+        "46"
+      ],
+      "review": {
+        "legacy_question_unchanged": true,
+        "decision": "Retain mathematical stem/key; apply versioned whole-answer scoring.",
+        "mathematical_check": "7*8-10=46."
+      }
+    },
+    {
+      "id": "b12",
+      "band": "basic",
+      "question": "Next prime after 7?",
+      "choices": [
+        "9",
+        "10",
+        "11",
+        "13"
+      ],
+      "answer": "C",
+      "answer_type": "numeric_scalar",
+      "accepted": [
+        "11"
+      ],
+      "review": {
+        "legacy_question_unchanged": true,
+        "decision": "Retain mathematical stem/key; apply versioned whole-answer scoring.",
+        "mathematical_check": "8,9,10 are composite; 11 is prime."
+      }
+    },
+    {
+      "id": "b13",
+      "band": "basic",
+      "question": "GCD of 12 and 18?",
+      "choices": [
+        "3",
+        "6",
+        "9",
+        "12"
+      ],
+      "answer": "B",
+      "answer_type": "numeric_scalar",
+      "accepted": [
+        "6"
+      ],
+      "review": {
+        "legacy_question_unchanged": true,
+        "decision": "Retain mathematical stem/key; apply versioned whole-answer scoring.",
+        "mathematical_check": "The greatest common divisor is 6."
+      }
+    },
+    {
+      "id": "b14",
+      "band": "basic",
+      "question": "5 factorial (5!) = ?",
+      "choices": [
+        "60",
+        "100",
+        "120",
+        "150"
+      ],
+      "answer": "C",
+      "answer_type": "numeric_scalar",
+      "accepted": [
+        "120"
+      ],
+      "review": {
+        "legacy_question_unchanged": true,
+        "decision": "Retain mathematical stem/key; apply versioned whole-answer scoring.",
+        "mathematical_check": "5!=120."
+      }
+    },
+    {
+      "id": "b15",
+      "band": "basic",
+      "question": "0.5 + 0.25 = ?",
+      "choices": [
+        "0.6",
+        "0.7",
+        "0.75",
+        "0.8"
+      ],
+      "answer": "C",
+      "answer_type": "numeric_scalar",
+      "accepted": [
+        "0.75"
+      ],
+      "review": {
+        "legacy_question_unchanged": true,
+        "decision": "Retain mathematical stem/key; apply versioned whole-answer scoring.",
+        "mathematical_check": "1/2+1/4=3/4."
+      }
+    },
+    {
+      "id": "h16",
+      "band": "high_school",
+      "question": "Solve 2x + 6 = 14. x = ?",
+      "choices": [
+        "2",
+        "3",
+        "4",
+        "5"
+      ],
+      "answer": "C",
+      "answer_type": "numeric_scalar",
+      "accepted": [
+        "4"
+      ],
+      "review": {
+        "legacy_question_unchanged": true,
+        "decision": "Retain mathematical stem/key; apply versioned whole-answer scoring.",
+        "mathematical_check": "2x=8, so x=4."
+      }
+    },
+    {
+      "id": "h17",
+      "band": "high_school",
+      "question": "Find both real roots of x^2 - 5x + 6 = 0. List the two roots.",
+      "choices": [
+        "1,6",
+        "2,3",
+        "-2,-3",
+        "0,5"
+      ],
+      "answer": "B",
+      "answer_type": "unordered_numeric_multiset",
+      "accepted": [
+        "2,3"
+      ],
+      "review": {
+        "legacy_question_unchanged": false,
+        "decision": "Clarify domain, operation, units or required answer form; requires fresh generations.",
+        "mathematical_check": "(x-2)(x-3)=0; both roots are required."
+      }
+    },
+    {
+      "id": "h18",
+      "band": "high_school",
+      "question": "Slope of y = 3x + 2?",
+      "choices": [
+        "2",
+        "3",
+        "5",
+        "6"
+      ],
+      "answer": "B",
+      "answer_type": "numeric_scalar",
+      "accepted": [
+        "3"
+      ],
+      "review": {
+        "legacy_question_unchanged": true,
+        "decision": "Retain mathematical stem/key; apply versioned whole-answer scoring.",
+        "mathematical_check": "The coefficient of x is the slope, 3."
+      }
+    },
+    {
+      "id": "h19",
+      "band": "high_school",
+      "question": "sin(30 degrees) = ?",
+      "choices": [
+        "0",
+        "1/2",
+        "sqrt(2)/2",
+        "1"
+      ],
+      "answer": "B",
+      "answer_type": "numeric_scalar",
+      "accepted": [
+        "1/2"
+      ],
+      "review": {
+        "legacy_question_unchanged": true,
+        "decision": "Retain mathematical stem/key; apply versioned whole-answer scoring.",
+        "mathematical_check": "sin(30 degrees)=1/2 exactly."
+      }
+    },
+    {
+      "id": "h20",
+      "band": "high_school",
+      "question": "log10(1000) = ?",
+      "choices": [
+        "2",
+        "3",
+        "4",
+        "10"
+      ],
+      "answer": "B",
+      "answer_type": "numeric_scalar",
+      "accepted": [
+        "3"
+      ],
+      "review": {
+        "legacy_question_unchanged": true,
+        "decision": "Retain mathematical stem/key; apply versioned whole-answer scoring.",
+        "mathematical_check": "10^3=1000."
+      }
+    },
+    {
+      "id": "h21",
+      "band": "high_school",
+      "question": "C(5,2) = number of 2-subsets of 5 items?",
+      "choices": [
+        "5",
+        "10",
+        "15",
+        "20"
+      ],
+      "answer": "B",
+      "answer_type": "numeric_scalar",
+      "accepted": [
+        "10"
+      ],
+      "review": {
+        "legacy_question_unchanged": true,
+        "decision": "Retain mathematical stem/key; apply versioned whole-answer scoring.",
+        "mathematical_check": "5!/(2!3!)=10."
+      }
+    },
+    {
+      "id": "h22",
+      "band": "high_school",
+      "question": "Sum 1+2+...+10 = ?",
+      "choices": [
+        "45",
+        "50",
+        "55",
+        "60"
+      ],
+      "answer": "C",
+      "answer_type": "numeric_scalar",
+      "accepted": [
+        "55"
+      ],
+      "review": {
+        "legacy_question_unchanged": true,
+        "decision": "Retain mathematical stem/key; apply versioned whole-answer scoring.",
+        "mathematical_check": "10*11/2=55."
+      }
+    },
+    {
+      "id": "h23",
+      "band": "high_school",
+      "question": "What is the exact area of a circle of radius 2? Give the value in terms of pi, without units.",
+      "choices": [
+        "2pi",
+        "4pi",
+        "8pi",
+        "16pi"
+      ],
+      "answer": "B",
+      "answer_type": "symbolic_alias",
+      "accepted": [
+        "4pi",
+        "pi*4"
+      ],
+      "review": {
+        "legacy_question_unchanged": false,
+        "decision": "Clarify domain, operation, units or required answer form; requires fresh generations.",
+        "mathematical_check": "pi*r^2=4*pi; exact symbolic answer is required."
+      }
+    },
+    {
+      "id": "h24",
+      "band": "high_school",
+      "question": "What is the midpoint of (0,0) and (4,6)? Give the ordered pair (x,y).",
+      "choices": [
+        "(2,2)",
+        "(2,3)",
+        "(3,2)",
+        "(4,6)"
+      ],
+      "answer": "B",
+      "answer_type": "ordered_numeric_tuple",
+      "accepted": [
+        "(2,3)"
+      ],
+      "review": {
+        "legacy_question_unchanged": false,
+        "decision": "Clarify domain, operation, units or required answer form; requires fresh generations.",
+        "mathematical_check": "Coordinate averages are (2,3); order matters."
+      }
+    },
+    {
+      "id": "h25",
+      "band": "high_school",
+      "question": "2^10 = ?",
+      "choices": [
+        "512",
+        "1000",
+        "1024",
+        "2048"
+      ],
+      "answer": "C",
+      "answer_type": "numeric_scalar",
+      "accepted": [
+        "1024"
+      ],
+      "review": {
+        "legacy_question_unchanged": true,
+        "decision": "Retain mathematical stem/key; apply versioned whole-answer scoring.",
+        "mathematical_check": "2^10=1024."
+      }
+    },
+    {
+      "id": "h26",
+      "band": "high_school",
+      "question": "Discriminant of x^2 + 2x + 1?",
+      "choices": [
+        "-4",
+        "0",
+        "1",
+        "4"
+      ],
+      "answer": "B",
+      "answer_type": "numeric_scalar",
+      "accepted": [
+        "0"
+      ],
+      "review": {
+        "legacy_question_unchanged": true,
+        "decision": "Retain mathematical stem/key; apply versioned whole-answer scoring.",
+        "mathematical_check": "b^2-4ac=4-4=0."
+      }
+    },
+    {
+      "id": "h27",
+      "band": "high_school",
+      "question": "What is the derivative of x^3 with respect to x?",
+      "choices": [
+        "3x",
+        "3x^2",
+        "x^2",
+        "6x"
+      ],
+      "answer": "B",
+      "answer_type": "symbolic_alias",
+      "accepted": [
+        "3x^2",
+        "x^2*3"
+      ],
+      "review": {
+        "legacy_question_unchanged": false,
+        "decision": "Clarify domain, operation, units or required answer form; requires fresh generations.",
+        "mathematical_check": "The power rule gives 3*x^2."
+      }
+    },
+    {
+      "id": "h28",
+      "band": "high_school",
+      "question": "i^2 where i is imaginary unit?",
+      "choices": [
+        "1",
+        "-1",
+        "0",
+        "i"
+      ],
+      "answer": "B",
+      "answer_type": "numeric_scalar",
+      "accepted": [
+        "-1"
+      ],
+      "review": {
+        "legacy_question_unchanged": true,
+        "decision": "Retain mathematical stem/key; apply versioned whole-answer scoring.",
+        "mathematical_check": "By definition i^2=-1."
+      }
+    },
+    {
+      "id": "h29",
+      "band": "high_school",
+      "question": "A sequence starts 3, 6, 12 and each term is twice the previous term. What is the next term?",
+      "choices": [
+        "18",
+        "20",
+        "24",
+        "36"
+      ],
+      "answer": "C",
+      "answer_type": "numeric_scalar",
+      "accepted": [
+        "24"
+      ],
+      "review": {
+        "legacy_question_unchanged": false,
+        "decision": "Specify doubling rather than an underdetermined finite sequence.",
+        "mathematical_check": "With the explicitly specified doubling rule, 12*2=24."
+      }
+    },
+    {
+      "id": "h30",
+      "band": "high_school",
+      "question": "Two independent fair coin flips are made. What is the probability that both are heads?",
+      "choices": [
+        "1/2",
+        "1/3",
+        "1/4",
+        "1/8"
+      ],
+      "answer": "C",
+      "answer_type": "numeric_scalar",
+      "accepted": [
+        "1/4"
+      ],
+      "review": {
+        "legacy_question_unchanged": false,
+        "decision": "Clarify domain, operation, units or required answer form; requires fresh generations.",
+        "mathematical_check": "Independence gives (1/2)*(1/2)=1/4."
+      }
+    },
+    {
+      "id": "o31",
+      "band": "contest_style",
+      "question": "Last digit of 7^100?",
+      "choices": [
+        "1",
+        "3",
+        "7",
+        "9"
+      ],
+      "answer": "A",
+      "answer_type": "numeric_scalar",
+      "accepted": [
+        "1"
+      ],
+      "review": {
+        "legacy_question_unchanged": true,
+        "decision": "Retain mathematical stem/key; apply versioned whole-answer scoring.",
+        "mathematical_check": "The last-digit period is four; 100 mod 4=0 gives 1."
+      }
+    },
+    {
+      "id": "o32",
+      "band": "contest_style",
+      "question": "Remainder of 2^10 divided by 7?",
+      "choices": [
+        "1",
+        "2",
+        "3",
+        "4"
+      ],
+      "answer": "B",
+      "answer_type": "numeric_scalar",
+      "accepted": [
+        "2"
+      ],
+      "review": {
+        "legacy_question_unchanged": true,
+        "decision": "Retain mathematical stem/key; apply versioned whole-answer scoring.",
+        "mathematical_check": "1024=7*146+2."
+      }
+    },
+    {
+      "id": "o33",
+      "band": "contest_style",
+      "question": "What is the smallest nonnegative integer n such that the decimal representation of n! has at least two trailing zeros?",
+      "choices": [
+        "5",
+        "8",
+        "10",
+        "12"
+      ],
+      "answer": "C",
+      "answer_type": "numeric_scalar",
+      "accepted": [
+        "10"
+      ],
+      "review": {
+        "legacy_question_unchanged": false,
+        "decision": "Clarify domain, operation, units or required answer form; requires fresh generations.",
+        "mathematical_check": "floor(n/5)+floor(n/25)+... first reaches 2 at n=10."
+      }
+    },
+    {
+      "id": "o34",
+      "band": "contest_style",
+      "question": "Real numbers a and b satisfy a+b=10 and ab=21. What is |a-b|?",
+      "choices": [
+        "2",
+        "4",
+        "5",
+        "8"
+      ],
+      "answer": "B",
+      "answer_type": "numeric_scalar",
+      "accepted": [
+        "4"
+      ],
+      "review": {
+        "legacy_question_unchanged": false,
+        "decision": "Clarify domain, operation, units or required answer form; requires fresh generations.",
+        "mathematical_check": "(a-b)^2=(a+b)^2-4ab=100-84=16; absolute difference is 4."
+      }
+    },
+    {
+      "id": "o35",
+      "band": "contest_style",
+      "question": "How many diagonals does a convex hexagon have?",
+      "choices": [
+        "6",
+        "9",
+        "12",
+        "15"
+      ],
+      "answer": "B",
+      "answer_type": "numeric_scalar",
+      "accepted": [
+        "9"
+      ],
+      "review": {
+        "legacy_question_unchanged": false,
+        "decision": "Clarify domain, operation, units or required answer form; requires fresh generations.",
+        "mathematical_check": "n(n-3)/2 at n=6 is 9."
+      }
+    },
+    {
+      "id": "o36",
+      "band": "contest_style",
+      "question": "1+3+5+...+99 = ?",
+      "choices": [
+        "1000",
+        "2025",
+        "2500",
+        "10000"
+      ],
+      "answer": "C",
+      "answer_type": "numeric_scalar",
+      "accepted": [
+        "2500"
+      ],
+      "review": {
+        "legacy_question_unchanged": true,
+        "decision": "Retain mathematical stem/key; apply versioned whole-answer scoring.",
+        "mathematical_check": "The first 50 positive odd integers sum to 50^2=2500."
+      }
+    },
+    {
+      "id": "o37",
+      "band": "contest_style",
+      "question": "Trailing zeros of 20! = ?",
+      "choices": [
+        "3",
+        "4",
+        "5",
+        "6"
+      ],
+      "answer": "B",
+      "answer_type": "numeric_scalar",
+      "accepted": [
+        "4"
+      ],
+      "review": {
+        "legacy_question_unchanged": true,
+        "decision": "Retain mathematical stem/key; apply versioned whole-answer scoring.",
+        "mathematical_check": "floor(20/5)+floor(20/25)=4."
+      }
+    },
+    {
+      "id": "o38",
+      "band": "contest_style",
+      "question": "For a nonnegative integer n, n^2 has units digit 6 in base 10. List all possible units digits of n.",
+      "choices": [
+        "2,8",
+        "4,6",
+        "4",
+        "6"
+      ],
+      "answer": "B",
+      "answer_type": "unordered_numeric_multiset",
+      "accepted": [
+        "4,6"
+      ],
+      "review": {
+        "legacy_question_unchanged": false,
+        "decision": "Replace choice-dependent scalar with all valid units digits; requires fresh generations.",
+        "mathematical_check": "Checking decimal digits 0 through 9 gives d=4 and d=6."
+      }
+    },
+    {
+      "id": "o39",
+      "band": "contest_style",
+      "question": "What is the sum of the interior angles of a convex pentagon, in degrees? Give only the number.",
+      "choices": [
+        "360",
+        "450",
+        "540",
+        "720"
+      ],
+      "answer": "C",
+      "answer_type": "numeric_scalar",
+      "accepted": [
+        "540"
+      ],
+      "review": {
+        "legacy_question_unchanged": false,
+        "decision": "Clarify domain, operation, units or required answer form; requires fresh generations.",
+        "mathematical_check": "(5-2)*180=540 degrees."
+      }
+    },
+    {
+      "id": "o40",
+      "band": "contest_style",
+      "question": "Smallest prime greater than 50?",
+      "choices": [
+        "51",
+        "53",
+        "55",
+        "59"
+      ],
+      "answer": "B",
+      "answer_type": "numeric_scalar",
+      "accepted": [
+        "53"
+      ],
+      "review": {
+        "legacy_question_unchanged": true,
+        "decision": "Retain mathematical stem/key; apply versioned whole-answer scoring.",
+        "mathematical_check": "51 and 52 are composite; 53 is prime."
+      }
+    },
+    {
+      "id": "a41",
+      "band": "intro_university",
+      "question": "What is the limit of sin(x)/x as x approaches 0, with x measured in radians?",
+      "choices": [
+        "0",
+        "1/2",
+        "1",
+        "infinity"
+      ],
+      "answer": "C",
+      "answer_type": "numeric_scalar",
+      "accepted": [
+        "1"
+      ],
+      "review": {
+        "legacy_question_unchanged": false,
+        "decision": "Clarify domain, operation, units or required answer form; requires fresh generations.",
+        "mathematical_check": "The standard limit equals 1 when the argument is in radians."
+      }
+    },
+    {
+      "id": "a42",
+      "band": "intro_university",
+      "question": "What is the definite integral of x with respect to x from 0 to 1?",
+      "choices": [
+        "0",
+        "1/4",
+        "1/2",
+        "1"
+      ],
+      "answer": "C",
+      "answer_type": "numeric_scalar",
+      "accepted": [
+        "1/2"
+      ],
+      "review": {
+        "legacy_question_unchanged": false,
+        "decision": "Clarify domain, operation, units or required answer form; requires fresh generations.",
+        "mathematical_check": "[x^2/2]_0^1=1/2."
+      }
+    },
+    {
+      "id": "a43",
+      "band": "intro_university",
+      "question": "Determinant of [[1,2],[3,4]]?",
+      "choices": [
+        "-2",
+        "2",
+        "-1",
+        "10"
+      ],
+      "answer": "A",
+      "answer_type": "numeric_scalar",
+      "accepted": [
+        "-2"
+      ],
+      "review": {
+        "legacy_question_unchanged": true,
+        "decision": "Retain mathematical stem/key; apply versioned whole-answer scoring.",
+        "mathematical_check": "1*4-2*3=-2."
+      }
+    },
+    {
+      "id": "a44",
+      "band": "intro_university",
+      "question": "List the two eigenvalues of the 2x2 identity matrix, including algebraic multiplicity.",
+      "choices": [
+        "0,0",
+        "1,1",
+        "1,-1",
+        "2,2"
+      ],
+      "answer": "B",
+      "answer_type": "unordered_numeric_multiset",
+      "accepted": [
+        "1,1"
+      ],
+      "review": {
+        "legacy_question_unchanged": false,
+        "decision": "State algebraic multiplicity explicitly; preserve duplicate eigenvalues.",
+        "mathematical_check": "The characteristic polynomial is (lambda-1)^2: list 1 twice."
+      }
+    },
+    {
+      "id": "a45",
+      "band": "intro_university",
+      "question": "What is the derivative of e^x with respect to x?",
+      "choices": [
+        "e^x",
+        "x*e^(x-1)",
+        "1",
+        "0"
+      ],
+      "answer": "A",
+      "answer_type": "symbolic_alias",
+      "accepted": [
+        "e^x",
+        "exp(x)"
+      ],
+      "review": {
+        "legacy_question_unchanged": false,
+        "decision": "Clarify domain, operation, units or required answer form; requires fresh generations.",
+        "mathematical_check": "d(exp(x))/dx=exp(x)."
+      }
+    },
+    {
+      "id": "a46",
+      "band": "intro_university",
+      "question": "A,B independent, P(A)=0.5 P(B)=0.4. P(A and B)?",
+      "choices": [
+        "0.1",
+        "0.2",
+        "0.45",
+        "0.9"
+      ],
+      "answer": "B",
+      "answer_type": "numeric_scalar",
+      "accepted": [
+        "0.2"
+      ],
+      "review": {
+        "legacy_question_unchanged": true,
+        "decision": "Retain mathematical stem/key; apply versioned whole-answer scoring.",
+        "mathematical_check": "Independence gives 0.5*0.4=0.2."
+      }
+    },
+    {
+      "id": "a47",
+      "band": "intro_university",
+      "question": "Rank of 2x2 zero matrix?",
+      "choices": [
+        "0",
+        "1",
+        "2",
+        "undefined"
+      ],
+      "answer": "A",
+      "answer_type": "numeric_scalar",
+      "accepted": [
+        "0"
+      ],
+      "review": {
+        "legacy_question_unchanged": true,
+        "decision": "Retain mathematical stem/key; apply versioned whole-answer scoring.",
+        "mathematical_check": "The zero matrix has no independent columns, so rank=0."
+      }
+    },
+    {
+      "id": "a48",
+      "band": "intro_university",
+      "question": "What is the general indefinite integral of e^x with respect to x? Include an arbitrary integration constant C.",
+      "choices": [
+        "e^x + C",
+        "x*e^x",
+        "ln(x)",
+        "1/x"
+      ],
+      "answer": "A",
+      "answer_type": "symbolic_alias",
+      "accepted": [
+        "e^x+C",
+        "C+e^x",
+        "exp(x)+C",
+        "C+exp(x)"
+      ],
+      "review": {
+        "legacy_question_unchanged": false,
+        "decision": "Clarify domain, operation, units or required answer form; requires fresh generations.",
+        "mathematical_check": "The general antiderivative is exp(x)+C, including an arbitrary constant."
+      }
+    },
+    {
+      "id": "a49",
+      "band": "intro_university",
+      "question": "Find y(x) satisfying dy/dx = y and y(0)=1. Give only the expression for y(x).",
+      "choices": [
+        "x",
+        "e^x",
+        "ln(x)",
+        "1+x"
+      ],
+      "answer": "B",
+      "answer_type": "symbolic_alias",
+      "accepted": [
+        "e^x",
+        "exp(x)"
+      ],
+      "review": {
+        "legacy_question_unchanged": false,
+        "decision": "Clarify domain, operation, units or required answer form; requires fresh generations.",
+        "mathematical_check": "The general solution C*exp(x) and y(0)=1 imply C=1."
+      }
+    },
+    {
+      "id": "a50",
+      "band": "intro_university",
+      "question": "What standard term describes a square matrix with determinant zero?",
+      "choices": [
+        "symmetric",
+        "invertible",
+        "singular",
+        "orthogonal"
+      ],
+      "answer": "C",
+      "answer_type": "text_label",
+      "accepted": [
+        "singular",
+        "non-invertible",
+        "noninvertible",
+        "not invertible"
+      ],
+      "review": {
+        "legacy_question_unchanged": false,
+        "decision": "Clarify domain, operation, units or required answer form; requires fresh generations.",
+        "mathematical_check": "A square matrix is singular (non-invertible) exactly when its determinant is zero."
+      }
+    }
+  ]
+}

@@ -43,31 +43,33 @@ def extract_numeric(text):
     answers are rejected rather than falling back to an earlier calculation.
     """
     text = text.replace("−", "-")
-    boxed = list(re.finditer(r"\\boxed\{([^}]+)\}", text))
-    if boxed:
-        candidate = boxed[-1].group(1).strip()
+    markers = list(re.finditer(r"\\boxed\{|####\s*", text))
+    marker = markers[-1] if markers else None
+    if marker and marker.group().startswith('\\boxed'):
+        end = text.find('}', marker.end())
+        if end < 0:
+            return ""
+        candidate = text[marker.end():end].strip()
         if not re.fullmatch(NUMERIC_PATTERN, candidate):
             return ""
     else:
-        marked = list(re.finditer(r"####\s*", text))
-        if marked:
-            answer = text[marked[-1].end():]
-            number = re.match(NUMERIC_PATTERN, answer)
-        else:
-            answer = text
-            numbers = list(re.finditer(NUMERIC_PATTERN, answer))
-            number = numbers[-1] if numbers else None
+        answer = text[marker.end():] if marker else text
+        matches = list(re.finditer(NUMERIC_PATTERN, answer))
+        number = re.match(NUMERIC_PATTERN, answer) if marker else (matches[-1] if matches else None)
         if number is None:
             return ""
-        # Do not mistake a suffix of an identifier or malformed numeric token
-        # for a scalar; sentence-ending punctuation remains allowed.
-        before = answer[number.start() - 1:number.start()] if number.start() else ""
-        after = answer[number.end():number.end() + 1]
-        if (before and (before.isalnum() or before in "_./")) or (
-            after and (after.isalnum() or after in "_/," )
-        ):
+        before = answer[number.start()-1:number.start()] if number.start() else ""
+        suffix = answer[number.end():]
+        after = suffix[:1]
+        if (before and (before.isalnum() or before in "_./,+-")) or (
+            after and (after.isalnum() or after in "_/,")):
+            return ""
+        # One sentence-ending period is fine; another numeric segment is not.
+        if after == '.' and len(suffix) > 1 and (suffix[1].isdigit() or suffix[1] in './'):
             return ""
         candidate = number.group()
+    if len(candidate) > 256 or any(abs(int(x)) > 100 for x in re.findall(r'[eE]([+-]?\d+)', candidate)):
+        return ""
     try:
         pieces = candidate.replace(",", "").split("/")
         value = Fraction(pieces[0])
@@ -128,7 +130,8 @@ def main():
                          "got": got, "pass": good, "out": t})
     res = {"model": a.model, "n": a.n, "correct": ok,
            "tokenizer": a.tok or a.model,
-           "protocol": f"gsm8k-{a.scoring}-boxed-hash-number",
+           "protocol": ("gsm8k-numeric-v2-last-marker" if a.scoring == "numeric"
+                        else "gsm8k-historical-boxed-hash-number"),
            "dataset": "openai/gsm8k", "config": "main", "split": "test",
            "offset": 0, "max_new_tokens": a.max_tokens, "do_sample": False,
            "timestamp": time.strftime("%Y-%m-%dT%H:%M")}

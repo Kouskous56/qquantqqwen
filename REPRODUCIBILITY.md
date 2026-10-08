@@ -5,11 +5,11 @@ unless a CPU option is specified; rescoring and integrity tests need no GPU.
 
 ## Installation and offline checks
 
-New mathematics runs use the separately frozen [Math50 V4 protocol](data/v4/README.md).
-Export its 50 free or 200 rotated MCQ prompts with `python -m reproduce.eval_suite_v4
+New mathematics runs use the separately frozen [Math50 V4 protocol](data/v4_0_1/README.md).
+Export its 50 free or 200 rotated MCQ prompts with `python -m reproduce.eval_suite_v401
 --mode free --prepare-only --out runs/v4/prompts.json`. Historical commands below
 retain their original evidentiary meaning; V4 scores must not be substituted into
-the frozen tables. [The migration report](results/v4_migration/MIGRATION.md) explains
+the frozen tables. [The migration report](results/v4_0_1_migration/MIGRATION.md) explains
 scorer-only differences and excludes changed stems from answer-key migration.
 
 Use Python 3.11 in a virtual environment. For integrity checks only:
@@ -214,3 +214,14 @@ files and copies no raw responses into its report. The comparison checks paired
 question IDs, gold answers, block completeness and stored labels before computing
 the exact two-sided McNemar p-value. Source hashes identify the inputs; this is
 a recount of saved measurements, not a fresh model evaluation.
+
+
+## Audit corrections (2026-10-09)
+
+Use Math50 **4.0.1** for new runs. Version 4.0.0 is retained for audit and has a
+known symbolic false positive. Shared Qwen3 checkpoints now require artifact
+identity version 2; old checkpoints must use a new run/tag rather than being
+silently resumed. All shared Ollama runners accept `--gguf`, and remote servers
+require it. GSM `--scoring numeric` now records `gsm8k-numeric-v2-last-marker`;
+its historical mode remains unchanged. See [the detailed correction and migration
+notes](notes/AUDIT_FIXES_2026-10-09.md) for commands, boundaries and tests.

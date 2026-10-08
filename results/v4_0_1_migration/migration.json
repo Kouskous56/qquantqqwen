@@ -1,0 +1,859 @@
+{
+  "kind": "historical-scorer-migration-only",
+  "is_v4_experiment": false,
+  "input_sha256": {
+    "manifests/RUN_V31_05B_S0.json": "7670e1ce510d4e530fb398056036770ac6c48dac0d4e97089037366625942607",
+    "manifests/RUN_V31_05B_S30.json": "c63f02a1058749281208b4dab053268f15c0ce3b2eff07096fbe820997cad5e6",
+    "manifests/RUN_V31_15B_S0.json": "5ec5aed80c4a642a1d55eb6dcf62c8c492f1a7a51a23b6308642796732a7effc",
+    "manifests/RUN_V31_15B_S30.json": "9bb2508f027df470e9723e9c46f9f5dec58b485f95cb8974959f8d1d5032f2c7",
+    "manifests/RUN_V31_3B_S0.json": "7d85aa94b0a54a74c6e800870cdfce9a21e8d3e1e080ea3867ba6495e99798e3",
+    "manifests/RUN_V31_3B_S30.json": "7afcd641d9e31a26601090dff837e0116c9b83313bc32986959f277af21c5ec9",
+    "manifests_qwen3/RUN_QWEN3_TYPED_DENSE2.json": "fd02185b6ab74fc02ce89c542e2687683c71b29a9cb883b916ba5c3251e6ae74",
+    "manifests_qwen3/RUN_QWEN3_TYPED_EORA.json": "4b1015c663a1309567c5d1ca697de270d3550ad78f293d7a3b444abf12e707c9",
+    "manifests_qwen3/RUN_QWEN3_TYPED_S20C4.json": "bf2bae4ba74721cf59a036570bff07561d346325a38ed5c01a4b4f2bf3f74906",
+    "manifests_qwen3/RUN_QWEN3_TYPED_S20MIXED.json": "a164e6bd2cce0252bfd49a7b0d0bd05a5d0b51b364cd0dd532ebde05ef9f600e",
+    "manifests_qwen3/RUN_QWEN3_TYPED_S30C4.json": "506f79b5bbe5370a2ed69fa6c65361e9d3952d93ad9d2ce3750c31b8bebd9f96",
+    "manifests_qwen3/RUN_QWEN3_TYPED_S30MIXED.json": "8638f08c3de4c740358f41f3f908003d4f71a4e06c59963d7a5d71f785443688"
+  },
+  "legacy_dataset_sha256": "49af66020555824f01db7bf0e94e81a5161d605ecd6f78ece6babb2279d69ec1",
+  "legacy_scorer_sha256": "5b0fa99300e65a85fbc03e0771887ffc532d04efc0aff4798a816d3cc036c645",
+  "release": {
+    "release_id": "math50-release-4.0.1",
+    "files": {
+      "data/v4_0_1/questions.json": "4c7da36da1751669a0fe1b93a532c122fbaafcf660ffe276c52532480c327d74",
+      "data/v4_0_1/protocol.json": "eb98a85a8ff89c0321c5f77be9014dfc3479d89bf87b36b00d4fccc1ca136913",
+      "reproduce/scoring_v401.py": "d4bca480e3f5ab4e34c2bde5cc236a88e1ef228792b7e88e2a5ee1b5032f7ac3",
+      "reproduce/suite_v401.py": "babc3c9706a5e4220f2d18116b2a9b3c84b4fcd0be709b9b8e3874bef60906ec",
+      "reproduce/eval_suite_v401.py": "b57d5e2be86e3db9a2dd45e4f9813cc705688bb8db97e6b81721119cf3fa68da",
+      "reproduce/rescore_suite_v401.py": "ef9290d6a3fbf54005e47fbfa480b6e98474e69eb0074c6a9a3f1eec069cd764"
+    }
+  },
+  "excluded_changed_stems": [
+    "h17",
+    "h23",
+    "h24",
+    "h27",
+    "h29",
+    "h30",
+    "o33",
+    "o34",
+    "o35",
+    "o38",
+    "o39",
+    "a41",
+    "a42",
+    "a44",
+    "a45",
+    "a48",
+    "a49",
+    "a50"
+  ],
+  "caveat": "Even unchanged stems used historical instructions, budgets and backends. None of these scores is a V4 experiment. Qwen3 original scorer provenance remains unknown.",
+  "rows": [
+    {
+      "source": "RUN_V31_05B_S0.json",
+      "rep": 1,
+      "historical_labels": 17,
+      "v3_recomputed": 18,
+      "v4_rules_old_keys": 18,
+      "unchanged_stems_count": 32,
+      "unchanged_stems_new_keys_correct": 15,
+      "gained": 0,
+      "lost": 0
+    },
+    {
+      "source": "RUN_V31_05B_S0.json",
+      "rep": 2,
+      "historical_labels": 17,
+      "v3_recomputed": 18,
+      "v4_rules_old_keys": 18,
+      "unchanged_stems_count": 32,
+      "unchanged_stems_new_keys_correct": 15,
+      "gained": 0,
+      "lost": 0
+    },
+    {
+      "source": "RUN_V31_05B_S0.json",
+      "rep": 3,
+      "historical_labels": 17,
+      "v3_recomputed": 18,
+      "v4_rules_old_keys": 18,
+      "unchanged_stems_count": 32,
+      "unchanged_stems_new_keys_correct": 15,
+      "gained": 0,
+      "lost": 0
+    },
+    {
+      "source": "RUN_V31_05B_S30.json",
+      "rep": 1,
+      "historical_labels": 12,
+      "v3_recomputed": 11,
+      "v4_rules_old_keys": 11,
+      "unchanged_stems_count": 32,
+      "unchanged_stems_new_keys_correct": 9,
+      "gained": 0,
+      "lost": 0
+    },
+    {
+      "source": "RUN_V31_05B_S30.json",
+      "rep": 2,
+      "historical_labels": 12,
+      "v3_recomputed": 11,
+      "v4_rules_old_keys": 11,
+      "unchanged_stems_count": 32,
+      "unchanged_stems_new_keys_correct": 9,
+      "gained": 0,
+      "lost": 0
+    },
+    {
+      "source": "RUN_V31_05B_S30.json",
+      "rep": 3,
+      "historical_labels": 12,
+      "v3_recomputed": 11,
+      "v4_rules_old_keys": 11,
+      "unchanged_stems_count": 32,
+      "unchanged_stems_new_keys_correct": 9,
+      "gained": 0,
+      "lost": 0
+    },
+    {
+      "source": "RUN_V31_15B_S0.json",
+      "rep": 1,
+      "historical_labels": 39,
+      "v3_recomputed": 40,
+      "v4_rules_old_keys": 40,
+      "unchanged_stems_count": 32,
+      "unchanged_stems_new_keys_correct": 26,
+      "gained": 0,
+      "lost": 0
+    },
+    {
+      "source": "RUN_V31_15B_S0.json",
+      "rep": 2,
+      "historical_labels": 39,
+      "v3_recomputed": 40,
+      "v4_rules_old_keys": 40,
+      "unchanged_stems_count": 32,
+      "unchanged_stems_new_keys_correct": 26,
+      "gained": 0,
+      "lost": 0
+    },
+    {
+      "source": "RUN_V31_15B_S0.json",
+      "rep": 3,
+      "historical_labels": 39,
+      "v3_recomputed": 40,
+      "v4_rules_old_keys": 40,
+      "unchanged_stems_count": 32,
+      "unchanged_stems_new_keys_correct": 26,
+      "gained": 0,
+      "lost": 0
+    },
+    {
+      "source": "RUN_V31_15B_S30.json",
+      "rep": 1,
+      "historical_labels": 33,
+      "v3_recomputed": 33,
+      "v4_rules_old_keys": 32,
+      "unchanged_stems_count": 32,
+      "unchanged_stems_new_keys_correct": 23,
+      "gained": 0,
+      "lost": 1
+    },
+    {
+      "source": "RUN_V31_15B_S30.json",
+      "rep": 2,
+      "historical_labels": 33,
+      "v3_recomputed": 33,
+      "v4_rules_old_keys": 32,
+      "unchanged_stems_count": 32,
+      "unchanged_stems_new_keys_correct": 23,
+      "gained": 0,
+      "lost": 1
+    },
+    {
+      "source": "RUN_V31_15B_S30.json",
+      "rep": 3,
+      "historical_labels": 33,
+      "v3_recomputed": 33,
+      "v4_rules_old_keys": 32,
+      "unchanged_stems_count": 32,
+      "unchanged_stems_new_keys_correct": 23,
+      "gained": 0,
+      "lost": 1
+    },
+    {
+      "source": "RUN_V31_3B_S0.json",
+      "rep": 1,
+      "historical_labels": 40,
+      "v3_recomputed": 42,
+      "v4_rules_old_keys": 41,
+      "unchanged_stems_count": 32,
+      "unchanged_stems_new_keys_correct": 27,
+      "gained": 0,
+      "lost": 1
+    },
+    {
+      "source": "RUN_V31_3B_S0.json",
+      "rep": 2,
+      "historical_labels": 40,
+      "v3_recomputed": 42,
+      "v4_rules_old_keys": 41,
+      "unchanged_stems_count": 32,
+      "unchanged_stems_new_keys_correct": 27,
+      "gained": 0,
+      "lost": 1
+    },
+    {
+      "source": "RUN_V31_3B_S0.json",
+      "rep": 3,
+      "historical_labels": 40,
+      "v3_recomputed": 42,
+      "v4_rules_old_keys": 41,
+      "unchanged_stems_count": 32,
+      "unchanged_stems_new_keys_correct": 27,
+      "gained": 0,
+      "lost": 1
+    },
+    {
+      "source": "RUN_V31_3B_S30.json",
+      "rep": 1,
+      "historical_labels": 39,
+      "v3_recomputed": 40,
+      "v4_rules_old_keys": 39,
+      "unchanged_stems_count": 32,
+      "unchanged_stems_new_keys_correct": 27,
+      "gained": 0,
+      "lost": 1
+    },
+    {
+      "source": "RUN_V31_3B_S30.json",
+      "rep": 2,
+      "historical_labels": 39,
+      "v3_recomputed": 40,
+      "v4_rules_old_keys": 39,
+      "unchanged_stems_count": 32,
+      "unchanged_stems_new_keys_correct": 27,
+      "gained": 0,
+      "lost": 1
+    },
+    {
+      "source": "RUN_V31_3B_S30.json",
+      "rep": 3,
+      "historical_labels": 39,
+      "v3_recomputed": 40,
+      "v4_rules_old_keys": 39,
+      "unchanged_stems_count": 32,
+      "unchanged_stems_new_keys_correct": 27,
+      "gained": 0,
+      "lost": 1
+    },
+    {
+      "source": "RUN_QWEN3_TYPED_DENSE2.json",
+      "rep": 1,
+      "historical_labels": 43,
+      "v3_recomputed": 43,
+      "v4_rules_old_keys": 42,
+      "unchanged_stems_count": 32,
+      "unchanged_stems_new_keys_correct": 28,
+      "gained": 0,
+      "lost": 1
+    },
+    {
+      "source": "RUN_QWEN3_TYPED_EORA.json",
+      "rep": 1,
+      "historical_labels": 42,
+      "v3_recomputed": 42,
+      "v4_rules_old_keys": 41,
+      "unchanged_stems_count": 32,
+      "unchanged_stems_new_keys_correct": 28,
+      "gained": 0,
+      "lost": 1
+    },
+    {
+      "source": "RUN_QWEN3_TYPED_S20C4.json",
+      "rep": 1,
+      "historical_labels": 43,
+      "v3_recomputed": 43,
+      "v4_rules_old_keys": 42,
+      "unchanged_stems_count": 32,
+      "unchanged_stems_new_keys_correct": 28,
+      "gained": 0,
+      "lost": 1
+    },
+    {
+      "source": "RUN_QWEN3_TYPED_S20MIXED.json",
+      "rep": 1,
+      "historical_labels": 43,
+      "v3_recomputed": 43,
+      "v4_rules_old_keys": 42,
+      "unchanged_stems_count": 32,
+      "unchanged_stems_new_keys_correct": 28,
+      "gained": 0,
+      "lost": 1
+    },
+    {
+      "source": "RUN_QWEN3_TYPED_S30C4.json",
+      "rep": 1,
+      "historical_labels": 40,
+      "v3_recomputed": 40,
+      "v4_rules_old_keys": 40,
+      "unchanged_stems_count": 32,
+      "unchanged_stems_new_keys_correct": 28,
+      "gained": 0,
+      "lost": 0
+    },
+    {
+      "source": "RUN_QWEN3_TYPED_S30MIXED.json",
+      "rep": 1,
+      "historical_labels": 41,
+      "v3_recomputed": 41,
+      "v4_rules_old_keys": 40,
+      "unchanged_stems_count": 32,
+      "unchanged_stems_new_keys_correct": 27,
+      "gained": 0,
+      "lost": 1
+    }
+  ],
+  "changed_details": [
+    {
+      "source": "RUN_V31_05B_S0.json",
+      "rep": 1,
+      "id": "h23",
+      "raw": "$4\\pi$<|im_end|>",
+      "historical_label": false,
+      "v3_recomputed": true,
+      "v4_rules_old_key": {
+        "pass": true,
+        "status": "correct",
+        "normalized": "4*pi",
+        "format_compliant": true,
+        "rule": "symbolic_alias"
+      },
+      "reason": "Historical stored label differs from canonical V3 scorer"
+    },
+    {
+      "source": "RUN_V31_05B_S0.json",
+      "rep": 2,
+      "id": "h23",
+      "raw": "$4\\pi$<|im_end|>",
+      "historical_label": false,
+      "v3_recomputed": true,
+      "v4_rules_old_key": {
+        "pass": true,
+        "status": "correct",
+        "normalized": "4*pi",
+        "format_compliant": true,
+        "rule": "symbolic_alias"
+      },
+      "reason": "Historical stored label differs from canonical V3 scorer"
+    },
+    {
+      "source": "RUN_V31_05B_S0.json",
+      "rep": 3,
+      "id": "h23",
+      "raw": "$4\\pi$<|im_end|>",
+      "historical_label": false,
+      "v3_recomputed": true,
+      "v4_rules_old_key": {
+        "pass": true,
+        "status": "correct",
+        "normalized": "4*pi",
+        "format_compliant": true,
+        "rule": "symbolic_alias"
+      },
+      "reason": "Historical stored label differs from canonical V3 scorer"
+    },
+    {
+      "source": "RUN_V31_05B_S30.json",
+      "rep": 1,
+      "id": "a48",
+      "raw": "ln(e^x) + C<|im_end|>",
+      "historical_label": true,
+      "v3_recomputed": false,
+      "v4_rules_old_key": {
+        "pass": false,
+        "status": "incorrect",
+        "normalized": "ln(e^x)+c",
+        "format_compliant": true,
+        "rule": "symbolic_alias"
+      },
+      "reason": "Historical stored label differs from canonical V3 scorer"
+    },
+    {
+      "source": "RUN_V31_05B_S30.json",
+      "rep": 2,
+      "id": "a48",
+      "raw": "ln(e^x) + C<|im_end|>",
+      "historical_label": true,
+      "v3_recomputed": false,
+      "v4_rules_old_key": {
+        "pass": false,
+        "status": "incorrect",
+        "normalized": "ln(e^x)+c",
+        "format_compliant": true,
+        "rule": "symbolic_alias"
+      },
+      "reason": "Historical stored label differs from canonical V3 scorer"
+    },
+    {
+      "source": "RUN_V31_05B_S30.json",
+      "rep": 3,
+      "id": "a48",
+      "raw": "ln(e^x) + C<|im_end|>",
+      "historical_label": true,
+      "v3_recomputed": false,
+      "v4_rules_old_key": {
+        "pass": false,
+        "status": "incorrect",
+        "normalized": "ln(e^x)+c",
+        "format_compliant": true,
+        "rule": "symbolic_alias"
+      },
+      "reason": "Historical stored label differs from canonical V3 scorer"
+    },
+    {
+      "source": "RUN_V31_15B_S0.json",
+      "rep": 1,
+      "id": "h17",
+      "raw": "3, 2<|im_end|>",
+      "historical_label": false,
+      "v3_recomputed": true,
+      "v4_rules_old_key": {
+        "pass": true,
+        "status": "correct",
+        "normalized": [
+          "2",
+          "3"
+        ],
+        "format_compliant": true,
+        "rule": "unordered_numeric_multiset"
+      },
+      "reason": "Historical stored label differs from canonical V3 scorer"
+    },
+    {
+      "source": "RUN_V31_15B_S0.json",
+      "rep": 2,
+      "id": "h17",
+      "raw": "3, 2<|im_end|>",
+      "historical_label": false,
+      "v3_recomputed": true,
+      "v4_rules_old_key": {
+        "pass": true,
+        "status": "correct",
+        "normalized": [
+          "2",
+          "3"
+        ],
+        "format_compliant": true,
+        "rule": "unordered_numeric_multiset"
+      },
+      "reason": "Historical stored label differs from canonical V3 scorer"
+    },
+    {
+      "source": "RUN_V31_15B_S0.json",
+      "rep": 3,
+      "id": "h17",
+      "raw": "3, 2<|im_end|>",
+      "historical_label": false,
+      "v3_recomputed": true,
+      "v4_rules_old_key": {
+        "pass": true,
+        "status": "correct",
+        "normalized": [
+          "2",
+          "3"
+        ],
+        "format_compliant": true,
+        "rule": "unordered_numeric_multiset"
+      },
+      "reason": "Historical stored label differs from canonical V3 scorer"
+    },
+    {
+      "source": "RUN_V31_15B_S30.json",
+      "rep": 1,
+      "id": "o39",
+      "raw": "540 degrees<|im_end|>",
+      "historical_label": true,
+      "v3_recomputed": true,
+      "v4_rules_old_key": {
+        "pass": false,
+        "status": "unparseable",
+        "normalized": null,
+        "format_compliant": false,
+        "rule": "numeric_scalar"
+      },
+      "reason": "Whole-response parsing / exact numeric or finite-alias policy differs from V3 extraction"
+    },
+    {
+      "source": "RUN_V31_15B_S30.json",
+      "rep": 2,
+      "id": "o39",
+      "raw": "540 degrees<|im_end|>",
+      "historical_label": true,
+      "v3_recomputed": true,
+      "v4_rules_old_key": {
+        "pass": false,
+        "status": "unparseable",
+        "normalized": null,
+        "format_compliant": false,
+        "rule": "numeric_scalar"
+      },
+      "reason": "Whole-response parsing / exact numeric or finite-alias policy differs from V3 extraction"
+    },
+    {
+      "source": "RUN_V31_15B_S30.json",
+      "rep": 3,
+      "id": "o39",
+      "raw": "540 degrees<|im_end|>",
+      "historical_label": true,
+      "v3_recomputed": true,
+      "v4_rules_old_key": {
+        "pass": false,
+        "status": "unparseable",
+        "normalized": null,
+        "format_compliant": false,
+        "rule": "numeric_scalar"
+      },
+      "reason": "Whole-response parsing / exact numeric or finite-alias policy differs from V3 extraction"
+    },
+    {
+      "source": "RUN_V31_3B_S0.json",
+      "rep": 1,
+      "id": "h16",
+      "raw": "x = 4<|im_end|>",
+      "historical_label": true,
+      "v3_recomputed": true,
+      "v4_rules_old_key": {
+        "pass": false,
+        "status": "unparseable",
+        "normalized": null,
+        "format_compliant": false,
+        "rule": "numeric_scalar"
+      },
+      "reason": "Whole-response parsing / exact numeric or finite-alias policy differs from V3 extraction"
+    },
+    {
+      "source": "RUN_V31_3B_S0.json",
+      "rep": 1,
+      "id": "h17",
+      "raw": "2, 3<|im_end|>",
+      "historical_label": false,
+      "v3_recomputed": true,
+      "v4_rules_old_key": {
+        "pass": true,
+        "status": "correct",
+        "normalized": [
+          "2",
+          "3"
+        ],
+        "format_compliant": true,
+        "rule": "unordered_numeric_multiset"
+      },
+      "reason": "Historical stored label differs from canonical V3 scorer"
+    },
+    {
+      "source": "RUN_V31_3B_S0.json",
+      "rep": 1,
+      "id": "h23",
+      "raw": "4π<|im_end|>",
+      "historical_label": false,
+      "v3_recomputed": true,
+      "v4_rules_old_key": {
+        "pass": true,
+        "status": "correct",
+        "normalized": "4*pi",
+        "format_compliant": true,
+        "rule": "symbolic_alias"
+      },
+      "reason": "Historical stored label differs from canonical V3 scorer"
+    },
+    {
+      "source": "RUN_V31_3B_S0.json",
+      "rep": 2,
+      "id": "h16",
+      "raw": "x = 4<|im_end|>",
+      "historical_label": true,
+      "v3_recomputed": true,
+      "v4_rules_old_key": {
+        "pass": false,
+        "status": "unparseable",
+        "normalized": null,
+        "format_compliant": false,
+        "rule": "numeric_scalar"
+      },
+      "reason": "Whole-response parsing / exact numeric or finite-alias policy differs from V3 extraction"
+    },
+    {
+      "source": "RUN_V31_3B_S0.json",
+      "rep": 2,
+      "id": "h17",
+      "raw": "2, 3<|im_end|>",
+      "historical_label": false,
+      "v3_recomputed": true,
+      "v4_rules_old_key": {
+        "pass": true,
+        "status": "correct",
+        "normalized": [
+          "2",
+          "3"
+        ],
+        "format_compliant": true,
+        "rule": "unordered_numeric_multiset"
+      },
+      "reason": "Historical stored label differs from canonical V3 scorer"
+    },
+    {
+      "source": "RUN_V31_3B_S0.json",
+      "rep": 2,
+      "id": "h23",
+      "raw": "4π<|im_end|>",
+      "historical_label": false,
+      "v3_recomputed": true,
+      "v4_rules_old_key": {
+        "pass": true,
+        "status": "correct",
+        "normalized": "4*pi",
+        "format_compliant": true,
+        "rule": "symbolic_alias"
+      },
+      "reason": "Historical stored label differs from canonical V3 scorer"
+    },
+    {
+      "source": "RUN_V31_3B_S0.json",
+      "rep": 3,
+      "id": "h16",
+      "raw": "x = 4<|im_end|>",
+      "historical_label": true,
+      "v3_recomputed": true,
+      "v4_rules_old_key": {
+        "pass": false,
+        "status": "unparseable",
+        "normalized": null,
+        "format_compliant": false,
+        "rule": "numeric_scalar"
+      },
+      "reason": "Whole-response parsing / exact numeric or finite-alias policy differs from V3 extraction"
+    },
+    {
+      "source": "RUN_V31_3B_S0.json",
+      "rep": 3,
+      "id": "h17",
+      "raw": "2, 3<|im_end|>",
+      "historical_label": false,
+      "v3_recomputed": true,
+      "v4_rules_old_key": {
+        "pass": true,
+        "status": "correct",
+        "normalized": [
+          "2",
+          "3"
+        ],
+        "format_compliant": true,
+        "rule": "unordered_numeric_multiset"
+      },
+      "reason": "Historical stored label differs from canonical V3 scorer"
+    },
+    {
+      "source": "RUN_V31_3B_S0.json",
+      "rep": 3,
+      "id": "h23",
+      "raw": "4π<|im_end|>",
+      "historical_label": false,
+      "v3_recomputed": true,
+      "v4_rules_old_key": {
+        "pass": true,
+        "status": "correct",
+        "normalized": "4*pi",
+        "format_compliant": true,
+        "rule": "symbolic_alias"
+      },
+      "reason": "Historical stored label differs from canonical V3 scorer"
+    },
+    {
+      "source": "RUN_V31_3B_S30.json",
+      "rep": 1,
+      "id": "h16",
+      "raw": "x = 4<|im_end|>",
+      "historical_label": true,
+      "v3_recomputed": true,
+      "v4_rules_old_key": {
+        "pass": false,
+        "status": "unparseable",
+        "normalized": null,
+        "format_compliant": false,
+        "rule": "numeric_scalar"
+      },
+      "reason": "Whole-response parsing / exact numeric or finite-alias policy differs from V3 extraction"
+    },
+    {
+      "source": "RUN_V31_3B_S30.json",
+      "rep": 1,
+      "id": "h17",
+      "raw": "2, 3<|im_end|>",
+      "historical_label": false,
+      "v3_recomputed": true,
+      "v4_rules_old_key": {
+        "pass": true,
+        "status": "correct",
+        "normalized": [
+          "2",
+          "3"
+        ],
+        "format_compliant": true,
+        "rule": "unordered_numeric_multiset"
+      },
+      "reason": "Historical stored label differs from canonical V3 scorer"
+    },
+    {
+      "source": "RUN_V31_3B_S30.json",
+      "rep": 2,
+      "id": "h16",
+      "raw": "x = 4<|im_end|>",
+      "historical_label": true,
+      "v3_recomputed": true,
+      "v4_rules_old_key": {
+        "pass": false,
+        "status": "unparseable",
+        "normalized": null,
+        "format_compliant": false,
+        "rule": "numeric_scalar"
+      },
+      "reason": "Whole-response parsing / exact numeric or finite-alias policy differs from V3 extraction"
+    },
+    {
+      "source": "RUN_V31_3B_S30.json",
+      "rep": 2,
+      "id": "h17",
+      "raw": "2, 3<|im_end|>",
+      "historical_label": false,
+      "v3_recomputed": true,
+      "v4_rules_old_key": {
+        "pass": true,
+        "status": "correct",
+        "normalized": [
+          "2",
+          "3"
+        ],
+        "format_compliant": true,
+        "rule": "unordered_numeric_multiset"
+      },
+      "reason": "Historical stored label differs from canonical V3 scorer"
+    },
+    {
+      "source": "RUN_V31_3B_S30.json",
+      "rep": 3,
+      "id": "h16",
+      "raw": "x = 4<|im_end|>",
+      "historical_label": true,
+      "v3_recomputed": true,
+      "v4_rules_old_key": {
+        "pass": false,
+        "status": "unparseable",
+        "normalized": null,
+        "format_compliant": false,
+        "rule": "numeric_scalar"
+      },
+      "reason": "Whole-response parsing / exact numeric or finite-alias policy differs from V3 extraction"
+    },
+    {
+      "source": "RUN_V31_3B_S30.json",
+      "rep": 3,
+      "id": "h17",
+      "raw": "2, 3<|im_end|>",
+      "historical_label": false,
+      "v3_recomputed": true,
+      "v4_rules_old_key": {
+        "pass": true,
+        "status": "correct",
+        "normalized": [
+          "2",
+          "3"
+        ],
+        "format_compliant": true,
+        "rule": "unordered_numeric_multiset"
+      },
+      "reason": "Historical stored label differs from canonical V3 scorer"
+    },
+    {
+      "source": "RUN_QWEN3_TYPED_DENSE2.json",
+      "rep": 1,
+      "id": "h16",
+      "raw": "x = 4<|im_end|>",
+      "historical_label": true,
+      "v3_recomputed": true,
+      "v4_rules_old_key": {
+        "pass": false,
+        "status": "unparseable",
+        "normalized": null,
+        "format_compliant": false,
+        "rule": "numeric_scalar"
+      },
+      "reason": "Whole-response parsing / exact numeric or finite-alias policy differs from V3 extraction"
+    },
+    {
+      "source": "RUN_QWEN3_TYPED_EORA.json",
+      "rep": 1,
+      "id": "h16",
+      "raw": "x = 4<|im_end|>",
+      "historical_label": true,
+      "v3_recomputed": true,
+      "v4_rules_old_key": {
+        "pass": false,
+        "status": "unparseable",
+        "normalized": null,
+        "format_compliant": false,
+        "rule": "numeric_scalar"
+      },
+      "reason": "Whole-response parsing / exact numeric or finite-alias policy differs from V3 extraction"
+    },
+    {
+      "source": "RUN_QWEN3_TYPED_S20C4.json",
+      "rep": 1,
+      "id": "h16",
+      "raw": "x = 4<|im_end|>",
+      "historical_label": true,
+      "v3_recomputed": true,
+      "v4_rules_old_key": {
+        "pass": false,
+        "status": "unparseable",
+        "normalized": null,
+        "format_compliant": false,
+        "rule": "numeric_scalar"
+      },
+      "reason": "Whole-response parsing / exact numeric or finite-alias policy differs from V3 extraction"
+    },
+    {
+      "source": "RUN_QWEN3_TYPED_S20MIXED.json",
+      "rep": 1,
+      "id": "h16",
+      "raw": "x = 4<|im_end|>",
+      "historical_label": true,
+      "v3_recomputed": true,
+      "v4_rules_old_key": {
+        "pass": false,
+        "status": "unparseable",
+        "normalized": null,
+        "format_compliant": false,
+        "rule": "numeric_scalar"
+      },
+      "reason": "Whole-response parsing / exact numeric or finite-alias policy differs from V3 extraction"
+    },
+    {
+      "source": "RUN_QWEN3_TYPED_S30MIXED.json",
+      "rep": 1,
+      "id": "h16",
+      "raw": "x = 4<|im_end|>",
+      "historical_label": true,
+      "v3_recomputed": true,
+      "v4_rules_old_key": {
+        "pass": false,
+        "status": "unparseable",
+        "normalized": null,
+        "format_compliant": false,
+        "rule": "numeric_scalar"
+      },
+      "reason": "Whole-response parsing / exact numeric or finite-alias policy differs from V3 extraction"
+    }
+  ]
+}

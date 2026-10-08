@@ -41,9 +41,9 @@ false`. Start with `notes/QWEN3_BLOCK.md`; it also records two hypotheses that
 were measured and refuted.
 
 ## Reproduction
-For new mathematics evaluations, use [Math50 V4](data/v4/README.md): all 50 items
+For new mathematics evaluations, use [Math50 V4](data/v4_0_1/README.md): all 50 items
 reviewed, 18 stems clarified, exact typed scoring, balanced MCQ rotations and
-hash-bound resumable GGUF evaluation. Its [migration audit](results/v4_migration/MIGRATION.md)
+hash-bound resumable GGUF evaluation. Its [migration audit](results/v4_0_1_migration/MIGRATION.md)
 does not replace the frozen V3.3 results above or represent fresh V4 generations.
 
 See `REPRODUCIBILITY.md` for the claim → script → manifest → output map.
