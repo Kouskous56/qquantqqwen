@@ -1,15 +1,17 @@
-"""V3 unified cross-scale free-response: 1 script/prompt/parser cho s0/s30 x 3 scales.
+"""Historical V3 cross-scale free-response, retained for historical comparison.
+Use eval_v3b.py for the canonical typed matcher used by current results.
 Parser: final-answer numeric-exact (khong substring), + alias cho symbolic.
 Usage:
   python reproduce/eval_v3.py --model <hf-dir> --questions data/v2/questions.json --out out.json
 """
 import argparse
-import json
 import re
 import time
 
-import torch
-from transformers import AutoModelForCausalLM, AutoTokenizer
+if __package__:
+    from .evaluation_io import load_questions, positive_int, write_json
+else:
+    from evaluation_io import load_questions, positive_int, write_json
 
 ALIASES = {
     "4pi": ["4pi", "4π", "4*pi", "4 pi"],
@@ -61,14 +63,17 @@ def main():
     ap.add_argument("--tok", default=None)
     ap.add_argument("--questions", required=True)
     ap.add_argument("--out", required=True)
-    ap.add_argument("--max-tokens", type=int, default=30)
+    ap.add_argument("--max-tokens", type=positive_int, default=30)
     a = ap.parse_args()
+
+    Qs = load_questions(a.questions)
+    import torch
+    from transformers import AutoModelForCausalLM, AutoTokenizer
 
     tok = AutoTokenizer.from_pretrained(a.tok or a.model)
     m = AutoModelForCausalLM.from_pretrained(
         a.model, dtype=torch.float16, device_map="cuda",
         low_cpu_mem_usage=True).eval()
-    Qs = json.load(open(a.questions, encoding="utf-8"))
     ok, raws = 0, []
     with torch.no_grad():
         for q in Qs:
@@ -84,12 +89,14 @@ def main():
             t = tok.decode(out[0][ids.input_ids.shape[1]:])
             good = match(exp, t)
             ok += good
-            raws.append({"id": q["id"], "exp": exp, "pass": good, "out": t[:300]})
+            raws.append({"id": q["id"], "exp": exp, "pass": good, "out": t})
     res = {"model": a.model, "protocol": "v3-final-answer", "free": ok,
+           "tokenizer": a.tok or a.model,
            "total": len(Qs), "items": raws,
            "timestamp": time.strftime("%Y-%m-%dT%H:%M")}
-    json.dump(res, open(a.out, "w", encoding="utf-8"), ensure_ascii=False, indent=1)
+    write_json(a.out, res)
     print(f"V3 free {ok}/{len(Qs)}")
 
 
-main()
+if __name__ == "__main__":
+    main()

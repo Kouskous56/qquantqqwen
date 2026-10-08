@@ -4,18 +4,40 @@ Usage:
          --out-merged <dir> --out-masked <dir> [--rank 8] [--samples N] [--lr LR]
 """
 import argparse
+import math
+from pathlib import Path
 
 import torch
 import torch.nn as nn
-from datasets import load_dataset
-from peft import LoraConfig, PeftModel, get_peft_model
-from transformers import AutoModelForCausalLM, AutoTokenizer
 
 TARGETS = ["q_proj", "k_proj", "v_proj", "o_proj",
            "gate_proj", "up_proj", "down_proj"]
 
 
-def main():
+def mask_prompt_labels(input_ids, prompt_length):
+    """Reject examples whose answer was completely removed by truncation."""
+    labels = input_ids.clone()
+    labels[:, :prompt_length] = -100
+    if not (labels[:, 1:] != -100).any():
+        raise ValueError("example has no answer tokens after truncation; shorten the prompt")
+    return labels
+
+
+def restore_masks(model, masks):
+    """Fail if merge renamed a layer, instead of silently saving a dense model."""
+    modules = dict(model.named_modules())
+    missing = set(masks) - set(modules)
+    if missing:
+        raise ValueError(f"merged model is missing masked layers: {sorted(missing)}")
+    with torch.no_grad():
+        for name, mask in masks.items():
+            weight = modules[name].weight
+            if weight.shape != mask.shape:
+                raise ValueError(f"mask shape mismatch for {name}")
+            weight.masked_fill_(mask.to(weight.device), 0)
+
+
+def main(argv=None):
     ap = argparse.ArgumentParser()
     ap.add_argument("--src", required=True)
     ap.add_argument("--data", default="gsm8k", choices=["gsm8k", "wikitext"])
@@ -27,9 +49,22 @@ def main():
     ap.add_argument("--seed", type=int, default=None,
                     help="random seed; historical runs set none, so exact-score "
                          "reproduction is not guaranteed for those")
-    a = ap.parse_args()
+    a = ap.parse_args(argv)
+    if a.rank < 1 or a.samples < 1 or not math.isfinite(a.lr) or a.lr <= 0:
+        ap.error("--rank, --samples and --lr must be positive")
+    paths = [Path(p).resolve() for p in (a.src, a.out_merged, a.out_masked)]
+    if len(set(paths)) != 3:
+        ap.error("--src, --out-merged and --out-masked must be different directories")
+
+    from datasets import load_dataset
+    from peft import LoraConfig, get_peft_model
+    from transformers import AutoModelForCausalLM, AutoTokenizer
 
     tok = AutoTokenizer.from_pretrained(a.src)
+    if tok.eos_token_id is None:
+        raise ValueError("tokenizer must define an EOS token")
+    if tok.pad_token_id is None:
+        tok.pad_token = tok.eos_token
     if a.seed is not None:
         import random
         import numpy as np
@@ -41,7 +76,9 @@ def main():
     masks = {}
     for n, m in model.named_modules():
         if isinstance(m, nn.Linear) and "layers" in n:
-            masks[n] = (m.weight.data == 0)
+            masks[n] = (m.weight.detach() == 0).cpu()
+    if not masks:
+        raise ValueError("source model has no decoder linear layers to mask")
 
     cfg = LoraConfig(r=a.rank, lora_alpha=a.rank * 2, lora_dropout=0.05,
                      target_modules=TARGETS, task_type="CAUSAL_LM")
@@ -56,8 +93,7 @@ def main():
             full = pre + ans + "<|im_end|>"
             pe = tok(pre, return_tensors="pt")
             fe = tok(full, return_tensors="pt", truncation=True, max_length=512)
-            labels = fe.input_ids.clone()
-            labels[:, :pe.input_ids.shape[1]] = -100
+            labels = mask_prompt_labels(fe.input_ids, pe.input_ids.shape[1])
             return fe.input_ids.cuda(), fe.attention_mask.cuda(), labels.cuda()
     else:
         ds = load_dataset("Salesforce/wikitext", "wikitext-2-raw-v1", split="train")
@@ -73,7 +109,9 @@ def main():
         items = texts
 
     import torch.nn.functional as F
-    opt = torch.optim.AdamW(model.parameters(), lr=a.lr)
+    if not items:
+        raise ValueError("no training examples matched the dataset selection")
+    opt = torch.optim.AdamW((p for p in model.parameters() if p.requires_grad), lr=a.lr)
     model.train()
     tot, n = 0.0, 0
     for i in range(0, len(items), 2):
@@ -81,13 +119,15 @@ def main():
         if a.data == "gsm8k":
             ts = [encode(x["q"], x["a"]) for x in chunk]
         else:
-            ts = [(lambda e: (e[0], e[1], e[2]))(encode(x)) for x in chunk]
+            ts = [encode(x) for x in chunk]
         ml = max(t[0].shape[1] for t in ts)
         II = torch.cat([F.pad(t[0], (0, ml - t[0].shape[1]),
                               value=tok.eos_token_id) for t in ts])
         AM = torch.cat([F.pad(t[1], (0, ml - t[1].shape[1])) for t in ts])
         LB = torch.cat([F.pad(t[2], (0, ml - t[2].shape[1]), value=-100) for t in ts])
         loss = model(input_ids=II, attention_mask=AM, labels=LB).loss
+        if not torch.isfinite(loss):
+            raise RuntimeError(f"non-finite training loss at batch {i // 2 + 1}")
         loss.backward()
         opt.step()
         opt.zero_grad()
@@ -98,12 +138,11 @@ def main():
     merged = model.merge_and_unload()
     tok.save_pretrained(a.out_merged)
     merged.save_pretrained(a.out_merged)
-    with torch.no_grad():
-        for n, m in merged.named_modules():
-            if isinstance(m, nn.Linear) and n in masks:
-                m.weight.data *= (~masks[n].cuda())
+    restore_masks(merged, masks)
     merged.save_pretrained(a.out_masked)
+    tok.save_pretrained(a.out_masked)
     print("saved", a.out_merged, a.out_masked)
 
 
-main()
+if __name__ == "__main__":
+    main()

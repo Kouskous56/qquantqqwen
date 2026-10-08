@@ -6,8 +6,8 @@ KHONG chay model, KHONG can GPU. Kiem duoc ba tang:
   2. Hash dung dinh dang 64 hex, va scorer/gguf hash phai khop file
      tren dia -- neu file khong ton tai, test chi kiem dinh dang, KHONG
      doan la hash sai.
-  3. Tinh lai dataset_sha256 tu `details` va so sanh. Day la tang manh
-     nhat: bat duoc ca viec sua diem, sua danh sach cau, hay sua ca hai.
+  3. Tinh lai dataset_sha256 tu `details` va so sanh. Hash nay chi bao
+     ve cac truong thuoc scope; KHONG bao ve nhan pass hay moi noi dung.
 
 Khong kiem chung duoc, va test KHONG gia lap:
   - diem co khop voi model that hay khong (can 2.5GB GGUF + GPU)
@@ -87,7 +87,7 @@ def test_hash_format(name):
 
 @pytest.mark.parametrize("name", _ids())
 def test_dataset_hash_recomputes(name):
-    """Tinh lai tu details. Bat duoc moi thay doi noi dung."""
+    """Tinh lai tu details theo scope; pass khong nam trong dataset hash."""
     d = _load(MAN / (name + ".json"))
     got = _recompute(d["details"], d["detail_schema"])
     assert got == d["dataset_sha256"], (
@@ -101,7 +101,7 @@ def test_scores_agree_with_details(name):
     det = d["details"]
     n_pass = sum(1 for r in det if r.get("pass"))
     s = d["scores"]
-    for key in ("mmlu", "gsm", "gsm400", "typed_suite"):
+    for key in ("mmlu", "gsm", "gsm200", "gsm400", "gsm50_256", "score", "typed_suite"):
         if key in s:
             assert s[key] == n_pass, (
                 "%s: scores.%s=%s nhung details co %d/true" % (
@@ -138,20 +138,18 @@ def test_no_crlf_in_hashed_scripts():
     de CI phat hien sau khi day.
     """
     bad = []
-    for p in sorted(SCRIPT_DIR.glob("*.py")):
+    for p in sorted(SCRIPT_DIR.rglob("*.py")):
         if b"\r\n" in p.read_bytes():
             bad.append(p.name)
     assert not bad, "CRLF trong: %s (chuan hoa LF truoc khi commit)" % bad
 
 
 def test_scorer_hashes_match_repo_scripts():
-    """Hash scorer phai khop mot trong cac ban da ghi nho.
+    """Verify recorded source bytes, independently of actively maintained code.
 
-    `scorer_sha256` la hash luc chay -- day la nguon cua so lieu.
-    `current_sha256` la hash ban dang nam tren dia hien nay. Hai cai
-    khac nhau nghia la script da bi sua sau khi sinh ra so lieu, va
-    manifest phai noi ro ly do. Test nay KHONG chap nhan hash nao
-    chua duoc ghi nho.
+    current_sha256 in a frozen manifest means current at publication, not
+    current forever. An exact archive validates that recorded version; it
+    does not claim to recover an unavailable older scorer_sha256.
     """
     for p in FILES:
         d = _load(p)
@@ -159,13 +157,26 @@ def test_scorer_hashes_match_repo_scripts():
             continue
         fp = ROOT / d["scorer"]
         assert fp.exists(), "%s: scorer %s khong co trong repo" % (p.name, d["scorer"])
-        h = hashlib.sha256(fp.read_bytes()).hexdigest()
-        known = {d["scorer_sha256"]}
-        if d.get("current_sha256"):
-            known.add(d["current_sha256"])
-        assert h in known, (
-            "%s: %s tren dia khop hash nao cung khong. known=%s actual=%s" % (
-                p.name, d["scorer"], sorted(k[:12] for k in known), h[:12]))
+        recorded = d.get("current_sha256") or d["scorer_sha256"]
+        archive = SCRIPT_DIR / "frozen" / (recorded + ".py")
+        evidence = archive if archive.exists() else fp
+        actual = hashlib.sha256(evidence.read_bytes()).hexdigest()
+        assert actual == recorded, f"{p.name}: recorded source hash does not match {evidence}"
+
+
+def test_frozen_source_filenames_are_content_hashes():
+    for source in (SCRIPT_DIR / "frozen").glob("*.py"):
+        assert HEX64.fullmatch(source.stem)
+        assert hashlib.sha256(source.read_bytes()).hexdigest() == source.stem
+
+
+@pytest.mark.parametrize("name", _ids())
+def test_detail_ids_unique_and_pass_is_boolean(name):
+    data = _load(MAN / (name + ".json"))
+    key = "id" if data["detail_schema"] == "typed" else "i"
+    ids = [row[key] for row in data["details"]]
+    assert len(ids) == len(set(ids)), name
+    assert all(type(row["pass"]) is bool for row in data["details"]), name
 
 
 def test_modified_scorers_are_declared():

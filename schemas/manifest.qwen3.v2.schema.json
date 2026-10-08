@@ -85,7 +85,7 @@
       "description": "Ghi ro khi lab khong co git: khong chung minh duoc file hien tai giong ban luc chay."
     },
     "scorer_status": {
-      "enum": ["verified-on-disk", "script-khong-ton-tai", "khong-xac-dinh-duoc"]
+      "enum": ["verified-on-disk", "source-digest-recorded", "script-khong-ton-tai", "khong-xac-dinh-duoc"]
     },
     "timestamp": {"type": "string"},
     "timestamp_source": {

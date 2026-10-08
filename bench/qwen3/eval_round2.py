@@ -1,187 +1,66 @@
-"""Eval round 2: GSM-400 + MMLU-200 tren 5 artifact cung quy trinh.
-
-Khac voi vong 1 o hai diem:
-  1. Ghi sha256 cua file .gguf vao manifest -> chong lai provenance sai.
-  2. Ghi ro llama.cpp version + co imatrix hay khong.
-  3. Chay ca 2 block GSM (400 cau) + MMLU-200 trong mot lan, co checkpoint.
-"""
+"""Evaluate one GGUF with MMLU-200 and two independent GSM-200 blocks."""
 import argparse
-import hashlib
-import json
-import os
-import re
-import sys
-import time
-import urllib.request
+from pathlib import Path
 
-LET = "ABCD"
-
-
-def sha256(path, n=1 << 20):
-    h = hashlib.sha256()
-    with open(path, "rb") as f:
-        while (b := f.read(n)):
-            h.update(b)
-    return h.hexdigest()
+if __package__:
+    from .common import (add_ollama_args, atomic_json, evaluate, extract,
+                         gsm_items, mmlu_items, parse_mc, safe_tag, sha256)
+else:
+    from common import (add_ollama_args, atomic_json, evaluate, extract,
+                        gsm_items, mmlu_items, parse_mc, safe_tag, sha256)
 
 
-def chat(content, n):
-    body = json.dumps({"model": ARGS.model, "stream": False,
-                       "messages": [{"role": "user", "content": content}],
-                       "options": {"num_predict": n, "temperature": 0}}
-                      ).encode()
-    q = urllib.request.Request(EP + "/api/chat", data=body,
-                               headers={"Content-Type": "application/json"})
-    with urllib.request.urlopen(q, timeout=900) as r:
-        return json.load(r)["message"]["content"]
-
-
-def extract(t):
-    mm = re.search(r"\\boxed\{([^}]+)\}", t)
-    if mm:
-        return mm.group(1).replace(",", "").strip()
-    mm = re.search(r"####\s*(-?[\d,.]+)", t)
-    if mm:
-        return mm.group(1).replace(",", "").strip()
-    mg = re.findall(r"-?\d[\d,.]*", t)
-    return mg[-1].replace(",", "") if mg else ""
-
-
-def parse_mc(out, choices):
-    t = out.strip()
-    m = re.match(r"^[\*\s]*\(?([A-D])\)?[\)\.\:\s\*]", t)
-    if m:
-        return LET.index(m.group(1))
-    m = re.search(r"answer[^A-D\n]{0,20}([A-D])\b", t, re.I)
-    if m:
-        return LET.index(m.group(1))
-    for i, c in enumerate(choices):
-        if c and len(c.strip()) > 2 and c.strip().lower() in t.lower()[:90]:
-            return i
-    m = re.search(r"\b([A-D])\b", t)
-    if m:
-        return LET.index(m.group(1))
-    return -1
-
-
-def load_ckpt(p):
-    try:
-        return json.load(open(p, encoding="utf-8"))["details"]
-    except (FileNotFoundError, KeyError, ValueError):
-        return []
-
-
-def dump(p, done, det):
-    json.dump({"done": done, "details": det}, open(p, "w"))
-
-
-ARGS = None
-if __name__ == "__main__":
-    ap = argparse.ArgumentParser()
-    ap.add_argument("--model", required=True)
-    ap.add_argument("--tag", required=True)
-    ap.add_argument("--gguf", required=True, help="duong dan file .gguf de hash")
-    ap.add_argument("--imatrix", default="unknown")
-    ap.add_argument("--notes-dir", default="D:/qwen/notes",
-                    help="thu muc ghi checkpoint + manifest (mac dinh giu duong lab cu)")
-    ap.add_argument("--endpoint", default="http://127.0.0.1:11434",
-                    help="Ollama API root (mac dinh giu endpoint cu)")
-    ap.add_argument("--questions", default="",
-                    help="duong dan questions.json (mac dinh: data/v2/questions.json ke repo nay)")
-    ARGS = ap.parse_args()
-
-    EP = ARGS.endpoint.rstrip("/\\")
-    NOTES = ARGS.notes_dir.rstrip("/\\")
-    if ARGS.questions:
-        QUESTIONS = ARGS.questions
-    else:
-        _root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-        _q = os.path.join(_root, "data", "v2", "questions.json")
-        QUESTIONS = _q if os.path.exists(_q) else "D:/qwen_release/data/v2/questions.json"
-
-    t0 = time.time()
-    prov = {"gguf": os.path.basename(ARGS.gguf),
-            "gguf_sha256": sha256(ARGS.gguf),
-            "gguf_bytes": os.path.getsize(ARGS.gguf),
-            "imatrix": ARGS.imatrix,
-            "llama_cpp": "D:/qwen/tools/llama.cpp (build 2026-09-30)"}
-
-    # ---------- MMLU-200 ----------
+def main(argv=None):
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--model", required=True)
+    parser.add_argument("--tag", required=True, type=safe_tag)
+    parser.add_argument("--gguf", required=True)
+    parser.add_argument("--imatrix", default="unknown")
+    parser.add_argument("--llama-cpp", default="unknown", help="actual runtime/build identifier")
+    parser.add_argument("--questions", default="", help="deprecated; these benchmarks use HF datasets")
+    add_ollama_args(parser)
+    args = parser.parse_args(argv)
+    if args.questions:
+        parser.error("--questions is unused by MMLU/GSM evaluation; remove it")
+    path = Path(args.gguf)
+    provenance = {"gguf": path.name, "gguf_sha256": sha256(path),
+                  "gguf_bytes": path.stat().st_size, "imatrix": args.imatrix,
+                  "llama_cpp": args.llama_cpp}
+    notes = Path(args.notes_dir)
     import datasets
-    mc = f"{NOTES}/R2CKPT_MMLU_{ARGS.tag}.json"
-    Qs = json.load(open(QUESTIONS,
-                        encoding="utf-8"))
-    ds = datasets.load_dataset("cais/mmlu", "all", split="test")
-    bysub = {}
-    for i, r in enumerate(ds):
-        bysub.setdefault(r["subject"], []).append((i, r))
-    subs = sorted(bysub)
-    items, k = [], 0
-    while len(items) < 200:
-        for s in subs:
-            if len(items) >= 200:
-                break
-            if k < len(bysub[s]):
-                items.append(bysub[s][k])
-        k += 1
-    mdet = load_ckpt(mc)
-    for k, (i, r) in enumerate(items):
-        if k < len(mdet):
-            continue
-        gold, target = r["answer"], k % 4
-        others = [c for j, c in enumerate(r["choices"]) if j != gold]
-        ch = others[:target] + [r["choices"][gold]] + others[target:]
-        body = (r["question"] + "\n" +
-                "\n".join(f"{LET[n]}. {c}" for n, c in enumerate(ch)) +
-                "\nRespond with exactly one character: the letter A, B, C or D. "
-                "No explanation.")
-        pick = parse_mc(chat(body, 32), ch)
-        mdet.append({"i": i, "subj": r["subject"], "pass": bool(pick == target),
-                     "pick": pick, "gold": target, "unparsed": pick < 0})
-        dump(mc, len(mdet), mdet)
-    mscore = sum(d["pass"] for d in mdet)
-    json.dump({"model": ARGS.model, "tag": f"R2_MMLU200_{ARGS.tag}",
-               "provenance": prov, "n": len(mdet), "mmlu": mscore,
-               "acc": round(mscore / max(1, len(mdet)), 4),
-               "n_subjects": len(subs),
-               "unparsed": sum(1 for d in mdet if d.get("unparsed")),
-               "protocol": "ollama-greedy-MC-one-letter-npredict32",
-               "details": mdet, "elapsed_s": round(time.time() - t0),
-               "note": "GGUF Q4_K_M co imatrix; khong tron voi FP16 block"},
-              open(f"{NOTES}/RUN_QWEN3_R2_MMLU200_{ARGS.tag}.json", "w"),
-              indent=1)
-    print(f"R2-MMLU {ARGS.tag}: {mscore}/{len(mdet)}", flush=True)
+    items = mmlu_items(datasets.load_dataset("cais/mmlu", "all", split="test"))
+    details, identity, elapsed = evaluate(
+        args, items, "mmlu", notes / f"R2CKPT_MMLU_{args.tag}.json", __file__, 32,
+        provenance=provenance)
+    score = sum(row["pass"] for row in details)
+    atomic_json(notes / f"RUN_QWEN3_R2_MMLU200_{args.tag}.json", {
+        "model": args.model, "tag": f"R2_MMLU200_{args.tag}", "provenance": provenance,
+        "n": len(details), "mmlu": score, "acc": round(score / len(details), 4),
+        "n_subjects": len({row["subj"] for row in details}),
+        "unparsed": sum(row["unparsed"] for row in details),
+        "protocol": "ollama-greedy-MC-one-letter-npredict32", "run_identity": identity,
+        "details": details, "elapsed_s": round(elapsed)})
+    dataset = datasets.load_dataset("openai/gsm8k", "main", split="test")
+    # Validate both blocks before any GSM request.
+    blocks = [gsm_items(dataset, offset, 200) for offset in (0, 200)]
+    all_details, identities, total_elapsed = [], [], 0.0
+    for offset, items in zip((0, 200), blocks):
+        details, identity, elapsed = evaluate(
+            args, items, "gsm", notes / f"R2CKPT_GSM_{args.tag}_{offset}.json",
+            __file__, 256, provenance=provenance)
+        all_details.extend(details)
+        identities.append(identity)
+        total_elapsed += elapsed
+    score = sum(row["pass"] for row in all_details)
+    atomic_json(notes / f"RUN_QWEN3_R2_GSM400_{args.tag}.json", {
+        "model": args.model, "tag": f"R2_GSM400_{args.tag}", "provenance": provenance,
+        "n": len(all_details), "gsm": score, "gsm400": score,
+        "blockA": sum(row["pass"] for row in all_details if row["i"] < 200),
+        "blockB": sum(row["pass"] for row in all_details if row["i"] >= 200),
+        "protocol": "ollama-greedy-CoT-####-npredict256", "run_identities": identities,
+        "details": all_details, "elapsed_s": round(total_elapsed)})
+    print(f"GSM-400: {score}/{len(all_details)}; DONE {args.tag}")
 
-    # ---------- GSM-400 (2 block, checkpoint rieng tung block) ----------
-    gsm = datasets.load_dataset("openai/gsm8k", "main", split="test")
-    gdet = []
-    for off in (0, 200):
-        gp = f"{NOTES}/R2CKPT_GSM_{ARGS.tag}_{off}.json"
-        blk = load_ckpt(gp)
-        for j in range(200):
-            if j < len(blk):
-                continue
-            i = off + j
-            r = gsm[i]
-            t = chat(r["question"] + "\nThink step by step, then end with: "
-                     "#### <number>", 256)
-            me = re.search(r"####\s*(-?[\d,.]+)", r["answer"])
-            exp = me.group(1).replace(",", "") if me else ""
-            blk.append({"i": i, "pass": extract(t) == exp,
-                        "got": extract(t), "exp": exp})
-            dump(gp, len(blk), blk)
-        gdet += blk
-    g = sum(d["pass"] for d in gdet)
-    blkA = sum(d["pass"] for d in gdet if d["i"] < 200)
-    blkB = sum(d["pass"] for d in gdet if d["i"] >= 200)
-    json.dump({"model": ARGS.model, "tag": f"R2_GSM400_{ARGS.tag}",
-               "provenance": prov, "n": len(gdet), "gsm": g, "gsm400": g,
-               "blockA": blkA, "blockB": blkB,
-               "protocol": "ollama-greedy-CoT-####-npredict256",
-               "details": gdet, "elapsed_s": round(time.time() - t0),
-               "note": "GGUF Q4_K_M co imatrix; khong tron voi FP16 block"},
-              open(f"{NOTES}/RUN_QWEN3_R2_GSM400_{ARGS.tag}.json", "w"),
-              indent=1)
-    print(f"R2-GSM400 {ARGS.tag}: A={blkA}/200 B={blkB}/200 "
-          f"tong={g}/{len(gdet)}", flush=True)
-    print(f"DONE {ARGS.tag}", flush=True)
+
+if __name__ == "__main__":
+    main()

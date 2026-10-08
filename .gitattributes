@@ -3,6 +3,7 @@
 # CRLF, the SHA-256 changes, and test_scorer_hashes_match_repo_scripts fails on a
 # correct tree. Pin to LF everywhere.
 bench/qwen3/*.py    text eol=lf
+bench/qwen3/frozen/*.py text eol=lf
 schemas/*.json      text eol=lf
 manifests_qwen3/*.json text eol=lf
 tests/*.py          text eol=lf

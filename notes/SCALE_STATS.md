@@ -1,5 +1,30 @@
 # Bằng chứng cho cách đọc mới: claim quy mô (V1, Qwen2.5)
 
+> **Đính chính 2026-10-08 — ưu tiên phần này khi đọc ghi chú lịch sử bên dưới.**
+> Bảng V3.3 chuẩn vẫn là 18→11, 40→33, 42→40; các manifest không thay đổi.
+> `SCALE_STATS.json` trong cùng thư mục là một kết quả cũ **không khớp V3.3**
+> (17→10, 39→31, 40→40), giữ lại để truy vết, không dùng làm số liệu chuẩn.
+>
+> Phân biệt tỷ số tổng điểm `s30/s0` với tỷ lệ giữ đúng có điều kiện
+> `n11/(n11+n10)`. Tỷ số tổng điểm còn bao gồm các câu chuyển sai→đúng:
+> `s30/s0 = 1 - (n10-n01)/(n11+n10)`. Ba tỷ lệ giữ đúng có điều kiện
+> là 8/18, 33/40, 39/42; ba mức mất ròng là 7, 7, 2 câu trên 50.
+>
+> McNemar kiểm định bất đối xứng giữa hai loại chuyển trạng thái n10/n01;
+> nhận định ở mục 3 rằng nó không nói gì về bất đối xứng là sai.
+> Exact p trong manifest: 0,0923; 0,0156; 0,625. Không có ý nghĩa thống kê
+> không đồng nghĩa không có ảnh hưởng, và quan sát gain không tự chứng minh
+> nhiễu. Xem [định nghĩa McNemar](https://www.statsmodels.org/stable/generated/statsmodels.stats.contingency_tables.mcnemar.html).
+>
+> Các model dùng lại cùng 50 câu; các tập dense-đúng cũng khác nhau.
+> Vì vậy các phép Fisher/trend trên bảng gộp dưới đây không kiểm soát cấu trúc
+> phụ thuộc theo câu và không được dùng như bằng chứng xác nhận scaling law.
+> Chúng là phân tích thăm dò lịch sử; cần thiết kế và kiểm định theo câu phù
+> hợp để so sánh tác động giữa scale. Không có cơ sở từ bảng này để tuyên bố
+> mọi model nhỏ hơn 4B đều nằm ngoài nghiên cứu trước đó.
+
+Phần còn lại được giữ như ghi chú lịch sử, bao gồm những diễn giải đã đính chính.
+
 Ngày: 2026-09-30. Nguồn duy nhất: `qwen_release/manifests/RUN_V33_RESCORE.json`
 (scorer typed V3.3, `reproduce/scoring.py`).
 

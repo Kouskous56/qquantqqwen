@@ -1,19 +1,14 @@
-﻿"""SparseGPT cho Qwen2 (adapt tu llama.py upstream): Qwen2ForCausalLM + AutoTokenizer.
-VD: python tools/sparsegpt/qwen.py D:/qwen/models/Qwen2.5-3B-FP16 wikitext2
-      --nsamples 32 --prunen 2 --prunem 4 --save D:/qwen/models/Qwen2.5-3B-sparsegpt-24
+"""Sequential SparseGPT adapter for Qwen2; copy alongside the upstream package.
+
+Capture the model's causal masks and rotary embeddings before pruning. This
+keeps calibration consistent with the installed Transformers implementation.
 """
+import argparse
+import math
 import time
+
 import torch
 import torch.nn as nn
-from sparsegpt import SparseGPT
-from datautils import get_loaders
-import argparse
-
-try:
-    import wandb as wb
-    has_wandb = True
-except Exception:
-    has_wandb = False
 
 DEV = torch.device("cuda:0")
 
@@ -22,33 +17,63 @@ def get_qwen(model_path):
     from transformers import Qwen2ForCausalLM
     model = Qwen2ForCausalLM.from_pretrained(
         model_path, dtype=torch.float16, low_cpu_mem_usage=True)
-    model.seqlen = 2048
+    model.seqlen = min(2048, model.config.max_position_embeddings)
     return model
 
 
 def find_layers(module, layers=(nn.Linear,), name=""):
-    if type(module) in layers:
+    if isinstance(module, layers):
         return {name: module}
-    res = {}
-    for n, m in module.named_children():
-        res.update(find_layers(m, layers=layers,
-                               name=name + "." + n if name else n))
-    return res
+    result = {}
+    for child_name, child in module.named_children():
+        result.update(find_layers(child, layers, f"{name}.{child_name}" if name else child_name))
+    return result
+
+
+def _to_device(value, device):
+    if isinstance(value, torch.Tensor):
+        return value.detach().to(device)
+    if isinstance(value, tuple):
+        return tuple(_to_device(item, device) for item in value)
+    if isinstance(value, list):
+        return [_to_device(item, device) for item in value]
+    if isinstance(value, dict):
+        return {key: _to_device(item, device) for key, item in value.items()}
+    return value
+
+
+def _layer_output(layer, hidden, kwargs, device):
+    output = layer(hidden_states=hidden.unsqueeze(0), **_to_device(kwargs, device))
+    # Transformers 4 returns a tuple; Transformers 5 returns the tensor directly.
+    if isinstance(output, (tuple, list)):
+        output = output[0]
+    return output.squeeze(0)
+
+
+class _CalibrationCaptured(Exception):
+    """Internal control flow; genuine model ValueErrors must propagate."""
 
 
 @torch.no_grad()
-def qwen_sequential(model, dataloader, dev):
-    print("Starting...")
+def qwen_sequential(model, dataloader, dev, options, sparsegpt_cls=None):
+    if options.nsamples < 1:
+        raise ValueError("nsamples must be positive")
+    if len(set(getattr(model.config, "layer_types", []) or [])) > 1:
+        raise ValueError("mixed sliding/full attention needs per-layer masks; unsupported by this adapter")
+    if sparsegpt_cls is None:
+        from sparsegpt import SparseGPT
+        sparsegpt_cls = SparseGPT
+    layers = model.model.layers
     use_cache = model.config.use_cache
     model.config.use_cache = False
-    layers = model.model.layers
-    model.model.embed_tokens = model.model.embed_tokens.to(dev)
-    model.model.norm = model.model.norm.to(dev)
-    layers[0] = layers[0].to(dev)
-    dtype = next(iter(model.parameters())).dtype
-    inps = torch.zeros((args.nsamples, model.seqlen, model.config.hidden_size),
+    first_layer = layers[0]
+    dtype = next(model.parameters()).dtype
+    inps = torch.empty((options.nsamples, model.seqlen, model.config.hidden_size),
                        dtype=dtype, device=dev)
-    cache = {"i": 0, "attention_mask": None}
+    captured_kwargs = []
+    embedding_modules = ["embed_tokens", "norm"]
+    if hasattr(model.model, "rotary_emb"):
+        embedding_modules.append("rotary_emb")
 
     class Catcher(nn.Module):
         def __init__(self, module):
@@ -56,77 +81,74 @@ def qwen_sequential(model, dataloader, dev):
             self.module = module
 
         def forward(self, inp, **kwargs):
-            inps[cache["i"]] = inp
-            cache["i"] += 1
-            cache["attention_mask"] = kwargs.get("attention_mask")
-            raise ValueError
+            if tuple(inp.shape) != (1, model.seqlen, model.config.hidden_size):
+                raise ValueError("calibration requires one full-length sequence per batch")
+            inps[len(captured_kwargs)].copy_(inp[0])
+            captured_kwargs.append(_to_device(kwargs, "cpu"))
+            raise _CalibrationCaptured
 
-    layers[0] = Catcher(layers[0])
-    for batch in dataloader:
+    try:
+        for name in embedding_modules:
+            getattr(model.model, name).to(dev)
+        first_layer.to(dev)
+        layers[0] = Catcher(first_layer)
         try:
-            model(batch[0].to(dev))
-        except ValueError:
-            pass
-    layers[0] = layers[0].module
-    layers[0] = layers[0].cpu()
-    model.model.embed_tokens = model.model.embed_tokens.cpu()
-    model.model.norm = model.model.norm.cpu()
-    torch.cuda.empty_cache()
-    outs = torch.zeros_like(inps)
-    attention_mask = None
-    print("Ready.")
-
-    def rope_cos_sin(seqlen, head_dim, theta, dtype, dev):
-        inv = 1.0 / (theta ** (torch.arange(0, head_dim, 2).float() / head_dim))
-        t = torch.arange(seqlen, dtype=inv.dtype, device="cpu")
-        freqs = torch.outer(t, inv)
-        emb = torch.cat((freqs, freqs), dim=-1)
-        return emb.cos()[None].to(dtype).to(dev), emb.sin()[None].to(dtype).to(dev)
-
-    _cos, _sin = rope_cos_sin(
-        model.seqlen,
-        model.config.hidden_size // model.config.num_attention_heads,
-        float(getattr(model.config, "rope_theta", 10000.0)), dtype, dev)
-    pos_emb = (_cos, _sin)
-    for i in range(len(layers)):
-        layer = layers[i].to(dev)
-        full = find_layers(layer)
-        sequential = [list(full.keys())]
-        for names in sequential:
-            subset = {n: full[n] for n in names}
-            gpts = {name: SparseGPT(subset[name]) for name in subset}
-
-            def add_batch(name):
-                def tmp(_, inp, out):
-                    gpts[name].add_batch(inp[0].data, out.data)
-                return tmp
-
-            handles = [subset[name].register_forward_hook(add_batch(name))
-                       for name in subset]
-            for j in range(args.nsamples):
-                outs[j] = layer(hidden_states=inps[j].unsqueeze(0),
-                                attention_mask=attention_mask, position_embeddings=pos_emb)[0]
-            for h in handles:
-                h.remove()
-            for name in subset:
-                print(i, name, flush=True)
-                gpts[name].fasterprune(args.sparsity, prunen=args.prunen,
-                                       prunem=args.prunem, percdamp=args.percdamp,
-                                       blocksize=args.blocksize)
-                gpts[name].free()
-        for j in range(args.nsamples):
-            outs[j] = layer(hidden_states=inps[j].unsqueeze(0), attention_mask=attention_mask, position_embeddings=pos_emb)[0]
-        layers[i] = layer.cpu()
-        del layer, gpts
-        torch.cuda.empty_cache()
-        inps, outs = outs, inps
-    model.config.use_cache = use_cache
+            for batch in dataloader:
+                if len(captured_kwargs) == options.nsamples:
+                    break
+                try:
+                    model(batch[0].to(dev), use_cache=False)
+                except _CalibrationCaptured:
+                    pass
+        finally:
+            layers[0] = first_layer.cpu()
+            for name in embedding_modules:
+                getattr(model.model, name).cpu()
+        if len(captured_kwargs) != options.nsamples:
+            raise ValueError(f"captured {len(captured_kwargs)} calibration samples; expected {options.nsamples}")
+        outs = torch.empty_like(inps)
+        for index, layer in enumerate(layers):
+            layer.to(dev)
+            subset = find_layers(layer)
+            gpts = {name: sparsegpt_cls(module) for name, module in subset.items()}
+            handles = []
+            try:
+                def add_batch(name):
+                    def hook(_, inputs, output):
+                        gpts[name].add_batch(inputs[0].detach(), output.detach())
+                    return hook
+                for name, module in subset.items():
+                    handles.append(module.register_forward_hook(add_batch(name)))
+                try:
+                    for sample, kwargs in enumerate(captured_kwargs):
+                        outs[sample].copy_(_layer_output(layer, inps[sample], kwargs, dev))
+                finally:
+                    for handle in handles:
+                        handle.remove()
+                for name, gpt in gpts.items():
+                    print(index, name, flush=True)
+                    gpt.fasterprune(options.sparsity, prunen=options.prunen,
+                                    prunem=options.prunem, percdamp=options.percdamp,
+                                    blocksize=options.blocksize)
+                for sample, kwargs in enumerate(captured_kwargs):
+                    outs[sample].copy_(_layer_output(layer, inps[sample], kwargs, dev))
+            finally:
+                for handle in handles:
+                    handle.remove()
+                for gpt in gpts.values():
+                    gpt.free()
+                layer.cpu()
+            if torch.cuda.is_available():
+                torch.cuda.empty_cache()
+            inps, outs = outs, inps
+    finally:
+        model.config.use_cache = use_cache
 
 
-if __name__ == "__main__":
-    parser = argparse.ArgumentParser()
-    parser.add_argument("model", type=str)
-    parser.add_argument("dataset", type=str, choices=["wikitext2", "ptb", "c4"])
+def main(argv=None):
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("model")
+    parser.add_argument("dataset", choices=["wikitext2", "ptb", "c4"])
     parser.add_argument("--seed", type=int, default=0)
     parser.add_argument("--nsamples", type=int, default=32)
     parser.add_argument("--percdamp", type=float, default=0.01)
@@ -134,17 +156,29 @@ if __name__ == "__main__":
     parser.add_argument("--prunen", type=int, default=0)
     parser.add_argument("--prunem", type=int, default=0)
     parser.add_argument("--blocksize", type=int, default=128)
-    parser.add_argument("--save", type=str, default="")
-    args = parser.parse_args()
-
-    model = get_qwen(args.model)
-    model.eval()
+    parser.add_argument("--save", default="")
+    args = parser.parse_args(argv)
+    if args.nsamples < 1 or args.blocksize < 1:
+        parser.error("--nsamples and --blocksize must be positive")
+    if not math.isfinite(args.sparsity) or not 0 <= args.sparsity <= 1:
+        parser.error("--sparsity must be between 0 and 1")
+    if not math.isfinite(args.percdamp) or args.percdamp <= 0:
+        parser.error("--percdamp must be positive")
+    if not (args.prunen == args.prunem == 0 or 0 < args.prunen < args.prunem):
+        parser.error("structured pruning requires 0 < --prunen < --prunem")
+    from datautils import get_loaders
+    model = get_qwen(args.model).eval()
     dataloader, _ = get_loaders(args.dataset, nsamples=args.nsamples,
-                                seed=args.seed, model=args.model,
-                                seqlen=model.seqlen)
-    tick = time.time()
-    qwen_sequential(model, dataloader, DEV)
-    print("prune time:", round(time.time() - tick, 1))
+                              seed=args.seed, model=args.model, seqlen=model.seqlen)
+    started = time.time()
+    qwen_sequential(model, dataloader, DEV, args)
+    print("prune time:", round(time.time() - started, 1))
     if args.save:
+        from transformers import AutoTokenizer
         model.save_pretrained(args.save)
+        AutoTokenizer.from_pretrained(args.model).save_pretrained(args.save)
         print("saved", args.save)
+
+
+if __name__ == "__main__":
+    main()

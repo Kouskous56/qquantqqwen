@@ -103,8 +103,8 @@ separate them.*
 **4. MMLU-200 has almost no power here.** Across all quantized levels only 24
 of 200 items changed answer (17 across the first three levels, 24 with Q3
 included). Q6_K scored *above* F16 (153 vs 152), which is
-pure noise. Q3_K_M scores 151/200, indistinguishable from F16 (p = 1.0):
-even below the damage threshold, multiple-choice knowledge does not move.
+not evidence of an improvement. Q3_K_M scores 151/200, with no detected paired
+difference from F16 (p = 1.0); this is not an equivalence test.
 
 ## A 200-question block is not a stable unit
 
@@ -121,11 +121,11 @@ Identical models, identical protocol, identical harness. Block A looks
 significant, block B does not separate at all. An earlier single-50-question
 measurement of the same contrast gave −10pp — inflated 2.5×.
 
-So: the effect is real, but **the magnitude is not pinned down**, and no amount
-of re-analysis of the existing data will pin it down. Narrowing it to ±1pp
-needs roughly n=1000, about 20 GPU-hours. The honest number to quote is
-"roughly 2–5pp" with the pooled point estimate at −4.00pp, not a single crisp
-figure.
+The pooled point estimate is −4.00pp on these 400 items, with an unadjusted
+paired p-value of 0.0226. Report the block estimates alongside it; differing
+significance levels alone do not establish different effects. A target of
+±1pp requires a precision calculation using paired discordance and a stated
+confidence level, not the previously asserted universal n=1000 rule.
 
 This block-flip happened twice in one session. It is the most useful thing in
 this file.
@@ -152,7 +152,10 @@ built with a matrix gained 0. The dense↔s20-c4 gap shrank from 12 items to 3.
 - **Q4_K_S beats Q4_K_M (p = 0.014, same 4.5-bit body).** Replicate on 400
   fresh items (400-799, same harness, pre-registered rule): 270 vs 276,
   opposite direction, p = 0.405; pooled 800 items p = 0.295. The original
-  p was noise among ~15 tests; the body-tensor mechanism survives.
+  effect did not replicate. Multiple comparisons weaken the initial evidence;
+  this result does not by itself establish a body-tensor mechanism. The local
+  raw runs were recounted on 2026-10-08 with `reproduce/compare_gsm_runs.py`;
+  see `notes/REPO_AUDIT.md`. They are not added to the frozen manifest set.
 
 ## Provenance
 
